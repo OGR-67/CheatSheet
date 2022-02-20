@@ -3,8 +3,8 @@
 - [Python](#Python)
 - [Javascript](#Javascript)
 
-## Python
-## Django
+# Python
+# Django
 - [Preparing Environnement](#Preparing%20Environnement)
 - [Create project](#Create%20project)
 - [Database Setup](#Database%20Setup)
