@@ -5,9 +5,9 @@
 
 ## Python
 ### Django
-- [Preparing Environnement](#Preparing%20Environnement)
-- [Create project](#Create%20project)
-- [Database Setup](#Database%20Setup)
+- [Preparing Environnement](##Preparing%20Environnement)
+- [Create project](##Create%20project)
+- [Database Setup](##Database%20Setup)
 
 #### Preparing Environnement
 
