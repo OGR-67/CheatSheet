@@ -7,7 +7,7 @@
 # Django
 - [Preparing Environnement](#Preparing%20Environnement)
 - [Create project](#Create%20project)
-- [Database Setup](#Database%20Setup)
+- [Database Setup](#DatabaseSetup)
 
 ## Preparing Environnement
 
@@ -52,7 +52,7 @@ You can check that everything went fine
 python manage.py runserver
 ```
 
-## Database Setup
+## DatabaseSetup
 Open up mysite/settings.py. It’s a normal Python module with module-level variables representing Django settings.
 If you wish to use another database, install the approp­riate database bindings and change the following keys in the DATABASES 'default' item to match your database connection settings
 ```python
