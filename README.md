@@ -4,12 +4,12 @@
 - [Javascript](#Javascript)
 
 ## Python
-### Django
+## Django
 - [Preparing Environnement](#Preparing%20Environnement)
 - [Create project](#Create%20project)
 - [Database Setup](#Database%20Setup)
 
-#### Preparing Environnement
+## Preparing Environnement
 
 Create project folder and navigate to it
 ```bash
@@ -40,7 +40,7 @@ Version control initialisation, be sure to create appropriate gitignore
 git init
 ```
 
-### Create project
+## Create project
 
 This will create a mysite directory in your current directory the manage.py file
 ```bash
@@ -52,7 +52,7 @@ You can check that everything went fine
 python manage.py runserver
 ```
 
-### Database Setup
+## Database Setup
 Open up mysite/settings.py. It’s a normal Python module with module-level variables representing Django settings.
 If you wish to use another database, install the approp­riate database bindings and change the following keys in the DATABASES 'default' item to match your database connection settings
 ```python
