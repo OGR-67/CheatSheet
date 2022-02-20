@@ -5,7 +5,7 @@
 
 ## Python
 ### Django
-- [Preparing Environnement](https://github.com/OGR-67/CheatSheet/edit/main/README.md#Preparing Environnement)
+- [Preparing Environnement](https://github.com/OGR-67/CheatSheet/edit/main/README.md#Preparing%20Environnement)
 #### Preparing Environnement
 ```bash
 mkdir project_name && cd $_
