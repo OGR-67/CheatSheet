@@ -5,8 +5,8 @@
 
 # Python
 # Django
-- [Preparing Environnement](#Preparing%20Environnement)
-- [Create project](#Create%20project)
+- [Preparing Environnement](#Preparing-Environnement)
+- [Create project](#Create-project)
 - [Database Setup](#Database-Setup)
 - [Creating an app](#Creating-an-app)
 - [Creating models](#Creating-models)
@@ -15,6 +15,12 @@
 - [Management](#Management)
 - [Views](#Views)
 - [Add some static files](#Add-some-static-files)
+- [Render Form In Template](#Render-Form-In-Template)
+- [Custom template tags and filters](#Custom-template-tags-and-filters)
+- [Setting Up User Accounts](#Setting-Up-User-Accounts)
+- [Allow Users to Own Their Data](#Allow-Users-to-Own-Their-Data)
+- [Paginator](#Paginator)
+- [Deploy to Heroku](#Deploy-to-Heroku)
 
 ## Preparing Environnement
 
@@ -289,5 +295,240 @@ In your template, add this tag to prevent "cross-site request forgery" attack
 ```html
 {% csrf_token %}
 ```
+
+# Render Form In Template
+The most simple way to render the form, but usualy it's ugly
+```html
+{{ form.as_p }}
+```
+The | is a filter, and here for placeholder, it's a custom one. See next section to see how to create it
+```html
+{{ field|placeholder:field.label }} 
+{{ form.username|placeholder:"Your name here"}}
+```
+You can extract each fields with a for loop. 
+```html
+{% for field in form %} 
+```
+Or by explicitly specifying the field
+```html
+{{form.username}}
+```
+
+## Custom template tags and filters
+Django allows you to create customs filter for your templates
+Create this folder and this file. Leave it blank.
+```bash
+touch app_name\templatetags\__init__.py
+```
+Create a python file with the name of the filter
+```bash
+app_name\templatetags\filter_name.py
+```
+Add this on top of your template
+```html
+{% load filter_name %}
+```
+To be a valid tag library, the module must contain a module-level variable named register 
+that is a template.Library instance.  
+Here is an exemple of filter definition.  
+See the decorator? It registers your filter with your Library instance.  
+You need to restart server for this to take effects.  
+```python
+from django import template 
+
+register = template.Library()
+
+@register.filter(name='cut') 
+def cut(value, arg): 
+   """Removes all values of arg from the given string""" 
+   return value.replace(arg, '')
+```
+Here is a link of how to make a [placeholder](https://tech.serhatteker.com/post/2021-06/placeholder-templatetags/) custom template tag which i found essential
+
+## Setting Up User Accounts
+Create a "users" app. Don't forget to add app to settings.py and include the URLs from users.  
+Inside users/urls.py, add this code to include some default authentification URLs that Django has defined.
+```python
+app_name = "users"
+urlpatterns[
+  # include default auth urls.
+  path("", include("django.contribe.auth.urls"))
+]
+```
+Basic login.html template  
+Save it at save template as users/templates/registration/login.html  
+```html
+{% if form.error %}
+  <p>Your username and password didn't match</p>
+{% endif %}
+<form method="post" action="{% url 'users:login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <button name="submit">Log in</button>
+  <input type="hidden" name="next" value=" {% url 'app_name:index' %}" />
+</form>
+```
+We can access to it by using
+```html
+<a href="{% url 'users:login' %}">Log in</a>
+```
+To check if user is logged in
+```html
+{% if user.is_authenticated %}
+```
+Link to logout page, and log out the user.  
+Save template as users/templates/registration/logged_out.html
+```html
+{% url "users:logout" %}
+```
+Inside users/urls.py, add path to register
+```python
+path("register/", views.register, name="register"),
+```
+We write our own register() view inside users/views.py.  
+For that we use UserCreationForm, a django building model.  
+If method is not post, we render a blank form.  
+Else, is the form pass the validity check, an user is created.  
+We just have to create a registration.html template in same folder as the login and logged_out.
+```python
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.forms import UserCreationForm
+
+def register(request):
+  if request.method != "POST":
+    form = UserCreationForm()
+  else:
+    form = UserCreationForm(data=request.POST)
+
+    if form.is_valid():
+      new_user = form.save()
+      login(request, new_user)
+      return redirect("app_name:index")
+
+  context = {"form": form}
+  return render(request, "registration/register.html", context)
+```
+
+# Allow Users to Own Their Data
+Restrict access with @login_required decorator
+```python
+...
+from django.contrib.auth.decorators import login_required
+...
+
+@login_required
+def my_view(request)
+  ...
+```
+If user is not logged in, they will be redirect to the login page.  
+To make this work, you need to modify settings.py so Django knows where to find the login page.  
+Add the following at the very end.  
+```python
+# My settings
+LOGIN_URL = "users:login"
+```
+Add this field to your models to connect data to certain users.  
+When migrating, you will be prompt to select a default value.  
+```python
+...
+from django.contrib.auth.models import User
+...
+owner = models.ForeignKey(User, on_delete=models.CASCADE)
+```
+Use this kind of code in your views to filter data of a specific user
+request.user only exist when user is logged in.
+```python
+user_data = ExempleModel.objects.filter(owner=request.user)
+```
+Make sure the data belongs to the current user.  
+If not the case, raise a 404.
+```python
+...
+from django.http import Http404
+...
+
+...
+if exemple_data.owner != request.user:
+  raise Http404
+```
+Don't forget to associate user to your data in corresponding views
+The "commit=false" attribute let us do that
+```python
+new_data = form.save(commit=false)
+new_data.owner = request.user
+new_data.save()
+```
+
+## Paginator
+In app_name/views.py, import Paginator.
+```python
+from django.core.paginator import Paginator
+```
+Then, in your view, Get a list of data.
+```python
+exemple_list = Exemple.objects.all()
+```
+Set appropriate pagination
+```python
+paginator = Paginator(exemple_list, 5) # Show 5 items per page.
+```
+Get actual page number
+```python
+page_number = request.GET.get('page')
+```
+Create your Page Object, and put it in the context
+```python
+page_obj = paginator.get_page(page_number)
+context = {
+  "page_obj": page_obj,
+  ...
+```
+The Page Object acts now like your list of data
+```html
+{% for item in page_obj %}
+```
+An exemple of what to put on the bottom of your page to navigate through Page Objects
+```html
+<div class="pagination">
+  <span class="step-links">
+  {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+  {% endif %}
+    <span class="current"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span>
+  {% if page_obj.has_next %} 
+   <a href="?page={{ page_obj.next_page_number }}">next</a> 
+   <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> 
+   {% endif %} 
+   </span> 
+</div>
+```
+## Deploy to Heroku
+Make a [Heroku](https://heroku.com) account.  
+Install Heroku [CLI](https://devcenter.heroku.com:articles/heroku-cli/).  
+Install these packages
+```bash
+pip install psycog2 django-heroku gunicorn
+```
+updtate requirements.txt
+```bash
+pip freeze -> requirements.txt
+```
+At the very end of settings.py, make an Heroku ettings section.  
+import django_heroku and tell django to apply django heroku settings.  
+The staticfiles to false is not a viable option in production, check whitenoise for that IMO.  
+```python
+# Heroku settings.
+import django_heroku
+django_heroku.settings(locals(), staticfiles=False)
+if os.environ.get('DEBUG') == "TRUE":
+  DEBUG = True
+  elif os.environ.get('DEBUG') == "FALSE":
+  DEBUG = False
+```
+--Work In Progress --
 
 ## Javascript
