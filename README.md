@@ -15,7 +15,7 @@
 - [Directory Operations](#Directory-Operations)
 - [ls Options](#ls-Options)
 - [Search Files](#Search-Files)
-- [File Operations](#File Operations)
+- [File Operations](#File-Operations)
 - [Watch a Command](#Watch-a-Command)
 - [Process Management](#Process-Management)
 - [Nano Shortcuts](#Nano-Shortcuts)
