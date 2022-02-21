@@ -14,6 +14,7 @@
 - [Administration](#Administration)
 - [Management](#Management)
 - [Views](#Views)
+- [Add some static files](#Add-some-static-files)
 
 ## Preparing Environnement
 
@@ -215,6 +216,78 @@ def index(request):
     context = {"page_title": page_title}
     return render(request, "app_name/index.html", context)
 ```
+Redirect to 404 page if nothing is found
+```python
+question = get_object_or_404(Question, pk=question_id)
+```
+
 Get a look at Django's [documentation](https://docs.djangoproject.com/en/4.0/topics/templates/) to see how you can edit templates.
+
+## Add some static files
+
+Be sure to have this in your INSTALLED_APPS
+```python
+'django.contrib.staticfiles'
+```
+Create static folder associated with your app
+```bash
+mkdir app_name/static app_name/static/app_name
+```
+Put this on top of your template
+```html
+{% load static %}
+```
+Exemple of use static for stylesheet
+```html
+<link rel="stylesheet" type="text/css" href="{% static 'app_name/style.css' %}">
+```
+
+## Forms
+Create form module
+```bash
+touch app_name/forms.py
+```
+An exemple of form with Form inherit 
+```python
+from django import forms
+from .models import YourModel
+
+class ExempleForm(forms.Form):
+  exemple_field = forms.CharField(label='Exemple label', max_length=100)
+```
+
+An exemple of form with ModelForm inherit  
+A ModelForm maps a model class’s fields to HTML form <in­put> elements via a Form. Widget is optional. Use it to override default widget  
+Widget [list](https://docs.djangoproject.com/en/3.2/ref/forms/widgets/)
+```python
+from django import forms
+from .models import YourModel
+
+class ExempleForm(forms.ModelForm):
+ class meta:
+  model = YourModel
+  fields = ["fields"]
+  labels = {"text": "label_text"}
+  widget = {"text": forms.widget_name}
+```
+In your views, create a blank form if no data submitted
+```python
+if request.method != "POST":
+  form = ExempleForm()
+```
+The form object contain's the informations submitted by the user
+```python
+form = ExempleForm(data=request.POST)
+```
+Form validation. Always use redirect function
+```python
+is form.isvalid()
+  form.save()
+  return redirect("app_name:view_name", argument=ardument)
+```
+In your template, add this tag to prevent "cross-site request forgery" attack
+```html
+{% csrf_token %}
+```
 
 ## Javascript
