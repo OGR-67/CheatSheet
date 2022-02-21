@@ -1,38 +1,49 @@
 # My Programming Cheatsheets
 
 - [Bash](#Bash)
+- [Git](#Git)
 - [Python](#Python)
 - [Javascript](#Javascript)
 
 # Bash
+[Back to summary](#My-Programming-Cheatsheets)  
 - [Shortcuts](#Shortcuts)
 - [Variables](#Variables)
 - [IO Redirection](#IO-Redirection)
 - [Command Lists](#Command-Lists)
+- [Directory Operations](#Directory-Operations)
+- [ls Options](#ls-Options)
+- [Search Files](#Search-Files)
+- [File Operations](#File Operations)
+- [Watch a Command](#Watch-a-Command)
+- [Process Management](#Process-Management)
+- [Nano Shortcuts](#Nano-Shortcuts)
+- [File Permissions](#File-Permissions)
+- [File Permission Numbers](#File-Permission-Numbers)
 
 ## Shortcuts
 [Back to summary](#Bash)    
-```
-CTRL-c ----> Stop current command  
-CTRL-z ----> Sleep program  
-CTRL-a ----> Go to start of line  
-CTRL-e ----> Go to end of line  
-CTRL-u ----> Cut from start of line  
-CTRL-k ----> Cut to end of line  
-CTRL-r ----> Search history  
-!! --------> Repeat last command  
-!abc ------> Run last command starting with abc  
-!abc:p ----> Print last command starting with abc  
-!$ --------> Last argument of previous command  
-ALT-. -----> Last argument of previous command  
-!* --------> All arguments of previous command  
-^abc^123 --> Run previous command, replacing abc with 123  
-$_ --------> Value of inline previous command  
+```bash
+CTRL-c --------------------> Stop current command  
+CTRL-z --------------------> Sleep program  
+CTRL-a --------------------> Go to start of line  
+CTRL-e --------------------> Go to end of line  
+CTRL-u --------------------> Cut from start of line  
+CTRL-k --------------------> Cut to end of line  
+CTRL-r --------------------> Search history  
+!! ------------------------> Repeat last command  
+!abc ----------------------> Run last command starting with abc  
+!abc:p --------------------> Print last command starting with abc  
+!$ ------------------------> Last argument of previous command  
+ALT-. ---------------------> Last argument of previous command  
+!* ------------------------> All arguments of previous command  
+^abc^123 ------------------> Run previous command, replacing abc with 123  
+$_ ------------------------> Value of inline previous command  
 ```
 
 ## Variables
 [Back to summary](#Bash)    
-```
+```bash
 env -----------------------> Show environment variables  
 echo $NAME ----------------> Output value of $NAME variable  
 export NAME=value ---------> Set $NAME to value  
@@ -43,7 +54,7 @@ $SHELL --------------------> Current shell
 
 ## IO Redirection
 [Back to summary](#Bash)    
-```
+```bash
 cmd < file ----------------> Input of cmd from file  
 cmd1 <(cmd2) --------------> Output of cmd2 as file input to cmd1  
 cmd > file ----------------> Standard output (stdout) of cmd to file  
@@ -57,22 +68,341 @@ cmd &> file ---------------> Every output of cmd to file
 
 ## Pipes
 [Back to summary](#Bash)    
-```
+```bash
 cmd1 | cmd2 ---------------> stdout of cmd1 to cmd2  
 cmd1 |& cmd2 --------------> stderr of cmd1 to cmd2  
 ```
 
 ## Command Lists
 [Back to summary](#Bash)    
-```
+```bash
 cmd1 ; cmd2 ---------------> Run cmd1 then cmd2  
 cmd1 && cmd2 --------------> Run cmd2 if cmd1 is successful  
 cmd1 || cmd2 --------------> Run cmd2 if cmd1 is not successful  
 cmd & ---------------------> Run cmd in a subshell  
 ```
 
+## Directory Operations
+[Back to summary](#Bash)    
+```bash
+pwd -----------------------> Show current directory
+mkdir dir -----------------> Make directory dir
+cd dir --------------------> Change directory to dir
+cd .. ---------------------> Go up a directory
+ls ------------------------> List files
+```
+
+## ls Options
+[Back to summary](#Bash)    
+```bash
+-a ------------------------> Show all (including hidden)
+-R ------------------------> Recursive list
+-r ------------------------> Reverse order
+-t ------------------------> Sort by last modified
+-S ------------------------> Sort by file size
+-l ------------------------> Long listing format
+-1 ------------------------> One file per line
+-m ------------------------> Comma- sep arated output
+-Q ------------------------> Quoted output
+```
+
+## Search Files
+[Back to summary](#Bash)    
+```bash
+grep pattern files --------> Search for pattern in files
+grep -i -------------------> Case insensitive search
+grep -r -------------------> Recursive search
+grep -v -------------------> Inverted search
+grep -o -------------------> Show matched part of file only
+find /dir/ -name name* ----> Find files starting with name in dir
+find /dir/ -user name -----> Find files owned by name in dir
+find /dir/ -mmin num ------> Find files modifed less than num minutes ago in dir
+whereis command -----------> Find binary/source/manual for command
+locate file ---------------> Find file (quick search of system index)
+```
+## File Operations
+[Back to summary](#Bash)    
+```bash
+touch file1 ---------------> Create file1
+cat file1 file2 -----------> Concatenate files and output
+less file1 ----------------> View and paginate file1
+file file1 ----------------> Get type of file1
+cp file1 file2 ------------> Copy file1 to file2
+mv file1 file2 ------------> Move file1 to file2
+rm file1 ------------------> Delete file1
+head file1 ----------------> Show first 10 lines of file1
+tail file1 ----------------> Show last 10 lines of file1
+tail -F file1 -------------> Output last lines of file1 as it changes
+```
+
+## Watch a Command
+[Back to summary](#Bash)    
+```bash
+watch -n 5 'ntpq -p' ------> Issue the 'ntpq -p' command every 5 seconds and display output
+```
+
+## Process Management
+[Back to summary](#Bash) 
+```bash
+ps ------------------------> Show snapshot of processes
+top -----------------------> Show real time processes
+kill pid ------------------> Kill process with id pid
+pkill name ----------------> Kill process with name name
+killall name --------------> Kill all processes with names beginning name
+```
+
+## Nano Shortcuts
+[Back to summary](#Bash) 
+Files
+```
+Ctrl-R --------------------> Read file
+Ctrl-O --------------------> Save file
+Ctrl-X --------------------> Close file
+```
+Cut and Paste
+```
+ALT-A ---------------------> Start marking text
+CTRL-K --------------------> Cut marked text or line
+CTRL-U --------------------> Paste text
+```
+Navigate File
+```
+ALT-/ ---------------------> End of file
+CTRL-A --------------------> Beginning of line
+CTRL-E --------------------> End of line
+CTRL-C --------------------> Show line number
+CTRL-_ --------------------> Go to line number
+```
+Search File
+```
+CTRL-W --------------------> Find
+ALT-W ---------------------> Find next
+CTRL-\ --------------------> Search and replace
+```
+
+## File Permissions
+[Back to summary](#Bash) 
+```bash
+chmod 775 file ------------> Change mode of file to 775
+chmod -R 600 folder -------> Recurs ively chmod folder to 600
+chown user:group file -----> Change file owner to user and group to group
+```
+
+## File Permission Numbers
+[Back to summary](#Bash)  
+First digit is owner permis sion, second is group and third is everyone.
+```bash
+4 -------------------------> read (r)
+2 -------------------------> write (w)
+1 -------------------------> execute (x)
+```
+
+# Git
+[Back to summary](#My-Programming-Cheatsheets)  
+-[SETUP](#SETUP)
+-[SETUP & INIT](#SETUP-&-INIT)
+-[STAGE & SNAPSHOT](#STAGE-&-SNAPSHOT)
+-[BRANCH & MERGE](#BRANCH-&-MERGE)
+-[INSPECT & COMPARE](#INSPECT-&-COMPARE)
+-[TRACKING PATH CHANGES](#TRACKING-PATH-CHANGES)
+-[IGNORING PATTERNS](#IGNORING-PATTERNS)
+-[SHARE & UPDATE](#SHARE-&-UPDATE)
+-[REWRITE HISTORY](#REWRITE-HISTORY)
+-[TEMPORARY COMMITS](#TEMPORARY-COMMITS)
+
+## SETUP
+[Back to summary](#Git)  
+  
+Set a name that is identifiable for credit when review version history
+```bash
+git config --global user.name “[firstname lastname]”
+```
+Set an email address that will be associated with each history marker  
+```bash
+git config --global user.email “[valid-email]”
+```
+Set automatic command line coloring for Git for easy reviewing
+```bash
+git config --global color.ui auto
+```
+
+## SETUP & INIT
+[Back to summary](#Git) 
+Initialize an existing directory as a Git repository
+```bash
+git init
+```
+Retrieve an entire repository from a hosted location via URL
+```bash
+git clone [url]
+```
+
+## STAGE & SNAPSHOT
+[Back to summary](#Git) 
+Show modified files in working directory, staged for your next commit
+```bash
+git status
+```
+Add a file as it looks now to your next commit (stage)
+```bash
+git add [file]
+```
+Unstage a file while retaining the changes in working directory
+```bash
+git reset [file]
+```
+Diff of what is changed but not staged
+```bash
+git diff
+```
+Diff of what is staged but not yet committed
+```bash
+git diff --staged
+```
+Commit your staged content as a new commit snapshot
+```bash
+git commit -m “[descriptive message]”
+```
+
+## BRANCH & MERGE
+[Back to summary](#Git)  
+List your branches.  
+A * will appear next to the currently active branch
+```bash
+git branch
+```
+Create a new branch at the current commit
+```bash
+git branch [branch-name]
+```
+Switch to another branch and check it out into your working directory
+```bash
+git checkout
+```
+Merge the specified branch’s history into the current one
+```bash
+git merge [branch]
+```
+Show all commits in the current branch’s history
+```bash
+git log
+```
+Visualize log tree
+```bash
+$ git log --oneline --decorate --graph --all
+```
+
+## INSPECT & COMPARE
+[Back to summary](#Git)  
+Show the commit history for the currently active branch
+```bash
+git log
+```
+Show the commits on branchA that are not on branchB
+```bash
+git log branchB..branchA
+```
+Show the commits that changed file, even across renames
+```bash
+git log --follow [file]
+```
+Show the diff of what is in branchA that is not in branchB
+```bash
+git diff branchB...branchA
+```
+Show any object in Git in human-readable format
+```bash
+git show [SHA]
+```
+
+## TRACKING PATH CHANGES
+[Back to summary](#Git)  
+Delete the file from project and stage the removal for commit
+```bash
+git rm [file]
+```
+Change an existing file path and stage the move
+```bash
+git mv [existing-path] [new-path]
+```
+Show all commit logs with indication of any paths that moved
+```bash
+git log --stat -M
+```
+
+## IGNORING PATTERNS
+[Back to summary](#Git)  
+
+Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.
+```
+logs/
+*.notes
+pattern*/
+```
+System wide ignore pattern for all local repositories
+```bash
+git config --global core.excludesfile [file]
+```
+
+## SHARE & UPDATE
+[Back to summary](#Git)  
+Add a git URL as an alias
+```bash
+git remote add [alias] [url]
+```
+Fetch down all the branches from that Git remote
+```bash
+git fetch [alias]
+```
+Merge a remote branch into your current branch to bring it up to date
+```bash
+git merge [alias]/[branch]
+```
+Transmit local branch commits to the remote repository branch
+```bash
+git push [alias] [branch]
+```
+Fetch and merge any commits from the tracking remote branch
+```bash
+git pull
+```
+
+## REWRITE HISTORY
+[Back to summary](#Git)  
+Apply any commits of current branch ahead of specified one
+```bash
+git rebase [branch]
+```
+Clear staging area, rewrite working tree from specified commit
+```bash
+git reset --hard [commit]
+```
+
+## TEMPORARY COMMITS
+[Back to summary](#Git)  
+Save modified and staged changes
+```bash
+git stash
+```
+List stack-order of stashed file changes
+```bash
+git stash list
+```
+Write working from top of stash stack
+```bash
+git stash pop
+```
+Discard the changes from top of stash stack
+```bash
+git stash drop
+```
+
 # Python
+[Back to summary](#My-Programming-Cheatsheets)  
+
+
 # Django
+[Back to summary](#My-Programming-Cheatsheets)  
 - [Preparing Environnement](#Preparing-Environnement)
 - [Create project](#Create-project)
 - [Database Setup](#Database-Setup)
@@ -615,3 +945,4 @@ if os.environ.get('DEBUG') == "TRUE":
 --Work In Progress --
 
 ## Javascript
+[Back to summary](#My-Programming-Cheatsheets)  
