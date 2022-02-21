@@ -200,13 +200,13 @@ First digit is owner permis sion, second is group and third is everyone.
 # Git
 [Back to summary](#My-Programming-Cheatsheets)  
 - [SETUP](#SETUP)
-- [SETUP & INIT](#SETUP-&-INIT)
-- [STAGE & SNAPSHOT](#STAGE-&-SNAPSHOT)
-- [BRANCH & MERGE](#BRANCH-&-MERGE)
-- [INSPECT & COMPARE](#INSPECT-&-COMPARE)
+- [SETUP & INIT](#SETUP-AND-INIT)
+- [STAGE & SNAPSHOT](#STAGE-AND-SNAPSHOT)
+- [BRANCH & MERGE](#BRANCH-AND-MERGE)
+- [INSPECT & COMPARE](#INSPECT-AND-COMPARE)
 - [TRACKING PATH CHANGES](#TRACKING-PATH-CHANGES)
 - [IGNORING PATTERNS](#IGNORING-PATTERNS)
-- [SHARE & UPDATE](#SHARE-&-UPDATE)
+- [SHARE & UPDATE](#SHARE-AND-UPDATE)
 - [REWRITE HISTORY](#REWRITE-HISTORY)
 - [TEMPORARY COMMITS](#TEMPORARY-COMMITS)
 
@@ -226,7 +226,7 @@ Set automatic command line coloring for Git for easy reviewing
 git config --global color.ui auto
 ```
 
-## SETUP & INIT
+## SETUP AND INIT
 [Back to summary](#Git) 
 Initialize an existing directory as a Git repository
 ```bash
@@ -237,7 +237,7 @@ Retrieve an entire repository from a hosted location via URL
 git clone [url]
 ```
 
-## STAGE & SNAPSHOT
+## STAGE AND SNAPSHOT
 [Back to summary](#Git) 
 Show modified files in working directory, staged for your next commit
 ```bash
@@ -264,7 +264,7 @@ Commit your staged content as a new commit snapshot
 git commit -m “[descriptive message]”
 ```
 
-## BRANCH & MERGE
+## BRANCH AND MERGE
 [Back to summary](#Git)  
 List your branches.  
 A * will appear next to the currently active branch
@@ -297,7 +297,7 @@ Visualize log tree
 $ git log --oneline --decorate --graph --all
 ```
 
-## INSPECT & COMPARE
+## INSPECT AND COMPARE
 [Back to summary](#Git)  
 Show the commit history for the currently active branch
 ```bash
@@ -349,7 +349,7 @@ System wide ignore pattern for all local repositories
 git config --global core.excludesfile [file]
 ```
 
-## SHARE & UPDATE
+## SHARE AND UPDATE
 [Back to summary](#Git)  
 Add a git URL as an alias
 ```bash
