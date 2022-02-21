@@ -271,6 +271,11 @@ A * will appear next to the currently active branch
 ```bash
 git branch
 ```
+Rename Master branch to main
+```bash
+git branch -M main
+
+```
 Create a new branch at the current commit
 ```bash
 git branch [branch-name]
