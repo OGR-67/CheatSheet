@@ -23,7 +23,7 @@
 - [Deploy to Heroku](#Deploy-to-Heroku)
 
 ## Preparing Environnement
-
+[back to summary](#Django)  
 Create project folder and navigate to it
 ```bash
 mkdir project_name && cd $_
