@@ -52,10 +52,10 @@ Version control initialisation, be sure to create appropriate gitignore
 ```bash
 git init
 ```
-[back to summary](#Django)
+
 
 ## Create project
-
+[back to summary](#Django)  
 This will create a mysite directory in your current directory the manage.py file
 ```bash
 django-admin startproject mysite (or I like to call it config)
@@ -65,9 +65,9 @@ You can check that everything went fine
 ```bash
 python manage.py runserver
 ```
-[back to summary](#Django)
 
 ## Database Setup
+[back to summary](#Django)  
 Open up mysite/settings.py. It’s a normal Python module with module-level variables representing Django settings.  
 If you wish to use another database, install the appropriate database bindings and change the following keys in the DATABASES 'default' item to match your database connection settings
 ```python
@@ -79,9 +79,9 @@ NAME – The name of your database. If you’re using SQLite, the database will 
 The default value, BASE_DIR / 'db.sqlite3', will store the file in your project directory.  
 If you are not using SQLite as your database, additional settings such as USER, PASSWORD, and HOST must be added.  
 For more details, see the reference documentation for [DATABASES](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-DATABASES).  
-[back to summary](#Django)
 
 ## Creating an app
+[back to summary](#Django)  
 Create an app_name directory and all default file/folder inside
 ```bash
 python manage.py startapp app_name
@@ -99,9 +99,9 @@ urlpatterns = [
  path('admin/', admin.site.urls),
 ]
 ```
-[back to summary](#Django)
 
 ## Creating models
+[back to summary](#Django)  
 Create your class in the app_name/models.py file and add [fields](https://docs.djangoproject.com/en/3.2/ref/models/fields/).  
 It’s important to add __str__() methods to your models, because objects’ representations are used throughout Django’s automatically-generated admin.
 ```python
@@ -114,9 +114,9 @@ Class ModelName(models.Model):
   def __str__(self):
     return self.title
 ```
-[back to summary](#Django)
 
 ## Database editing
+[back to summary](#Django)  
 By running makemigrations, you’re telling Django that you’ve made some changes to your models
 you can specify app_name or not
 ```bash
@@ -138,9 +138,9 @@ Hop into the interactive Python shell and play around with the free API Django g
 ```bash
 python manage.py shell
 ```
-[back to summary](#Django)
 
 ## Administration
+[back to summary](#Django)  
 Create a user who can login to the admin site
 ```bash
 python manage.py createsuperuser
@@ -153,9 +153,9 @@ from .models import ModelName
 admin.site.register(ModelName)
 ```
 Open a web browser and go to “/admin/” on your local domain
-[back to summary](#Django)
 
 ## Management
+[back to summary](#Django)  
 Django allows you to create customs CLI commands.  
 First, create required folders
 ```bash
@@ -180,10 +180,9 @@ You can now execute your command
 ```bash
 python manage.py my_custom_command
 ```
-[back to summary](#Django)
 
 ## Views
-
+[back to summary](#Django)  
 Open the file app_name/views.py and put the following Python code in it.
 This is the simplest view possible.
 ```python
@@ -236,10 +235,9 @@ question = get_object_or_404(Question, pk=question_id)
 ```
 
 Get a look at Django's [documentation](https://docs.djangoproject.com/en/4.0/topics/templates/) to see how you can edit templates.
-[back to summary](#Django)
 
 ## Add some static files
-
+[back to summary](#Django)  
 Be sure to have this in your INSTALLED_APPS
 ```python
 'django.contrib.staticfiles'
@@ -256,9 +254,9 @@ Exemple of use static for stylesheet
 ```html
 <link rel="stylesheet" type="text/css" href="{% static 'app_name/style.css' %}">
 ```
-[back to summary](#Django)
 
 ## Forms
+[back to summary](#Django)  
 Create form module
 ```bash
 touch app_name/forms.py
@@ -305,9 +303,9 @@ In your template, add this tag to prevent "cross-site request forgery" attack
 ```html
 {% csrf_token %}
 ```
-[back to summary](#Django)
 
 ## Render Form In Template
+[back to summary](#Django)  
 The most simple way to render the form, but usualy it's ugly
 ```html
 {{ form.as_p }}
@@ -325,9 +323,9 @@ Or by explicitly specifying the field
 ```html
 {{form.username}}
 ```
-[back to summary](#Django)
 
 ## Custom template tags and filters
+[back to summary](#Django)  
 Django allows you to create customs filter for your templates
 Create this folder and this file. Leave it blank.
 ```bash
@@ -357,9 +355,9 @@ def cut(value, arg):
    return value.replace(arg, '')
 ```
 Here is a link of how to make a [placeholder](https://tech.serhatteker.com/post/2021-06/placeholder-templatetags/) custom template tag which i found essential
-[back to summary](#Django)
 
 ## Setting Up User Accounts
+[back to summary](#Django)  
 Create a "users" app. Don't forget to add app to settings.py and include the URLs from users.  
 Inside users/urls.py, add this code to include some default authentification URLs that Django has defined.
 ```python
@@ -426,6 +424,7 @@ def register(request):
 ```
 
 ## Allow Users to Own Their Data
+[back to summary](#Django)  
 Restrict access with @login_required decorator
 ```python
 ...
@@ -474,9 +473,9 @@ new_data = form.save(commit=false)
 new_data.owner = request.user
 new_data.save()
 ```
-[back to summary](#Django)
 
 ## Paginator
+[back to summary](#Django)  
 In app_name/views.py, import Paginator.
 ```python
 from django.core.paginator import Paginator
@@ -520,9 +519,9 @@ An exemple of what to put on the bottom of your page to navigate through Page Ob
    </span> 
 </div>
 ```
-[back to summary](#Django)
 
 ## Deploy to Heroku
+[back to summary](#Django)  
 Make a [Heroku](https://heroku.com) account.  
 Install Heroku [CLI](https://devcenter.heroku.com:articles/heroku-cli/).  
 Install these packages
@@ -546,6 +545,5 @@ if os.environ.get('DEBUG') == "TRUE":
   DEBUG = False
 ```
 --Work In Progress --
-[back to summary](#Django)
 
 ## Javascript
