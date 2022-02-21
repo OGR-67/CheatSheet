@@ -12,6 +12,7 @@
 
 ## Shortcuts
 [Back to summary](#Bash)    
+```
 CTRL-c ----> Stop current command  
 CTRL-z ----> Sleep program  
 CTRL-a ----> Go to start of line  
@@ -27,6 +28,7 @@ ALT-. -----> Last argument of previous command
 !* --------> All arguments of previous command  
 ^abc^123 --> Run previous command, replacing abc with 123  
 $_ --------> Value of inline previous command  
+```
 
 ## Variables
 [Back to summary](#Bash)    
