@@ -1096,10 +1096,11 @@ if os.environ.get('DEBUG') == "TRUE":
 # Javascript
 [Back to summary](#My-Programming-Cheatsheets)  
 - [Working With Array](#Working-With-Array)
+- [Working With Strings](#Working-With-Strings)
 
 ## Working With Array
 [Back to summary](#Javascript) 
-Reduce()  
+### reduce()  
 The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 
 ```javascript
@@ -1110,5 +1111,49 @@ function find_average(array) {
       a + b
     }, 0) / array.length;
 }
+```
+### reverse()
+The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+```javascript
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// expected output: "array1:" Array ["one", "two", "three"]
+
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);
+// expected output: "array1:" Array ["three", "two", "one"]
+```
+### join()
+The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+```javascript
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+```
+
+## Working With Strings
+[Back to summary](#Javascript) 
+### split()
+The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+```javascript
+const str = 'The quick brown fox jumps over the lazy dog.';
+
+const words = str.split(' ');
+console.log(words[3]);
+// expected output: "fox"
+
+const chars = str.split('');
+console.log(chars[8]);
+// expected output: "k"
+
+const strCopy = str.split();
+console.log(strCopy);
+// expected output: Array ["The quick brown fox jumps over the lazy dog."]
+
 ```
 --- Work In Progress ---
