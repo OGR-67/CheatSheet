@@ -445,12 +445,12 @@ $           End of string, or end of line in multi-line pattern
 ## POSIX
 [Back to summary](#RegEx)  
 ```
-[:upper:]   Upper case letters
-[:lower:]   Lower case letters
+[:upper:]   Uppercase letters
+[:lower:]   Lowercase letters
 [:alpha:]   All letters
 [:alnum:]   Digits and letters
 [:digit:]   Digits
-[:xdigit:]  Hexade cimal digits
+[:xdigit:]  Hexadecimal digits
 [:punct:]   Punctu ation
 [:blank:]   Space and tab
 [:space:]   Blank characters
@@ -474,9 +474,12 @@ $           End of string, or end of line in multi-line pattern
 ## Quantifiers
 [Back to summary](#RegEx)  
 ```
-*           0 or more {3} Exactly 3
-+           1 or more {3,} 3 or more
-?           0 or 1 {3,5} 3, 4 or 5
+*           0 or more 
++           1 or more 
+?           0 or 1 
+{3}         Exactly 3
+{3,}        3 or more
+{3,5}       3, 4 or 5
 ```
 ## Escape Sequences
 [Back to summary](#RegEx)  
@@ -522,18 +525,18 @@ $           End of string, or end of line in multi-line pattern
 [Back to summary](#RegEx)  
 ```
 g           Global match
-i *         Case-i nse nsitive
+i *         Case-insensitive
 m *         Multiple lines
 s *         Treat string as single line
 x *         Allow comments and whitespace in pattern
-e *         Evaluate replac ement
+e *         Evaluate replacement
 U *         Ungreedy pattern
 ```
 
 ## String Replacement
 [Back to summary](#RegEx)  
 ```
-$n          nth non-pa ssive group
+$n          nth non-passive group
 $2          "xyz" in /^(abc (xy z))$/
 $1          "xyz" in /^(?:a bc) (xyz)$/
 $`          Before matched string
@@ -1088,7 +1091,24 @@ if os.environ.get('DEBUG') == "TRUE":
   elif os.environ.get('DEBUG') == "FALSE":
   DEBUG = False
 ```
---Work In Progress --
+--- Work In Progress --
 
-## Javascript
+# Javascript
 [Back to summary](#My-Programming-Cheatsheets)  
+- [Working With Array](#Working-With-Array)
+
+## Working With Array
+[Back to summary](#Javascript) 
+Reduce()  
+The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+
+```javascript
+function find_average(array) {
+//   a is accumulator and b is current value being processed
+//   0 is the initial value of the accumulator
+  return array.reduce(function(a,b){
+      a + b
+    }, 0) / array.length;
+}
+```
+--- Work In Progress ---
