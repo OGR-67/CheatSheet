@@ -1179,4 +1179,13 @@ console.log(strCopy);
 // expected output: Array ["The quick brown fox jumps over the lazy dog."]
 
 ```
+### substring()
+The substring() method returns the part of the string between the start and end indexes, or to the end of the string.
+```javascript
+const str = 'Google';
+
+console.log(str.substring(1, 3));
+// expected output: "oo"
+```
+
 --- Work In Progress ---
