@@ -1135,6 +1135,24 @@ console.log(elements.join(''));
 console.log(elements.join('-'));
 // expected output: "Fire-Air-Water"
 ```
+### map()
+The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+```javascript
+// Arrow function
+map((element) => { /* ... */ })
+map((element, index) => { /* ... */ })
+map((element, index, array) => { /* ... */ })
+
+// Callback function
+map(callbackFn)
+map(callbackFn, thisArg)
+
+// Inline callback function
+map(function(element) { /* ... */ })
+map(function(element, index) { /* ... */ })
+map(function(element, index, array){ /* ... */ })
+map(function(element, index, array) { /* ... */ }, thisArg)
+```
 
 ## Working With Strings
 [Back to summary](#Javascript) 
