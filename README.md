@@ -1102,6 +1102,9 @@ if os.environ.get('DEBUG') == "TRUE":
 [Back to summary](#My-Programming-Cheatsheets)  
 - [Working With Array](#Working-With-Array)
 - [Working With Strings](#Working-With-Strings)
+- [Node JS](#nodeJS)
+- [ExpressJS](#expressJS)
+- [EJS](#EJS)
 
 ## Working With Array
 [Back to summary](#Javascript) 
@@ -1186,6 +1189,98 @@ const str = 'Google';
 
 console.log(str.substring(1, 3));
 // expected output: "oo"
+```
+
+## nodeJS
+[Back to summary](#Javascript) 
+Init node to create package.json
+```bash
+node init
+```
+Install packages inside your project
+```bash
+npm install package_name
+```
+Install packages to your system
+```bash
+npm install -g package_name
+```
+
+## expressJS
+[Back to summary](#Javascript) 
+Install express
+```bash
+npm install express --save
+```
+Install body-parser
+```bash
+npm i body-parser
+```
+Install ejs
+```bash
+npm install ejs
+```
+Web app boiler plate
+```javascript
+const express = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+
+// #### App settup ####
+const app = express();
+app.set("view engine", "ejs"); // Tell express to use ejs rendering engine
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public")); // Serves statics files in root/public folder
+
+// #### Routes ####
+// Home
+app.get("/", (req, res) => {
+  res.render(__dirname + "/views/home.ejs", context);
+});
+
+
+// #### Port Listening ####
+app.listen(3000, function () {
+  console.log("Server started on port 3000");
+});
+
+```
+## EJS
+[Back to summary](#Javascript) 
+### Tags
+Use inside .ejs templates
+```
+# Script
+<% 'Scriptlet' tag, for control-flow, no output
+<%_ ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it
+
+# Variable
+<%= Outputs the value into the template (HTML escaped)
+<%- Outputs the unescaped value into the template
+
+# Comment
+<%# Comment tag, no execution, no output
+
+# Litteral
+<%% Outputs a literal '<%'
+
+# Ending tags
+%> Plain ending tag
+-%> Trim-mode ('newline slurp') tag, trims following newline
+_%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
+
+```
+### Includes
+Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use <%- include('user/show'); %>.
+
+You'll likely want to use the raw output tag (<%-) with your include to avoid double-escaping the HTML output.
+```html
+<ul>
+  <% users.forEach(function(user){ %>
+    <%- include('user/show', {user: user}); %>
+  <% }); %>
+</ul>
 ```
 
 --- Work In Progress ---
