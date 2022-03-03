@@ -1208,7 +1208,7 @@ const keys = Object.keys(courses);
 // [ 'java', 'javascript', 'nodejs', 'php' ]
 ```
 Get an Array of values
-```javascipt
+```javascript
 const animals = {
     tiger: 1,
     cat: 2,
