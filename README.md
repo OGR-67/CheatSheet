@@ -1102,6 +1102,7 @@ if os.environ.get('DEBUG') == "TRUE":
 [Back to summary](#My-Programming-Cheatsheets)  
 - [Working With Array](#Working-With-Array)
 - [Working With Strings](#Working-With-Strings)
+- [Working With Objects](#Working-With-Objects)
 - [Node JS](#nodeJS)
 - [ExpressJS](#expressJS)
 - [EJS](#EJS)
@@ -1190,6 +1191,46 @@ const str = 'Google';
 console.log(str.substring(1, 3));
 // expected output: "oo"
 ```
+
+## Working With Objects
+[Back to summary](#Javascript) 
+### 3 ways to loop through objects
+Get an Array of keys
+```javascript
+const courses = {
+    java: 10,
+    javascript: 55,
+    nodejs: 5,
+    php: 15
+};
+
+const keys = Object.keys(courses);
+// [ 'java', 'javascript', 'nodejs', 'php' ]
+```
+Get an Array of values
+```javascipt
+const animals = {
+    tiger: 1,
+    cat: 2,
+    monkey: 3,
+    elephant: 4
+};
+Object.values(animals)
+// [1, 2, 3, 4]
+```
+Get an Array of [Key / Value] pairs
+```javascript
+const animals = {
+    tiger: 1,
+    cat: 2,
+    monkey: 3,
+    elephant: 4
+};
+
+Object.entries(animals)
+//[[ 'tiger', 1 ], [ 'cat', 2 ], [ 'monkey', 3 ], [ 'elephant', 4 ]]
+```
+
 
 ## nodeJS
 [Back to summary](#Javascript) 
