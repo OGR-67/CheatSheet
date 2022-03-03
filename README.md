@@ -1103,6 +1103,7 @@ if os.environ.get('DEBUG') == "TRUE":
 - [Working With Array](#Working-With-Array)
 - [Working With Strings](#Working-With-Strings)
 - [Working With Objects](#Working-With-Objects)
+- [Loops](#Loops)
 - [Node JS](#nodeJS)
 - [ExpressJS](#expressJS)
 - [EJS](#EJS)
@@ -1230,7 +1231,80 @@ const animals = {
 Object.entries(animals)
 //[[ 'tiger', 1 ], [ 'cat', 2 ], [ 'monkey', 3 ], [ 'elephant', 4 ]]
 ```
+## Loops
+[Back to summary](#Javascript) 
+  
+JavaScript supports different kinds of loops:
+- for - loops through a block of code a number of times
+- for/in - loops through the properties of an object
+- for/of - loops through the values of an iterable object
+- while - loops through a block of code while a specified condition is true
+- do/while - also loops through a block of code while a specified condition is true
 
+### for
+Basic for loop
+```javascript
+for (let i = 0; i < 5; i++) {
+  // Executed 5 times
+  // At each excecution, i is incremented by 1
+  ...
+}
+```
+### for ... in
+Loops through enumerable properties of a given object
+```javascript
+let myArray = ["a", "b", "c"]
+let myObject = {
+  a: "one",
+  b: "two",
+  c: "three"
+}
+
+for(index in myArray){
+  console.log(index)
+  // 0
+  // 1
+  // 2
+}
+
+for(key in myObject){
+  console.log(key)
+  // a
+  // b
+  // c
+}
+```
+### for ... of
+Loops through values of an array
+```javascript
+let myArray = ["a", "b", "c"]
+
+for(let value of myArray){
+  console.log(value)
+  // "a"
+  // "b"
+  // "c"
+}
+```
+### while
+Basic while loop, loops whenever the condition is true
+```javascript
+let n = 0;
+let x = 0;
+while (n < 3) {
+  n++;
+  x += n;
+}
+```
+### do ... while
+Same as while loop but because the condition is tested after the instruction, it will be executed at least one time.
+```javascript
+let i = 0;
+do {
+  i += 1;
+  console.log(i);
+} while (i < 5);
+```
 
 ## nodeJS
 [Back to summary](#Javascript) 
