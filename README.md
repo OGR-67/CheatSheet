@@ -24,7 +24,7 @@
 
 ## Shortcuts
 [Back to summary](#Bash)    
-```bash
+```
 CTRL-c      Stop current command  
 CTRL-z      Sleep program  
 CTRL-a      Go to start of line  
@@ -44,7 +44,7 @@ $_          Value of inline previous command
 
 ## Variables
 [Back to summary](#Bash)    
-```bash
+```shell
 env                 Show environment variables  
 echo $NAME          Output value of $NAME variable  
 export NAME=value   Set $NAME to value  
@@ -55,7 +55,7 @@ $SHELL              Current shell
 
 ## IO Redirection
 [Back to summary](#Bash)    
-```bash
+```shell
 cmd < file        Input of cmd from file  
 cmd1 <(cmd2)      Output of cmd2 as file input to cmd1  
 cmd > file        Standard output (stdout) of cmd to file  
@@ -69,14 +69,14 @@ cmd &> file       Every output of cmd to file
 
 ## Pipes
 [Back to summary](#Bash)    
-```bash
+```shell
 cmd1 | cmd2       stdout of cmd1 to cmd2  
 cmd1 |& cmd2      stderr of cmd1 to cmd2  
 ```
 
 ## Command Lists
 [Back to summary](#Bash)    
-```bash
+```shell
 cmd1 ; cmd2     Run cmd1 then cmd2  
 cmd1 && cmd2    Run cmd2 if cmd1 is successful  
 cmd1 || cmd2    Run cmd2 if cmd1 is not successful  
@@ -85,7 +85,7 @@ cmd &           Run cmd in a subshell
 
 ## Directory Operations
 [Back to summary](#Bash)    
-```bash
+```shell
 pwd         Show current directory
 mkdir dir   Make directory dir
 cd dir      Change directory to dir
@@ -95,7 +95,7 @@ ls          List files
 
 ## ls Options
 [Back to summary](#Bash)    
-```bash
+```shell
 -a    Show all (including hidden)
 -R    Recursive list
 -r    Reverse order
@@ -109,7 +109,7 @@ ls          List files
 
 ## Search Files
 [Back to summary](#Bash)    
-```bash
+```shell
 grep pattern files      Search for pattern in files
 grep -i                 Case insensitive search
 grep -r                 Recursive search
@@ -123,7 +123,7 @@ locate file             Find file (quick search of system index)
 ```
 ## File Operations
 [Back to summary](#Bash)    
-```bash
+```shell
 touch file1       Create file1
 cat file1 file2   Concatenate files and output
 less file1        View and paginate file1
@@ -138,13 +138,13 @@ tail -F file1     Output last lines of file1 as it changes
 
 ## Watch a Command
 [Back to summary](#Bash)    
-```bash
+```shell
 watch -n 5 'ntpq -p'    Issue the 'ntpq -p' command every 5 seconds and display output
 ```
 
 ## Process Management
 [Back to summary](#Bash) 
-```bash
+```shell
 ps            Show snapshot of processes
 top           Show real time processes
 kill pid      Kill process with id pid
@@ -183,21 +183,23 @@ CTRL-\    Search and replace
 
 ## File Permissions
 [Back to summary](#Bash) 
-```bash
 Change mode of file to 775
+```shell
 chmod 775 file
-
+```
 Recurs ively chmod folder to 600
+```shell
 chmod -R 600 folder 
-
+```
 Change file owner to user and group to group
+```shell
 chown user:group file
 ```
 
 ## File Permission Numbers
 [Back to summary](#Bash)  
 First digit is owner permis sion, second is group and third is everyone.
-```bash
+```shell
 4   read (r)
 2   write (w)
 1   execute (x)
@@ -220,53 +222,53 @@ First digit is owner permis sion, second is group and third is everyone.
 [Back to summary](#Git)  
   
 Set a name that is identifiable for credit when review version history
-```bash
+```shell
 git config --global user.name “[firstname lastname]”
 ```
 Set an email address that will be associated with each history marker  
-```bash
+```shell
 git config --global user.email “[valid-email]”
 ```
 Set automatic command line coloring for Git for easy reviewing
-```bash
+```shell
 git config --global color.ui auto
 ```
 
 ## SETUP AND INIT
 [Back to summary](#Git) 
 Initialize an existing directory as a Git repository
-```bash
+```shell
 git init
 ```
 Retrieve an entire repository from a hosted location via URL
-```bash
+```shell
 git clone [url]
 ```
 
 ## STAGE AND SNAPSHOT
 [Back to summary](#Git) 
 Show modified files in working directory, staged for your next commit
-```bash
+```shell
 git status
 ```
 Add a file as it looks now to your next commit (stage)
-```bash
+```shell
 git add [file]
 ```
 Unstage a file while retaining the changes in working directory
-```bash
+```shell
 git reset [file]
 ```
 Diff of what is changed but not staged
-```bash
+```shell
 git diff
 ```
 Diff of what is staged but not yet committed
-```bash
+```shell
 git diff --staged
 ```
 Commit your staged content as a new commit snapshot
-```bash
+```shell
 git commit -m “[descriptive message]”
 ```
 
@@ -274,70 +276,70 @@ git commit -m “[descriptive message]”
 [Back to summary](#Git)  
 List your branches.  
 A * will appear next to the currently active branch
-```bash
+```shell
 git branch
 ```
 Rename Master branch to main
-```bash
+```shell
 git branch -M main
 
 ```
 Create a new branch at the current commit
-```bash
+```shell
 git branch [branch-name]
 ```
 Switch to another branch and check it out into your working directory
-```bash
+```shell
 git checkout
 ```
 Merge the specified branch’s history into the current one
-```bash
+```shell
 git merge [branch]
 ```
 Show all commits in the current branch’s history
-```bash
+```shell
 git log
 ```
 Visualize log tree
-```bash
+```shell
 $ git log --oneline --decorate --graph --all
 ```
 
 ## INSPECT AND COMPARE
 [Back to summary](#Git)  
 Show the commit history for the currently active branch
-```bash
+```shell
 git log
 ```
 Show the commits on branchA that are not on branchB
-```bash
+```shell
 git log branchB..branchA
 ```
 Show the commits that changed file, even across renames
-```bash
+```shell
 git log --follow [file]
 ```
 Show the diff of what is in branchA that is not in branchB
-```bash
+```shell
 git diff branchB...branchA
 ```
 Show any object in Git in human-readable format
-```bash
+```shell
 git show [SHA]
 ```
 
 ## TRACKING PATH CHANGES
 [Back to summary](#Git)  
 Delete the file from project and stage the removal for commit
-```bash
+```shell
 git rm [file]
 ```
 Change an existing file path and stage the move
-```bash
+```shell
 git mv [existing-path] [new-path]
 ```
 Show all commit logs with indication of any paths that moved
-```bash
+```shell
 git log --stat -M
 ```
 
@@ -351,60 +353,60 @@ logs/
 pattern*/
 ```
 System wide ignore pattern for all local repositories
-```bash
+```shell
 git config --global core.excludesfile [file]
 ```
 
 ## SHARE AND UPDATE
 [Back to summary](#Git)  
 Add a git URL as an alias
-```bash
+```shell
 git remote add [alias] [url]
 ```
 Fetch down all the branches from that Git remote
-```bash
+```shell
 git fetch [alias]
 ```
 Merge a remote branch into your current branch to bring it up to date
-```bash
+```shell
 git merge [alias]/[branch]
 ```
 Transmit local branch commits to the remote repository branch
-```bash
+```shell
 git push [alias] [branch]
 ```
 Fetch and merge any commits from the tracking remote branch
-```bash
+```shell
 git pull
 ```
 
 ## REWRITE HISTORY
 [Back to summary](#Git)  
 Apply any commits of current branch ahead of specified one
-```bash
+```shell
 git rebase [branch]
 ```
 Clear staging area, rewrite working tree from specified commit
-```bash
+```shell
 git reset --hard [commit]
 ```
 
 ## TEMPORARY COMMITS
 [Back to summary](#Git)  
 Save modified and staged changes
-```bash
+```shell
 git stash
 ```
 List stack-order of stashed file changes
-```bash
+```shell
 git stash list
 ```
 Write working from top of stash stack
-```bash
+```shell
 git stash pop
 ```
 Discard the changes from top of stash stack
-```bash
+```shell
 git stash drop
 ```
 
@@ -577,31 +579,31 @@ $&          Entire matched string
 ## Preparing Environnement
 [back to summary](#Django)  
 Create project folder and navigate to it
-```bash
+```shell
 mkdir project_name && cd $_
 ```
 Create venv for the project
-```bash
+```shell
 python -m venv env_name
 ```
 Activate environnement (Replace "bin" by "Scripts" in Windows)
-```bash
+```shell
 source env_name\bin\activate
 ```
 Install Django (and others dependencies if needed)
-```bash
+```shell
 pip install django
 ```
 Create requirements file
-```bash
+```shell
 pip freeze > requirements.txt
 ```
 Use this commmand to nstall all required files based on your pip freeze command
-```bash
+```shell
 pip install -r requirements.txt
 ```
 Version control initialisation, be sure to create appropriate gitignore
-```bash
+```shell
 git init
 ```
 
@@ -609,12 +611,12 @@ git init
 ## Create project
 [back to summary](#Django)  
 This will create a mysite directory in your current directory the manage.py file
-```bash
+```shell
 django-admin startproject mysite (or I like to call it config)
 ```
 
 You can check that everything went fine
-```bash
+```shell
 python manage.py runserver
 ```
 
@@ -635,7 +637,7 @@ For more details, see the reference documentation for [DATABASES](https://docs.d
 ## Creating an app
 [back to summary](#Django)  
 Create an app_name directory and all default file/folder inside
-```bash
+```shell
 python manage.py startapp app_name
 ```
 Apps are "plugable",  "plug in" the app into the project by adding it in installed apps in settings.py
@@ -671,30 +673,30 @@ Class ModelName(models.Model):
 [back to summary](#Django)  
 By running makemigrations, you’re telling Django that you’ve made some changes to your models
 you can specify app_name or not
-```bash
+```shell
 python manage.py makemigrations (app_name)
 ```
 Check the SQL commands that migration would run (identifier is given with makemigrations command).
-```bash
+```shell
 python manage.py sqlmigrate #identifier
 ```
 Check for any problems in your project without migrate database
-```bash
+```shell
 python manage.py check
 ```
 Create tables and fields in database based on your models
-```bash
+```shell
 python manage.py migrate
 ```
 Hop into the interactive Python shell and play around with the free API Django gives you
-```bash
+```shell
 python manage.py shell
 ```
 
 ## Administration
 [back to summary](#Django)  
 Create a user who can login to the admin site
-```bash
+```shell
 python manage.py createsuperuser
 ```
 Into app_name/admin.py, add the model to administration site
@@ -710,11 +712,11 @@ Open a web browser and go to “/admin/” on your local domain
 [back to summary](#Django)  
 Django allows you to create customs CLI commands.  
 First, create required folders
-```bash
+```shell
 mkdir app_name/management app_name/management/commands && cd $_
 ```
 Create a python file with your command name
-```bash
+```shell
 touch your_command_name.py
 ```
 Edit your new python file. Create a class that will handle your command.
@@ -729,7 +731,7 @@ class Command(BaseCommand):
    # Task the command is supposed to do
 ```
 You can now execute your command
-```bash
+```shell
 python manage.py my_custom_command
 ```
 
@@ -770,7 +772,7 @@ Finaly, we can pass arguments to template like this
 {% url 'app_name:view_name' question_id %}
 ```
 This is the folder path to follow for template
-```bash
+```shell
 app_name/templates/app_name/index.html
 ```
 Pass values from views to template.  
@@ -795,7 +797,7 @@ Be sure to have this in your INSTALLED_APPS
 'django.contrib.staticfiles'
 ```
 Create static folder associated with your app
-```bash
+```shell
 mkdir app_name/static app_name/static/app_name
 ```
 Put this on top of your template
@@ -810,7 +812,7 @@ Exemple of use static for stylesheet
 ## Forms
 [back to summary](#Django)  
 Create form module
-```bash
+```shell
 touch app_name/forms.py
 ```
 An exemple of form with Form inherit 
@@ -880,11 +882,11 @@ Or by explicitly specifying the field
 [back to summary](#Django)  
 Django allows you to create customs filter for your templates
 Create this folder and this file. Leave it blank.
-```bash
+```shell
 touch app_name\templatetags\__init__.py
 ```
 Create a python file with the name of the filter
-```bash
+```shell
 app_name\templatetags\filter_name.py
 ```
 Add this on top of your template
@@ -1077,11 +1079,11 @@ An exemple of what to put on the bottom of your page to navigate through Page Ob
 Make a [Heroku](https://heroku.com) account.  
 Install Heroku [CLI](https://devcenter.heroku.com:articles/heroku-cli/).  
 Install these packages
-```bash
+```shell
 pip install psycog2 django-heroku gunicorn
 ```
 updtate requirements.txt
-```bash
+```shell
 pip freeze -> requirements.txt
 ```
 At the very end of settings.py, make an Heroku ettings section.  
@@ -1309,7 +1311,7 @@ do {
 ## nodeJS
 [Back to summary](#Javascript) 
 Init node to create package.json
-```bash
+```shell
 node init
 ```
 Install packages inside your project
@@ -1324,15 +1326,15 @@ npm install -g package_name
 ## expressJS
 [Back to summary](#Javascript) 
 Install express
-```bash
+```shell
 npm install express --save
 ```
 Install body-parser
-```bash
+```shell
 npm i body-parser
 ```
 Install ejs
-```bash
+```shell
 npm install ejs
 ```
 Web app boiler plate
