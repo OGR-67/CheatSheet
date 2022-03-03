@@ -1120,12 +1120,12 @@ function find_average(array) {
 //   a is accumulator and b is current value being processed
 //   0 is the initial value of the accumulator
   return array.reduce(function(a,b){
-      a + b
+      return a + b
     }, 0) / array.length;
 }
 ```
 ### reverse()
-The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+The reverse() METHOD reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
 ```javascript
 const array1 = ['one', 'two', 'three'];
 console.log('array1:', array1);
@@ -1136,7 +1136,7 @@ console.log('array1:', array1);
 // expected output: "array1:" Array ["three", "two", "one"]
 ```
 ### join()
-The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+The join() METHOD creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
 ```javascript
 console.log(elements.join());
 // expected output: "Fire,Air,Water"
@@ -1148,7 +1148,7 @@ console.log(elements.join('-'));
 // expected output: "Fire-Air-Water"
 ```
 ### map()
-The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+The map() METHOD creates a new array populated with the results of calling a provided function on every element in the calling array.
 ```javascript
 // Arrow function
 map((element) => { /* ... */ })
