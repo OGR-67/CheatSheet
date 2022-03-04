@@ -1,12 +1,12 @@
 # My Programming Cheatsheets
 
-- [Bash](#Bash)
+- [Shell](#Shell)
 - [Git](#Git)
 - [RegEx](#RegEx)
 - [Python](#Python)
 - [Javascript](#Javascript)
 
-# Bash
+# Shell
 [Back to summary](#My-Programming-Cheatsheets)  
 - [Shortcuts](#Shortcuts)
 - [Variables](#Variables)
@@ -1117,10 +1117,10 @@ The reduce() method executes a user-supplied "reducer" callback function on each
 
 ```javascript
 function find_average(array) {
-//   a is accumulator and b is current value being processed
+//   acc is accumulator and curr is current value being processed
 //   0 is the initial value of the accumulator
-  return array.reduce(function(a,b){
-      return a + b
+  return array.reduce((acc, curr) => {
+      return acc + curr
     }, 0) / array.length;
 }
 ```
@@ -1150,20 +1150,192 @@ console.log(elements.join('-'));
 ### map()
 The map() METHOD creates a new array populated with the results of calling a provided function on every element in the calling array.
 ```javascript
-// Arrow function
-map((element) => { /* ... */ })
-map((element, index) => { /* ... */ })
-map((element, index, array) => { /* ... */ })
+// Exemples
+// Return a new array with the square root of all element values:
+const numbers = [4, 9, 16, 25];
+const newArr = numbers.map(Math.sqrt)
+// [2, 3, 4, 5]
 
-// Callback function
-map(callbackFn)
-map(callbackFn, thisArg)
+// Multiply all the values in an array with 10:
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction)
 
-// Inline callback function
-map(function(element) { /* ... */ })
-map(function(element, index) { /* ... */ })
-map(function(element, index, array){ /* ... */ })
-map(function(element, index, array) { /* ... */ }, thisArg)
+function myFunction(num) {
+  return num * 10;
+}
+
+// Convert array of strings to an array of numbers
+["1", "2", "3"].map((str) => parseInt(str)));
+```
+### Utility Functions
+#### some
+Parameters:  
+- predicate - Function that returns true or false.  
+- array - List of items to test.  
+Description:  
+- If predicate returns true for any item, some returns true. Otherwise it returns false.  
+```javascript
+const some = (predicate, array) => {
+  array.reduce((acc, value) => {
+    acc || predicate(value);
+  }, false);
+};
+```
+#### all
+Parameters:  
+- predicate - Function that returns true or false.  
+- array - List of items to test.  
+Description:
+- If predicate returns true for every item, all returns true. Otherwise it returns false.
+```javascript
+const all = (predicate, array) => {
+  array.reduce((acc, value) => {
+    acc && predicate(value);
+  }, true);
+};
+```
+#### none
+Parameters:  
+- predicate - Function that returns true or false.
+- array - List of items to test.
+Description:  
+- If predicate returns false for every item, none returns true. Otherwise it returns false.
+```javascript
+const none = (predicate, array) => {
+  array.reduce((acc, value) => {
+    !acc && !predicate(value);
+  }, false);
+};
+```
+#### filter
+Parameters:  
+- predicate - Function that returns true or false.
+- array - List of items to filter.
+Description:  
+- Returns a new array. If predicate returns true, that item is added to the new array. Otherwise that item is excluded from the new array.
+```javascript
+const filter = (predicate, array) =>
+  array.reduce((newArray, item) => {
+    if (predicate(item) === true) {
+      newArray.push(item);
+    }
+
+    return newArray;
+  }, []);
+```
+#### reject
+Parameters:  
+- predicate - Function that returns true or false.
+- array - List of items to filter.
+Description:  
+- Just like filter, but with the opposite behavior.
+-If predicate returns false, that item is added to the new array. Otherwise that item is excluded from the new array.
+```javascript
+const reject = (predicate, array) =>
+  array.reduce((newArray, item) => {
+    if (predicate(item) === false) {
+      newArray.push(item);
+    }
+
+    return newArray;
+  }, []);
+```
+#### find
+Parameters:  
+- predicate - Function that returns true or false.
+- array - List of items to search.
+Description:  
+- Returns the first element that matches the given predicate. If no element matches then undefined is returned.
+```javascript
+const find = (predicate, array) =>
+  array.reduce((result, item) => {
+    if (result !== undefined) {
+      return result;
+    }
+
+    if (predicate(item) === true) {
+      return item;
+    }
+
+    return undefined;
+  }, undefined);
+```
+
+#### partition
+Parameters:
+-predicate - Function that returns true or false.
+-array - List of items.
+Description:
+- "Partitions" or splits an array into two based on the predicate. If predicate returns true, the item goes into list 1. Otherwise the item goes into list 2.
+```javascript
+const partition = (predicate, array) =>
+  array.reduce(
+    (result, item) => {
+      const [list1, list2] = result;
+
+      if (predicate(item) === true) {
+        list1.push(item);
+      } else {
+        list2.push(item);
+      }
+
+      return result;
+    },
+    [[], []]
+  );
+```
+#### pluck
+Parameters
+- key - Key name to pluck from the object
+- array - List of items.
+Description
+- Plucks the given key off of each item in the array. Returns a new array of these values.
+```javascript
+const pluck = (key, array) =>
+  array.reduce((values, current) => {
+    values.push(current[key]);
+
+    return values;
+  }, []);
+
+// Examples
+pluck('name', [{ name: 'Batman' }, { name: 'Robin' }, { name: 'Joker' }]);
+// ['Batman', 'Robin', 'Joker']
+
+pluck(0, [[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+// [1, 4, 7]
+```
+#### scan
+Parameters
+- reducer - Standard reducer function that receives two parameters - the accumulator and current element from the array.
+- initialValue - The initial value for the accumulator.
+- array - List of items.
+Description
+- Works just like reduce but instead just the single result, it returns a list of every reduced value on the way to the single result.
+```javascript
+const scan = (reducer, initialValue, array) => {
+  const reducedValues = [];
+
+  array.reduce((acc, current) => {
+    const newAcc = reducer(acc, current);
+
+    reducedValues.push(newAcc);
+
+    return newAcc;
+  }, initialValue);
+
+  return reducedValues;
+};
+
+// Examples
+const add = (x, y) => x + y;
+const multiply = (x, y) => x * y;
+
+scan(add, 0, [1, 2, 3, 4, 5, 6]);
+// [1, 3, 6, 10, 15, 21] - Every number added from 1-6
+
+scan(multiply, 1, [1, 2, 3, 4, 5, 6]);
+// [1, 2, 6, 24, 120, 720] - Every number multiplied from 1-6
 ```
 
 ## Working With Strings
