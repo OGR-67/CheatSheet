@@ -1623,16 +1623,41 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 
 # MongoDB
 [Back to summary](#My-Programming-Cheatsheets)  
+- [Mongo Shell](#Mongo Shell)
+### CRUD operations
 - [Create](#Create)
 - [Read](#Read)
 - [Update](#Update)
 - [Delete](#Delete)
+### ODM
+- [Mongoose](#Mongoose)
+## Mongo Shell
+[Back to summary](#MongoDB)  
+Commands list
+```shell
+help
+```
+Show Databases, collections, users...
+```shell
+show dbs
+show collections
+show users
+```
+Switch to a specific database (create it if doesn't exist)
+```shell
+use db_name
+```
+To show in which DB you currently are
+```shell
+db
+```
+
 ## Create
 [Back to summary](#MongoDB)  
  - db.collection.insertOne() inserts a single document into a collection. If the document does not specify an _id field, MongoDB adds the _id field with an ObjectId value to the new document.  
 ```javascript
-db.movies.insertOne(
-  {
+db.movies.insertOne( // If the movies collection (SQL table equivalent)
+  {		     // doesn't exist, it will be created
     title: "The Favourite",
     genres: [ "Drama", "History" ],
     runtime: 121,
@@ -1745,4 +1770,7 @@ db.movies.deleteMany( { title: "Titanic" } )
 ```javascript
 db.movies.deleteOne( { cast: "Brad Pitt" } )
 ```
+## Mongoose
+[Back to summary](#MongoDB) 
+
 --- Work In Progress ---
