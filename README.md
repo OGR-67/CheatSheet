@@ -1486,12 +1486,12 @@ Init node to create package.json
 ```shell
 node init
 ```
-Install packages inside your project
-```bash
+Install external node module for your project
+```shell
 npm install package_name
 ```
-Install packages to your system
-```bash
+Install external node module to your system
+```shell
 npm install -g package_name
 ```
 
@@ -1499,16 +1499,21 @@ npm install -g package_name
 [Back to summary](#Javascript) 
 Install express
 ```shell
-npm install express --save
+npm install express
 ```
-Install body-parser
+Install BODY-PARSER for forms management
 ```shell
 npm i body-parser
 ```
-Install ejs
+Install EJS for templating
 ```shell
 npm install ejs
 ```
+Install NODEMON to autorefresh server at any modification
+```shell
+npm install -g nodemon
+```
+
 Web app boiler plate
 ```javascript
 const express = require("express");
@@ -1525,15 +1530,58 @@ app.use(express.static("public")); // Serves statics files in root/public folder
 // #### Routes ####
 // Home
 app.get("/", (req, res) => {
+  someInfoVar = "Some info"
+  context = {
+    someInfo: someInfoVar // In template, access this value with someInfo key
+  }
   res.render(__dirname + "/views/home.ejs", context);
 });
 
 
 // #### Port Listening ####
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+const PORT = process.env.PORT || 3000
+app.listen(PORT, function () {
+  console.log(`Server started on port ${PORT}`);
 });
 
+```
+Work with API in node using axios
+```javascript
+// Install axios package first
+var axios = require("axios").default;
+
+var options = {
+  method: 'GET',
+  url: 'https://url-of-the-api.com',
+  params: {param1: 'value', param2: 'value'},
+  headers: {
+    // Read API's doc to found appropriate headers
+    'host': 'host-url.com',
+    'key': 'SIGN-UP-FOR-KEY'
+  }
+};
+
+axios.request(options).then((response) => {
+	console.log(response.data);
+}).catch((error) => {
+	console.error(error);
+});
+```
+Serve Static files 
+```javascript
+app.use(express.static('public'));
+
+/* You can mow access files that are in public folder
+Examples:
+  http://localhost:3000/css/style.css
+  http://localhost:3000/js/app.js
+  http://localhost:3000/images/bg.png
+*/
+```
+Deploy App to heroku
+```
+Follow well made tutorial from heroku's devcenter documentation
+https://devcenter.heroku.com/articles/deploying-nodejs
 ```
 ## EJS
 [Back to summary](#Javascript) 
