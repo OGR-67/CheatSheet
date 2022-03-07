@@ -1623,7 +1623,7 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 
 # MongoDB
 [Back to summary](#My-Programming-Cheatsheets)  
-- [Mongo Shell](#Mongo Shell)
+- [Mongo Shell](#Mongo-Shell)
 ### CRUD operations
 - [Create](#Create)
 - [Read](#Read)
