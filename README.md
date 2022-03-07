@@ -1419,6 +1419,12 @@ const animals = {
 
 Object.entries(animals)
 //[[ 'tiger', 1 ], [ 'cat', 2 ], [ 'monkey', 3 ], [ 'elephant', 4 ]]
+
+// Also works with arrays
+const array1 = ['one', 'two', 'three'];
+
+Object.entries(array1)
+// [["0", "one"], ["1", "two"], ["2", "three"]]
 ```
 ## Loops
 [Back to summary](#Javascript) 
