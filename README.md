@@ -1674,8 +1674,8 @@ db.movies.insertMany([
 [Back to summary](#MongoDB)  
 - Use the db.collection.find() method in the MongoDB Shell to query documents in a collection. To read all documents in the collection, pass an empty document as the query filter parameter to the find method.
 ```javascript
-db.movies.find()
-
+db.movies.find() // all
+db.accounts.findOne( { account_id: 893421 } ) // One 
 ```
 - To select documents which match an equality condition, specify the condition as a <field>:<value> pair in the query filter document.
 ```javascript
@@ -1687,7 +1687,7 @@ db.movies.find({
 ```javascript
 db.movies.find({
   rated: {
-    $in: [ "PG", "PG-13" ]
+    $in: ["PG", "PG-13"]
     }
   })	
 ```
@@ -1695,13 +1695,54 @@ db.movies.find({
 ```javascript
 db.movies.find({
   countries: "Mexico",
-  "imdb.rating": 
-    {$gte: 7
+  imdb.rating: {
+    $gte: 7
     }
   })	
 ```
 	
 ## Update
+[Back to summary](#MongoDB) 
+To update a document, MongoDB provides [update operators](#https://docs.mongodb.com/manual/reference/operator/update/), such as $set, to modify field values.
+- Use the db.collection.updateOne() method to update the first document that matches a specified filter.
+```javascript
+db.movies.updateOne( { title: "Tag" },
+{
+  $set: {
+    plot: "One month every year, five highly competitive friends
+           hit the ground running for a no-holds-barred game of tag"
+  }
+  { $currentDate: { lastUpdated: true } }
+})
+```
+- Use the db.collection.updateMany() to update all documents that match a specified filter.
+```javascript
+db.listingsAndReviews.updateMany(
+  { security_deposit: { $lt: 100 } },
+  {
+    $set: { security_deposit: 100, minimum_nights: 1 }
+  }
+)
+```
+-To replace the entire content of a document except for the _id field, pass an entirely new document as the second argument to db.collection.replaceOne(). When replacing a document, the replacement document must contain only field/value pairs. Do not include update operators expressions. The replacement document can have different fields from the original document. In the replacement document, you can omit the _id field since the _id field is immutable; however, if you do include the _id field, it must have the same value as the current value.
+```javascript
+db.accounts.replaceOne(
+  { account_id: 371138 },
+  { account_id: 893421, limit: 5000, products: [ "Investment", "Brokerage" ] }
+)
+```
+## Delete
 [Back to summary](#MongoDB)  
-
+- To delete all documents from a collection, pass an empty filter document {} to the db.collection.deleteMany() method.
+```javascript
+db.movies.deleteMany({})
+```
+- You can specify criteria, or filters, that identify the documents to delete. The filters use the same syntax as read operations.
+```javascript
+db.movies.deleteMany( { title: "Titanic" } )
+```
+- To delete at most a single document that matches a specified filter (even though multiple documents may match the specified filter) use the db.collection.deleteOne() method.
+```javascript
+db.movies.deleteOne( { cast: "Brad Pitt" } )
+```
 --- Work In Progress ---
