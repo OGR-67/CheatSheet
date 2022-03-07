@@ -1168,6 +1168,20 @@ function myFunction(num) {
 // Convert array of strings to an array of numbers
 ["1", "2", "3"].map((str) => parseInt(str)));
 ```
+### entries()
+The entries() method returns an object of type Array Iterator which contains the couple Key/value for each elements of the array
+```javascript
+const array1 = ['a', 'b', 'c'];
+
+const iterator1 = array1.entries();
+
+console.log(iterator1.next().value);
+// expected output: Array [0, "a"]
+
+console.log(iterator1.next().value);
+// expected output: Array [1, "b"]
+```
+
 ### Utility Functions
 #### some
 Parameters:  
