@@ -1653,6 +1653,10 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 - [Mongoose](#Mongoose)
 ## Mongo Shell
 [Back to summary](#MongoDB)  
+open mongo shell
+```shell
+mongo
+```
 Commands list
 ```shell
 help
