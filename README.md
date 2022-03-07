@@ -1683,7 +1683,7 @@ db.movies.find({
   "title": "Titanic" 
   })
 ```
-- Use [query operators](#https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) in a query filter document to perform more complex comparisons and evaluations. Query operators in a query filter document have the following form: { field1: { operator1: value1 }, ... }
+- Use [query operators](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) in a query filter document to perform more complex comparisons and evaluations. Query operators in a query filter document have the following form: { field1: { operator1: value1 }, ... }
 ```javascript
 db.movies.find({
   rated: {
@@ -1703,7 +1703,7 @@ db.movies.find({
 	
 ## Update
 [Back to summary](#MongoDB)  
-To update a document, MongoDB provides [update operators](#https://docs.mongodb.com/manual/reference/operator/update/), such as $set, to modify field values.
+To update a document, MongoDB provides [update operators](https://docs.mongodb.com/manual/reference/operator/update/), such as $set, to modify field values.
 - Use the db.collection.updateOne() method to update the first document that matches a specified filter.
 ```javascript
 db.movies.updateOne( { title: "Tag" },
