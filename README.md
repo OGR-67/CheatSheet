@@ -5,6 +5,7 @@
 - [RegEx](#RegEx)
 - [Python](#Python)
 - [Javascript](#Javascript)
+- [MongoDB](#MongoDB)
 
 # Shell
 [Back to summary](#My-Programming-Cheatsheets)  
@@ -1619,5 +1620,88 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
   <% }); %>
 </ul>
 ```
+
+# MongoDB
+[Back to summary](#My-Programming-Cheatsheets)  
+- [Create](#Create)
+- [Read](#Read)
+- [Update](#Update)
+- [Delete](#Delete)
+## Create
+[Back to summary](#MongoDB)  
+ - db.collection.insertOne() inserts a single document into a collection. If the document does not specify an _id field, MongoDB adds the _id field with an ObjectId value to the new document.  
+```javascript
+db.movies.insertOne(
+  {
+    title: "The Favourite",
+    genres: [ "Drama", "History" ],
+    runtime: 121,
+    rated: "R",
+    year: 2018,
+    directors: [ "Yorgos Lanthimos" ],
+    cast: [ "Olivia Colman", "Emma Stone", "Rachel Weisz" ],
+    type: "movie"
+  }
+)
+```
+- db.collection.insertMany() can insert multiple documents into a collection. Pass an array of documents to the method. If the documents do not specify an _id field, MongoDB adds the _id field with an ObjectId value to each document
+```javascript
+db.movies.insertMany([
+   {
+      title: "Jurassic World: Fallen Kingdom",
+      genres: [ "Action", "Sci-Fi" ],
+      runtime: 130,
+      rated: "PG-13",
+      year: 2018,
+      directors: [ "J. A. Bayona" ],
+      cast: [ "Chris Pratt", "Bryce Dallas Howard", "Rafe Spall" ],
+      type: "movie"
+    },
+    {
+      title: "Tag",
+      genres: [ "Comedy", "Action" ],
+      runtime: 105,
+      rated: "R",
+      year: 2018,
+      directors: [ "Jeff Tomsic" ],
+      cast: [ "Annabelle Wallis", "Jeremy Renner", "Jon Hamm" ],
+      type: "movie"
+    }
+])
+```
+
+## Read
+[Back to summary](#MongoDB)  
+- Use the db.collection.find() method in the MongoDB Shell to query documents in a collection. To read all documents in the collection, pass an empty document as the query filter parameter to the find method.
+```javascript
+db.movies.find()
+
+```
+- To select documents which match an equality condition, specify the condition as a <field>:<value> pair in the query filter document.
+```javascript
+db.movies.find({
+  "title": "Titanic" 
+  })
+```
+- Use [query operators](#https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) in a query filter document to perform more complex comparisons and evaluations. Query operators in a query filter document have the following form: { <field1>: { <operator1>: <value1> }, ... }
+```javascript
+db.movies.find({
+  rated: {
+    $in: [ "PG", "PG-13" ]
+    }
+  })	
+```
+- A compound query can specify conditions for more than one field in the collection's documents. Implicitly, a logical AND conjunction connects the clauses of a compound query so that the query selects the documents in the collection that match all the conditions.
+```javascript
+db.movies.find({
+  countries: "Mexico",
+  "imdb.rating": 
+    {$gte: 7
+    }
+  })	
+```
+	
+## Update
+[Back to summary](#MongoDB)  
 
 --- Work In Progress ---
