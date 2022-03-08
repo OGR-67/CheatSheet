@@ -1505,7 +1505,8 @@ do {
 [Back to summary](#Javascript) 
 Init node to create package.json
 ```shell
-node init
+npm init 
+npm init -y
 ```
 Install external node module for your project
 ```shell
