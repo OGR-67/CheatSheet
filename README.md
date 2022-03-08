@@ -1817,6 +1817,8 @@ db.movies.deleteOne( { cast: "Brad Pitt" } )
 - [Terminologies](#Terminologies)
 - [Fetch Record](#Fetch-Record)
 - [Update Record](#Update-Record)
+- [Update Record](#Update-Record)
+- [Helpers](#Helpers)
 
 ### Terminologies
 [Back to summary](#Mongoose)  
@@ -1917,7 +1919,7 @@ myInstance.save()
 ### Fetch Record
 [Back to summary](#Mongoose)  
 
-Use find method to fetch record
+Use find() method to fetch record
 ```javascript
 MyModel
   .find({
@@ -1934,4 +1936,223 @@ MyModel
 ### Update Record
 [Back to summary](#Mongoose)  
 
+Use findOneAndUpdate() method to update a single record.  
+For performance reasons, Mongoose won’t return the updated document so we need to pass an additional parameter to ask for it
+```javascript
+MyModel
+  .findOneAndUpdate(
+    {
+      field: 'value'  // search query
+    }, 
+    {
+      field: 'new value'   // field:values to update
+    },
+    {
+      new: true,                       // return updated doc
+      runValidators: true              // validate before update
+    })
+  .then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.error(err)
+  })
+```
+
+### Update Record
+[Back to summary](#Mongoose)  
+
+Use the findOneAndRemove call to delete a record. It returns the original document that was removed
+```javascript
+MyModel
+  .findOneAndRemove({
+    field: 'value'
+  })
+  .then(response => {
+    console.log(response)
+  })
+  .catch(err => {
+    console.error(err)
+  })
+```
+
+### Helpers
+[Back to summary](#Mongoose)  
+
+- Virtual Property
+A virtual property is not persisted to the database. We can add it to our schema as a helper to get and set values.
+```javascript
+let mongoose = require('mongoose')
+
+let userSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String
+})
+
+module.exports = mongoose.model('User', userSchema)
+
+/*
+Let’s create a virtual property called fullName which can be used to set values on 
+firstName and lastName and retrieve them as a combined value when read:
+*/
+userSchema.virtual('fullName').get(function() {
+  return this.firstName + ' ' + this.lastName // Now we can get full name from firstname and lastname
+})
+
+userSchema.virtual('fullName').set(function(name) {
+  let str = name.split(' ')
+  
+  // Now we can set fistName and lastName from fullname:
+  // model.fullName = 'Thomas Anderson'
+  this.firstName = str[0]
+  this.lastName = str[1]
+})
+```
+- Instance Methods
+We can create custom helper methods on the schema and access them via the model instance
+```javascript
+userSchema.methods.getInitials = function() {
+  // Returns the initials for the current user
+  return this.firstName[0] + this.lastName[0]
+}
+
+// This method will be accessible via a model instance
+let model = new UserModel({
+  firstName: 'Thomas',
+  lastName: 'Anderson'
+})
+
+let initials = model.getInitials()
+
+console.log(initials) // This will output: TA
+```
+
+- Static Methods
+Similar to instance methods, we can create static methods on the schema. Let’s create a method to retrieve all users in the database
+```javascript
+userSchema.statics.getUsers = function() {
+  return new Promise((resolve, reject) => {
+    this.find((err, docs) => {
+      if(err) {
+        console.error(err)
+        return reject(err)
+      }
+      
+      resolve(docs)
+    })
+  })
+}
+
+// Calling getUsers on the Model class will return all the users in the database
+UserModel.getUsers()
+  .then(docs => {
+    console.log(docs)
+  })
+  .catch(err => {
+    console.error(err)
+  })
+```
+
+- Middleware
+Middleware are functions that run at specific stages of a pipeline. Mongoose supports middleware for the following operations
+	- Aggregate
+	- Document
+	- Model
+	- Query
+For instance, models have pre and post functions that take two parameters
+	- Type of event (‘init’, ‘validate’, ‘save’, ‘remove’)
+	- A callback that is executed with "this" referencing the model instance
+Let’s add two fields called createdAt and updatedAt to our userSchema
+```javascript
+let mongoose = require('mongoose')
+
+let userSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  createdAt: Date,
+  updatedAt: Date
+})
+
+module.exports = mongoose.model('User', userSchema)
+```
+When model.save() is called, there is a pre(‘save’, …) and post(‘save’, …) event that is triggered.  
+For the second parameter, you can pass a function that is called when the event is triggered.  
+These functions take a parameter to the next function in the middleware chain.
+Let’s add a pre-save hook and set values for createdAt and updatedAt
+```javascript
+userSchema.pre('save', function (next) {
+  let now = Date.now()
+   
+  this.updatedAt = now
+  // Set a value for createdAt only if it is null
+  if (!this.createdAt) {
+    this.createdAt = now
+  }
+  
+  // Call the next function in the pre-save chain
+  next()    
+})
+```
+Let’s create and save our model
+```javascript
+let UserModel = require('./user')
+
+let model = new UserModel({
+  fullName: 'Thomas Anderson'
+}
+
+msg.save()
+   .then(doc => {
+     console.log(doc)
+   })
+   .catch(err => {
+     console.error(err)
+   })
+/*
+{ _id: 5a7bbbeebc3b49cb919da675,
+  firstName: 'Thomas',
+  lastName: 'Anderson',
+  updatedAt: 2018-02-08T02:54:38.888Z,
+  createdAt: 2018-02-08T02:54:38.888Z,
+  __v: 0 }
+*/
+```
+- Plugins
+Suppose that we want to track when a record was created and last updated on every collection in our database.  
+Instead of repeating the above process, we can create a plugin and apply it to every schema.  
+Let’s create a plugin
+```javascript
+module.exports = function timestamp(schema) {
+
+  // Add the two fields to the schema
+  schema.add({ 
+    createdAt: Date,
+    updatedAt: Date
+  })
+```
+To use this plugin, we simply pass it to the schemas that should be given this functionality
+```javascript
+let timestampPlugin = require('./plugins/timestamp')
+
+emailSchema.plugin(timestampPlugin)
+userSchema.plugin(timestampPlugin)
+```
+
+- Query Building
+There are lots of [Queries](https://mongoosejs.com/docs/api/query.html) we can use in mongoose.  
+Here is an example
+```javascript
+UserModel.find()                   // find all users
+         .skip(100)                // skip the first 100 items
+         .limit(10)                // limit to 10 items
+         .sort({firstName: 1}      // sort ascending by firstName
+         .select({firstName: true} // select firstName only
+         .exec()                   // execute the query
+         .then(docs => {
+            console.log(docs)
+          })
+         .catch(err => {
+            console.error(err)
+          })
+```
 --- Work In Progress ---
