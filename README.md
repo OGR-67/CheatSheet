@@ -1643,6 +1643,7 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 
 # MongoDB
 [Back to summary](#My-Programming-Cheatsheets)  
+
 - [Mongo Shell](#Mongo-Shell)
 ### CRUD operations
 - [Create](#Create)
@@ -1651,6 +1652,7 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 - [Delete](#Delete)
 ### ODM
 - [Mongoose](#Mongoose)
+
 ## Mongo Shell
 [Back to summary](#MongoDB)  
 open mongo shell
@@ -1678,6 +1680,7 @@ db
 
 ## Create
 [Back to summary](#MongoDB)  
+
  - db.collection.insertOne() inserts a single document into a collection. If the document does not specify an _id field, MongoDB adds the _id field with an ObjectId value to the new document.  
 ```javascript
 db.movies.insertOne( // If the movies collection (SQL table equivalent)
@@ -1693,6 +1696,7 @@ db.movies.insertOne( // If the movies collection (SQL table equivalent)
   }
 )
 ```
+
 - db.collection.insertMany() can insert multiple documents into a collection. Pass an array of documents to the method. If the documents do not specify an _id field, MongoDB adds the _id field with an ObjectId value to each document
 ```javascript
 db.movies.insertMany([
@@ -1721,17 +1725,20 @@ db.movies.insertMany([
 
 ## Read
 [Back to summary](#MongoDB)  
+
 - Use the db.collection.find() method in the MongoDB Shell to query documents in a collection. To read all documents in the collection, pass an empty document as the query filter parameter to the find method.
 ```javascript
 db.movies.find() // all
 db.accounts.findOne( { account_id: 893421 } ) // One 
 ```
+
 - To select documents which match an equality condition, specify the condition as a "field: value" pair in the query filter document.
 ```javascript
 db.movies.find({
   "title": "Titanic" 
   })
 ```
+
 - Use [query operators](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) in a query filter document to perform more complex comparisons and evaluations. Query operators in a query filter document have the following form: { field1: { operator1: value1 }, ... }
 ```javascript
 db.movies.find({
@@ -1740,6 +1747,7 @@ db.movies.find({
     }
   })	
 ```
+
 - A compound query can specify conditions for more than one field in the collection's documents. Implicitly, a logical AND conjunction connects the clauses of a compound query so that the query selects the documents in the collection that match all the conditions.
 ```javascript
 db.movies.find({
@@ -1752,6 +1760,7 @@ db.movies.find({
 	
 ## Update
 [Back to summary](#MongoDB)  
+
 To update a document, MongoDB provides [update operators](https://docs.mongodb.com/manual/reference/operator/update/), such as $set, to modify field values.
 - Use the db.collection.updateOne() method to update the first document that matches a specified filter.
 ```javascript
@@ -1764,6 +1773,7 @@ db.movies.updateOne( { title: "Tag" },
   { $currentDate: { lastUpdated: true } }
 })
 ```
+
 - Use the db.collection.updateMany() to update all documents that match a specified filter.
 ```javascript
 db.listingsAndReviews.updateMany(
@@ -1773,6 +1783,7 @@ db.listingsAndReviews.updateMany(
   }
 )
 ```
+
 -To replace the entire content of a document except for the _id field, pass an entirely new document as the second argument to db.collection.replaceOne(). When replacing a document, the replacement document must contain only field/value pairs. Do not include update operators expressions. The replacement document can have different fields from the original document. In the replacement document, you can omit the _id field since the _id field is immutable; however, if you do include the _id field, it must have the same value as the current value.
 ```javascript
 db.accounts.replaceOne(
@@ -1780,21 +1791,147 @@ db.accounts.replaceOne(
   { account_id: 893421, limit: 5000, products: [ "Investment", "Brokerage" ] }
 )
 ```
+
 ## Delete
 [Back to summary](#MongoDB)  
+
 - To delete all documents from a collection, pass an empty filter document {} to the db.collection.deleteMany() method.
 ```javascript
 db.movies.deleteMany({})
 ```
+
 - You can specify criteria, or filters, that identify the documents to delete. The filters use the same syntax as read operations.
 ```javascript
 db.movies.deleteMany( { title: "Titanic" } )
 ```
+
 - To delete at most a single document that matches a specified filter (even though multiple documents may match the specified filter) use the db.collection.deleteOne() method.
 ```javascript
 db.movies.deleteOne( { cast: "Brad Pitt" } )
 ```
+
 ## Mongoose
-[Back to summary](#MongoDB) 
+[Back to summary](#MongoDB)  
+
+- [Schemas](#Schemas)
+- [Terminologies](#Terminologies)
+- [Fetch Record](#Fetch-Record)
+- [Update Record](#Update-Record)
+
+### Terminologies
+[Back to summary](#Mongoose)  
+
+#### Collections
+‘Collections’ in Mongo are equivalent to tables in relational databases. They can hold multiple JSON documents.
+
+#### Documents
+‘Documents’ are equivalent to records or rows of data in SQL. While a SQL row can reference data in other tables, Mongo documents usually combine that in a document.
+
+#### Fields
+‘Fields’ or attributes are similar to columns in a SQL table.
+
+#### Schema
+While Mongo is schema-less, SQL defines a schema via the table definition. A Mongoose ‘schema’ is a document data structure (or shape of the document) that is enforced via the application layer.
+
+#### Models
+‘Models’ are higher-order constructors that take a schema and create an instance of a document equivalent to records in a relational database.
+
+### Schemas
+[Back to summary](#Mongoose)  
+
+Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.  
+Each key in our code blogSchema defines a property in our documents which will be cast to its associated [SchemaType](#https://mongoosejs.com/docs/schematypes.html).
+```javascript
+import mongoose from 'mongoose';
+  const { Schema } = mongoose;
+  
+  mongoose.connect("mongodb://localhost:27017/booksDB"); // Connect to booksDB and use it. 
+  							 // Create it if inexistant 
+
+  const blogSchema = new Schema({
+    title:  String, // String is shorthand for {type: String}
+    author: String,
+    body:   String,
+    comments: [{ body: String, date: Date }],
+    date: { type: Date, default: Date.now },
+    hidden: Boolean,
+    meta: {
+      votes: Number,
+      favs:  Number
+    }
+  });
+  
+  // It's good practice to close connection to db when uneeded
+  mongoose.connection.close().then(() => {
+    console.log("\nDisconnect...");
+  });
+```
+
+To use our schema definition, we need to convert our blogSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema)
+```javascript
+const Blog = mongoose.model('Blog', blogSchema);
+// ready to go!
+```
+
+By default, Mongoose adds an _id property to your schemas.
+```javascript
+const schema = new Schema();
+
+schema.path('_id'); // ObjectId { ... }
+```
+
+### Models
+[Back to summary](#Mongoose)  
+
+Mongoose Schema vs. Model:
+- A Mongoose model is a wrapper on the Mongoose schema. A Mongoose schema defines the structure of the document, default values, validators, etc., whereas a Mongoose model provides an interface to the database for creating, querying, updating, deleting records, etc.
+
+```javascript
+// Defining Model
+MyModel = mongoose.model('ModelsName', modelSchema)
+
+// Create Instance
+let myInstance = new MyModel({
+	field: "value"
+)}
+
+myInstance.save()
+   .then(doc => {
+     console.log(doc)
+   })
+   .catch(err => {
+     console.error(err)
+   })
+
+/*
+{ 
+  _id: 5a78fe3e2f44ba8f85a2409a, -> The _id field is auto-generated by Mongo and is a primary key of the collection. 
+  				    Its value is a unique identifier for the document.
+  field: "value", -> The value of the field is returned
+  __v: 0 -> __v is the versionKey property set on each document when first created by Mongoose. 
+  	    Its value contains the internal revision of the document.
+}
+*/
+```
+
+### Fetch Record
+[Back to summary](#Mongoose)  
+
+Use find method to fetch record
+```javascript
+MyModel
+  .find({
+    field: 'value'   // search query
+  })
+  .then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.error(err)
+  })
+```
+
+### Update Record
+[Back to summary](#Mongoose)  
 
 --- Work In Progress ---
