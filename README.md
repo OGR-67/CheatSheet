@@ -1979,7 +1979,7 @@ MyModel
 ### Helpers
 [Back to summary](#Mongoose)  
 
-- Virtual Property
+- Virtual Property  
 A virtual property is not persisted to the database. We can add it to our schema as a helper to get and set values.
 ```javascript
 let mongoose = require('mongoose')
@@ -2008,7 +2008,7 @@ userSchema.virtual('fullName').set(function(name) {
   this.lastName = str[1]
 })
 ```
-- Instance Methods
+- Instance Methods  
 We can create custom helper methods on the schema and access them via the model instance
 ```javascript
 userSchema.methods.getInitials = function() {
@@ -2027,7 +2027,7 @@ let initials = model.getInitials()
 console.log(initials) // This will output: TA
 ```
 
-- Static Methods
+- Static Methods  
 Similar to instance methods, we can create static methods on the schema. Let’s create a method to retrieve all users in the database
 ```javascript
 userSchema.statics.getUsers = function() {
@@ -2053,7 +2053,7 @@ UserModel.getUsers()
   })
 ```
 
-- Middleware
+- Middleware  
 Middleware are functions that run at specific stages of a pipeline. Mongoose supports middleware for the following operations
 	- Aggregate
 	- Document
@@ -2117,7 +2117,7 @@ msg.save()
   __v: 0 }
 */
 ```
-- Plugins
+- Plugins  
 Suppose that we want to track when a record was created and last updated on every collection in our database.  
 Instead of repeating the above process, we can create a plugin and apply it to every schema.  
 Let’s create a plugin
@@ -2138,7 +2138,7 @@ emailSchema.plugin(timestampPlugin)
 userSchema.plugin(timestampPlugin)
 ```
 
-- Query Building
+- Query Building  
 There are lots of [Queries](https://mongoosejs.com/docs/api/query.html) we can use in mongoose.  
 Here is an example
 ```javascript
