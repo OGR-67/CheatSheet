@@ -1558,8 +1558,23 @@ describe("An other test group name", function() { 		 // We "describe" an other t
 ```
 In your test code you can use for exemple
 ```javascript
+// Check equality
 assert.strictEqual(content, expectedFileContents)
+
+// Check inequality
 assert.notStrictEqual(content, expectedFileContents)
+
+// Throw error
+assert.throws(fn, error, message)
+/*
+fn <Function> 
+error <RegExp> | <Function> | <Object> | <Error>
+message <string>
+
+Expects the function fn to throw an error.
+error and message are optional
+*/
+
 ```
 To run the test
 ```shell
@@ -1581,6 +1596,42 @@ An other test group name
     ✓ should do a specific thing
 
   3 passing (36ms)
+```
+For async code, better use async / await with mocha, less code and more readable
+```javascript
+...
+describe("saveToFile()", function() {
+    it("should save a single TODO", async function() {
+        let todos = new Todos();
+        todos.add("save a CSV");
+        await todos.saveToFile();
+
+        assert.strictEqual(fs.existsSync('todos.csv'), true);
+        let expectedFileContents = "Title,Completed\nsave a CSV,false\n";
+        let content = fs.readFileSync("todos.csv").toString();
+        assert.strictEqual(content, expectedFileContents);
+    });
+});
+```
+Hooks also exists  
+- before	This hook is executed BEFORE the FIRST test
+- beforeEach	This hook is executed BEFORE EACH case tests
+- after		This hook is executed AFTER the last case test
+- afterEach	This hook isexecuted AFTER EACH tests
+```javascript
+describe("saveToFile()", function () {
+    beforeEach(function () {
+    	// We create a todo and add a value to it before each case tests
+        this.todos = new Todos();
+        this.todos.add("save a CSV");
+    });
+
+    afterEach(function () {
+    	// After each case tests, if a todos.csv file exists, we delete it
+        if (fs.existsSync("todos.csv")) {
+            fs.unlinkSync("todos.csv");
+        }
+    });
 ```
 Awesome, our tests are automated and organized, easy to run, easy to maintain
 
