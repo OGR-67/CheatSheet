@@ -1108,6 +1108,7 @@ if os.environ.get('DEBUG') == "TRUE":
 - [Working With Objects](#Working-With-Objects)
 - [Loops](#Loops)
 - [Node JS](#nodeJS)
+- [Tests](#Tests)
 - [ExpressJS](#expressJS)
 - [EJS](#EJS)
 
@@ -1502,11 +1503,11 @@ do {
 ```
 
 ## nodeJS
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 Init node to create package.json
 ```shell
 npm init 
-npm init -y
+npm init -y (validate every default fields)
 ```
 Install external node module for your project
 ```shell
@@ -1516,6 +1517,72 @@ Install external node module to your system
 ```shell
 npm install -g package_name
 ```
+
+## Tests
+[Back to summary](#Javascript)  
+We can test node apps using Assert and Mocha  
+First require assert in your test file, for exemple, index.test.js
+```javascript
+const assert = require('assert').strict;
+// strict property alows us to use specials equalities tests recommended by node  
+```
+Next change "test" value like this in package.json
+```json
+...
+"scripts": {
+    "test": "mocha index.test.js"
+},
+...
+```
+We can mow write a test in our test file
+```javascript
+describe("Test group name", function() { 		 // We "describe" a test group
+    it("should give a given result", function() {	 // Be descriptive in your tests name
+    	// some code
+    });
+    
+    it("should do a specific thing", function() {	 // Be descriptive in your tests name
+        // some code
+    });
+});
+
+describe("An other test group name", function() { 		 // We "describe" an other test group
+    it("should give a given result", function() {	 // Be descriptive in your tests name
+        // some code
+    });
+    
+    it("should do a specific thing", function() {	 // Be descriptive in your tests name
+        // some code
+    });
+});
+```
+In your test code you can use for exemple
+```javascript
+assert.strictEqual(content, expectedFileContents)
+assert.notStrictEqual(content, expectedFileContents)
+```
+To run the test
+```shell
+npm test
+```
+Output if test pass
+```shell
+> todos@1.0.0 test your_file_path/your_app
+> mocha index.test.js
+
+
+
+Test group name
+    ✓ should give a given result
+    ✓ should do a specific thing
+    
+An other test group name
+    ✓ should give a given result
+    ✓ should do a specific thing
+
+  3 passing (36ms)
+```
+Awesome, our tests are automated and organized, easy to run, easy to maintain
 
 ## expressJS
 [Back to summary](#Javascript) 
