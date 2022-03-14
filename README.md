@@ -1932,12 +1932,15 @@ db.movies.deleteOne( { cast: "Brad Pitt" } )
 ## Mongoose
 [Back to summary](#MongoDB)  
 
-- [Schemas](#Schemas)
 - [Terminologies](#Terminologies)
+- [Schemas](#Schemas)
+- [Models](#Models)
+- [Data Validation](#Data-Validation)
 - [Fetch Record](#Fetch-Record)
 - [Update Record](#Update-Record)
-- [Update Record](#Update-Record)
+- [Delete Record](#Delete-Record)
 - [Helpers](#Helpers)
+
 
 ### Terminologies
 [Back to summary](#Mongoose)  
@@ -2035,6 +2038,30 @@ myInstance.save()
 */
 ```
 
+### Data Validation
+[Back to summary](#Mongoose)  
+
+When creating your schemas, you can specify [validation rules](https://mongoosejs.com/docs/validation.html).  
+Each field type can have the required validator.  
+If validation doesn't pass, it will raise a ValidationError and give you details of that failure.
+```javascript
+const mongoose = require("mongoose");
+
+const exempleSchema = new mongoose.Schema ({
+  firstField: String,
+  FieldWithValidation: {
+    // Mongoose will check if the value is a number between 1 and 10
+    type: Number,
+    min: 1,
+    max: 10,
+    // We define here that FieldWithValidation field is required
+    // If we don't provide this field, it will raise an error when we attempt to save the document
+    required: true
+  }
+});
+```
+
+
 ### Fetch Record
 [Back to summary](#Mongoose)  
 
@@ -2078,7 +2105,7 @@ MyModel
   })
 ```
 
-### Update Record
+### Delete Record
 [Back to summary](#Mongoose)  
 
 Use the findOneAndRemove call to delete a record. It returns the original document that was removed
@@ -2274,4 +2301,7 @@ UserModel.find()                   // find all users
             console.error(err)
           })
 ```
+
+
+
 --- Work In Progress ---
