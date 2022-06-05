@@ -1110,13 +1110,13 @@ if os.environ.get('DEBUG') == "TRUE":
 - [Keyboard](#Keyboard)
 - [Mouse](#Mouse)
 - [Timer](#Timer)
-- [Sprite](#Sprite)
+- [Sprites](#Sprites)
 - [Group](#Group)
 
 
 ## Pygame Project Skeleton
-Here is a good starting point of any pygame project
-[back to summary](#Pygame)
+Here is a good starting point of any pygame project  
+[back to summary](#Pygame)  
 ```python
 import pygame
 import sys
@@ -1145,11 +1145,11 @@ while True:
 ```
 
 ## Surfaces
-[back to summary](#Pygame)
+[back to summary](#Pygame)  
 Everything you want to display in pygame, you have to put it on a surface. Althougth, display is also a surface.  
 Image in a surface can be plain color, rendered text or an imported image file.  
 Every regular surfaces needs to be put on the display surface to be visible.  
-Surfaces a defined by a size (a tuple width and height)
+Surfaces a defined by a size (a tuple width and height)  
 ```python
 
 color = "red" # Color can be a color name string, Hex color string or a RGB tupple
@@ -1185,7 +1185,7 @@ while True:
 ## Rect
 [back to summary](#Pygame)  
 The 2 core functions of rectangles are precise positionning of surfaces and basic collisions.  
-You can get the rectangle of a surface using the get_rect() method
+You can get the rectangle of a surface using the get_rect() method  
 ```python
 test_rect = test_surf.get_rect(midtop=(50, 120))
 ```
@@ -1212,8 +1212,8 @@ pygame.draw.rect(screen_surf, color, rect)
 
 ## Collisions
 [back to summary](#Pygame)  
-You can check if a rectangle collides with another with colliderect() method
-Returns 0 or 1
+You can check if a rectangle collides with another with colliderect() method  
+Returns 0 or 1  
 ```python
 rect1.colliderect(rect2)
 ```
@@ -1222,7 +1222,12 @@ Returns 0 or 1
 ```python
 rect.collidepoint((x,y))
 ```
-
+It is way most convenient to check for sprite collision.  
+Using spritecollide() method
+```Python
+pygame.sprite.spritecollide(sprite, group, bool) # Bool to True kills the group's sprite when there is collision
+# returns a list of collided sprites
+```
 
 ## Keyboard
 [back to summary](#Pygame)  
@@ -1238,9 +1243,9 @@ for event in pygame.event.get()
     if event.type == pygame.KEYDOWN:
         key = event.key
 ```
-When you I choose which one?
-- Choose pygame.key inside classes
-- For more general stuff, like closing the window, event loop is a better place
+When you I choose which one?  
+- Choose pygame.key inside classes  
+- For more general stuff, like closing the window, event loop is a better place  
 
 ## Mouse
 [back to summary](#Pygame)  
@@ -1261,7 +1266,7 @@ pygame.mouse:
 pygame.mouse.get_pressed()
 # returns booleans of (bt1, bt2, bt3)
 ```
-event loop:
+event loop:  
 ```python
 for event in pygame.event.get()
     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -1272,12 +1277,12 @@ for event in pygame.event.get()
 
 ## Timer
 [back to summary](#Pygame)  
-Timers are useful for logic and animation. 
-They are created by following 3 steps:
-- create a customm userevent
-- trigger that event at a given interval
-- add code in event loop to be execute when the timer ticks
-You should increment timer reference value each time you create one to ot intefere with in-built userevent
+Timers are useful for logic and animation.  
+They are created by following 3 steps:  
+- create a customm userevent  
+- trigger that event at a given interval  
+- add code in event loop to be execute when the timer ticks  
+You should increment timer reference value each time you create one to ot intefere with in-built userevent  
 ```python
 timer1 = pygame.USEREVENT + 1
 timer2 = pygame.USEREVENT + 2
@@ -1294,10 +1299,10 @@ for event in pygame.event.get()
 [back to summary](#Pygame)  
 Sprite class is a class that contains a surface and a rectangle with dedicated methods.  
 Just inherit from sprite class to get access to all those features.  
-But to draw sprites, there is a different methodology:
-- first create sprite
-- place sprites in Group or GroupSingle
-- draw/update all sprites in that group
+But to draw sprites, there is a different methodology:  
+- first create sprite  
+- place sprites in Group or GroupSingle  
+- draw/update all sprites in that group  
 ```python
 class Player(pygame.sprite.Sprite):
 	def __init__(self):
@@ -1310,10 +1315,31 @@ player = Player()
 
 ## Group
 [back to summary](#Pygame)  
-2 types of groups are avaible:
-- Group for multiple sprites
-- GroupSingle for a single sprite
+2 types of groups are avaible:  
+- Group for multiple sprites  
+- GroupSingle for a single sprite  
+Notice that to check sprites collisions, sprites have to be in a different group  
+```python
+player = pygame.sprite.GroupSingle()
+player.add(Player())
 
+mobs = pygame.sprite.Group()
+mobs.add(Mob())
+```
+To Access to sprite object inside the group
+```python
+player.sprite
+```
+Empty a group
+```python
+mobs.empty()
+```
+GroupSingle and Group objects have a draw() method  
+```python
+# In game loop
+player.draw(screen)
+mobs.draw(screen)
+```
 --- Work In Progress --
 
 # Javascript
