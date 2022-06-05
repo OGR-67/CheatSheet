@@ -1328,7 +1328,8 @@ mobs.add(Mob())
 ```
 To Access to sprite object inside the group
 ```python
-player.sprite
+player.sprite # --> A single sprite
+mobs.sprites() # --> A list of sprites
 ```
 Empty a group
 ```python
