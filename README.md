@@ -556,6 +556,7 @@ $&          Entire matched string
 # Python
 [Back to summary](#My-Programming-Cheatsheets)  
 - [Django](#Django)
+- [Pygame](#Pygame)
 
 
 # Django
@@ -1099,6 +1100,220 @@ if os.environ.get('DEBUG') == "TRUE":
   elif os.environ.get('DEBUG') == "FALSE":
   DEBUG = False
 ```
+
+# Pygame
+[back to summary](#Python)
+- [Pygame Project Skeleton](#Pygame-Project-Skeleton)
+- [Surfaces](#Surfaces)
+- [Rect](#Rect)
+- [Collisions](#Collisions)
+- [Keyboard](#Keyboard)
+- [Mouse](#Mouse)
+- [Timer](#Timer)
+- [Sprite](#Sprite)
+- [Group](#Group)
+
+
+## Pygame Project Skeleton
+Here is a good starting point of any pygame project
+[back to summary](#Pygame)
+```python
+import pygame
+import sys
+
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 700
+FRAMERATE = 60
+
+# Pygame init
+pygame.init()
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Window title")
+clock = pygame.time.Clock()
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    
+    screen.fill("black")
+    
+    pygame.display.update()
+    clock.tick(FRAMERATE) 
+    
+```
+
+## Surfaces
+[back to summary](#Pygame)
+Everything you want to display in pygame, you have to put it on a surface. Althougth, display is also a surface.  
+Image in a surface can be plain color, rendered text or an imported image file.  
+Every regular surfaces needs to be put on the display surface to be visible.  
+Surfaces a defined by a size (a tuple width and height)
+```python
+
+color = "red" # Color can be a color name string, Hex color string or a RGB tupple
+position = (50,50) # reference point is top-left
+
+# plain color
+width = 10
+height = 15
+plain_color_surface = pygame.Surface((width, height))
+plain_color_surface.fill(color) 
+
+# imported image. Here size is defined by image size
+image_surface = pygame.image.load("image path") 
+image_surface.convert() # better perf with but no transparency
+image_surface.convert_alpha() # same with transparency
+
+# rendered text
+string_to_render = "test string"
+font_size = 50
+string_font = pygame.font.Font("path to a font", font_size)
+string_surf = string_font.render(string_to_render, antialias=False, color)
+
+while True:
+
+   # display surface
+   screen.blit(plain_color_surface, position)
+   screen.blit(string_surf, position)
+   screen.blit(image_surface, position)
+   
+   # Check pygame.transform in documentation to scale, rotate etc...
+```
+
+## Rect
+[back to summary](#Pygame)  
+The 2 core functions of rectangles are precise positionning of surfaces and basic collisions.  
+You can get the rectangle of a surface using the get_rect() method
+```python
+test_rect = test_surf.get_rect(midtop=(50, 120))
+```
+Once you have a rect object, it has several virtual attributes which can be used to move and align the Rect.  
+```
+x,y
+top, left, bottom, right
+topleft, bottomleft, topright, bottomright
+midtop, midleft, midbottom, midright
+center, centerx, centery
+size, width, height
+w,h
+```
+Examples
+```python
+rect1.right = 10
+rect2.center = (20,30)
+```
+You can also use rectangles to draw. This allow you to draw plain color rectangle without creating a surface first
+```python
+pygame.draw.rect(screen_surf, color, rect)
+# check documentation for other shapes
+```
+
+## Collisions
+[back to summary](#Pygame)  
+You can check if a rectangle collides with another with colliderect() method
+Returns 0 or 1
+```python
+rect1.colliderect(rect2)
+```
+You can chec if a point is inside a rect using collidepoint() method
+Returns 0 or 1
+```python
+rect.collidepoint((x,y))
+```
+
+
+## Keyboard
+[back to summary](#Pygame)  
+Getting player's keyboard inputs can be achieved by two manner  
+pygame.key  
+```python
+keys = pygame.key.get_pressed()
+space_key = keys[pygame.K_SPACE]
+```
+event loop
+```python
+for event in pygame.event.get()
+    if event.type == pygame.KEYDOWN:
+        key = event.key
+```
+When you I choose which one?
+- Choose pygame.key inside classes
+- For more general stuff, like closing the window, event loop is a better place
+
+## Mouse
+[back to summary](#Pygame)  
+Getting the mouse position can be achieved by 2 manner  
+pygame.mouse:  
+```python
+mouse_pos = pygame.mouse.get_pos()
+```
+event loop:
+```python
+for event in pygame.event.get()
+    if event.type == pygame.MOUSEMOTION:
+        mouse_pos = event.pos
+```
+Same for mouse buttons    
+pygame.mouse:  
+```python
+pygame.mouse.get_pressed()
+# returns booleans of (bt1, bt2, bt3)
+```
+event loop:
+```python
+for event in pygame.event.get()
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mouse_button = event.button
+    if event.type == pygame.MOUSEBUTTONUP:
+        mouse_button = event.button
+```
+
+## Timer
+[back to summary](#Pygame)  
+Timers are useful for logic and animation. 
+They are created by following 3 steps:
+- create a customm userevent
+- trigger that event at a given interval
+- add code in event loop to be execute when the timer ticks
+You should increment timer reference value each time you create one to ot intefere with in-built userevent
+```python
+timer1 = pygame.USEREVENT + 1
+timer2 = pygame.USEREVENT + 2
+
+pygame.time.set_timer(timer1, delay)
+
+# In game loop
+for event in pygame.event.get()
+    if event.type == timer1:
+        # Do something
+```
+
+## Sprites
+[back to summary](#Pygame)  
+Sprite class is a class that contains a surface and a rectangle with dedicated methods.  
+Just inherit from sprite class to get access to all those features.  
+But to draw sprites, there is a different methodology:
+- first create sprite
+- place sprites in Group or GroupSingle
+- draw/update all sprites in that group
+```python
+class Player(pygame.sprite.Sprite):
+	def __init__(self):
+		super().__init__()
+		self.image = pygame.image.load("image path").convert_alpha()
+		self.rect = self.image.get_rect(midbottom = (200, 300))
+		
+player = Player()
+```
+
+## Group
+[back to summary](#Pygame)  
+2 types of groups are avaible:
+- Group for multiple sprites
+- GroupSingle for a single sprite
+
 --- Work In Progress --
 
 # Javascript
