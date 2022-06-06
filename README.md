@@ -559,6 +559,7 @@ $&          Entire matched string
 - [venv](#venv)
 - [Django](#Django)
 - [Pygame](#Pygame)
+- [PySimpleGUI](#PySimpleGUI)
 
 # pip
 [Back to summary](#Python)  
@@ -1518,6 +1519,58 @@ Last tips:
 
 
 --- Work In Progress --
+
+# PySimpleGUI
+[back to summary](#Python)
+- [Indroduction](#Indroduction)
+- [keys](#keys)
+- [Themes](#Themes)
+
+## Indroduction
+[back to summary](#PySimpleGUI) 
+PySimpleGUI is a easy library to make simple GUI apps.  
+The core concept of this library is that the GUI is separate in rows, each row is a list, all those is put in a layout.  
+Let's get started with the basic exemple of a GUI app whith this library.
+```python
+import PySimpleGUI as sg
+
+title = "Converter" # window title
+
+layout = [
+    [sg.Text("A text box"), sg.Spin(["a spin box", "That let's you", "choose an item"])], # You can see here we have 2 boxes in that row
+    [sg.Text("Enter a value"), sg.Input(key="-INPUT-"), sg.Button("Convert", key="-BUTTON-")],
+    [sg.Text("", key="-RESULT-")]
+]
+
+window = sg.Window(title, layout) # create the window object
+
+while True:
+    event, values = window.read()
+    if event == sg.WIN_CLOSED:
+        break
+    if event == "-BUTTON-":
+        entry = values["-INPUT-"] # here is how you get the value of the input box
+
+window.close()
+```
+## keys
+[back to summary](#PySimpleGUI) 
+In the exemple above, you can see the uses of keys. Putting the key name between 2 "-" is convention.  
+Keys are useful to identify which box we refers to. For example, if you have two buttons with "OK" text inside your app, you'll have to assign a key to at least one of these button if you want them to act separatly (what you always want to do in fact) 
+
+## Themes
+[back to summary](#PySimpleGUI) 
+Themes are a fast way to change default aspect of pySimpleGUI apps.  
+Apply a theme is as simple as call the sg.theme() method before creating the window
+```python
+sg.theme("DarkTeal16")
+```
+calling sg.theme_previewer() will help you choose your theme
+
+
+--- Work In Progress --
+
+
 
 # Javascript
 [Back to summary](#My-Programming-Cheatsheets)  
