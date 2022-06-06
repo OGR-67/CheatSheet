@@ -1565,7 +1565,11 @@ Apply a theme is as simple as call the sg.theme() method before creating the win
 ```python
 sg.theme("DarkTeal16")
 ```
-calling sg.theme_previewer() will help you choose your theme
+calling 
+```python
+sg.theme_previewer() 
+```
+will help you choose your theme
 
 
 --- Work In Progress --
