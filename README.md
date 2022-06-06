@@ -555,12 +555,67 @@ $&          Entire matched string
 
 # Python
 [Back to summary](#My-Programming-Cheatsheets)  
+- [pip](#pip)
+- [venv](#venv)
 - [Django](#Django)
 - [Pygame](#Pygame)
 
+# pip
+[Back to summary](#Python)  
+The pip module is the default pakage manager for python, very similar to npm for node.  
+To install a module
+```shell
+pip install <package_name>
+pip3 install <package_name>
+```
+To update
+```shell
+pip install <package_name> --upgrade
+pip install <package_name> -U
+```
+A useful module to check and update every installed module
+```shell
+pip install pip-review
+
+pip-review --interactive
+requests==0.14.0 is available (you have 0.13.2)
+Upgrade now? [Y]es, [N]o, [A]ll, [Q]uit y
+```
+To unsinstall
+```shell
+pip uninstall <package_name>
+```
+Install all module from a list of modules file
+```shell
+pip install -r requirements.txt
+```
+To create that file according to what is installed (best use with virtual env)
+```shell
+pip freeze > requirements.txt
+```
+
+# venv
+[Back to summary](#Python)  
+Create a virtual env
+```shell
+python -m venv venv_name
+```
+activate venv for that terminal session
+on unix
+```shell
+source venv_name/bin/activate
+```
+on windows
+```shell
+source venv_name/Scripts/activate
+```
+to desactivate venv
+```shell
+deactivate
+```
 
 # Django
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#Python)  
 - [Preparing Environnement](#Preparing-Environnement)
 - [Create project](#Create-project)
 - [Database Setup](#Database-Setup)
@@ -586,11 +641,13 @@ mkdir project_name && cd $_
 ```
 Create venv for the project
 ```shell
-python -m venv env_name
+python -m venv env_name   # PC
+python3 -m venv env_name  # Mac
 ```
 Activate environnement (Replace "bin" by "Scripts" in Windows)
 ```shell
-source env_name\bin\activate
+source env_name\bin\activate     # Mac
+source env_name\Scripts\activate # PC
 ```
 Install Django (and others dependencies if needed)
 ```shell
@@ -600,7 +657,7 @@ Create requirements file
 ```shell
 pip freeze > requirements.txt
 ```
-Use this commmand to nstall all required files based on your pip freeze command
+Use this commmand to install all required files based on your pip freeze command
 ```shell
 pip install -r requirements.txt
 ```
@@ -1112,6 +1169,9 @@ if os.environ.get('DEBUG') == "TRUE":
 - [Timer](#Timer)
 - [Sprites](#Sprites)
 - [Group](#Group)
+- [Game state](#Game-state)
+- [Animation](#Animation)
+- [Level](#Level)
 
 
 ## Pygame Project Skeleton
@@ -1341,6 +1401,122 @@ GroupSingle and Group objects have a draw() method
 player.draw(screen)
 mobs.draw(screen)
 ```
+
+## Game state
+[back to summary](#Pygame)  
+switching to different game states is very easy.  
+We can do that by a simple if statement inside the game loop.  
+Here is an exemple for a game over
+```python
+game_active = True
+
+while True:
+	# event loop
+	#...
+	
+	if game_active:
+		# game logic
+	
+	else:
+		# game over logic or break to exit app
+	
+```
+## Animation
+[back to summary](#Pygame)  
+Animation in fact is just an image replaced by a slitly different one, fast enough, to get the feeling that it is moving.  
+All we have to do is:
+- assign an image to a surface
+- draw that surface
+- update that surface with a new image
+- erase the old surface
+- draw the new surface
+This can be achieve by different manner, but the simplest is to re-draw the backgroung at each recursion of the game loop.
+```python
+player_frame1 = pygame.image.load("path/to/frame1")
+player_frame2 = pygame.image.load("path/to/frame2")
+player_frame3 = pygame.image.load("path/to/frame3")
+
+player_frames = [player_frame1, player_frame2, player_frame3]
+player_indice = 0
+
+player_surf = player_frames[player_indice]
+player_rect = player_surf.get_rect()
+
+
+while True
+	...
+	...
+	screen.blit(background_surf, background_rect)
+	
+	# Animate player
+	player_indice += 0.1
+	if player_indice >= len(player_frames)
+		player_indice = 0
+	player_surf = player_frames[int(player_indice)]
+	
+	screen.blit(player_surf, player_rect)
+	
+	...
+```
+## Level
+[back to summary](#Pygame) 
+The concept of making a level is based on looping through strings that we loop through a list and display something based on which character we get.  
+To keep it simple, let say we only want to display something when we get an "X".  
+Example of level
+```python
+level = [
+'                       ',
+'                XX     ',
+'             XX        ',
+'       XXXX            ',
+'     XXXXXXX           ',
+'XXXXXXXXXXXXXXXXXXXXXXX',
+]
+```
+As you can see, we have here a floor and some plateforms.  
+Now what we want is create a group of sprites represanting every "X" of the level.  
+We can say that each "X" is like a tile. Let's create that class
+```python
+class Tile(pygame.sprite.Sprite):
+	def __init__(self, pos, size):
+		super().init()
+		self.image = "Whatever surface you want"
+		self.rect = self.image.get_rect(topleft=pos)
+```
+As you can see, we have to specify a size, otherwize, our level will be pixel by pixel and we'll not be able to see something.  
+The pos argument is the coordinate we will get by looping through the level.  
+All we will have to do then, is to draw every sprites.  
+Let's create the level class
+```python
+tile_size = 64
+
+class Level:
+	def __init__(self, level, surface):
+		self.display_surface = surface # will be screen actualy
+		self.setup_level(level)
+		
+	def setup_level(self, level)
+		self.tiles = pygame.sprite.Group()
+		for row_index, row in enumerate(level):
+			for col_index, cell in enumerate(row):
+				if cell == "X":
+					x = col_index * tile_size
+					y = row_index * tile_size
+					tile = Tile((x,y ), tile_size)
+					self.tiles.add(tile)
+	
+	def run(self):
+		self.tiles.draw(self.display_surface)
+```
+Just create level instance outside game loop and call the level.run() method inside the loop. Boom! You have a level.  
+Last tips: 
+- for screen height, you can use len(level) * tile_size if you don't plan to scroll verticaly
+- for screen width, len(level[0]) * tile_size
+
+## Camera
+[back to summary](#Pygame) 
+
+
 --- Work In Progress --
 
 # Javascript
