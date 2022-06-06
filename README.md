@@ -1173,6 +1173,8 @@ if os.environ.get('DEBUG') == "TRUE":
 - [Game state](#Game-state)
 - [Animation](#Animation)
 - [Level](#Level)
+- [Vectors](#Vectors)
+- [Camera](#Camera)
 
 
 ## Pygame Project Skeleton
@@ -1514,9 +1516,18 @@ Last tips:
 - for screen height, you can use len(level) * tile_size if you don't plan to scroll verticaly
 - for screen width, len(level[0]) * tile_size
 
+## Vectors
+[back to summary](#Pygame)  
+Vector is a list with an X and a Y value.  You can add a vector to coordinates to move things.
+```python
+rect.center += pygame.math.Vector2(100,50)
+```
+
+
 ## Camera
 [back to summary](#Pygame) 
-
+You can get the feeling of a camera following the player by setting the player's speed to 0 and move the entire level instead.  
+With that, the relative speed between the level and the player is the same.
 
 --- Work In Progress --
 
