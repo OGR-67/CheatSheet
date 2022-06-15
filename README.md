@@ -233,6 +233,7 @@ git config --global user.email “[valid-email]”
 Set automatic command line coloring for Git for easy reviewing
 ```shell
 git config --global color.ui auto
+git config --global color.ui true
 ```
 
 ## SETUP AND INIT
