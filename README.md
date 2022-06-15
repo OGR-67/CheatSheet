@@ -209,6 +209,7 @@ First digit is owner permis sion, second is group and third is everyone.
 # Git
 [Back to summary](#My-Programming-Cheatsheets)  
 - [SETUP](#SETUP)
+- [NAVIGATION](#NAVIGATION)
 - [SETUP & INIT](#SETUP-AND-INIT)
 - [STAGE & SNAPSHOT](#STAGE-AND-SNAPSHOT)
 - [BRANCH & MERGE](#BRANCH-AND-MERGE)
@@ -234,6 +235,16 @@ Set automatic command line coloring for Git for easy reviewing
 ```shell
 git config --global color.ui auto
 git config --global color.ui true
+```
+
+## NAVIGATION
+[Back to summary](#Git)  
+```shell
+Next line             : return
+Next page             : space bar
+Previous page         : w
+Quit viewing the diff : q
+Help                  : h
 ```
 
 ## SETUP AND INIT
