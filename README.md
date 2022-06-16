@@ -571,6 +571,9 @@ $&          Entire matched string
 - [venv](#venv)
 - [buildin functions or methods](#buildin-functions-or-methods)
 - [lambda](#lambda)
+- [generator](#generator)
+- [buildin error type](#buildin-error-type)
+- [assert](#assert)
 - [buildin modules](#buildin-modules)
 - [Django](#Django)
 - [Pygame](#Pygame)
@@ -1027,6 +1030,107 @@ Python has built-in functions that take other functions as arguments. The argume
 >>> next(sqrList)
 25
 ```
+# generator
+[Back to summary](#Python)  
+Python provides a generator to create your own iterator function. A generator is a special type of function which does not return a single value, instead, it returns an iterator object with a sequence of values. In a generator function, a yield statement is used rather than a return statement.  
+Exemple
+```python
+def generator():
+	yield 1
+	yield 2
+	yield 3
+
+gen = generator()
+next(gen) # 1
+next(gen) # 2
+next(gen) # 3
+next(gen) # StopIteration Error
+```
+The below script uses the try..except block to handle the StopIteration error. It will break the while loop once it catches the StopIteration error.
+```python
+gen=square_of_sequence(5)
+while True:
+    try:
+        print ("Received on next(): ", next(gen))
+    except StopIteration:
+        break
+```
+Python also provides a generator expression, which is a shorter way of defining simple generator functions. The generator expression is an anonymous generator function.
+```python
+squres = (x*x for x in range(5))
+```
+The generator expression can also be passed in a function. It should be passed without parentheses, as shown below.
+```python
+sum(x*x for x in range(5)) 
+```
+# buildin error type
+[Back to summary](#Python)  
+The following lists important built-in exceptions in Python.
+```
+AssertionError	Raised when the assert statement fails.
+AttributeError	Raised on the attribute assignment or reference fails.
+EOFError		Raised when the input() function hits the end-of-file condition.
+FloatingPointError	Raised when a floating point operation fails.
+GeneratorExit	Raised when a generator's close() method is called.
+ImportError		Raised when the imported module is not found.
+IndexError		Raised when the index of a sequence is out of range.
+KeyError		Raised when a key is not found in a dictionary.
+KeyboardInterrupt	Raised when the user hits the interrupt key (Ctrl+c or delete).
+MemoryError		Raised when an operation runs out of memory.
+NameError		Raised when a variable is not found in the local or global scope.
+NotImplementedError	Raised by abstract methods.
+OSError			Raised when a system operation causes a system-related error.
+OverflowError	Raised when the result of an arithmetic operation is too large to be represented.
+ReferenceError	Raised when a weak reference proxy is used to access a garbage collected referent.
+RuntimeError	Raised when an error does not fall under any other category.
+StopIteration	Raised by the next() function to indicate that there is no further item to be returned by the iterator.
+SyntaxError		Raised by the parser when a syntax error is encountered.
+IndentationError	Raised when there is an incorrect indentation.
+TabError		Raised when the indentation consists of inconsistent tabs and spaces.
+SystemError		Raised when the interpreter detects internal error.
+SystemExit		Raised by the sys.exit() function.
+TypeError		Raised when a function or operation is applied to an object of an incorrect type.
+UnboundLocalError	Raised when a reference is made to a local variable in a function or method, but no value has been bound to that variable.
+UnicodeError	Raised when a Unicode-related encoding or decoding error occurs.
+UnicodeEncodeError	Raised when a Unicode-related error occurs during encoding.
+UnicodeDecodeError	Raised when a Unicode-related error occurs during decoding.
+UnicodeTranslateError	Raised when a Unicode-related error occurs during translation.
+ValueError		Raised when a function gets an argument of correct type but improper value.
+ZeroDivisionError	Raised when the second operand of a division or module operation is zero.
+```
+Handle those errors with try .. except statement
+```python
+try:
+    #statements in try block
+except <error_type>: # error type is optionnal but good practice
+    #executed when error in try block
+else:
+    #executed if try block is error-free
+finally:
+    #executed irrespective of exception occured or not
+```
+# assert
+[Back to summary](#Python)  
+In Python, the assert statement is used to continue the execute if the given condition evaluates to True. If the assert condition evaluates to False, then it raises the AssertionError exception with the specified error message.
+```python
+assert condition [, Error Message]
+```
+Exemple
+```python
+assert x > 0, 'Only positive numbers are allowed'
+```
+Get only custom error message in console
+```python
+def square(x):
+    assert x>=0, 'Only positive numbers are allowed'
+    return x*x
+
+try:
+    square(-2)
+except AssertionError as msg:
+    print(msg)
+```
+
 # Django
 [Back to summary](#Python)  
 - [Preparing Environnement](#Preparing-Environnement)
