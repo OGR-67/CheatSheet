@@ -569,6 +569,8 @@ $&          Entire matched string
 [Back to summary](#My-Programming-Cheatsheets)  
 - [pip](#pip)
 - [venv](#venv)
+- [buildin functions or methods](#buildin-functions-methods)
+- [buildin modules](#buildin-modules)
 - [Django](#Django)
 - [Pygame](#Pygame)
 - [PySimpleGUI](#PySimpleGUI)
@@ -625,6 +627,239 @@ source venv_name/Scripts/activate
 to desactivate venv
 ```shell
 deactivate
+```
+# buildin functions or methods
+[Back to summary](#Python)  
+- [numbers](#numbers)
+- [string](#string)
+- [list](#list)
+- [set](#set)
+- [dictionary](#dictionary)
+
+## numbers
+[Back to summary](#buildin-functions-or-methods)  
+```
+int	Returns the integer object from a float or a string containing digits.
+float	Returns a floating-point number object from a number or string containing digits with decimal point or scientific notation.
+complex	Returns a complex number with real and imaginary components.
+hex	Converts a decimal integer into a hexadecimal number with 0x prefix.
+oct	Converts a decimal integer in an octal representation with 0o prefix.
+pow	Returns the power of the specified numbers.
+abs	Returns the absolute value of a number without considering its sign.
+round	Returns the rounded number.
+```
+
+## string
+[Back to summary](#buildin-functions-or-methods)  
+```
+str.capitalize()	Returns the copy of the string with its first character capitalized and the rest of the letters are in lowercased.
+string.casefold()	Returns a lowered case string. It is similar to the lower() method, but the casefold() method converts more characters into lower case.
+string.center()		Returns a new centered string of the specified length, which is padded with the specified character. The default character is space.
+string.count()		Searches (case-sensitive) the specified substring in the given string and returns an integer indicating occurrences of the substring.
+string.endswith()	Returns True if a string ends with the specified suffix (case-sensitive), otherwise returns False.
+string.expandtabs()	Returns a string with all tab characters \t replaced with one or more space, depending on the number of characters before \t and the specified tab size.
+string.find()		Returns the index of the first occurence of a substring in the given string (case-sensitive). If the substring is not found it returns -1.
+string.index()		Returns the index of the first occurence of a substring in the given string.
+string.isalnum()	Returns True if all characters in the string are alphanumeric (either alphabets or numbers). If not, it returns False.
+string.isalpha()	Returns True if all characters in a string are alphabetic (both lowercase and uppercase) and returns False if at least one character is not an alphabet.
+string.isascii()	Returns True if the string is empty or all characters in the string are ASCII.
+string.isdecimal()	Returns True if all characters in a string are decimal characters. If not, it returns False.
+string.isdigit()	Returns True if all characters in a string are digits or Unicode char of a digit. If not, it returns False.
+string.isidentifier()	Checks whether a string is valid identifier string or not. It returns True if the string is a valid identifier otherwise returns False.
+string.islower()	Checks whether all the characters of a given string are lowercased or not. It returns True if all characters are lowercased and False even if one character is uppercase.
+string.isnumeric()	Checks whether all the characters of the string are numeric characters or not. It will return True if all characters are numeric and will return False even if one character is non-numeric.
+string.isprintable()	Returns True if all the characters of the given string are Printable. It returns False even if one character is Non-Printable.
+string.isspace()	Returns True if all the characters of the given string are whitespaces. It returns False even if one character is not whitespace.
+string.istitle()	Checks whether each word's first character is upper case and the rest are in lower case or not. It returns True if a string is titlecased; otherwise, it returns False. The symbols and numbers are ignored.
+string.isupper()	Returns True if all characters are uppercase and False even if one character is not in uppercase.
+string.join()		Returns a string, which is the concatenation of the string (on which it is called) with the string elements of the specified iterable as an argument.
+string.ljust()		Returns the left justified string with the specified width. If the specified width is more than the string length, then the string's remaining part is filled with the specified fillchar.
+string.lower()		Returns the copy of the original string wherein all the characters are converted to lowercase.
+string.lstrip()		Returns a copy of the string by removing leading characters specified as an argument.
+string.maketrans()	Returns a mapping table that maps each character in the given string to the character in the second string at the same position. This mapping table is used with the translate() method, which will replace characters as per the mapping table.
+string.partition()	Splits the string at the first occurrence of the specified string separator sep argument and returns a tuple containing three elements, the part before the separator, the separator itself, and the part after the separator.
+string.replace()	Returns a copy of the string where all occurrences of a substring are replaced with another substring.
+string.rfind()		Returns the highest index of the specified substring (the last occurrence of the substring) in the given string.
+string.rindex()		Returns the index of the last occurence of a substring in the given string.
+string.rjust()		Returns the right justified string with the specified width. If the specified width is more than the string length, then the string's remaining part is filled with the specified fill char.
+string.rpartition()	Splits the string at the last occurrence of the specified string separator sep argument and returns a tuple containing three elements, the part before the separator, the separator itself, and the part after the separator.
+string.rsplit()		Splits a string from the specified separator and returns a list object with string elements.
+string.rstrip()		Returns a copy of the string by removing the trailing characters specified as argument.
+string.split()		Splits the string from the specified separator and returns a list object with string elements.
+string.splitlines()	Splits the string at line boundaries and returns a list of lines in the string.
+string.startswith()	Returns True if a string starts with the specified prefix. If not, it returns False.
+string.strip()		Returns a copy of the string by removing both the leading and the trailing characters.
+string.swapcase()	Returns a copy of the string with uppercase characters converted to lowercase and vice versa. Symbols and letters are ignored.
+string.title()		Returns a string where each word starts with an uppercase character, and the remaining characters are lowercase.
+string.translate()	Returns a string where each character is mapped to its corresponding character in the translation table.
+string.upper()		Returns a string in the upper case. Symbols and numbers remain unaffected.
+string.zfill()		Returns a copy of the string with '0' characters padded to the left. It adds zeros (0) at the beginning of the string until the length of a string equals the specified width parameter.
+```
+
+## list
+[Back to summary](#buildin-functions-or-methods)  
+```
+list.append()	Adds a new item at the end of the list.
+list.clear()	Removes all the items from the list and make it empty.
+list.copy()	Returns a shallow copy of a list.
+list.count()	Returns the number of times an element occurs in the list.
+list.extend()	Adds all the items of the specified iterable (list, tuple, set, dictionary, string) to the end of the list.
+list.index()	Returns the index position of the first occurance of the specified item. Raises a ValueError if there is no item found.
+list.insert()	Inserts an item at a given position.
+list.pop()	Returns an item from the specified index position and also removes it from the list. If no index is specified, the list.pop() method removes and returns the last item in the list.
+list.remove()	Removes the first occurance of the specified item from the list. It the specified item not found then throws a ValueError.
+list.reverse()	Reverses the index positions of the elements in the list. The first element will be at the last index, the second element will be at second last index and so on.
+list.sort()	Sorts the list items in ascending, descending, or in custom order.
+```
+
+## set
+[Back to summary](#buildin-functions-or-methods)  
+```
+set.add()	Adds an element to the set. If an element is already exist in the set, then it does not add that element.
+set.clear()	Removes all the elements from the set.
+set.copy()	Returns a shallow copy of the set.
+set.difference()	Returns the new set with the unique elements that are not in the another set passed as a parameter.
+set.difference_update()	Updates the set on which the method is called with the elements that are common in another set passed as an argument.
+set.discard()	Removes a specific element from the set.
+set.intersection()	Returns a new set with the elements that are common in the given sets.
+set.intersection_update()	Updates the set on which the instersection_update() method is called, with common elements among the specified sets.
+set.isdisjoint()	Returns true if the given sets have no common elements. Sets are disjoint if and only if their intersection is the empty set.
+set.issubset()	Returns true if the set (on which the issubset() is called) contains every element of the other set passed as an argument.
+set.pop()	Removes and returns a random element from the set.
+set.remove()	Removes the specified element from the set. If the specified element not found, raise an error.
+set.symmetric_difference()	Returns a new set with the distinct elements found in both the sets.
+set.symmetric_difference_update()	Updates the set on which the instersection_update() method called, with the elements that are common among the specified sets.
+set.union()	Returns a new set with distinct elements from all the given sets.
+set.update()	Updates the set by adding distinct elements from the passed one or more iterables.
+```
+
+## dictionary
+[Back to summary](#buildin-functions-or-methods)  
+```
+dict.clear()	Removes all the key-value pairs from the dictionary.
+dict.copy()	Returns a shallow copy of the dictionary.
+dict.fromkeys()	Creates a new dictionary from the given iterable (string, list, set, tuple) as keys and with the specified value.
+dict.get()	Returns the value of the specified key.
+dict.items()	Returns a dictionary view object that provides a dynamic view of dictionary elements as a list of key-value pairs. This view object changes when the dictionary changes.
+dict.keys()	Returns a dictionary view object that contains the list of keys of the dictionary.
+dict.pop()	Removes the key and return its value. If a key does not exist in the dictionary, then returns the default value if specified, else throws a KeyError.
+dict.popitem()	Removes and return a tuple of (key, value) pair from the dictionary. Pairs are returned in Last In First Out (LIFO) order.
+dict.setdefault()	Returns the value of the specified key in the dictionary. If the key not found, then it adds the key with the specified defaultvalue. If the defaultvalue is not specified then it set None value.
+dict.update()	Updates the dictionary with the key-value pairs from another dictionary or another iterable such as tuple having key-value pairs.
+dict.values()	Returns the dictionary view object that provides a dynamic view of all the values in the dictionary. This view object changes when the dictionary changes.
+```
+
+# buildin modules
+[Back to summary](#Python)  
+- [os](#os)
+- [sys](#sys)
+- [math](#math)
+- [statistics](#statistics)
+- [collections](#collections)
+- [random](#random)
+
+## os
+[Back to summary](#buildin-modules)  
+It is possible to automatically perform many operating system tasks. The OS module in Python provides functions for creating and removing a directory (folder), fetching its contents, changing and identifying the current directory, etc.  
+```python
+os.getcwd()	 # get current working directory
+os.mkdir("<path>") # Makes a directory at path
+os.chdir("<path>") # changing current workign directory
+os.rmdir("<path>") # remove the directory. Not possible with current working directory
+os.listdir("<path>") # return a python list of files
+os.walk("<path>") # return (dirpath, dirnames, filenames) of directory in path
+```
+
+## sys
+[Back to summary](#buildin-modules)  
+The sys module provides functions and variables used to manipulate different parts of the Python runtime environment.
+```python
+sys.argv 	# returns a list of command line arguments passed to a Python script. Index 0 always is the file itself
+sys.exit	# This causes the script to exit back to either the Python console or the command prompt.
+sys.maxsize	# Returns the largest integer a variable can take.
+sys.path	# This is an environment variable that is a search path for all Python modules.
+sys.version	# This attribute displays a string containing the version number of the current Python interpreter.
+```
+
+## math
+[Back to summary](#buildin-modules)  
+Some of the most popular mathematical functions are defined in the math module. These include trigonometric functions, representation functions, logarithmic functions, angle conversion functions, etc. In addition, two mathematical constants are also defined in this module.
+```python
+math.pi 	# return a float representing pi
+math.e		# It is called Euler's number and it is a base of the natural logarithm. Its value is 2.718281828459045
+math.radians(<number>) # convert <number> angle in degrees to its radians value
+math.degrees(<number>) # convert <number> radians to its degrees value
+math.sin(<number>) # |
+math.cos(<number>) # |- trigonometric calculation
+math.tan(<number>) # |
+math.log(<number>) # returns the natural logarithm of a given number. 
+math.log10(<number>) # returns the base-10 logarithm of the given number.
+math.exp(<number>) # returns a float number after raising e to the power of the given number
+math.pow(<number>, <number>) # receives two float arguments, raises the first to the second and returns the result
+math.sqrt(<number>) # returns the square root of a given number.
+math.ceil(<number>)
+math.floor(<number>)
+```
+
+## statistics
+[Back to summary](#buildin-modules)  
+The statistics module provides functions to mathematical statistics of numeric data.
+```python
+statistics.mean(<list>)	# calculates the arithmetic mean of the numbers in a list.
+statistics.median(<list>) # returns the middle value of numeric data in a list.
+statistics.mode(<list>) # returns the most common data point in the list.
+statistics.stdev(<list>) # calculates the standard deviation on a given sample in the form of a list.
+```
+
+## collections
+[Back to summary](#buildin-modules)  
+The collections module provides alternatives to built-in container data types such as list, tuple and dict.  
+
+### namedtuple()
+The namedtuple() function returns a tuple-like object with named fields. These field attributes are accessible by lookup as well as by index.
+```python
+student = collections.namedtuple('student', [name, age, marks])
+s1 = student("Imran", 21, 98)
+s1.name # "Imran"
+s1[0] # same
+```
+### OrderedDict()
+The OrderedDict() function is similar to a normal dictionary object in Python. However, it remembers the order of the keys in which they were first inserted.
+```python
+d1 = collections.OrderedDict()
+d1['A'] = 65
+d1['C'] = 67
+d1['B'] = 66
+d1['D'] = 68
+
+for k,v in d1.items():
+    print (k,v)
+"""
+A 65
+C 67
+B 66
+D 68
+"""
+```
+### deque()
+A deque object support appends and pops from either ends of a list. It is more memory efficient than a normal list object. In a normal list object, the removal of any item causes all items to the right to be shifted towards left by one index. Hence, it is very slow.
+```python
+q=collections.deque([10,20,30,40]) # set the deque object
+q.append(50) # append at the end
+q.appendleft(0) # insert a the begining
+q.pop() # pop last value
+q.popleft() # pop first value
+```
+
+## random
+[Back to summary](#buildin-modules)  
+The random module is a built-in module to generate the pseudo-random variables. It can be used perform some action randomly such as to get a random number, selecting a random elements from a list, shuffle elements randomly, etc.
+```python
+random.random() # returns a random float number between 0.0 to 1.0
+random.randint(<int>,<int>) # returns a random integer between the specified integers.
+random.randrange(<int>,<int>,<int>) # returns a randomly selected element from the range created by the start, stop and step arguments.
+random.choice("sequence") # returns a randomly selected element from a non-empty sequence. An empty sequence as argument raises an IndexError.
+random.shuffle(<list>) # method randomly reorders the elements in a list.
 ```
 
 # Django
