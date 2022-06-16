@@ -570,6 +570,7 @@ $&          Entire matched string
 - [pip](#pip)
 - [venv](#venv)
 - [buildin functions or methods](#buildin-functions-or-methods)
+- [lambda](#lambda)
 - [buildin modules](#buildin-modules)
 - [Django](#Django)
 - [Pygame](#Pygame)
@@ -995,7 +996,37 @@ pattern = compile(r'[aeiou]')
 string = "Flat is better than nested. Sparse is better than dense."
 pattern.match(string)
 ```
-
+# lambda
+[Back to summary](#Python)  
+The def keyword is used to define a function in Python. The lambda keyword is used to define anonymous functions in Python. Usually, such a function is meant for one-time use. The expression does not need to always return a value. The fonction can take multiple parameters.
+```python
+lambda [arguments] : expression
+```
+Exemple
+```python
+>>> def dosomething(fn):
+	    print('Calling function argument:')
+	    fn()
+>>> dosomething(lambda : print('Hello World')) # passing anonymous function
+Calling function argument:
+Hello World
+>>> myfn = lambda : print('Hello World') 
+>>> dosomething(myfn) # passing lambda function
+```
+Python has built-in functions that take other functions as arguments. The argument function can be a normal function or a lambda function.
+```python
+>>> sqrList = map(lambda x: x*x, [1, 2, 3, 4]) # passing anonymous function
+>>> next(sqrList)
+1
+>>> next(sqrList)
+4
+>>> next(sqrList)
+9
+>>> next(sqrList)
+16
+>>> next(sqrList)
+25
+```
 # Django
 [Back to summary](#Python)  
 - [Preparing Environnement](#Preparing-Environnement)
