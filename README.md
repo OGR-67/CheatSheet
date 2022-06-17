@@ -576,7 +576,9 @@ $&          Entire matched string
 - [assert](#assert)
 - [buildin modules](#buildin-modules)
 - [class](#class)
+- [abstract class](#abstract-class)
 - [database](#database)
+- [file](#file)
 - [Django](#Django)
 - [Pygame](#Pygame)
 - [PySimpleGUI](#PySimpleGUI)
@@ -1490,6 +1492,50 @@ class Student:
     def tostring():
         print('Student Class')
 ```
+# abstract class
+[Back to summary](#Python)  
+A class is called an Abstract class if it contains one or more abstract methods. An abstract method is a method that is declared, but contains no implementation. Abstract classes may not be instantiated, and its abstract methods must be implemented by its subclasses.  
+'abc' works by marking methods of the base class as abstract. This is done by @absttractmethod decorator. A concrete class which is a sub class of such abstract base class then implements the abstract base by overriding its abstract methods.  
+The abc module defines ABCMeta class which is a metaclass for defining abstract base class. Following example defines Shape class as an abstract base class using ABCMeta. The shape class has area() method decorated by abstractmethod.  
+A Rectangle class now uses above Shape class as its parent and implementing the abstract area() method. Since it is a concrete class, it can be instantiated and imlemented area() method can be called.
+```python
+import abc
+class Shape(metaclass=abc.ABCMeta):
+   @abc.abstractmethod
+   def area(self):
+      pass
+      
+ 
+class Rectangle(Shape):
+   def __init__(self, x,y):
+      self.l = x
+      self.b = y
+   def area(self):
+      return self.l * self.b
+
+
+r = Rectangle(10, 20)
+print ('area: ', r.area())
+```
+_Note the abstract base class may have more than one abstract methods. The child class must implement all of them failing which TypeError will be raised._  
+  
+The abc module also defines ABC helper class which can be used instead of ABCMeta class in definition of abstract base class.  
+Instead of subclassing from abstract base class, it can be registered as abstract base by register class decorator.
+```python
+class Shape(abc.ABC):
+   @abc.abstractmethod
+   def area(self):
+      pass
+      
+@Shape.register
+class Rectangle():
+   def __init__(self, x,y):
+   self.l = x
+   self.b = y
+   def area(self):
+      return self.l * self.b
+```
+
 # database
 [Back to summary](#Python)  
 Python DB-API is a set of standards recommended by a Special Interest Group for database module standardization. Python modules that provide database interfacing functionality with all major database products are required to adhere to this standard.  
@@ -1499,9 +1545,10 @@ Standard Python distribution has in-built support for SQLite database connectivi
 - SQL Server: PyMsSql module
 - PostGreSQL: psycopg2 module
 - ODBC: pyodbc module
+- MondoDB: PyMongo module
 Read documentation for more informations
 
-# files
+# file
 [Back to summary](#Python)  
 In Python, the IO module provides methods of three types of IO operations; raw binary files, buffered binary files, and text files.  
 Read:  
