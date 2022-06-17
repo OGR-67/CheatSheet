@@ -575,6 +575,8 @@ $&          Entire matched string
 - [buildin error type](#buildin-error-type)
 - [assert](#assert)
 - [buildin modules](#buildin-modules)
+- [class](#class)
+- [database](#database)
 - [Django](#Django)
 - [Pygame](#Pygame)
 - [PySimpleGUI](#PySimpleGUI)
@@ -1130,6 +1132,414 @@ try:
 except AssertionError as msg:
     print(msg)
 ```
+# class
+[Back to summary](#Python)  
+- [basics](#basics)
+- [class property](#class-property)
+- [method](#method)
+- [Inheritance ](#Inheritance)
+- [Access modifiers](#Access-modifiers)
+- [decorators](#decorators)
+
+## basics
+[Back to summary](#class)  
+A class in Python can be defined using the class keyword.
+```python
+class <ClassName>:
+    <statement1>
+    <statement2>
+    .
+    .
+    <statementN>
+```
+Class attributes are the variables defined directly in the class that are shared by all objects of the class. Class attributes can be accessed using the class name as well as using the objects.
+```python
+class Student:
+    schoolName = 'XYZ School' 
+   
+>>> Student.schoolName
+'XYZ School' 
+>>> std = Student()
+>>> std.schoolName
+'XYZ School' 
+```
+The following example demonstrates the use of class attribute count.
+```python
+class Student:
+    count = 0
+    def __init__(self):
+        Student.count += 1  
+
+>>> std1=Student()
+>>> Student.count
+1
+>>> std2 = Student()
+>>> Student.count
+2
+```
+The constructor method is invoked automatically whenever a new object of a class is instantiated.  
+The constructor must have a special name \_\_init\_\_() and a special parameter called self.  
+Instance attributes are attributes or properties attached to an instance of a class. Instance attributes are defined in the constructor.  
+You can specify the values of instance attributes through the constructor. The following constructor includes the name and age parameters, other than the self parameter.  
+You can also set default values to the instance attributes.
+```python
+class Student:
+    def __init__(self, name, gender="Male"): # constructor method
+        print('Constructor invoked')
+		self.name = name
+		self.type = "Student"
+		self.gender = gender
+```
+You can delete attributes, objects, or the class itself, using the del keyword, as shown below.
+```python
+>>> std = Student('Steve', 25)
+>>> del std.name # deleting attribute
+>>> std.name
+Traceback (most recent call last):
+File "<pyshell#42>", line 1, in <module>
+std.name
+AttributeError: 'Student' object has no attribute 'name'
+>>> del std  # deleting object
+>>> std.name  
+Traceback (most recent call last):
+File "<pyshell#42>", line 1, in <module>
+std.name
+NameError: name 'std' is not defined
+>>> del Student  # deleting class
+>>> std = Student('Steve', 25)
+Traceback (most recent call last):
+File "<pyshell#42>", line 1, in <module>
+std = Student()
+NameError: name 'Student' is not defined
+```
+## class property
+[Back to summary](#class)  
+In Python, a property in the class can be defined using the property() function.  
+The property() method in Python provides an interface to instance attributes. It encapsulates instance attributes and provides a property, same as Java and C#.  
+The property() method takes the get, set and delete methods as arguments and returns an object of the property class.  
+```python
+class Student:
+    def __init__(self):
+        self.__name=''
+    def setname(self, name):
+        print('setname() called')
+        self.__name=name
+    def getname(self):
+        print('getname() called')
+        return self.__name
+    name=property(getname, setname)
+```
+In the above example, property(getname, setname) returns the property object and assigns it to name. Thus, the name property hides the private instance attribute \_\_name. The name property is accessed directly, but internally it will invoke the getname() or setname() method, as shown below.  
+It is recommended to use the property decorator instead of the property() method.
+```python
+>>> std = Student()
+>>> std.name="Steve"
+setname() called
+>>> std.name
+getname() called
+'Steve'
+```
+## method
+[Back to summary](#class)  
+You can define as many methods as you want in a class using the def keyword.  
+Each method must have the first parameter, generally named as self, which refers to the calling instance.  
+Self is just a conventional name for the first argument of a method in the class. A method defined as mymethod(self, a, b) should be called as x.mymethod(a, b) for the object x of the class.  
+Defining a method in the class without the self parameter would raise an exception when calling a method.  
+The method can access instance attributes using the self parameter.  
+```python
+class Student:
+    def __init__(self, name, age): 
+        self.name = name 
+        self.age = age 
+    def displayInfo(self): # class method
+        print('Student Name: ', self.name,', Age: ', self.age)
+		
+>>> std = Student('Steve', 25)
+>>> std.displayInfo()
+Student Name: Steve , Age: 25 
+```
+## Inheritance 
+[Back to summary](#class)  
+The child class inherits data definitions and methods from the parent class. This facilitates the reuse of features already available. The child class can add a few more definitions or redefine a base class method.
+```python
+class parent:
+    def __init__(self, name):
+		self.name = name
+                    
+class child(parent):
+	def __init__(self, name, age):
+		super().__init__(name) # The __init__() method forwards the parameters to the constructor of its parent class using the super() function.
+		self.age = age
+```
+To override a method, simply define a new one with the same name inside the child class.
+## Access modifiers
+[Back to summary](#class)  
+Classical object-oriented languages, such as C++ and Java, control the access to class resources by public, private, and protected keywords. Private members of the class are denied access from the environment outside the class. They can be handled only from within the class.  
+### public members
+Public members (generally methods declared in a class) are accessible from outside the class. The object of the same class is required to invoke a public method. This arrangement of private instance variables and public methods ensures the principle of data encapsulation.  
+All members in a Python class are public by default. Any member can be accessed from outside the class environment.  
+```python
+class Student:
+    schoolName = 'XYZ School' # class attribute
+
+    def __init__(self, name, age):
+        self.name=name # instance attribute
+        self.age=age # instance attribute
+
+>>> std = Student("Steve", 25)
+>>> std.schoolName
+'XYZ School'
+>>> std.name
+'Steve'
+>>> std.age = 20
+>>> std.age
+20
+```
+### protected members
+Protected members of a class are accessible from within the class and are also available to its sub-classes. No other environment is permitted access to it. This enables specific resources of the parent class to be inherited by the child class.  
+Python's convention to make an instance variable protected is to add a prefix _ (single underscore) to it. This effectively prevents it from being accessed unless it is from within a sub-class.  
+In fact, this doesn't prevent instance variables from accessing or modifying the instance. You can still perform the following operations:
+```python
+class Student:
+    _schoolName = 'XYZ School' # protected class attribute
+    
+    def __init__(self, name, age):
+        self._name=name  # protected instance attribute
+        self._age=age # protected instance attribute
+
+>>> std = Student("Swati", 25)
+>>> std._name
+'Swati'
+>>> std._name = 'Dipa'
+>>> std._name
+'Dipa'
+```
+However, you can define a property using property decorator and make it protected, as shown below.  
+Without the setter, you won't be able to modify \_name like this "std.name = 'another name'", but you can still modify directly \_name value. 
+Hence, the responsible programmer would refrain from accessing and modifying instance variables prefixed with _ from outside its class.
+```python
+class Student:
+	def __init__(self,name):
+		self._name = name
+	@property
+	def name(self):
+		return self._name
+	@name.setter
+	def name(self,newname):
+		self._name = newname
+
+>>> std = Student("Swati")
+>>> std.name
+'Swati'
+>>> std.name = 'Dipa'
+>>> std.name
+'Dipa'
+>>> std._name # still accessible
+```
+### Private members
+Python doesn't have any mechanism that effectively restricts access to any instance variable or method. Python prescribes a convention of prefixing the name of the variable/method with a single or double underscore to emulate the behavior of protected and private access specifiers.  
+The double underscore __ prefixed to a variable makes it private. It gives a strong suggestion not to touch it from outside the class. Any attempt to do so will result in an AttributeError:
+```python
+class Student:
+    __schoolName = 'XYZ School' # private class attribute
+
+    def __init__(self, name, age):
+        self.__name=name  # private instance attribute
+        self.__salary=age # private instance attribute
+    def __display(self):  # private method
+	    print('This is private method.')
+
+>>> std = Student("Bill", 25)
+>>> std.__schoolName
+AttributeError: 'Student' object has no attribute '__schoolName'
+>>> std.__name
+AttributeError: 'Student' object has no attribute '__name'
+>>> std.__display()
+AttributeError: 'Student' object has no attribute '__display'
+```
+Python performs name mangling of private variables. Every member with a double underscore will be changed to \_object.\_class\_\_variable. So, it can still be accessed from outside the class, but the practice should be refrained.  
+Thus, Python provides conceptual implementation of public, protected, and private access modifiers, but not like other languages like C#, Java, C++.
+```python
+>>> std = Student("Bill", 25)
+>>> std._Student__name
+'Bill'
+>>> std._Student__name = 'Steve'
+>>> std._Student__name
+'Steve'
+>>> std._Student__display()
+'This is private method.'
+```
+# decorators
+[Back to summary](#python)  
+- [introduction](#introduction)
+- [property](#property)
+- [classmethod](#classmethod)
+- [staticmethod](#staticmethod)
+
+## introduction
+[Back to summary](#decorators)  
+In programming, decorator is a design pattern that adds additional responsibilities to an object dynamically. In Python, a function is the first-order object. So, a decorator in Python adds additional responsibilities/functionalities to a function dynamically without modifying a function.  
+In Python, a function can be passed as an argument to another function. It is also possible to define a function inside another function, and a function can return another function.
+So, a decorator in Python is a function that receives another function as an argument. The behavior of the argument function is extended by the decorator without actually modifying it. The decorator function can be applied over a function using the @decorator syntax.
+```python
+def mydecorator(fn):
+	fn()
+	print('How are you?')
+	
+def greet():
+	print('Hello! ', end='')
+>>> greet()
+Hello!
+
+@mydecorator
+def greet():
+	print('Hello! ', end='')
+>>> greet()
+Hello! How are you?
+```
+## property
+[Back to summary](#decorators)  
+The \@property decorator is a built-in decorator in Python for the property() function. Use @property decorator on any method in the class to use the method as a property.  
+You can use the following three decorators to define a property:
+- @property: Declares the method as a property.
+- @<property-name\>.setter: Specifies the setter method for a property that sets the value to a property.
+- @<property-name\>.deleter: Specifies the delete method as a property that deletes a property.
+```python
+class Student:
+    def __init__(self, name):
+        self.__name = name
+
+    @property
+    def name(self):
+        return self.__name
+    
+    @name.setter
+    def name(self, value):
+        self.__name=value
+    
+    @name.deleter   #property-name.deleter decorator
+    def name(self, value):
+        print('Deleting..')
+        del self.__name
+
+>>> s = Student('Steve')
+>>> s.name 
+'Steve'
+>>> s.name = 'Bill'
+'Bill'
+>>> del s.name 
+Deleting.. 
+>>> s.name 
+Traceback (most recent call last):                              
+File "<pyshell#16>", line 1, in <module>            
+    p.name                                                      
+File "C:\Python37\test.py", line 6, in name                     
+    return self.__name                                          
+AttributeError: 'Student' object has no attribute '_Student__name'
+```
+## classmethod 
+[Back to summary](#decorators)  
+In Python, the @classmethod decorator is used to declare a method in the class as a class method that can be called using ClassName.MethodName(). The class method can also be called using an object of the class.  
+The @classmethod is an alternative of the classmethod() function. It is recommended to use the @classmethod decorator instead of the function because it is just a syntactic sugar.  
+@classmethod Characteristics:
+- Declares a class method.
+- The first parameter must be cls, which can be used to access class attributes.
+- The class method can only access the class attributes but not the instance attributes.
+- The class method can be called using ClassName.MethodName() and also using object.
+- It can return an object of the class.
+The class method can only access class attributes, but not the instance attributes. It will raise an error if trying to access the instance attribute in the class method.  
+```python
+class Student:
+    name = 'unknown' # class attribute
+    def __init__(self):
+        self.age = 20  # instance attribute
+
+    @classmethod
+    def tostring(cls):
+        print('Student Class Attributes: name=',cls.name)
+```
+The class method can also be used as a factory method to get an object of the class, as shown below.
+```python
+class Student:
+    
+    def __init__(self, name, age):
+        self.name = name  # instance attribute
+        self.age = age # instance attribute
+
+    @classmethod
+    def getobject(cls):
+        return cls('Steve', 25)
+```
+## staticmethod 
+[Back to summary](#decorators)  
+The @staticmethod is a built-in decorator that defines a static method in the class in Python. A static method doesn't receive any reference argument whether it is called by an instance of a class or by the class itself.  
+@staticmethod Characteristics
+- Declares a static method in the class.
+- It cannot have cls or self parameter.
+- The static method cannot access the class attributes or the instance attributes.
+- The static method can be called using ClassName.MethodName() and also using object.MethodName().
+- It can return an object of the class.
+```python
+class Student:
+    name = 'unknown' # class attribute
+    
+    def __init__(self):
+        self.age = 20  # instance attribute
+
+    @staticmethod
+    def tostring():
+        print('Student Class')
+```
+# database
+[Back to summary](#Python)  
+Python DB-API is a set of standards recommended by a Special Interest Group for database module standardization. Python modules that provide database interfacing functionality with all major database products are required to adhere to this standard.  
+Standard Python distribution has in-built support for SQLite database connectivity. It contains sqlite3 module which adheres to DB-API 2.0 and is written by Gerhard Haring. Other RDBMS products also have DB-API compliant modules:
+- MySQL: PyMySql module
+- Oracle: Cx-Oracle module
+- SQL Server: PyMsSql module
+- PostGreSQL: psycopg2 module
+- ODBC: pyodbc module
+Read documentation for more informations
+
+# files
+[Back to summary](#Python)  
+In Python, the IO module provides methods of three types of IO operations; raw binary files, buffered binary files, and text files.  
+Read:  
+Use the 'rb' mode in the open() function to read a binary files  
+```python
+with open('C:\myfile.txt') as f # opening a file
+	lines = f.read() # reading a file
+
+with open('C:\myfile.txt') as f # opening a file
+	line1 = f.readline() # reading a line
+	line2 = f.readline() # reading a line
+
+with open('C:\myfile.txt') as f # opening a file
+	lines = f.readlines() # return a list. each item of the list is a line of the file
+
+with open('C:\myfile.txt') as f # opening a file
+	for line in f:
+    	print(line)
+```
+Write:
+- write(s): Write the string s to the stream and return the number of characters written.
+- writelines(lines): Write a list of lines to the stream. Each line must have a separator at the end of it.
+```python
+with open('C:\myfile.txt', "w") as f # opening a file with write permission
+	f.write("Hello") # overwriting to file and return 5
+
+with open('C:\myfile.txt', "a") as f # opening a file with write permission and appedind mode
+	f.write("Hello") # append to file and return 5
+
+with open('C:\myfile.txt', "w") as f # opening a file with write permission
+	f.writelines(lines) 
+
+with open('C:\binfile.bin', "wb") as f # opening a file with write permission and binary mode
+	num=[5, 10, 15, 20, 25]
+	arr=bytearray(num)
+	f.write(arr)
+```
+
 
 # Django
 [Back to summary](#Python)  
