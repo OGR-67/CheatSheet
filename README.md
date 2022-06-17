@@ -1545,7 +1545,7 @@ Standard Python distribution has in-built support for SQLite database connectivi
 - SQL Server: PyMsSql module
 - PostGreSQL: psycopg2 module
 - ODBC: pyodbc module
-- MondoDB: PyMongo module
+- MondoDB: PyMongo module  
 Read documentation for more informations
 
 # file
