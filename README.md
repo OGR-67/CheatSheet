@@ -220,6 +220,8 @@ First digit is owner permis sion, second is group and third is everyone.
 - [REWRITE HISTORY](#REWRITE-HISTORY)
 - [TEMPORARY COMMITS](#TEMPORARY-COMMITS)
 
+![image](https://user-images.githubusercontent.com/78802772/175573903-81fb168e-e60b-49e3-bbd3-73cb7cd58f29.png)
+
 ## SETUP
 [Back to summary](#Git)  
   
@@ -254,11 +256,15 @@ Initialize an existing directory as a Git repository
 ```shell
 git init
 ```
-Retrieve an entire repository from a hosted location via URL
+Clone a local repository
+```shell
+git clone <path/to/repository>
+```
+clone a remote directory
 ```shell
 git clone [url]
+git clone username@host:/path/to/repository
 ```
-
 ## STAGE AND SNAPSHOT
 [Back to summary](#Git) 
 Show modified files in working directory, staged for your next commit
@@ -268,6 +274,7 @@ git status
 Add a file as it looks now to your next commit (stage)
 ```shell
 git add [file]
+git add *
 ```
 Unstage a file while retaining the changes in working directory
 ```shell
@@ -293,10 +300,9 @@ A * will appear next to the currently active branch
 ```shell
 git branch
 ```
-Rename Master branch to main
+Rename Master branch to main (I can see you github)
 ```shell
 git branch -M main
-
 ```
 Create a new branch at the current commit
 ```shell
