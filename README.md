@@ -223,7 +223,7 @@ First digit is owner permis sion, second is group and third is everyone.
 
 ## GIT BASICS
 [Back to summary](#Git)  
-[A very simple git here](#https://rogerdudler.github.io/git-guide/)
+[A very simple git here](https://rogerdudler.github.io/git-guide/)
 ![image](https://user-images.githubusercontent.com/78802772/175573903-81fb168e-e60b-49e3-bbd3-73cb7cd58f29.png)
 
 
