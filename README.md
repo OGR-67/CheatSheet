@@ -239,6 +239,7 @@ git config --global color.ui true
 
 ## NAVIGATION
 [Back to summary](#Git)  
+Shortcuts list to navigate through diff view
 ```shell
 Next line             : return
 Next page             : space bar
