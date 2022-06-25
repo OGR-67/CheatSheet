@@ -1,11 +1,18 @@
 # My Programming Cheatsheets
-
+- [Flowchart and Pseudocode](#Flowchart-and-Pseudocode)
 - [Shell](#Shell)
 - [Git](#Git)
 - [RegEx](#RegEx)
 - [Python](#Python)
 - [Javascript](#Javascript)
 - [MongoDB](#MongoDB)
+
+# Flowchart and Pseudocode
+[Back to summary](#My-Programming-Cheatsheets)  
+Before writing any line of code, it is good to know exactly what your algorythme should do.  
+Flowchart and pseudocode are your friend for that.  
+![flowchart](https://user-images.githubusercontent.com/78802772/175765499-8e722355-de85-4479-a099-76a4bc01aea6.jpg)
+![pseudocode](https://user-images.githubusercontent.com/78802772/175765501-85a8d973-cb9d-455c-be76-ac514f818e1f.jpg)
 
 # Shell
 [Back to summary](#My-Programming-Cheatsheets)  
