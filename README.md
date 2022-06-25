@@ -13,6 +13,7 @@ Before writing any line of code, it is good to know exactly what your algorythme
 Flowchart and pseudocode are your friend for that.  
 ![flowchart](https://user-images.githubusercontent.com/78802772/175765499-8e722355-de85-4479-a099-76a4bc01aea6.jpg)
 ![pseudocode](https://user-images.githubusercontent.com/78802772/175765501-85a8d973-cb9d-455c-be76-ac514f818e1f.jpg)
+![Designelements-Flowchart](https://user-images.githubusercontent.com/78802772/175765681-eb94a7a6-89db-4b8d-941d-27fef82e5a3b.png)
 
 # Shell
 [Back to summary](#My-Programming-Cheatsheets)  
