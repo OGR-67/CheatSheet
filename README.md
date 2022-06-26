@@ -3029,7 +3029,7 @@ doThings()
 doAnotherThings()
 ```
 ### ES6 method
-One important thing about ES6 method is that module and script have to be in .mjs extension.  
+One important thing about ES6 method is that module and script have to be in .mjs extension or add <"type": "module"> in your package.json.  
 Again, create a module to import. We can specify a default export which will be imported if nothing's specified.  Note that we specify export when declaring objects.
 ```javascript
 // myModule.mjs
