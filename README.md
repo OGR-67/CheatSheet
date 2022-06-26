@@ -2587,6 +2587,7 @@ will help you choose your theme
 - [Working With Strings](#Working-With-Strings)
 - [Working With Objects](#Working-With-Objects)
 - [Loops](#Loops)
+- [Modules](#Modules)
 - [Node JS](#nodeJS)
 - [Tests](#Tests)
 - [ExpressJS](#expressJS)
@@ -2980,6 +2981,92 @@ do {
   i += 1;
   console.log(i);
 } while (i < 5);
+```
+
+## Modules
+[Back to summary](#Javascript)  
+Modules are js file. You can import the entire module or just some objects inside you current script.  
+There are different kinds of importing methods, depending on what you want to do and due to new ES6 import method.  
+### ES5 method
+first create a module to import
+```javascript
+// myModule.js
+
+function doThings(){
+	console.log("doing stuffs");
+}
+
+function doAnotherThings(){
+	console.log("doing another stuffs");
+}
+
+exports.doThings = doThings;
+exports.doAnotherThings = doAnotherThings;
+
+// or
+
+module.exports = {
+	doThings,
+	doAnotherThings
+}
+
+// note that if your module exports only one things, it is handy to do so:
+
+module.exports = thingToExport
+```
+Then we can import those functions
+```javascript
+const myModule = require("./myModule");
+
+myModule.doThings()
+myModule.doAnotherThings()
+
+// or 
+
+const {doThings, doAnotherThings} = require("./myModule")
+
+doThings()
+doAnotherThings()
+```
+### ES6 method
+One important thing about ES6 method is that module and script have to be in .mjs extension.  
+Again, create a module to import. We can specify a default export which will be imported if nothing's specified.  Note that we specify export when declaring objects.
+```javascript
+// myModule.mjs
+
+export function doThings() {
+  console.log("doing stuffs");
+}
+
+export function doAnotherThings() {
+  console.log("doing another stuffs");
+}
+
+export default () => console.log("default");
+```
+And now we can import the module
+```javascript
+// We can import default
+
+import myDefaultFunction from "./myModule.mjs"; 
+
+myDefaultFunction(); // default
+
+// or we can import all
+
+import * as myModule from "./module.mjs";
+
+myModule.doThings();
+myModule.doAnotherThings();
+myModule.default(); // because we didn't specify a name in the import statement, the name is default, which makes sense
+
+// or a selective import
+
+import { doThings, default as new_name } from "./module.mjs";
+
+doThings();
+new_name();
+
 ```
 
 ## nodeJS
