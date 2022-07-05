@@ -2782,12 +2782,12 @@ id selector
 	
 Attribute selector
 [attr]		will match all elements that have the "attr" attribute
-[attr=value]
-[attr~=value]
-[attr|=value]
-[attr^=value]
-[attr$=value]
-[attr*=value]
+[attr="value"]	match every elements where attr's value equals to value
+[attr~="value"]	match any elements where attr's value contains value. word-break wildcard
+[attr|="value"] match if attr's value is completely equal to value or starting with value a directely followed by a -
+[attr^="value"] match if attr's value starts with value
+[attr$="value"] match if attr's value ends with value
+[attr*="value"] match any elements where attr's value contains value. dumb wildcard
 ```
 - The , selector is a grouping method that selects all the matching nodes. Syntax: A, B Example: div, span will match both <span> and <div> elements.  
 - The " " (space) combinator selects nodes that are descendants of the first element. Syntax: A B Example: div span will match all <span> elements that are inside a <div> element.
