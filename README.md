@@ -2807,7 +2807,7 @@ Specificity is the algorithm used by browsers to determine the CSS declaration t
 The specificity algorithm is basically a three-column value of three categories or weights. The highest value is the more specific one
 ```
 	ID		CLASS		TYPE
-   count	count		count
+   	count		count		count
 	
 Example
 :root #myApp input:required {
