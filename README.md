@@ -2789,12 +2789,12 @@ Attribute selector
 [attr$="value"] match if attr's value ends with value
 [attr*="value"] match any elements where attr's value contains value. dumb wildcard
 ```
-- The , selector is a grouping method that selects all the matching nodes. Syntax: A, B Example: div, span will match both <span> and <div> elements.  
-- The " " (space) combinator selects nodes that are descendants of the first element. Syntax: A B Example: div span will match all <span> elements that are inside a <div> element.
-- The > combinator selects nodes that are direct children of the first element. Syntax: A > B Example: ul > li will match all <li> elements that are nested directly inside a <ul> element.
-- The ~ combinator selects siblings. This means that the second element follows the first (though not necessarily immediately), and both share the same parent. Syntax: A ~ B Example: p ~ span will match all <span> elements that follow a <p>, immediately or not.
-- The + combinator matches the second element only if it immediately follows the first element. Syntax: A + B Example: h2 + p will match the first <p> element that immediately follow an <h2> element.
-- The || combinator selects nodes which belong to a column. Syntax: A || B Example: col || td will match all <td> elements that belong to the scope of the <col>.
+- The , selector is a grouping method that selects all the matching nodes. Syntax: A, B Example: div, span will match both span and div elements.  
+- The " " (space) combinator selects nodes that are descendants of the first element. Syntax: A B Example: div span will match all span elements that are inside a div element.  
+- The > combinator selects nodes that are direct children of the first element. Syntax: A > B Example: ul > li will match all li elements that are nested directly inside a ul element.  
+- The ~ combinator selects siblings. This means that the second element follows the first (though not necessarily immediately), and both share the same parent. Syntax: A ~ B Example: p ~ span will match all span elements that follow a p, immediately or not.  
+- The + combinator matches the second element only if it immediately follows the first element. Syntax: A + B Example: h2 + p will match the first p element that immediately follow an h2 element.  
+- The || combinator selects nodes which belong to a column. Syntax: A || B Example: col || td will match all td elements that belong to the scope of the col.  
 
 ## pseudo selectors
 [Back to summary](#CSS)  
