@@ -4,6 +4,8 @@
 - [Git](#Git)
 - [RegEx](#RegEx)
 - [Python](#Python)
+- [HTML](#HTML)
+- [CSS](#CSS)
 - [Javascript](#Javascript)
 - [MongoDB](#MongoDB)
 
@@ -2579,6 +2581,228 @@ will help you choose your theme
 
 --- Work In Progress --
 
+# HTML
+[Back to summary](#My-Programming-Cheatsheets)  
+- [Elements](#Elements)
+- [Attributes](#Attributes)
+- [Forms](#Forms)
+- [Meta tags](#Meta-tags)
+- [lists](#lists)
+- [anchor](#anchor)
+- [tables](#tables)
+- [events](#events)
+- [web storage](#web-storage)
+- [images and multimedia](#images-and-multimedia)
+- [canvas and webGL](#canvas-and-webGL)
+- [Workers](#Workers)
+- [Semantic HTML](#Semantic-HTML)
+
+## Elements
+[Back to summary](#HTML)  
+html elements are created using tags.  
+see [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+
+## Attributes
+[Back to summary](#HTML)  
+Elements in HTML have attributes; these are additional values that configure the elements or adjust their behavior in various ways to meet the criteria the users want.  
+see [HTML attributes reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
+
+## Forms
+[Back to summary](#HTML)  
+The <form> HTML element represents a document section containing interactive controls for submitting information.  
+It is possible to use the :valid and :invalid CSS pseudo-classes to style a <form> element based on whether or not the elements inside the form are valid.  
+[forms attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Form#:~:text=HTMLFormElement-,Attributes,-This%20element%20includes)
+
+## Meta tags
+[Back to summary](#HTML)  
+The <meta> HTML element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.  
+Metadata is data (information) about data.  
+<meta> tags always go inside the <head> element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.  
+Metadata is used by browsers (how to display content or reload page), search engines (keywords), and other web services.  
+[meta attributes](https://www.w3schools.com/tags/tag_meta.asp#:~:text=Yes-,Attributes,-Attribute)
+
+## lists
+[Back to summary](#HTML)  
+HTML lists allow web developers to group a set of related items in lists.
+2 types, ordered list or unordered list
+```html
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```
+A last type exists, description list, which works aroud a list of terms and description of those terms
+```html
+<dl>
+  <dt>Coffee</dt>
+  <dd>- black hot drink</dd>
+  <dt>Milk</dt>
+  <dd>- white cold drink</dd>
+</dl>
+```
+
+## anchor
+[Back to summary](#HTML)  
+The <a> HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.  
+Content within each <a> should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the <a> element will activate it.  
+[anchor attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=Try%20it-,Attributes,-This%20element%27s%20attributes)  
+[examples](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=HTMLAnchorElement-,Examples,-Linking%20to%20an)
+
+## tables
+[Back to summary](#HTML)  
+The <table> HTML element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.  
+[list of table tags](https://www.w3schools.com/html/html_tables.asp#:~:text=HTML-,Table,-Tags)  
+[table attributes](https://www.scaler.com/topics/html/table-attributes-in-html/#:~:text=Table%20Attributes%20in-,HTML,-Learn%20about%20table)  
+
+example
+```html
+<table>
+  <tr>
+    <th>Person 1</th>
+    <th>Person 2</th>
+    <th>Person 3</th>
+  </tr>
+  <tr>
+    <td>Emil</td>
+    <td>Tobias</td>
+    <td>Linus</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>14</td>
+    <td>10</td>
+  </tr>
+</table>
+```
+
+## events
+[Back to summary](#HTML)  
+HTML has the ability to let events trigger actions in a browser, like starting a JavaScript when a user clicks on an element.
+[list](https://www.w3schools.com/tags/ref_eventattributes.asp#:~:text=%3Cwbr%3E-,HTML,-Event%20Attributes)  
+
+## web storage
+[Back to summary](#HTML)  
+The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.
+The two mechanisms within Web Storage are as follows:
+- sessionStorage maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores)
+	- Stores data only for a session, meaning that the data is stored until the browser (or tab) is closed.
+	- Data is never transferred to the server.
+	- Storage limit is larger than a cookie (at most 5MB).
+- localStorage does the same thing, but persists even when the browser is closed and reopened.
+	- stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data.
+	- Storage limit is the maximum amongst the two.  
+  
+The Web Storage API extends the Window object with two new properties — Window.sessionStorage and Window.localStorage — which provide access to the current domain's session and local Storage objects respectively, and a storage event handler that fires when a storage area changes (e.g. a new item is stored.)  
+  
+The StorageEvent is fired on a document's Window object when a storage area changes.
+
+## images and multimedia
+[Back to summary](#HTML)  
+
+## images
+The <img> HTML element embeds an image into the document.  
+The src attribute is required, and contains the path to the image you want to embed.  
+The alt attribute holds a text description of the image, which isn't mandatory but is incredibly useful for accessibility — screen readers read this description out to their users so they know what the image means. Alt text is also displayed on the page if the image can't be loaded for some reason: for example, network errors, content blocking, or linkrot.  
+images can be annoted using <figure> tag.  
+[images attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=user%20agent.-,Attributes,-This%20element%20includes)  
+[use of the srcset attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=Using%20the%20srcset%20attribute)  
+
+### audio
+The <audio> HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.  
+The content inside the opening and closing <audio></audio> tags is shown as a fallback in browsers that don't support the element.  
+[audio attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#:~:text=support%20the%20element.-,Attributes,-This%20element%27s%20attributes)
+
+### video 
+The <video> HTML element embeds a media player which supports video playback into the document. You can use <video> for audio content as well, but the <audio> element may provide a more appropriate user experience.  
+The content inside the opening and closing <video></video> tags is shown as a fallback in browsers that don't support the element.  
+[video attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#:~:text=support%20the%20element.-,Attributes,-Like%20all%20other)
+
+## canvas and webGL
+[Back to summary](#HTML)  
+WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 <canvas> elements. This conformance makes it possible for the API to take advantage of hardware graphics acceleration provided by the user's device.  
+[webGL MDN link](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+
+## Workers
+[Back to summary](#HTML)  
+Web Workers are a simple means for web content to run scripts in background threads.  
+A worker is an object created using a constructor that runs a named JavaScript file. This file contains the code that will run in the worker thread; workers run in another global context that is different from the current window. Thus, using the window shortcut to get the current global scope (instead of self) within a Worker will return an error.  
+The worker context is represented by a DedicatedWorkerGlobalScope object in the case of dedicated workers (standard workers that are utilized by a single script; shared workers use SharedWorkerGlobalScope). A dedicated worker is only accessible from the script that first spawned it, whereas shared workers can be accessed from multiple scripts.  
+[more details](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+
+## Semantic HTML 
+[Back to summary](#HTML)  
+Some of the benefits from writing semantic markup are as follows:
+- Search engines will consider its contents as important keywords to influence the page's search rankings
+- Screen readers can use it as a signpost to help visually impaired users navigate a page
+- Finding blocks of meaningful code is significantly easier than searching through endless divs with or without semantic or namespaced classes
+- Suggests to the developer the type of data that will be populated
+- Semantic naming mirrors proper custom element/component naming  
+
+with and without semantic comparison  
+![comparison](https://miro.medium.com/max/1024/1*GgI7FvfCwqSpHgn_VgGEXQ.jpeg)
+[list of semantic elements](https://developer.mozilla.org/fr/docs/Glossary/Semantics#:~:text=la%20t%C3%A2che%20recherch%C3%A9e.-,Les%20%C3%A9l%C3%A9ments%20s%C3%A9mantiques,-Ce%20sont%20quelques)  
+
+
+# CSS
+[Back to summary](#My-Programming-Cheatsheets)  
+- [selectors](#selectors)
+- [pseudo selectors](#pseudo-selectors)
+- [specificity and inheritance](#specificity-and-inheritance)
+- [box model](#box-model)
+- [typography](#typography)
+- [positionning units display](#positionning-units-display)
+- [layout flex grid](#layout-flex-grid)
+- [shadows](#shadows)
+- [colors gradients](#colors gradients)
+- [transform and transitions](#transform-and-transitions)
+- [animations](#animations)
+- [media queries](#media-queries)
+- [css variable](#css-variable)
+
+## selectors
+[Back to summary](#CSS)  
+
+## pseudo selectors
+[Back to summary](#CSS)  
+
+## specificity and inheritance
+[Back to summary](#CSS)  
+
+## box model
+[Back to summary](#CSS)  
+
+## typography
+[Back to summary](#CSS)  
+
+## positionning units display
+[Back to summary](#CSS)  
+
+## layout flex grid
+[Back to summary](#CSS)  
+
+## shadows
+[Back to summary](#CSS)  
+
+## colors gradients
+[Back to summary](#CSS)  
+
+## tranform and transitions
+[Back to summary](#CSS)  
+
+## animations
+[Back to summary](#CSS)  
+
+## media queries
+[Back to summary](#CSS)  
+
+## css variable
+[Back to summary](#CSS)  
 
 
 # Javascript
