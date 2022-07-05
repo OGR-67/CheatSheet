@@ -2759,7 +2759,7 @@ with and without semantic comparison
 - [positionning units display](#positionning-units-display)
 - [layout flex grid](#layout-flex-grid)
 - [shadows](#shadows)
-- [colors gradients](#colors gradients)
+- [colors gradients](#colors-gradients)
 - [transform and transitions](#transform-and-transitions)
 - [animations](#animations)
 - [media queries](#media-queries)
@@ -2767,15 +2767,60 @@ with and without semantic comparison
 
 ## selectors
 [Back to summary](#CSS)  
+```
+universal selector
+* 		will match all the elements of the document
+
+type selector
+elementname	will match all element of type element name (ex: input, div, etc...)
+
+class selector
+.classname	will match any elements that has a class of "classname"
+
+id selector
+#idname		will match the element that has the id "idname"
+	
+Attribute selector
+[attr]		will match all elements that have the "attr" attribute
+[attr=value]
+[attr~=value]
+[attr|=value]
+[attr^=value]
+[attr$=value]
+[attr*=value]
+```
+- The , selector is a grouping method that selects all the matching nodes. Syntax: A, B Example: div, span will match both <span> and <div> elements.  
+- The " " (space) combinator selects nodes that are descendants of the first element. Syntax: A B Example: div span will match all <span> elements that are inside a <div> element.
+- The > combinator selects nodes that are direct children of the first element. Syntax: A > B Example: ul > li will match all <li> elements that are nested directly inside a <ul> element.
+- The ~ combinator selects siblings. This means that the second element follows the first (though not necessarily immediately), and both share the same parent. Syntax: A ~ B Example: p ~ span will match all <span> elements that follow a <p>, immediately or not.
+- The + combinator matches the second element only if it immediately follows the first element. Syntax: A + B Example: h2 + p will match the first <p> element that immediately follow an <h2> element.
+- The || combinator selects nodes which belong to a column. Syntax: A || B Example: col || td will match all <td> elements that belong to the scope of the <col>.
 
 ## pseudo selectors
 [Back to summary](#CSS)  
-
+- The : pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: a:visited will match all <a> elements that have been visited by the user. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#:~:text=Pseudo%2D-,classes,-A%20CSS%20pseudo)  
+- The :: pseudo represent entities that are not included in HTML. Example: p::first-line will match the first line of all <p> elements. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements#:~:text=original%20pseudo%2Delements.-,Index,-Pseudo%2Delements%20defined)
+	
 ## specificity and inheritance
 [Back to summary](#CSS)  
+Specificity is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an element, which in turn, determines the property value to apply to the element.  
+The specificity algorithm is basically a three-column value of three categories or weights. The highest value is the more specific one
+```
+	ID		CLASS		TYPE
+   count	count		count
+	
+Example
+:root #myApp input:required {
+  color: blue;
+}
+	
+weight: 102 because one id, no class and two types were given
+
+```
 
 ## box model
 [Back to summary](#CSS)  
+![box model](https://miro.medium.com/max/408/1*sKnLrT1TtqWDZg7GWoBCow.png)
 
 ## typography
 [Back to summary](#CSS)  
