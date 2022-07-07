@@ -2824,30 +2824,74 @@ weight: 102 because one id, no class and two types were given
 
 ## typography
 [Back to summary](#CSS)  
+use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule to import font.  
+![emotions](https://miro.medium.com/max/1400/1*rb-xgrNgv7KN6xQKMH4DUQ.jpeg)
+![shorthand](https://i.stack.imgur.com/OhU4S.jpg)
 
 ## positionning units display
 [Back to summary](#CSS)  
+![units](https://miro.medium.com/max/880/1*XNT_kayVk-qYMQuN4BwhxA.png)
+![position](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBinLUOGA_pa6giMrLvAWiakIKJ0hUR0B9rA&usqp=CAU)
+![display](https://s1.o7planning.com/fr/12049/images/23177296.png)
+![float](https://www.tutorialbrain.com/wp-content/uploads/2019/03/css-float-left-right.jpg)
 
 ## layout flex grid
 [Back to summary](#CSS)  
+![grid](https://res.cloudinary.com/practicaldev/image/fetch/s--X30jomsg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://github.com/simonpaix/images/blob/main/blog/LearnPine_Grid_CheatSheet.png%3Fraw%3Dtrue)
+![flex](https://i.redd.it/vd9dc7wfk9471.png)
 
 ## shadows
 [Back to summary](#CSS)  
+![box](https://pbs.twimg.com/media/E-2ml4HWQAEtRXK.jpg:large)
+![text](https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2014/12/text-shadow-syntax-img1.png)
 
 ## colors gradients
 [Back to summary](#CSS)  
+[color gradient genetator](https://mycolor.space/gradient)
 
 ## tranform and transitions
 [Back to summary](#CSS)  
+![transform](https://i.pinimg.com/736x/9c/63/97/9c63971fc22015ef0616c3773393ea91.jpg)
+![transition](https://1stwebdesigner.com/wp-content/uploads/2019/06/css-animation-cheat-sheets-04.png)
 
 ## animations
 [Back to summary](#CSS)  
 
 ## media queries
 [Back to summary](#CSS)  
+![dimentions](https://i.pinimg.com/originals/74/71/f1/7471f15602f673c1c58b235e11439e1e.png)
+![syntax](https://res.cloudinary.com/practicaldev/image/fetch/s--ooUgUDOt--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/djb6eg9dtsbphc83q0ic.png)
 
 ## css variable
 [Back to summary](#CSS)  
+CSS variables are an extremely useful feature and they enable us to do things we were compensating with SASS. They are defined by the CSS authors and contain a specific values that can be reused wherever needed within our project. They use a custom notation and are accessed by using the var function.  
+
+#### Declaration
+A CSS variable can be declared on any element, and we declare one like so:
+```css
+:root {
+    --primary-color: #fff;
+    --primary-padding: 1rem
+}
+```
+They are accessed by using the var function:
+```css
+div {
+    color: var(--primary-color);
+}
+```
+
+#### Dymamic usage
+CSS variables can be accessed from the JavaScript dynamically. We can get or set its value like for any other property:
+```javascript
+const el = document.querySelector(':root');
+
+// get the value
+const padding = el.style.getPropertyValue('--primary-padding');
+
+// set the value
+el.style.setProperty('--primary-padding', '3rem');
+```
 
 
 # Javascript
