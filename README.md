@@ -2896,6 +2896,17 @@ el.style.setProperty('--primary-padding', '3rem');
 
 # Javascript
 [Back to summary](#My-Programming-Cheatsheets)  
+- [operators and type conversions](#operators-and-type-conversions)
+- [closure](#closure)
+- [functions and arrow functions](#functions-and-arrow-functions)
+- [timeout and interval](#timeout-and-interval)
+- [classes and proxies](#classes-and-proxies)
+- [prototype](#prototype)
+- [iterators and iterables](#iterators-and-iterables)
+- [destructuring and spread](#destructuring-and-spread)
+- [callbacks and promise](#callbacks-and-promise)
+- [async await](#async-await)
+- [ES6 syntaxes](#ES6-syntaxes)
 - [Working With Array](#Working-With-Array)
 - [Working With Strings](#Working-With-Strings)
 - [Working With Objects](#Working-With-Objects)
@@ -2906,6 +2917,173 @@ el.style.setProperty('--primary-padding', '3rem');
 - [ExpressJS](#expressJS)
 - [EJS](#EJS)
 
+## operators and type conversions
+[Back to summary](#Javascript) 
+	
+#### arithmetic operators
+| operator |            action            |
+|:--------:|:----------------------------:|
+|     +    |           Addition           |
+|     -    |          Subtraction         |
+|     *    |        Multiplication        |
+|    **    |    Exponentiation (ES2016)   |
+|     /    |           Division           |
+|     %    | Modulus (Division Remainder) |
+|    ++    |           Increment          |
+|    --    |           Decrement          |
+
+#### asignement operators
+| Operator | Example |   Same As  |
+|:--------:|:-------:|:----------:|
+|     =    |  x = y  |    x = y   |
+|    +=    |  x += y |  x = x + y |
+|    -=    |  x -= y |  x = x - y |
+|    *=    |  x *= y |  x = x * y |
+|    /=    |  x /= y |  x = x / y |
+|    %=    |  x %= y |  x = x % y |
+|    **=   | x **= y | x = x ** y |
+
+#### comparison operators
+| Operator |            Description            |
+|:--------:|:---------------------------------:|
+|    ==    |              equal to             |
+|    ===   |     equal value and equal type    |
+|    !=    |             not equal             |
+|    !==   | not equal value or not equal type |
+|     >    |            greater than           |
+|     <    |             less than             |
+|    >=    |      greater than or equal to     |
+|    <=    |       less than or equal to       |
+|     ?    |          ternary operator         |
+
+#### logical operators
+| Operator | Description |
+|:--------:|:-----------:|
+|    &&    | logical and |
+|   \|\|   |  logical or |
+|     !    | logical not |
+		
+#### bitwise operators
+| Operator |      Description     | Example |    Same as   | Result | Decimal |
+|:--------:|:--------------------:|:-------:|:------------:|:------:|:-------:|
+|     &    |          AND         |  5 & 1  |  0101 & 0001 |  0001  |     1   |
+|    \|    |          OR          |  5 \| 1 | 0101 \| 0001 |  0101  |     5   |
+|     ~    |          NOT         |   ~ 5   |     ~0101    |  1010  |    10   |
+|     ^    |          XOR         |  5 ^ 1  |  0101 ^ 0001 |  0100  |     4   |
+|    <<    |      left shift      |  5 << 1 |   0101 << 1  |  1010  |    10   |
+|    >>    |      right shift     |  5 >> 1 |   0101 >> 1  |  0010  |     2   |
+|    >>>   | unsigned right shift | 5 >>> 1 |  0101 >>> 1  |  0010  |     2   |
+		
+
+## closure
+[Back to summary](#Javascript) 
+A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables (a scope chain).  
+The closure has three scope chain:
+	- it own scope
+	- outer function scope
+	- global scope
+Here is a simple example were you can litteraly see the closure
+```javascript
+function outer() {
+   var b = 10;
+   function inner() {
+        
+         var a = 20; 
+         console.log(a+b);
+    }
+   console.dir(inner);
+}
+
+>>> outer()
+```
+This will return an interactive list of the properties of the outer function that is basicaly a JavaScript object. 
+You can see now in the scope part that there is a "Closure" key, and inside it you will see all the variables of the outer function, so b assigned to 10 in this exemple.  
+Follow [this link](https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304) to see some practical uses for closures.
+
+## functions and arrow functions
+[Back to summary](#Javascript) 
+#### regular functions
+```javascript
+// Function declaration
+function greet(who) {
+  return `Hello, ${who}!`;
+}
+
+// Function expression
+const greet = function(who) {
+  return `Hello, ${who}!`;
+}
+```
+Inside of a regular JavaScript function, this value (aka the execution context) is dynamic.  
+The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function.  
+- During a simple invocation the value of this equals to the global object (or undefined if the function runs in strict mode)
+- During a method invocation the value of this is the object owning the method
+- During an indirect invocation using myFunc.call(thisVal, arg1, ..., argN) or myFunc.apply(thisVal, [arg1, ..., argN]) the value of this equals to the first argument
+- During a constructor invocation using new keyword this equals to the newly created instance
+
+Inside the body of a regular function, "arguments" is a special array-like object containing the list of arguments with which the function has been invoked.  
+If the return statement is missing, or there's no expression after return statement, the regular function implicitely returns undefined.  
+The regular functions are the usual way to define methods on classes.  
+	
+#### arrow functions
+```javascript
+const greet = (who) => {
+  return `Hello, ${who}!`;
+}
+```
+No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function.  
+No arguments special keyword is defined inside an arrow function, use the rest parameters like "...args" in the function expression instead.  
+If the arrow function contains one expression, and you omit the function's curly braces, then the expression is implicitly returned.  
+In contrast with regular functions, the method defined using an arrow binds this lexically to the class instance.
+	
+
+## timeout and interval
+[Back to summary](#Javascript) 
+```javascript
+function myCallback(a, b)
+{
+ // Your code here
+ // Parameters are purely optional.
+ console.log(a);
+ console.log(b);
+}
+
+let intervalID = setInterval(myCallback, 500, 'Parameter 1', 'Parameter 2');	
+clearInterval(intervalID)
+	
+let timeoutID = setTimeout(myCallback, 500, 'Parameter 1', 'Parameter 2');	
+clearTimeout(timeoutID)
+```
+
+## classes and proxies
+[Back to summary](#Javascript) 
+
+
+## prototype
+[Back to summary](#Javascript) 
+
+
+## iterators and iterables
+[Back to summary](#Javascript) 
+
+
+## destructuring and spread
+[Back to summary](#Javascript) 
+
+
+## callbacks and promise
+[Back to summary](#Javascript) 
+
+
+## async await
+[Back to summary](#Javascript) 
+
+
+## ES6 syntaxes
+[Back to summary](#Javascript) 
+
+
+	
 ## Working With Array
 [Back to summary](#Javascript) 
 ### reduce()  
