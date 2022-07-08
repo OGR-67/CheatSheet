@@ -19,19 +19,19 @@ Flowchart and pseudocode are your friend for that.
 
 # Shell
 [Back to summary](#My-Programming-Cheatsheets)  
-- [Shortcuts](#Shortcuts)
-- [Variables](#Variables)
-- [IO Redirection](#IO-Redirection)
-- [Command Lists](#Command-Lists)
-- [Directory Operations](#Directory-Operations)
-- [ls Options](#ls-Options)
-- [Search Files](#Search-Files)
-- [File Operations](#File-Operations)
-- [Watch a Command](#Watch-a-Command)
-- [Process Management](#Process-Management)
-- [Nano Shortcuts](#Nano-Shortcuts)
-- [File Permissions](#File-Permissions)
-- [File Permission Numbers](#File-Permission-Numbers)
+- [Shortcuts](#Shortcuts)  
+- [Variables](#Variables)  
+- [IO Redirection](#IO-Redirection)  
+- [Command Lists](#Command-Lists)  
+- [Directory Operations](#Directory-Operations)  
+- [ls Options](#ls-Options)  
+- [Search Files](#Search-Files)  
+- [File Operations](#File-Operations)  
+- [Watch a Command](#Watch-a-Command)  
+- [Process Management](#Process-Management)  
+- [Nano Shortcuts](#Nano-Shortcuts)  
+- [File Permissions](#File-Permissions)  
+- [File Permission Numbers](#File-Permission-Numbers)  
 
 ## Shortcuts
 [Back to summary](#Bash)    
@@ -2609,15 +2609,15 @@ see [HTML attributes reference](https://developer.mozilla.org/en-US/docs/Web/HTM
 
 ## Forms
 [Back to summary](#HTML)  
-The <form> HTML element represents a document section containing interactive controls for submitting information.  
-It is possible to use the :valid and :invalid CSS pseudo-classes to style a <form> element based on whether or not the elements inside the form are valid.  
+The form HTML element represents a document section containing interactive controls for submitting information.  
+It is possible to use the :valid and :invalid CSS pseudo-classes to style a form element based on whether or not the elements inside the form are valid.  
 [forms attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Form#:~:text=HTMLFormElement-,Attributes,-This%20element%20includes)
 
 ## Meta tags
 [Back to summary](#HTML)  
-The <meta> HTML element represents metadata that cannot be represented by other HTML meta-related elements, like <base>, <link>, <script>, <style> or <title>.  
+The meta HTML element represents metadata that cannot be represented by other HTML meta-related elements, like base, link, script, style or title.  
 Metadata is data (information) about data.  
-<meta> tags always go inside the <head> element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.  
+meta tags always go inside the head element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.  
 Metadata is used by browsers (how to display content or reload page), search engines (keywords), and other web services.  
 [meta attributes](https://www.w3schools.com/tags/tag_meta.asp#:~:text=Yes-,Attributes,-Attribute)
 
@@ -2649,14 +2649,14 @@ A last type exists, description list, which works aroud a list of terms and desc
 
 ## anchor
 [Back to summary](#HTML)  
-The <a> HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.  
-Content within each <a> should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the <a> element will activate it.  
+The a HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.  
+Content within each "a" should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the "a" element will activate it.  
 [anchor attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=Try%20it-,Attributes,-This%20element%27s%20attributes)  
 [examples](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=HTMLAnchorElement-,Examples,-Linking%20to%20an)
 
 ## tables
 [Back to summary](#HTML)  
-The <table> HTML element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.  
+The table HTML element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.  
 [list of table tags](https://www.w3schools.com/html/html_tables.asp#:~:text=HTML-,Table,-Tags)  
 [table attributes](https://www.scaler.com/topics/html/table-attributes-in-html/#:~:text=Table%20Attributes%20in-,HTML,-Learn%20about%20table)  
 
@@ -2706,26 +2706,26 @@ The StorageEvent is fired on a document's Window object when a storage area chan
 [Back to summary](#HTML)  
 
 ## images
-The <img> HTML element embeds an image into the document.  
+The img HTML element embeds an image into the document.  
 The src attribute is required, and contains the path to the image you want to embed.  
 The alt attribute holds a text description of the image, which isn't mandatory but is incredibly useful for accessibility — screen readers read this description out to their users so they know what the image means. Alt text is also displayed on the page if the image can't be loaded for some reason: for example, network errors, content blocking, or linkrot.  
-images can be annoted using <figure> tag.  
+images can be annoted using figure tag.  
 [images attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=user%20agent.-,Attributes,-This%20element%20includes)  
 [use of the srcset attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=Using%20the%20srcset%20attribute)  
 
 ### audio
-The <audio> HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.  
-The content inside the opening and closing <audio></audio> tags is shown as a fallback in browsers that don't support the element.  
+The audio HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.  
+The content inside the opening and closing audio tags is shown as a fallback in browsers that don't support the element.  
 [audio attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#:~:text=support%20the%20element.-,Attributes,-This%20element%27s%20attributes)
 
 ### video 
-The <video> HTML element embeds a media player which supports video playback into the document. You can use <video> for audio content as well, but the <audio> element may provide a more appropriate user experience.  
-The content inside the opening and closing <video></video> tags is shown as a fallback in browsers that don't support the element.  
+The video HTML element embeds a media player which supports video playback into the document. You can use video for audio content as well, but the audio element may provide a more appropriate user experience.  
+The content inside the opening and closing video tags is shown as a fallback in browsers that don't support the element.  
 [video attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#:~:text=support%20the%20element.-,Attributes,-Like%20all%20other)
 
 ## canvas and webGL
 [Back to summary](#HTML)  
-WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 <canvas> elements. This conformance makes it possible for the API to take advantage of hardware graphics acceleration provided by the user's device.  
+WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 canvas elements. This conformance makes it possible for the API to take advantage of hardware graphics acceleration provided by the user's device.  
 [webGL MDN link](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 
 ## Workers
@@ -2798,8 +2798,8 @@ Attribute selector
 
 ## pseudo selectors
 [Back to summary](#CSS)  
-- The : pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: a:visited will match all <a> elements that have been visited by the user. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#:~:text=Pseudo%2D-,classes,-A%20CSS%20pseudo)  
-- The :: pseudo represent entities that are not included in HTML. Example: p::first-line will match the first line of all <p> elements. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements#:~:text=original%20pseudo%2Delements.-,Index,-Pseudo%2Delements%20defined)
+- The : pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: a:visited will match all "a" elements that have been visited by the user. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#:~:text=Pseudo%2D-,classes,-A%20CSS%20pseudo)  
+- The :: pseudo represent entities that are not included in HTML. Example: p::first-line will match the first line of all "p" elements. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements#:~:text=original%20pseudo%2Delements.-,Index,-Pseudo%2Delements%20defined)
 	
 ## specificity and inheritance
 [Back to summary](#CSS)  
@@ -2976,7 +2976,7 @@ el.style.setProperty('--primary-padding', '3rem');
 		
 
 ## closure
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables (a scope chain).  
 The closure has three scope chain:
 	- it own scope
@@ -3001,7 +3001,7 @@ You can see now in the scope part that there is a "Closure" key, and inside it y
 Follow [this link](https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304) to see some practical uses for closures.
 
 ## functions and arrow functions
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 #### regular functions
 ```javascript
 // Function declaration
@@ -3038,7 +3038,7 @@ In contrast with regular functions, the method defined using an arrow binds this
 	
 
 ## timeout and interval
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 ```javascript
 function myCallback(a, b)
 {
@@ -3056,36 +3056,121 @@ clearTimeout(timeoutID)
 ```
 
 ## classes and proxies
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
+An important difference between function declarations and class declarations is that while functions can be called in code that appears before they are defined, classes must be defined before they can be constructed.  
+Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics.  
+```javascript
+// Class declarations
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
 
+// Class expression
+// unnamed
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// output: "Rectangle"
+
+// named
+let Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name);
+// output: "Rectangle2"
+```
+Methods can be defined by two manner
+
+```javascript
+function Hero(name, level) {
+	this.name = name;
+	this.level = level;
+}
+
+// Adding a method to the constructor
+Hero.prototype.greet = function() {
+	return `${this.name} says hello.`;
+}
+
+class Hero {
+	constructor(name, level) {
+		this.name = name;
+		this.level = level;
+	}
+
+	// Adding a method to the constructor
+	greet() {
+		return `${this.name} says hello.`;
+    }
+}
+```
+
+Class methods are in reality added to the prototype.
+```javascript
+Hero {name: "Varg", level: 1}
+__proto__:
+  ▶ constructor: class Hero
+  ▶ greet: ƒ greet()
+```
+
+To inherit from a parent class, use extends.
+```javascript
+// Creating a new class from the parent
+class Mage extends Hero {
+	constructor(name, level, spell) {
+		// Chain constructor with super
+		super(name, level);
+
+		// Add a new property
+		this.spell = spell;
+	}
+}
+
+const hero2 = new Mage('Lejon', 2, 'Magic Missile');
+
+Output
+Mage {name: "Lejon", level: 2, spell: "Magic Missile"}
+__proto__: Hero // See how proto is related to parent class
+    ▶ constructor: class Mage
+```
 
 ## prototype
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 
 
 ## iterators and iterables
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 
 
 ## destructuring and spread
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 
 
 ## callbacks and promise
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 
 
 ## async await
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 
 
 ## ES6 syntaxes
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 
 
 	
 ## Working With Array
-[Back to summary](#Javascript) 
+[Back to summary](#Javascript)  
 ### reduce()  
 The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 
@@ -3106,6 +3191,7 @@ console.log('array1:', array1);
 // expected output: "array1:" Array ["one", "two", "three"]
 
 // Careful: reverse is destructive -- it changes the original array.
+array1.reverse();
 console.log('array1:', array1);
 // expected output: "array1:" Array ["three", "two", "one"]
 ```
