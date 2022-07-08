@@ -1,27 +1,33 @@
+<a name="menu"></a>
 # My Programming Cheatsheets
-- [Flowchart and Pseudocode](#Flowchart-and-Pseudocode)
-- [Shell](#Shell)
-- [Git](#Git)
-- [RegEx](#RegEx)
-- [Python](#Python)
-- [HTML](#HTML)
-- [CSS](#CSS)
-- [Javascript](#Javascript)
-- [MongoDB](#MongoDB)
+- [Flowchart and Pseudocode](#flowchart)
+- [Shell](#shell)
+- [Git](#git)
+- [RegEx](#regex)
+- [Python](#python)
+- [HTML](#html)
+- [CSS](#css)
+- [Javascript](#javascript)
+- [MongoDB](#mongodb)
 
+***
+<a name="flowchart"></a>
 # Flowchart and Pseudocode
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 Before writing any line of code, it is good to know exactly what your algorythme should do.  
 Flowchart and pseudocode are your friend for that.  
 ![flowchart](https://user-images.githubusercontent.com/78802772/175765499-8e722355-de85-4479-a099-76a4bc01aea6.jpg)
 ![pseudocode](https://user-images.githubusercontent.com/78802772/175765501-85a8d973-cb9d-455c-be76-ac514f818e1f.jpg)
 ![Designelements-Flowchart](https://user-images.githubusercontent.com/78802772/175765681-eb94a7a6-89db-4b8d-941d-27fef82e5a3b.png)
 
+***
+<a name="shell"></a>
 # Shell
-[Back to summary](#My-Programming-Cheatsheets)  
-- [Shortcuts](#Shortcuts)  
-- [Variables](#Variables)  
-- [IO Redirection](#IO-Redirection)  
+[Back to summary](#menu)  
+- [Shortcuts](#shortcuts)  
+- [Variables](#variables)  
+- [IO Redirection](#redirection)  
+- [pipes](#[pipes])
 - [Command Lists](#Command-Lists)  
 - [Directory Operations](#Directory-Operations)  
 - [ls Options](#ls-Options)  
@@ -33,8 +39,10 @@ Flowchart and pseudocode are your friend for that.
 - [File Permissions](#File-Permissions)  
 - [File Permission Numbers](#File-Permission-Numbers)  
 
+***
+<a name="shortcuts"></a>
 ## Shortcuts
-[Back to summary](#Bash)    
+[Back to summary](#shell)  
 ```
 CTRL-c      Stop current command  
 CTRL-z      Sleep program  
@@ -52,9 +60,10 @@ ALT-.       Last argument of previous command
 ^abc^123    Run previous command, replacing abc with 123  
 $_          Value of inline previous command  
 ```
-
+***
+<a name="variables"></a>
 ## Variables
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 env                 Show environment variables  
 echo $NAME          Output value of $NAME variable  
@@ -63,9 +72,10 @@ $PATH               Executable search path
 $HOME               Home directory  
 $SHELL              Current shell  
 ```
-
+***
+<a name="redirection"></a>
 ## IO Redirection
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 cmd < file        Input of cmd from file  
 cmd1 <(cmd2)      Output of cmd2 as file input to cmd1  
@@ -77,25 +87,26 @@ cmd 1>&2          stdout to same place as stderr
 cmd 2>&1          stderr to same place as stdout  
 cmd &> file       Every output of cmd to file  
 ```
-
+***
+<a name="pipes"></a>
 ## Pipes
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 cmd1 | cmd2       stdout of cmd1 to cmd2  
 cmd1 |& cmd2      stderr of cmd1 to cmd2  
 ```
-
+***
 ## Command Lists
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 cmd1 ; cmd2     Run cmd1 then cmd2  
 cmd1 && cmd2    Run cmd2 if cmd1 is successful  
 cmd1 || cmd2    Run cmd2 if cmd1 is not successful  
 cmd &           Run cmd in a subshell  
 ```
-
+***
 ## Directory Operations
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 pwd         Show current directory
 mkdir dir   Make directory dir
@@ -103,9 +114,9 @@ cd dir      Change directory to dir
 cd ..       Go up a directory
 ls          List files
 ```
-
+***
 ## ls Options
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 -a    Show all (including hidden)
 -R    Recursive list
@@ -117,9 +128,9 @@ ls          List files
 -m    Comma- separated output
 -Q    Quoted output
 ```
-
+***
 ## Search Files
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 grep pattern files      Search for pattern in files
 grep -i                 Case insensitive search
@@ -132,8 +143,9 @@ find /dir/ -mmin num    Find files modifed less than num minutes ago in dir
 whereis command         Find binary/source/manual for command
 locate file             Find file (quick search of system index)
 ```
+***
 ## File Operations
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 touch file1       Create file1
 cat file1 file2   Concatenate files and output
@@ -146,15 +158,15 @@ head file1        Show first 10 lines of file1
 tail file1        Show last 10 lines of file1
 tail -F file1     Output last lines of file1 as it changes
 ```
-
+***
 ## Watch a Command
-[Back to summary](#Bash)    
+[Back to summary](#shell)    
 ```shell
 watch -n 5 'ntpq -p'    Issue the 'ntpq -p' command every 5 seconds and display output
 ```
-
+***
 ## Process Management
-[Back to summary](#Bash) 
+[Back to summary](#shell) 
 ```shell
 ps            Show snapshot of processes
 top           Show real time processes
@@ -162,9 +174,10 @@ kill pid      Kill process with id pid
 pkill name    Kill process with name name
 killall name  Kill all processes with names beginning name
 ```
-
+***
 ## Nano Shortcuts
-[Back to summary](#Bash) 
+[Back to summary](#shell)  
+
 Files
 ```
 Ctrl-R    Read file
@@ -193,7 +206,7 @@ CTRL-\    Search and replace
 ```
 
 ## File Permissions
-[Back to summary](#Bash) 
+[Back to summary](#shell) 
 Change mode of file to 775
 ```shell
 chmod 775 file
@@ -208,7 +221,7 @@ chown user:group file
 ```
 
 ## File Permission Numbers
-[Back to summary](#Bash)  
+[Back to summary](#shell)    
 First digit is owner permis sion, second is group and third is everyone.
 ```shell
 4   read (r)
@@ -217,7 +230,7 @@ First digit is owner permis sion, second is group and third is everyone.
 ```
 
 # Git
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 - [GIT BASICS](#GIT-BASICS)
 - [SETUP](#SETUP)
 - [NAVIGATION](#NAVIGATION)
@@ -447,7 +460,7 @@ git stash drop
 ```
 
 # RegEx
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 - [Anchors](#Anchors)
 - [Character Classes](#Character-Classes)
 - [POSIX](#POSIX)
@@ -589,7 +602,7 @@ $&          Entire matched string
 ```
 
 # Python
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 - [pip](#pip)
 - [venv](#venv)
 - [buildin functions or methods](#buildin-functions-or-methods)
@@ -2582,7 +2595,7 @@ will help you choose your theme
 --- Work In Progress --
 
 # HTML
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 - [Elements](#Elements)
 - [Attributes](#Attributes)
 - [Forms](#Forms)
@@ -2750,7 +2763,7 @@ with and without semantic comparison
 
 
 # CSS
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 - [selectors](#selectors)
 - [pseudo selectors](#pseudo-selectors)
 - [specificity and inheritance](#specificity-and-inheritance)
@@ -2895,7 +2908,7 @@ el.style.setProperty('--primary-padding', '3rem');
 
 
 # Javascript
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 - [operators and type conversions](#operators-and-type-conversions)
 - [closure](#closure)
 - [functions and arrow functions](#functions-and-arrow-functions)
@@ -3917,7 +3930,7 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 ```
 
 # MongoDB
-[Back to summary](#My-Programming-Cheatsheets)  
+[Back to summary](#menu)  
 
 - [Mongo Shell](#Mongo-Shell)
 ### CRUD operations
