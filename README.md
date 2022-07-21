@@ -1,4 +1,5 @@
 <a name="menu"></a>
+
 # My Programming Cheatsheets
 - [Flowchart and Pseudocode](#flowchart)
 - [Shell](#shell)
@@ -12,6 +13,7 @@
 
 ***
 <a name="flowchart"></a>
+
 # Flowchart and Pseudocode
 [Back to summary](#menu)  
 Before writing any line of code, it is good to know exactly what your algorythme should do.  
@@ -22,12 +24,13 @@ Flowchart and pseudocode are your friend for that.
 
 ***
 <a name="shell"></a>
+
 # Shell
 [Back to summary](#menu)  
 - [Shortcuts](#shortcuts)  
 - [Variables](#variables)  
 - [IO Redirection](#redirection)  
-- [pipes](#[pipes])
+- [pipes](#pipes)
 - [Command Lists](#Command-Lists)  
 - [Directory Operations](#Directory-Operations)  
 - [ls Options](#ls-Options)  
@@ -37,10 +40,11 @@ Flowchart and pseudocode are your friend for that.
 - [Process Management](#Process-Management)  
 - [Nano Shortcuts](#Nano-Shortcuts)  
 - [File Permissions](#File-Permissions)  
-- [File Permission Numbers](#File-Permission-Numbers)  
+- [File Permission Numbers](#permissionnumbers)  
 
 ***
 <a name="shortcuts"></a>
+
 ## Shortcuts
 [Back to summary](#shell)  
 ```
@@ -61,7 +65,9 @@ ALT-.       Last argument of previous command
 $_          Value of inline previous command  
 ```
 ***
+
 <a name="variables"></a>
+
 ## Variables
 [Back to summary](#shell)    
 ```shell
@@ -73,7 +79,9 @@ $HOME               Home directory
 $SHELL              Current shell  
 ```
 ***
+
 <a name="redirection"></a>
+
 ## IO Redirection
 [Back to summary](#shell)    
 ```shell
@@ -88,7 +96,9 @@ cmd 2>&1          stderr to same place as stdout
 cmd &> file       Every output of cmd to file  
 ```
 ***
+
 <a name="pipes"></a>
+
 ## Pipes
 [Back to summary](#shell)    
 ```shell
@@ -96,6 +106,9 @@ cmd1 | cmd2       stdout of cmd1 to cmd2
 cmd1 |& cmd2      stderr of cmd1 to cmd2  
 ```
 ***
+
+<a name="cmd-list"></a>
+
 ## Command Lists
 [Back to summary](#shell)    
 ```shell
@@ -105,6 +118,9 @@ cmd1 || cmd2    Run cmd2 if cmd1 is not successful
 cmd &           Run cmd in a subshell  
 ```
 ***
+
+<a name="dir-operations"></a>
+
 ## Directory Operations
 [Back to summary](#shell)    
 ```shell
@@ -115,6 +131,9 @@ cd ..       Go up a directory
 ls          List files
 ```
 ***
+
+<a name="ls-options"></a>
+
 ## ls Options
 [Back to summary](#shell)    
 ```shell
@@ -129,6 +148,9 @@ ls          List files
 -Q    Quoted output
 ```
 ***
+
+<a name="search-files"></a>
+
 ## Search Files
 [Back to summary](#shell)    
 ```shell
@@ -144,6 +166,9 @@ whereis command         Find binary/source/manual for command
 locate file             Find file (quick search of system index)
 ```
 ***
+
+<a name="file-operations"></a>
+
 ## File Operations
 [Back to summary](#shell)    
 ```shell
@@ -159,12 +184,18 @@ tail file1        Show last 10 lines of file1
 tail -F file1     Output last lines of file1 as it changes
 ```
 ***
+
+<a name="watch"></a>
+
 ## Watch a Command
 [Back to summary](#shell)    
 ```shell
 watch -n 5 'ntpq -p'    Issue the 'ntpq -p' command every 5 seconds and display output
 ```
 ***
+
+<a name="process-management"></a>
+
 ## Process Management
 [Back to summary](#shell) 
 ```shell
@@ -175,6 +206,9 @@ pkill name    Kill process with name name
 killall name  Kill all processes with names beginning name
 ```
 ***
+
+<a name="nano-shortcuts"></a>
+
 ## Nano Shortcuts
 [Back to summary](#shell)  
 
@@ -204,6 +238,9 @@ CTRL-W    Find
 ALT-W     Find next
 CTRL-\    Search and replace
 ```
+***
+
+<a name="file-permissions"></a>
 
 ## File Permissions
 [Back to summary](#shell) 
@@ -219,6 +256,9 @@ Change file owner to user and group to group
 ```shell
 chown user:group file
 ```
+***
+
+<a name="permissionnumbers"></a>
 
 ## File Permission Numbers
 [Back to summary](#shell)    
@@ -228,7 +268,7 @@ First digit is owner permis sion, second is group and third is everyone.
 2   write (w)
 1   execute (x)
 ```
-
+***
 # Git
 [Back to summary](#menu)  
 - [GIT BASICS](#GIT-BASICS)
@@ -243,13 +283,13 @@ First digit is owner permis sion, second is group and third is everyone.
 - [SHARE & UPDATE](#SHARE-AND-UPDATE)
 - [REWRITE HISTORY](#REWRITE-HISTORY)
 - [TEMPORARY COMMITS](#TEMPORARY-COMMITS)
-
+***
 ## GIT BASICS
 [Back to summary](#Git)  
 [A very simple git here](https://rogerdudler.github.io/git-guide/)
 ![image](https://user-images.githubusercontent.com/78802772/175573903-81fb168e-e60b-49e3-bbd3-73cb7cd58f29.png)
 
-
+***
 
 ## SETUP
 [Back to summary](#Git)  
