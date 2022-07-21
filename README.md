@@ -329,6 +329,7 @@ First digit is owner permis sion, second is group and third is everyone.
 - [SHARE & UPDATE](#share-and-update)
 - [REWRITE HISTORY](#rewrite-history)
 - [TEMPORARY COMMITS](#temporary-commits)
+- [CONCRETE CASES](#concrete-cases)
 
 ---
 
@@ -651,7 +652,222 @@ Discard the changes from top of stash stack
 git stash drop
 ```
 
+## CONCRETE CASES
+[Back to summary](#git)
+
+### Fast-Forward merge
+```
+    HEAD
+     |
+chase-branch        escaped
+     |                 |
+     A <----- B <----- C
+
+>>> git merge escaped
+
+                    escaped
+                       |
+     A <----- B <----- C
+                       |
+                  chase-branch
+                       |
+                      HEAD
+
+```
+### Change history
+```
+              escaped
+                  |
+A <----- B <----- C
+                  |
+            chase-branch
+                  |
+                HEAD
+
+>>> git rebase hot-bugfix
+
+                 HEAD
+                  |
+         change-branch-history
+                  |
+A <----- C <----- B
+         |
+     hot-bugfix
+```
+### Remove ignored file
+- When file is ignored but is tracked for whatever reason, you can always execute ```git rm <file>``` to remove the file from both repository and working area.  
+- If you want to leave it in your working directory (which is often when dealing with mistakenly tracked files), you can tell Git to remove it only from repository but not from working area with ```git rm --cached <file>```
+
+### Change a letter case in the filename of an already tracked file
+```
+>>> git mv File.txt file.txt
+>>> git commit -am "Lowercase file.txt"
+```
+
+### Recommit based on the last commit
+- When you want to change the last commit (the one that is pointed by HEAD), use ```git commit --amend```  
+- If you want to change only commited files but no edit message, use ```git commit --amend --no-edit```  
+- Moreover, you can skip git add command and update last commit with all current changes in working area: ```git commit --amend --no-edit -a```  
+- You can even edit the date of commit using ```git commit --amend --no-edit --date="1987-08-03"```  
+
+### Classic branch merge
+
+```
+        Branch A
+          |
+        HEAD
+          |
+A <------ B
+   \
+    \
+      --- C
+          |
+        Branch B
+                
+>>> git rebase branch B
+
+            Branch A
+              |
+            HEAD
+              |
+A <--- C <--- B
+```
+
+### Edit an old commit
+Rebase and change pick by edit in front of the commit you want to edit.
+
+```
+commit to edit
+      |
+      A <----- B <----- C
+                        |
+                  current commit
+                        |
+                      HEAD
+
+>>> git rebase -i HEAD~~
+```
+
+### Find the commits you have been
+```git reflog``` records where you have been previously. You can find any commit you have been on with this tool and find commits that you have lost accidentally (for example by rebase, amend).  
+There are even more powerful selectors. Do you want to know what were you working on yesterday?  
+```git show -q HEAD@{1.day.ago}```
+
+### Split a commit
+- On multiple files ```git reset HEAD~``` then add files one by one
+- On a single file, do the same if index is not clean then  
+```
+>>> git add -p <file>
+
+# Here is a description of each option:
+# 
+#     y stage this hunk for the next commit
+#     n do not stage this hunk for the next commit
+#     q quit; do not stage this hunk or any of the remaining hunks
+#     a stage this hunk and all later hunks in the file
+#     d do not stage this hunk or any of the later hunks in the file
+#     g select a hunk to go to
+#     / search for a hunk matching the given regex
+#     j leave this hunk undecided, see next undecided hunk
+#     J leave this hunk undecided, see next hunk
+#     k leave this hunk undecided, see previous undecided hunk
+#     K leave this hunk undecided, see previous hunk
+#     s split the current hunk into smaller hunks
+#     e manually edit the current hunk
+#     ? print hunk help
+```
+
+### Too many commits
+The easiest way to make one commit out of two (or more) is to squash them with ```git rebase -i``` command and choose squash option for all but the first commit you want to preserve.  
+Remember that you don't need to know the commit SHA-1 hashes when specifying them in ```git rebase -i``` command. When you know that you want to go 2 commits back, you can always run ```git rebase -i HEAD^^``` or ```git rebase -i HEAD~2```.  
+
+### Pick branches
+```
+      HEAD             ---- B - feature-b
+       |              /
+current-work - Z <--- A - feature-a
+                      \
+                       ---- C1 <--- C2 - feature-c
+
+>>> git cherry-pick feature-a
+>>> git cherry-pick feature-b
+>>> git cherry-pick feature-c
+# resolve merge conflict
+>>> git add -A
+>>> git cherry-pick --continue
+
+                    HEAD
+                     |
+              pick-your-features
+                     |
+Z <--- A <--- B <--- C
+```
+### Complex rebasing
+```
+                your-master
+                     |
+A <--- B <--- C <--- D
+        \
+         E <--- F <--- G - issue-555
+          \
+           H <--- I
+                  |
+            rebase-complex
+                  |
+                 HEAD
+
+
+>>> git rebase issue-555 --onto your-master
+
+
+                                  HEAD
+                  your-master      |
+                     |        rebase-complex 
+                     |             |
+A <--- B <--- C <--- D <--- H <--- I
+        \
+         E <--- F <--- G - issue-555
+```
+Means: Take the rebase-complex branch, figure out the patches since it diverged from the issue-555 branch, and replay these patches in the rebase-complex branch as if it was based directly off the your-master branch instead.  
+```git rebase --onto``` allows you to move a branch to a different place.  
+```git rebase issue-555 --onto your-master``` means get all commits that are not in issue-555 and place them onto your-master branch.
+```
+                                  HEAD
+                  your-master      |
+                     |        rebase-complex 
+                     |             |
+A <--- B <--- C <--- D <--- H <--- I
+        \
+         E <--- F <--- G - issue-555
+
+>>> git rebase issue-555 --onto your-master
+
+                                  HEAD
+                  your-master      |
+                     |        rebase-complex 
+                     |             |
+A <--- B <--- C <--- D <--- H <--- I
+                      \
+                      E <--- F <--- G - issue-555
+
 ---
+```
+### Invalid commits order
+With ```git rebase -i <ref>``` you can then change the order of commits
+
+### Check wich file was modified in the current commit
+```git log -p -1```
+
+### Find commits where a specific word was introduced
+```git log -S <word>```
+
+### Find bug
+Let's say that the word "bug" introduced a bug, but you have introduced that word on different commits.  
+You don't want to search by hand for that bug.  
+- ```git bisect start``` to start bisect 
+- ```git bisect bad HEAD``` tells that last commit to be buggy is the current one.
+- ```git bisect good 1.0``` tells that the 1.0 version and all before isn't buggy.  
+- ```git bisect run sh -c "grep -v bug <file-to-test>``` tells that git must execute to all commits between the good and bad this command. Because we invert the search, we will just keep non buggy version meaning all version without the "bug" word.
 
 # RegEx
 
