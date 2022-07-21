@@ -676,23 +676,26 @@ chase-branch        escaped
 ```
 ### Change history
 ```
-              escaped
-                  |
-A <----- B <----- C
-                  |
-            chase-branch
-                  |
-                HEAD
+        Branch A
+          |
+        HEAD
+          |
+A <------ B
+   \
+    \
+      --- C
+          |
+        Branch B
+                
+>>> git rebase branch B
 
->>> git rebase hot-bugfix
-
-                 HEAD
-                  |
-         change-branch-history
-                  |
-A <----- C <----- B
-         |
-     hot-bugfix
+            Branch A
+              |
+            HEAD
+              |
+A <--- C <--- B
+       |
+    Branch B
 ```
 ### Remove ignored file
 - When file is ignored but is tracked for whatever reason, you can always execute ```git rm <file>``` to remove the file from both repository and working area.  
@@ -713,24 +716,27 @@ A <----- C <----- B
 ### Classic branch merge
 
 ```
-        Branch A
-          |
         HEAD
-          |
-A <------ B
-   \
-    \
-      --- C
-          |
-        Branch B
-                
->>> git rebase branch B
+         |
+    merge-conflict
+         |
+A <----- B
+ \
+  \----- C
+         |
+another-piece-of-work
 
-            Branch A
-              |
-            HEAD
-              |
-A <--- C <--- B
+>>> git merge another-piece-of-work
+
+                 HEAD
+                  |
+                 work
+                  |
+A <----- B <----- D
+ \               /
+  \----- C <----/
+         |
+another-piece-of-work
 ```
 
 ### Edit an old commit
