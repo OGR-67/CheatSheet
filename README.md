@@ -718,7 +718,7 @@ A <--- C <--- B
 ```
         HEAD
          |
-    merge-conflict
+        work
          |
 A <----- B
  \
