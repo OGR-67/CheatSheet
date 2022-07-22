@@ -1,8 +1,11 @@
 # My Programming Cheatsheets
 
-Putting things in this file helps me to synthetize and see if I really understood concepts I learned during my learning journey.
-It can also helps as a reminder and mini tutos.
-I can the title of this file suits not really the purpose ;)
+Putting things in this file helps me to synthetize and see if I really understood concepts I've learned during my learning journey.
+It can also useful as a reminder and mini tutos.
+I know the title of this file not really suits its purpose ;)
+Initially, it was really about doing a cheatsheet, but when I realize how benefic it was for my comprehension, I drift a bit :)
+
+---
 
 # Summary
 
@@ -22,7 +25,7 @@ I can the title of this file suits not really the purpose ;)
 # Flowchart and Pseudocode
 
 [Back to summary](#summary)  
-Before writing any line of code, it is good to know exactly what your algorythme should do.  
+Before writing any line of code, it is good to know exactly what your algorithm should do.  
 Flowchart and pseudocode are your friend for that.  
 ![flowchart](https://user-images.githubusercontent.com/78802772/175765499-8e722355-de85-4479-a099-76a4bc01aea6.jpg)
 ![pseudocode](https://user-images.githubusercontent.com/78802772/175765501-85a8d973-cb9d-455c-be76-ac514f818e1f.jpg)
@@ -5880,7 +5883,7 @@ While Mongo is schema-less, SQL defines a schema via the table definition. A Mon
 [Back to summary](#mongoose)
 
 Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.  
-Each key in our code blogSchema defines a property in our documents which will be cast to its associated [SchemaType](#https://mongoosejs.com/docs/schematypes.html).
+Each key in our code blogSchema defines a property in our documents which will be cast to its associated [SchemaType](https://mongoosejs.com/docs/schematypes.html).
 
 ```javascript
 import mongoose from "mongoose";
