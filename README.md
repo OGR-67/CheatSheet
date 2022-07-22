@@ -10,6 +10,7 @@ I can the title of this file suits not really the purpose ;)
 - [Shell](#shell)
 - [Git](#git)
 - [RegEx](#regex)
+- [Docker](#docker)
 - [Python](#python)
 - [HTML](#html)
 - [CSS](#css)
@@ -655,6 +656,8 @@ git stash drop
 ## CONCRETE CASES
 [Back to summary](#git)
 
+![git_workflow](https://images.edrawmax.com/what-is/gitflow-diagram/2-git-flow-model.png)
+
 ### Fast-Forward merge
 ```
     HEAD
@@ -1073,6 +1076,265 @@ $&          Entire matched string
 ```
 
 ---
+
+# Docker
+
+[Back to summary](#summary)
+
+- [docker overview](#docker-overview)
+- [docker image](#docker-image)
+- [docker container](#docker-container)
+- [docker ports](#docker-ports)
+- [docker basic commands](#docker-basic-commands)
+- [docker workflow](#docker-workflow)
+- [developing with containers](#developing-with-containers)
+- [docker compose](#docker-compose)
+- [Dockerfile](#dockerfile)
+- [private docker repo with aws](#private-docker-repo-with-aws)
+- [deploy containerized app](#deploy-containerized-app)
+- [docker volumes](#docker-volumes)
+
+---
+
+# Docker overview
+
+[Back to summary](#docker)  
+
+(from docker's documentation)
+Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
+
+---
+
+# Docker image
+
+[Back to summary](#docker)  
+
+An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
+
+---
+
+# Docker container
+
+[Back to summary](#docker)  
+
+A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
+
+---
+
+# Docker ports
+
+[Back to summary](#docker)  
+
+![docker ports](https://www.code4it.dev/static/7e983e27425fb44d41cf3189d3835b92/84f4d/Docker-ports.png)
+The way docker works, by default, your local machine and your container can't work together. You will have to specify a port for your container and a port for your local machine. This process is made during the ```docker run``` command. See above.  
+You can't alocate two containers to the same port, that's sounds logical.
+
+---
+
+# Docker basic commands
+
+[Back to summary](#docker)  
+
+### docker pull
+To pull an image from a registery, run the following command  
+```docker pull [OPTIONS] NAME[:TAG|@DIGEST]```
+If no tag is specified, the version that will be pulled will be the latest.  
+
+### docker images
+With this command ```docker images```, you can see all the images you have available on your local machine.  
+
+### delete an image
+To delete an image, it has to be used by no container, including the not running ones.
+```docker rmi imageID```
+
+### docker run
+With this command ```docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]``` you will instance the Docker image with the specified options.  
+This command is for creating new a container.   
+- The ```-d``` option is for running container in detached mode so you will only get container reference as an output.  
+- The ```--name awesomeName``` to specify the name of the container.
+- To define ports bindings use ```-p3000:3001``` option. The second is the container port, the first the local's.  
+- Specify the network with the following options: ```--net networkName```  
+- Also, you can specify environment variables using this: ```-e VARIABLE_NAME=VALUE```  
+Example:
+```shell
+$ docker run -d \
+> -p 3000:30001 \
+> -e PASSWORD=password \
+> --name=my-container \
+> --net my-network \
+> image
+```
+
+### docker ps
+This command lets you see all containers running.  
+```docker ps [-a]```  Add the ```-a``` option see every containers.  
+```docker ps [OPTIONS]```
+
+### delete a container
+To delete a container, it must be not running.
+```docker rm container```
+
+
+### docker stop | start
+This command lets you start or stop an existing container.  
+```docker stop [containerID | containerName]```
+```docker start [containerID | containerName]```
+
+### Fecth the logs of a container
+```docker logs [OPTIONS] [containerID | containerName]```
+string the logs with ```-f``` option.
+
+### access terminal of a container
+Depending of the version of linux your container is running, use one of the following commands.  
+```shell
+docker exec -it [containerID | containerName] /bin/bash
+docker exec -it [containerID | containerName] /bin/sh
+```
+
+---
+
+# Docker workflow
+
+[Back to summary](#docker)  
+
+![docker_workflow](images/docker_workflow.png)
+
+---
+
+# Developing with containers
+
+[Back to summary](#docker)  
+
+When containers are in the same docker network, they can communicate with each others using there names.  
+Applications from outside needs to use the port.   
+![docker_server](images/docker_server.png)
+
+This schema is during development process. When you package your application into its own image, everything is on the same docker network, so accessable by names.  
+
+You can see available networks using the following command ```docker network ls```  
+To create a new network, use the following command ```docker network create my_network```
+
+
+
+---
+
+# Docker compose
+
+[Back to summary](#docker)  
+
+Using docker compose you can simplify the running process especially if you run multiple services that have to work together.  
+Let's say you have the following commands to run your services.  
+```shell
+docker network create mongo-network
+
+docker run -d \
+-p 27017:27017 \
+-e MONGO_INITDB_ROOT_USERNAME=admin \
+-e MONGO_INITDB_ROOT_PASSWORD=password \
+--net mongo-network \
+--name mongodb \
+mongo
+
+docker run -d \
+-p 8080:8081 \
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+-e ME_CONFIG_MONGODB_SERVER=mongodb \
+--net mongo-network \
+--name mongo-express \
+mongo-express
+```
+
+First, check your docker compose version using ```docker compose version``` command.  
+then create a yaml file like this:
+```yaml
+version:"3"
+servives:
+  mongodb: # MongoDB service, also sets name
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+  mongo-express: # Mongo-express service
+    image: mongo-express
+    ports:
+      - 8080:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+```
+To run now the yaml file, use ```docker-compose -f mongo.yaml up```: use docker-compose to read a file named mongo.yaml start sevices specified inside it.  
+If no network is specified in the yaml file, a default network is created.  
+To stop the services, remove the containers and the network, use ```docker-compose -f mongo.yaml down```  
+
+---
+
+# Dockerfile
+
+[Back to summary](#docker)  
+
+Dockerfile is a blueprint for building Docker images.  
+The Dockerfile allows you to package your application into a Docker image.  
+It also HAS TO be save as "Dockerfile" with no extension.
+Assume our previous example app was in ```app/``` folder.
+
+```Dockerfile
+# install node v13.0 running on alpine
+FROM node:13-alpine
+
+# optionnaly define environment variables, 
+# but its more versatile to set the docker-compose file
+ENV MONGO_DB_USERNAME=admin \
+    MONGO_DB_PASSWORD=password
+
+# linux command to run
+# executed once at build time and get written into your Docker image as a new layer
+RUN mkdir -p /home/app
+
+# Where to put witch files
+# Here copy everything inside my local app/ directory to the home/app container directory
+COPY ./app /home/app
+
+# CMD lets you define a default command to run when your container starts.
+CMD ["node", "home/app/sever.js"]
+```
+Now, to build the image based on the Dockerfile and the docker-compose file present in ```app/``` directory, we can run the following command:  
+```docker build -t my-app:1.0 .```
+Now run the image to verify that:
+- application starts successfully
+- application environment is configured correctly
+Note that when you adjust the Dockerfile, you must rebuild the image.  
+
+
+---
+
+# private docker repo with aws
+
+[Back to summary](#docker)  
+
+WORK IN PROGRESS
+
+---
+
+# deploy containerized app
+
+[Back to summary](#docker)  
+
+WORK IN PROGRESS
+
+---
+
+# Docker volumes
+
+[Back to summary](#docker)  
+
+WORK IN PROGRESS
+
+---
+
 
 # Python
 
