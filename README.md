@@ -7,8 +7,7 @@ Initially, it was really about doing a cheatsheet, but when I realize how benefi
 
 ---
 
-# Summary
-
+# Summary<a name=summary></a>
 - [Flowchart and Pseudocode](#flowchart-and-pseudocode)
 - [Shell](#shell)
 - [Git](#git)
@@ -22,8 +21,7 @@ Initially, it was really about doing a cheatsheet, but when I realize how benefi
 
 ---
 
-# Flowchart and Pseudocode
-
+# Flowchart and Pseudocode<a name=flowchart-and-pseudocode></a>
 [Back to summary](#summary)  
 Before writing any line of code, it is good to know exactly what your algorithm should do.  
 Flowchart and pseudocode are your friend for that.  
@@ -33,8 +31,7 @@ Flowchart and pseudocode are your friend for that.
 
 ---
 
-# Shell
-
+# Shell<a name=shell></a>
 [Back to summary](#summary)
 
 - [Shortcuts](#shortcuts)
@@ -54,8 +51,7 @@ Flowchart and pseudocode are your friend for that.
 
 ---
 
-## Shortcuts
-
+## Shortcuts<a name=shortcuts></a>
 [Back to summary](#shell)
 
 ```
@@ -78,10 +74,7 @@ $_          Value of inline previous command
 
 ---
 
-<a name="variables"></a>
-
-## Variables
-
+## Variables<a name=variables></a>
 [Back to summary](#shell)
 
 ```shell
@@ -95,10 +88,8 @@ $SHELL              Current shell
 
 ---
 
-<a name="io-redirection"></a>
 
-## IO Redirection
-
+## IO Redirection<a name=io-redirection></a>
 [Back to summary](#shell)
 
 ```shell
@@ -115,10 +106,8 @@ cmd &> file       Every output of cmd to file
 
 ---
 
-<a name="pipes"></a>
 
-## Pipes
-
+## Pipes<a name=pipes></a>
 [Back to summary](#shell)
 
 ```shell
@@ -128,8 +117,7 @@ cmd1 |& cmd2      stderr of cmd1 to cmd2
 
 ---
 
-## Command Lists
-
+## Command Lists<a name=command-lists></a>
 [Back to summary](#shell)
 
 ```shell
@@ -141,8 +129,7 @@ cmd &           Run cmd in a subshell
 
 ---
 
-## Directory Operations
-
+## Directory Operations<a name=directory-operations></a>
 [Back to summary](#shell)
 
 ```shell
@@ -155,8 +142,7 @@ ls          List files
 
 ---
 
-## ls Options
-
+## ls Options<a name=ls-options></a>
 [Back to summary](#shell)
 
 ```shell
@@ -173,8 +159,7 @@ ls          List files
 
 ---
 
-## Search Files
-
+## Search Files<a name=search-files></a>
 [Back to summary](#shell)
 
 ```shell
@@ -192,8 +177,7 @@ locate file             Find file (quick search of system index)
 
 ---
 
-## File Operations
-
+## File Operations<a name=file-operations></a>
 [Back to summary](#shell)
 
 ```shell
@@ -211,8 +195,7 @@ tail -F file1     Output last lines of file1 as it changes
 
 ---
 
-## Watch a Command
-
+## Watch a Command<a name=watch-a-command></a>
 [Back to summary](#shell)
 
 ```shell
@@ -221,8 +204,7 @@ watch -n 5 'ntpq -p'    Issue the 'ntpq -p' command every 5 seconds and display 
 
 ---
 
-## Process Management
-
+## Process Management<a name=process-management></a>
 [Back to summary](#shell)
 
 ```shell
@@ -235,8 +217,7 @@ killall name  Kill all processes with names beginning name
 
 ---
 
-## Nano Shortcuts
-
+## Nano Shortcuts<a name=nano-shortcuts></a>
 [Back to summary](#shell)
 
 Files
@@ -274,12 +255,10 @@ CTRL-\    Search and replace
 ```
 ***
 
-<a name="file-permissions"></a>
 
 ---
 
-## File Permissions
-
+## File Permissions<a name=file-permissions></a>
 [Back to summary](#shell)
 Change mode of file to 775
 
@@ -300,12 +279,9 @@ chown user:group file
 ```
 ***
 
-<a name="permissionnumbers"></a>
-
 ---
 
-## File Permission Numbers
-
+## File Permission Numbers<a name=file-permission-numbers></a>
 [Back to summary](#shell)  
 First digit is owner permis sion, second is group and third is everyone.
 
@@ -317,8 +293,7 @@ First digit is owner permis sion, second is group and third is everyone.
 
 ---
 
-# Git
-
+# Git<a name=git></a>
 [Back to summary](#summary)
 
 - [GIT BASICS](#git-basics)
@@ -337,16 +312,14 @@ First digit is owner permis sion, second is group and third is everyone.
 
 ---
 
-## GIT BASICS
-
+## GIT BASICS<a name=git-basics></a>
 [Back to summary](#git)  
 [A very simple git here](https://rogerdudler.github.io/git-guide/)
 ![image](https://user-images.githubusercontent.com/78802772/175573903-81fb168e-e60b-49e3-bbd3-73cb7cd58f29.png)
 
 ---
 
-## SETUP
-
+## SETUP<a name=setup></a>
 [Back to summary](#git)
 
 Set a name that is identifiable for credit when review version history
@@ -370,8 +343,7 @@ git config --global color.ui true
 
 ---
 
-## NAVIGATION
-
+## NAVIGATION<a name=navigation></a>
 [Back to summary](#git)  
 Shortcuts list to navigate through diff view
 
@@ -385,8 +357,7 @@ Help                  : h
 
 ---
 
-## SETUP AND INIT
-
+## SETUP AND INIT<a name=setup-and-init></a>
 [Back to summary](#git)  
 Initialize an existing directory as a Git repository
 
@@ -409,8 +380,7 @@ git clone username@host:/path/to/repository
 
 ---
 
-## STAGE AND SNAPSHOT
-
+## STAGE AND SNAPSHOT<a name=stage-and-snapshot></a>
 [Back to summary](#git)  
 Show modified files in working directory, staged for your next commit
 
@@ -451,8 +421,7 @@ git commit -m “[descriptive message]”
 
 ---
 
-## BRANCH AND MERGE
-
+## BRANCH AND MERGE<a name=branch-and-merge></a>
 [Back to summary](#git)  
 List your branches.  
 A \* will appear next to the currently active branch
@@ -499,8 +468,7 @@ $ git log --oneline --decorate --graph --all
 
 ---
 
-## INSPECT AND COMPARE
-
+## INSPECT AND COMPARE<a name=inspect-and-compare></a>
 [Back to summary](#git)  
 Show the commit history for the currently active branch
 
@@ -534,8 +502,7 @@ git show [SHA]
 
 ---
 
-## TRACKING PATH CHANGES
-
+## TRACKING PATH CHANGES<a name=tracking-path-changes></a>
 [Back to summary](#git)  
 Delete the file from project and stage the removal for commit
 
@@ -557,8 +524,7 @@ git log --stat -M
 
 ---
 
-## IGNORING PATTERNS
-
+## IGNORING PATTERNS<a name=ignoring-patterns></a>
 [Back to summary](#git)
 
 Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.
@@ -577,8 +543,7 @@ git config --global core.excludesfile [file]
 
 ---
 
-## SHARE AND UPDATE
-
+## SHARE AND UPDATE<a name=share-and-update></a>
 [Back to summary](#git)  
 Add a git URL as an alias
 
@@ -612,8 +577,7 @@ git pull
 
 ---
 
-## REWRITE HISTORY
-
+## REWRITE HISTORY<a name=rewrite-history></a>
 [Back to summary](#git)  
 Apply any commits of current branch ahead of specified one
 
@@ -629,8 +593,7 @@ git reset --hard [commit]
 
 ---
 
-## TEMPORARY COMMITS
-
+## TEMPORARY COMMITS<a name=temporary-commits></a>
 [Back to summary](#git)  
 Save modified and staged changes
 
@@ -656,8 +619,7 @@ Discard the changes from top of stash stack
 git stash drop
 ```
 
-## CONCRETE CASES
-[Back to summary](#git)
+## CONCRETE CASES<a name=concrete-cases></a>[Back to summary](#git)
 
 ![git_workflow](https://images.edrawmax.com/what-is/gitflow-diagram/2-git-flow-model.png)
 
@@ -881,8 +843,7 @@ You don't want to search by hand for that bug.
 - ```git bisect good 1.0``` tells that the 1.0 version and all before isn't buggy.  
 - ```git bisect run sh -c "grep -v bug <file-to-test>``` tells that git must execute to all commits between the good and bad this command. Because we invert the search, we will just keep non buggy version meaning all version without the "bug" word.
 
-# RegEx
-
+# RegEx<a name=regex></a>
 [Back to summary](#summary)
 
 - [Anchors](#anchors)
@@ -899,8 +860,7 @@ You don't want to search by hand for that bug.
 
 ---
 
-## Anchors
-
+## Anchors<a name=anchors></a>
 [Back to summary](#regex)
 
 ```
@@ -916,8 +876,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Character Classes
-
+## Character Classes<a name=character-classes></a>
 [Back to summary](#regex)
 
 ```
@@ -934,8 +893,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## POSIX
-
+## POSIX<a name=posix></a>
 [Back to summary](#regex)
 
 ```
@@ -956,8 +914,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Assertions
-
+## Assertions<a name=assertions></a>
 [Back to summary](#regex)
 
 ```
@@ -973,8 +930,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Quantifiers
-
+## Quantifiers<a name=quantifiers></a>
 [Back to summary](#regex)
 
 ```
@@ -988,8 +944,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Escape Sequences
-
+## Escape Sequences<a name=escape-sequences></a>
 [Back to summary](#regex)
 
 ```
@@ -1000,8 +955,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Common Metacharacters
-
+## Common Metacharacters<a name=common-metacharacters></a>
 [Back to summary](#regex)
 
 ```
@@ -1013,8 +967,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Special Characters
-
+## Special Characters<a name=special-characters></a>
 [Back to summary](#regex)
 
 ```
@@ -1029,8 +982,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Groups and Ranges
-
+## Groups and Ranges<a name=groups-and-ranges></a>
 [Back to summary](#regex)
 
 ```
@@ -1048,8 +1000,7 @@ $           End of string, or end of line in multi-line pattern
 
 ---
 
-## Pattern Modifiers
-
+## Pattern Modifiers<a name=pattern-modifiers></a>
 [Back to summary](#regex)
 
 ```
@@ -1064,8 +1015,7 @@ U *         Ungreedy pattern
 
 ---
 
-## String Replacement
-
+## String Replacement<a name=string-replacement></a>
 [Back to summary](#regex)
 
 ```
@@ -1080,8 +1030,7 @@ $&          Entire matched string
 
 ---
 
-# Docker
-
+# Docker<a name=docker></a>
 [Back to summary](#summary)
 
 - [docker overview](#docker-overview)
@@ -1099,8 +1048,7 @@ $&          Entire matched string
 
 ---
 
-# Docker overview
-
+# Docker overview<a name=docker-overview></a>
 [Back to summary](#docker)  
 
 (from docker's documentation)
@@ -1108,24 +1056,21 @@ Docker is an open platform for developing, shipping, and running applications. D
 
 ---
 
-# Docker image
-
+# Docker image<a name=docker-image></a>
 [Back to summary](#docker)  
 
 An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
 
 ---
 
-# Docker container
-
+# Docker container<a name=docker-container></a>
 [Back to summary](#docker)  
 
 A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
 
 ---
 
-# Docker ports
-
+# Docker ports<a name=docker-ports></a>
 [Back to summary](#docker)  
 
 ![docker ports](https://www.code4it.dev/static/7e983e27425fb44d41cf3189d3835b92/84f4d/Docker-ports.png)
@@ -1134,8 +1079,7 @@ You can't alocate two containers to the same port, that's sounds logical.
 
 ---
 
-# Docker basic commands
-
+# Docker basic commands<a name=docker-basic-commands></a>
 [Back to summary](#docker)  
 
 ### docker pull
@@ -1196,16 +1140,14 @@ docker exec -it [containerID | containerName] /bin/sh
 
 ---
 
-# Docker workflow
-
+# Docker workflow<a name=docker-workflow></a>
 [Back to summary](#docker)  
 
 ![docker_workflow](images/docker_workflow.png)
 
 ---
 
-# Developing with containers
-
+# Developing with containers<a name=developing-with-containers></a>
 [Back to summary](#docker)  
 
 When containers are in the same docker network, they can communicate with each others using there names.  
@@ -1221,8 +1163,7 @@ To create a new network, use the following command ```docker network create my_n
 
 ---
 
-# Docker compose
-
+# Docker compose<a name=docker-compose></a>
 [Back to summary](#docker)  
 
 Using docker compose you can simplify the running process especially if you run multiple services that have to work together.  
@@ -1275,8 +1216,7 @@ To stop the services, remove the containers and the network, use ```docker-compo
 
 ---
 
-# Dockerfile
-
+# Dockerfile<a name=dockerfile></a>
 [Back to summary](#docker)  
 
 Dockerfile is a blueprint for building Docker images.  
@@ -1314,24 +1254,21 @@ Note that when you adjust the Dockerfile, you must rebuild the image.
 
 ---
 
-# private docker repo with aws
-
+# private docker repo with aws<a name=private-docker-repo-with-aws></a>
 [Back to summary](#docker)  
 
 WORK IN PROGRESS
 
 ---
 
-# deploy containerized app
-
+# deploy containerized app<a name=deploy-containerized-app></a>
 [Back to summary](#docker)  
 
 WORK IN PROGRESS
 
 ---
 
-# Docker volumes
-
+# Docker volumes<a name=docker-volumes></a>
 [Back to summary](#docker)  
 
 WORK IN PROGRESS
@@ -1339,8 +1276,7 @@ WORK IN PROGRESS
 ---
 
 
-# Python
-
+# Python<a name=python></a>
 [Back to summary](#summary)
 
 - [pip](#pip)
@@ -1361,8 +1297,7 @@ WORK IN PROGRESS
 
 ---
 
-# pip
-
+# pip<a name=pip></a>
 [Back to summary](#python)  
 The pip module is the default pakage manager for python, very similar to npm for node.  
 To install a module
@@ -1409,8 +1344,7 @@ pip freeze > requirements.txt
 
 ---
 
-# venv
-
+# venv<a name=venv></a>
 [Back to summary](#python)  
 Create a virtual env
 
@@ -1439,8 +1373,7 @@ deactivate
 
 ---
 
-# buildin functions or methods
-
+# buildin functions or methods<a name=buildin-functions-or-methods></a>
 [Back to summary](#python)
 
 - [numbers](#numbers)
@@ -1452,8 +1385,7 @@ deactivate
 
 ---
 
-## numbers
-
+## numbers<a name=numbers></a>
 [Back to summary](#buildin-functions-or-methods)
 
 ```
@@ -1469,8 +1401,7 @@ round	Returns the rounded number.
 
 ---
 
-## string
-
+## string<a name=string></a>
 [Back to summary](#buildin-functions-or-methods)
 
 ```
@@ -1520,8 +1451,7 @@ string.zfill()		Returns a copy of the string with '0' characters padded to the l
 
 ---
 
-## list
-
+## list<a name=list></a>
 [Back to summary](#buildin-functions-or-methods)
 
 ```
@@ -1540,8 +1470,7 @@ list.sort()	Sorts the list items in ascending, descending, or in custom order.
 
 ---
 
-## set
-
+## set<a name=set></a>
 [Back to summary](#buildin-functions-or-methods)
 
 ```
@@ -1565,8 +1494,7 @@ set.update()	Updates the set by adding distinct elements from the passed one or 
 
 ---
 
-## dictionary
-
+## dictionary<a name=dictionary></a>
 [Back to summary](#buildin-functions-or-methods)
 
 ```
@@ -1585,8 +1513,7 @@ dict.values()	Returns the dictionary view object that provides a dynamic view of
 
 ---
 
-## all functions
-
+## all functions<a name=all-functions></a>
 The following lists all the built-in functions of Python 3.
 [Back to summary](#buildin-functions-or-methods)
 
@@ -1658,8 +1585,7 @@ zip()		Takes iterables, aggregates them in a tuple, and return it.
 
 ---
 
-# buildin modules
-
+# buildin modules<a name=buildin-modules></a>
 [Back to summary](#python)
 
 - [os](#os)
@@ -1672,8 +1598,7 @@ zip()		Takes iterables, aggregates them in a tuple, and return it.
 
 ---
 
-## os
-
+## os<a name=os></a>
 [Back to summary](#buildin-modules)  
 It is possible to automatically perform many operating system tasks. The OS module in Python provides functions for creating and removing a directory (folder), fetching its contents, changing and identifying the current directory, etc.
 
@@ -1688,8 +1613,7 @@ os.walk("<path>") # return (dirpath, dirnames, filenames) of directory in path
 
 ---
 
-## sys
-
+## sys<a name=sys></a>
 [Back to summary](#buildin-modules)  
 The sys module provides functions and variables used to manipulate different parts of the Python runtime environment.
 
@@ -1703,8 +1627,7 @@ sys.version	# This attribute displays a string containing the version number of 
 
 ---
 
-## math
-
+## math<a name=math></a>
 [Back to summary](#buildin-modules)  
 Some of the most popular mathematical functions are defined in the math module. These include trigonometric functions, representation functions, logarithmic functions, angle conversion functions, etc. In addition, two mathematical constants are also defined in this module.
 
@@ -1727,8 +1650,7 @@ math.floor(<number>)
 
 ---
 
-## statistics
-
+## statistics<a name=statistics></a>
 [Back to summary](#buildin-modules)  
 The statistics module provides functions to mathematical statistics of numeric data.
 
@@ -1741,8 +1663,7 @@ statistics.stdev(<list>) # calculates the standard deviation on a given sample i
 
 ---
 
-## collections
-
+## collections<a name=collections></a>
 [Back to summary](#buildin-modules)  
 The collections module provides alternatives to built-in container data types such as list, tuple and dict.
 
@@ -1796,8 +1717,7 @@ q.popleft() # pop first value
 
 ---
 
-## random
-
+## random<a name=random></a>
 [Back to summary](#buildin-modules)  
 The random module is a built-in module to generate the pseudo-random variables. It can be used perform some action randomly such as to get a random number, selecting a random elements from a list, shuffle elements randomly, etc.
 
@@ -1811,8 +1731,7 @@ random.shuffle(<list>) # method randomly reorders the elements in a list.
 
 ---
 
-## re
-
+## re<a name=re></a>
 [Back to summary](#buildin-modules)  
 The random module is a built-in module to use regular expression.  
 First the meta-characters
@@ -1895,8 +1814,7 @@ pattern.match(string)
 
 ---
 
-# lambda
-
+# lambda<a name=lambda></a>
 [Back to summary](#python)  
 The def keyword is used to define a function in Python. The lambda keyword is used to define anonymous functions in Python. Usually, such a function is meant for one-time use. The expression does not need to always return a value. The fonction can take multiple parameters.
 
@@ -1935,8 +1853,7 @@ Python has built-in functions that take other functions as arguments. The argume
 
 ---
 
-# generator
-
+# generator<a name=generator></a>
 [Back to summary](#python)  
 Python provides a generator to create your own iterator function. A generator is a special type of function which does not return a single value, instead, it returns an iterator object with a sequence of values. In a generator function, a yield statement is used rather than a return statement.  
 Exemple
@@ -1979,8 +1896,7 @@ sum(x*x for x in range(5))
 
 ---
 
-# buildin error type
-
+# buildin error type<a name=buildin-error-type></a>
 [Back to summary](#python)  
 The following lists important built-in exceptions in Python.
 
@@ -2032,8 +1948,7 @@ finally:
 
 ---
 
-# assert
-
+# assert<a name=assert></a>
 [Back to summary](#python)  
 In Python, the assert statement is used to continue the execute if the given condition evaluates to True. If the assert condition evaluates to False, then it raises the AssertionError exception with the specified error message.
 
@@ -2062,8 +1977,7 @@ except AssertionError as msg:
 
 ---
 
-# class
-
+# class<a name=class></a>
 [Back to summary](#python)
 
 - [basics](#basics)
@@ -2075,8 +1989,7 @@ except AssertionError as msg:
 
 ---
 
-## basics
-
+## basics<a name=basics></a>
 [Back to summary](#class)  
 A class in Python can be defined using the class keyword.
 
@@ -2159,8 +2072,7 @@ NameError: name 'Student' is not defined
 
 ---
 
-## class property
-
+## class property<a name=class-property></a>
 [Back to summary](#class)  
 In Python, a property in the class can be defined using the property() function.  
 The property() method in Python provides an interface to instance attributes. It encapsulates instance attributes and provides a property, same as Java and C#.  
@@ -2193,8 +2105,7 @@ getname() called
 
 ---
 
-## method
-
+## method<a name=method></a>
 [Back to summary](#class)  
 You can define as many methods as you want in a class using the def keyword.  
 Each method must have the first parameter, generally named as self, which refers to the calling instance.  
@@ -2217,8 +2128,7 @@ Student Name: Steve , Age: 25
 
 ---
 
-## Inheritance
-
+## Inheritance<a name=inheritance></a>
 [Back to summary](#class)  
 The child class inherits data definitions and methods from the parent class. This facilitates the reuse of features already available. The child class can add a few more definitions or redefine a base class method.
 
@@ -2237,8 +2147,7 @@ To override a method, simply define a new one with the same name inside the chil
 
 ---
 
-## Access modifiers
-
+## Access modifiers<a name=access-modifiers></a>
 [Back to summary](#class)  
 Classical object-oriented languages, such as C++ and Java, control the access to class resources by public, private, and protected keywords. Private members of the class are denied access from the environment outside the class. They can be handled only from within the class.
 
@@ -2357,8 +2266,7 @@ Thus, Python provides conceptual implementation of public, protected, and privat
 
 ---
 
-# decorators
-
+# decorators<a name=decorators></a>
 [Back to summary](#class)
 
 - [introduction](#introduction)
@@ -2368,8 +2276,7 @@ Thus, Python provides conceptual implementation of public, protected, and privat
 
 ---
 
-## introduction
-
+## introduction<a name=introduction></a>
 [Back to summary](#decorators)  
 In programming, decorator is a design pattern that adds additional responsibilities to an object dynamically. In Python, a function is the first-order object. So, a decorator in Python adds additional responsibilities/functionalities to a function dynamically without modifying a function.  
 In Python, a function can be passed as an argument to another function. It is also possible to define a function inside another function, and a function can return another function.
@@ -2394,8 +2301,7 @@ Hello! How are you?
 
 ---
 
-## property
-
+## property<a name=property></a>
 [Back to summary](#decorators)  
 The \@property decorator is a built-in decorator in Python for the property() function. Use @property decorator on any method in the class to use the method as a property.  
 You can use the following three decorators to define a property:
@@ -2440,8 +2346,7 @@ AttributeError: 'Student' object has no attribute '_Student__name'
 
 ---
 
-## classmethod
-
+## classmethod<a name=classmethod></a>
 [Back to summary](#decorators)  
 In Python, the @classmethod decorator is used to declare a method in the class as a class method that can be called using ClassName.MethodName(). The class method can also be called using an object of the class.  
 The @classmethod is an alternative of the classmethod() function. It is recommended to use the @classmethod decorator instead of the function because it is just a syntactic sugar.  
@@ -2481,8 +2386,7 @@ class Student:
 
 ---
 
-## staticmethod
-
+## staticmethod<a name=staticmethod></a>
 [Back to summary](#decorators)  
 The @staticmethod is a built-in decorator that defines a static method in the class in Python. A static method doesn't receive any reference argument whether it is called by an instance of a class or by the class itself.  
 @staticmethod Characteristics
@@ -2507,8 +2411,7 @@ class Student:
 
 ---
 
-# abstract class
-
+# abstract class<a name=abstract-class></a>
 [Back to summary](#python)  
 A class is called an Abstract class if it contains one or more abstract methods. An abstract method is a method that is declared, but contains no implementation. Abstract classes may not be instantiated, and its abstract methods must be implemented by its subclasses.  
 'abc' works by marking methods of the base class as abstract. This is done by @absttractmethod decorator. A concrete class which is a sub class of such abstract base class then implements the abstract base by overriding its abstract methods.  
@@ -2557,8 +2460,7 @@ class Rectangle():
 
 ---
 
-# database
-
+# database<a name=database></a>
 [Back to summary](#python)  
 Python DB-API is a set of standards recommended by a Special Interest Group for database module standardization. Python modules that provide database interfacing functionality with all major database products are required to adhere to this standard.  
 Standard Python distribution has in-built support for SQLite database connectivity. It contains sqlite3 module which adheres to DB-API 2.0 and is written by Gerhard Haring. Other RDBMS products also have DB-API compliant modules:
@@ -2573,8 +2475,7 @@ Standard Python distribution has in-built support for SQLite database connectivi
 
 ---
 
-# file
-
+# file<a name=file></a>
 [Back to summary](#python)  
 In Python, the IO module provides methods of three types of IO operations; raw binary files, buffered binary files, and text files.
 
@@ -2625,8 +2526,7 @@ with open('C:\binfile.bin', "wb") as f # opening a file with write permission an
 
 ---
 
-# Django
-
+# Django<a name=django></a>
 [Back to summary](#python)
 
 - [Preparing Environnement](#preparing-environnement)
@@ -2648,8 +2548,7 @@ with open('C:\binfile.bin', "wb") as f # opening a file with write permission an
 
 ---
 
-## Preparing Environnement
-
+## Preparing Environnement<a name=preparing-environnement></a>
 [back to summary](#django)  
 Create project folder and navigate to it
 
@@ -2697,8 +2596,7 @@ git init
 
 ---
 
-## Create project
-
+## Create project<a name=create-project></a>
 [back to summary](#django)  
 This will create a mysite directory in your current directory the manage.py file
 
@@ -2714,8 +2612,7 @@ python manage.py runserver
 
 ---
 
-## Database Setup
-
+## Database Setup<a name=database-setup></a>
 [back to summary](#django)  
 Open up mysite/settings.py. It’s a normal Python module with module-level variables representing Django settings.  
 If you wish to use another database, install the appropriate database bindings and change the following keys in the DATABASES 'default' item to match your database connection settings
@@ -2732,8 +2629,7 @@ For more details, see the reference documentation for [DATABASES](https://docs.d
 
 ---
 
-## Creating an app
-
+## Creating an app<a name=creating-an-app></a>
 [back to summary](#django)  
 Create an app_name directory and all default file/folder inside
 
@@ -2760,8 +2656,7 @@ urlpatterns = [
 
 ---
 
-## Creating models
-
+## Creating models<a name=creating-models></a>
 [back to summary](#django)  
 Create your class in the app_name/models.py file and add [fields](https://docs.djangoproject.com/en/3.2/ref/models/fields/).  
 It’s important to add **str**() methods to your models, because objects’ representations are used throughout Django’s automatically-generated admin.
@@ -2779,8 +2674,7 @@ Class ModelName(models.Model):
 
 ---
 
-## Database editing
-
+## Database editing<a name=database-editing></a>
 [back to summary](#django)  
 By running makemigrations, you’re telling Django that you’ve made some changes to your models
 you can specify app_name or not
@@ -2815,8 +2709,7 @@ python manage.py shell
 
 ---
 
-## Administration
-
+## Administration<a name=administration></a>
 [back to summary](#django)  
 Create a user who can login to the admin site
 
@@ -2837,8 +2730,7 @@ Open a web browser and go to “/admin/” on your local domain
 
 ---
 
-## Management
-
+## Management<a name=management></a>
 [back to summary](#django)  
 Django allows you to create customs CLI commands.  
 First, create required folders
@@ -2874,8 +2766,7 @@ python manage.py my_custom_command
 
 ---
 
-## Views
-
+## Views<a name=views></a>
 [back to summary](#django)  
 Open the file app_name/views.py and put the following Python code in it.
 This is the simplest view possible.
@@ -2947,8 +2838,7 @@ Get a look at Django's [documentation](https://docs.djangoproject.com/en/4.0/top
 
 ---
 
-## Add some static files
-
+## Add some static files<a name=add-some-static-files></a>
 [back to summary](#django)  
 Be sure to have this in your INSTALLED_APPS
 
@@ -2980,8 +2870,7 @@ Exemple of use static for stylesheet
 
 ---
 
-## Forms
-
+## Forms<a name=forms></a>
 [back to summary](#django)  
 Create form module
 
@@ -3044,8 +2933,7 @@ In your template, add this tag to prevent "cross-site request forgery" attack
 
 ---
 
-## Render Form In Template
-
+## Render Form In Template<a name=render-form-in-template></a>
 [back to summary](#django)  
 The most simple way to render the form, but usualy it's ugly
 
@@ -3074,8 +2962,7 @@ Or by explicitly specifying the field
 
 ---
 
-## Custom template tags and filters
-
+## Custom template tags and filters<a name=custom-template-tags-and-filters></a>
 [back to summary](#django)  
 Django allows you to create customs filter for your templates
 Create this folder and this file. Leave it blank.
@@ -3117,8 +3004,7 @@ Here is a link of how to make a [placeholder](https://tech.serhatteker.com/post/
 
 ---
 
-## Setting Up User Accounts
-
+## Setting Up User Accounts<a name=setting-up-user-accounts></a>
 [back to summary](#django)  
 Create a "users" app. Don't forget to add app to settings.py and include the URLs from users.  
 Inside users/urls.py, add this code to include some default authentification URLs that Django has defined.
@@ -3199,8 +3085,7 @@ def register(request):
 
 ---
 
-## Allow Users to Own Their Data
-
+## Allow Users to Own Their Data<a name=allow-users-to-own-their-data></a>
 [back to summary](#django)  
 Restrict access with @login_required decorator
 
@@ -3264,8 +3149,7 @@ new_data.save()
 
 ---
 
-## Paginator
-
+## Paginator<a name=paginator></a>
 [back to summary](#django)  
 In app_name/views.py, import Paginator.
 
@@ -3328,8 +3212,7 @@ An exemple of what to put on the bottom of your page to navigate through Page Ob
 
 ---
 
-## Deploy to Heroku
-
+## Deploy to Heroku<a name=deploy-to-heroku></a>
 [back to summary](#django)  
 Make a [Heroku](https://heroku.com) account.  
 Install Heroku [CLI](https://devcenter.heroku.com:articles/heroku-cli/).  
@@ -3361,8 +3244,7 @@ if os.environ.get('DEBUG') == "TRUE":
 
 ---
 
-# Pygame
-
+# Pygame<a name=pygame></a>
 [back to summary](#python)
 
 - [Pygame Project Skeleton](#pygame-project-skeleton)
@@ -3382,8 +3264,7 @@ if os.environ.get('DEBUG') == "TRUE":
 
 ---
 
-## Pygame Project Skeleton
-
+## Pygame Project Skeleton<a name=pygame-project-skeleton></a>
 Here is a good starting point of any pygame project  
 [back to summary](#pygame)
 
@@ -3416,8 +3297,7 @@ while True:
 
 ---
 
-## Surfaces
-
+## Surfaces<a name=surfaces></a>
 [back to summary](#pygame)
 Everything you want to display in pygame, you have to put it on a surface. Althougth, display is also a surface.  
 Image in a surface can be plain color, rendered text or an imported image file.  
@@ -3458,8 +3338,7 @@ while True:
 
 ---
 
-## Rect
-
+## Rect<a name=rect></a>
 [back to summary](#pygame)
 The 2 core functions of rectangles are precise positionning of surfaces and basic collisions.  
 You can get the rectangle of a surface using the get_rect() method
@@ -3496,8 +3375,7 @@ pygame.draw.rect(screen_surf, color, rect)
 
 ---
 
-## Collisions
-
+## Collisions<a name=collisions></a>
 [back to summary](#pygame)
 You can check if a rectangle collides with another with colliderect() method  
 Returns 0 or 1
@@ -3523,8 +3401,7 @@ pygame.sprite.spritecollide(sprite, group, bool) # Bool to True kills the group'
 
 ---
 
-## Keyboard
-
+## Keyboard<a name=keyboard></a>
 [back to summary](#pygame)
 Getting player's keyboard inputs can be achieved by two manner  
 pygame.key
@@ -3549,8 +3426,7 @@ When you I choose which one?
 
 ---
 
-## Mouse
-
+## Mouse<a name=mouse></a>
 [back to summary](#pygame)
 Getting the mouse position can be achieved by 2 manner  
 pygame.mouse:
@@ -3587,8 +3463,7 @@ for event in pygame.event.get()
 
 ---
 
-## Timer
-
+## Timer<a name=timer></a>
 [back to summary](#pygame)
 Timers are useful for logic and animation.  
 They are created by following 3 steps:
@@ -3612,8 +3487,7 @@ for event in pygame.event.get()
 
 ---
 
-## Sprites
-
+## Sprites<a name=sprites></a>
 [back to summary](#pygame)
 Sprite class is a class that contains a surface and a rectangle with dedicated methods.  
 Just inherit from sprite class to get access to all those features.  
@@ -3635,8 +3509,7 @@ player = Player()
 
 ---
 
-## Group
-
+## Group<a name=group></a>
 [back to summary](#pygame)
 2 types of groups are avaible:
 
@@ -3675,8 +3548,7 @@ mobs.draw(screen)
 
 ---
 
-## Game state
-
+## Game state<a name=game-state></a>
 [back to summary](#pygame)
 switching to different game states is very easy.  
 We can do that by a simple if statement inside the game loop.  
@@ -3699,8 +3571,7 @@ while True:
 
 ---
 
-## Animation
-
+## Animation<a name=animation></a>
 [back to summary](#pygame)
 Animation in fact is just an image replaced by a slitly different one, fast enough, to get the feeling that it is moving.  
 All we have to do is:
@@ -3742,8 +3613,7 @@ while True
 
 ---
 
-## Level
-
+## Level<a name=level></a>
 [back to summary](#pygame)
 The concept of making a level is based on looping through strings that we loop through a list and display something based on which character we get.  
 To keep it simple, let say we only want to display something when we get an "X".  
@@ -3807,8 +3677,7 @@ Last tips:
 
 ---
 
-## Vectors
-
+## Vectors<a name=vectors></a>
 [back to summary](#pygame)
 Vector is a list with an X and a Y value. You can add a vector to coordinates to move things.
 
@@ -3818,8 +3687,7 @@ rect.center += pygame.math.Vector2(100,50)
 
 ---
 
-## Camera
-
+## Camera<a name=camera></a>
 [back to summary](#pygame)
 You can get the feeling of a camera following the player by setting the player's speed to 0 and move the entire level instead.  
 With that, the relative speed between the level and the player is the same.
@@ -3828,8 +3696,7 @@ With that, the relative speed between the level and the player is the same.
 
 ---
 
-# PySimpleGUI
-
+# PySimpleGUI<a name=pysimplegui></a>
 [back to summary](#python)
 
 - [Indroduction](#indroduction)
@@ -3838,8 +3705,7 @@ With that, the relative speed between the level and the player is the same.
 
 ---
 
-## Indroduction
-
+## Indroduction<a name=indroduction></a>
 [back to summary](#pysimplegui)
 PySimpleGUI is a easy library to make simple GUI apps.  
 The core concept of this library is that the GUI is separate in rows, each row is a list, all those is put in a layout.  
@@ -3870,16 +3736,14 @@ window.close()
 
 ---
 
-## keys
-
+## keys<a name=keys></a>
 [back to summary](#pysimplegui)
 In the exemple above, you can see the uses of keys. Putting the key name between 2 "-" is convention.  
 Keys are useful to identify which box we refers to. For example, if you have two buttons with "OK" text inside your app, you'll have to assign a key to at least one of these button if you want them to act separatly (what you always want to do in fact)
 
 ---
 
-## Themes
-
+## Themes<a name=themes></a>
 [back to summary](#pysimplegui)
 Themes are a fast way to change default aspect of pySimpleGUI apps.  
 Apply a theme is as simple as call the sg.theme() method before creating the window
@@ -3900,8 +3764,7 @@ will help you choose your theme
 
 ---
 
-# HTML
-
+# HTML<a name=html></a>
 [Back to summary](#summary)
 
 - [Elements](#elements)
@@ -3920,24 +3783,21 @@ will help you choose your theme
 
 ---
 
-## Elements
-
+## Elements<a name=elements></a>
 [Back to summary](#html)  
 html elements are created using tags.  
 see [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
 ---
 
-## Attributes
-
+## Attributes<a name=attributes></a>
 [Back to summary](#html)  
 Elements in HTML have attributes; these are additional values that configure the elements or adjust their behavior in various ways to meet the criteria the users want.  
 see [HTML attributes reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
 ---
 
-## Forms
-
+## Forms<a name=forms></a>
 [Back to summary](#html)  
 The form HTML element represents a document section containing interactive controls for submitting information.  
 It is possible to use the :valid and :invalid CSS pseudo-classes to style a form element based on whether or not the elements inside the form are valid.  
@@ -3945,8 +3805,7 @@ It is possible to use the :valid and :invalid CSS pseudo-classes to style a form
 
 ---
 
-## Meta tags
-
+## Meta tags<a name=meta-tags></a>
 [Back to summary](#html)  
 The meta HTML element represents metadata that cannot be represented by other HTML meta-related elements, like base, link, script, style or title.  
 Metadata is data (information) about data.  
@@ -3956,8 +3815,7 @@ Metadata is used by browsers (how to display content or reload page), search eng
 
 ---
 
-## lists
-
+## lists<a name=lists></a>
 [Back to summary](#html)  
 HTML lists allow web developers to group a set of related items in lists.
 2 types, ordered list or unordered list
@@ -3988,8 +3846,7 @@ A last type exists, description list, which works aroud a list of terms and desc
 
 ---
 
-## anchor
-
+## anchor<a name=anchor></a>
 [Back to summary](#html)  
 The a HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.  
 Content within each "a" should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the "a" element will activate it.  
@@ -3998,8 +3855,7 @@ Content within each "a" should indicate the link's destination. If the href attr
 
 ---
 
-## tables
-
+## tables<a name=tables></a>
 [Back to summary](#html)  
 The table HTML element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.  
 [list of table tags](https://www.w3schools.com/html/html_tables.asp#:~:text=HTML-,Table,-Tags)  
@@ -4029,16 +3885,14 @@ example
 
 ---
 
-## events
-
+## events<a name=events></a>
 [Back to summary](#html)  
 HTML has the ability to let events trigger actions in a browser, like starting a JavaScript when a user clicks on an element.
 [list](https://www.w3schools.com/tags/ref_eventattributes.asp#:~:text=%3Cwbr%3E-,HTML,-Event%20Attributes)
 
 ---
 
-## web storage
-
+## web storage<a name=web-storage></a>
 [Back to summary](#html)  
 The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.
 The two mechanisms within Web Storage are as follows:
@@ -4057,8 +3911,7 @@ The StorageEvent is fired on a document's Window object when a storage area chan
 
 ---
 
-## Images and multimedia
-
+## Images and multimedia<a name=images-and-multimedia></a>
 [Back to summary](#html)
 
 ---
@@ -4090,16 +3943,14 @@ The content inside the opening and closing video tags is shown as a fallback in 
 
 ---
 
-## canvas and webGL
-
+## canvas and webGL<a name=canvas-and-webgl></a>
 [Back to summary](#html)  
 WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 canvas elements. This conformance makes it possible for the API to take advantage of hardware graphics acceleration provided by the user's device.  
 [webGL MDN link](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 
 ---
 
-## Workers
-
+## Workers<a name=workers></a>
 [Back to summary](#html)  
 Web Workers are a simple means for web content to run scripts in background threads.  
 A worker is an object created using a constructor that runs a named JavaScript file. This file contains the code that will run in the worker thread; workers run in another global context that is different from the current window. Thus, using the window shortcut to get the current global scope (instead of self) within a Worker will return an error.  
@@ -4108,8 +3959,7 @@ The worker context is represented by a DedicatedWorkerGlobalScope object in the 
 
 ---
 
-## Semantic HTML
-
+## Semantic HTML<a name=semantic-html></a>
 [Back to summary](#html)  
 Some of the benefits from writing semantic markup are as follows:
 
@@ -4125,8 +3975,7 @@ with and without semantic comparison
 
 ---
 
-# CSS
-
+# CSS<a name=css></a>
 [Back to summary](#summary)
 
 - [selectors](#selectors)
@@ -4145,8 +3994,7 @@ with and without semantic comparison
 
 ---
 
-## selectors
-
+## selectors<a name=selectors></a>
 [Back to summary](#css)
 
 ```
@@ -4181,16 +4029,14 @@ Attribute selector
 
 ---
 
-## pseudo selectors
-
+## pseudo selectors<a name=pseudo-selectors></a>
 [Back to summary](#css)
 
 - The : pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: a:visited will match all "a" elements that have been visited by the user. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#:~:text=Pseudo%2D-,classes,-A%20CSS%20pseudo)
 - The :: pseudo represent entities that are not included in HTML. Example: p::first-line will match the first line of all "p" elements. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements#:~:text=original%20pseudo%2Delements.-,Index,-Pseudo%2Delements%20defined)
   ***
 
-## specificity and inheritance
-
+## specificity and inheritance<a name=specificity-and-inheritance></a>
 [Back to summary](#css)  
 Specificity is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an element, which in turn, determines the property value to apply to the element.  
 The specificity algorithm is basically a three-column value of three categories or weights. The highest value is the more specific one
@@ -4210,15 +4056,13 @@ weight: 102 because one id, no class and two types were given
 
 ---
 
-## box model
-
+## box model<a name=box-model></a>
 [Back to summary](#css)  
 ![box model](https://miro.medium.com/max/408/1*sKnLrT1TtqWDZg7GWoBCow.png)
 
 ---
 
-## typography
-
+## typography<a name=typography></a>
 [Back to summary](#css)  
 use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule to import font.  
 ![emotions](https://miro.medium.com/max/1400/1*rb-xgrNgv7KN6xQKMH4DUQ.jpeg)
@@ -4226,8 +4070,7 @@ use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rul
 
 ---
 
-## positionning units display
-
+## positionning units display<a name=positionning-units-display></a>
 [Back to summary](#css)  
 ![units](https://miro.medium.com/max/880/1*XNT_kayVk-qYMQuN4BwhxA.png)
 ![position](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBinLUOGA_pa6giMrLvAWiakIKJ0hUR0B9rA&usqp=CAU)
@@ -4236,53 +4079,46 @@ use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rul
 
 ---
 
-## layout flex grid
-
+## layout flex grid<a name=layout-flex-grid></a>
 [Back to summary](#css)  
 ![grid](https://res.cloudinary.com/practicaldev/image/fetch/s--X30jomsg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://github.com/simonpaix/images/blob/main/blog/LearnPine_Grid_CheatSheet.png%3Fraw%3Dtrue)
 ![flex](https://i.redd.it/vd9dc7wfk9471.png)
 
 ---
 
-## shadows
-
+## shadows<a name=shadows></a>
 [Back to summary](#css)  
 ![box](https://pbs.twimg.com/media/E-2ml4HWQAEtRXK.jpg:large)
 ![text](https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2014/12/text-shadow-syntax-img1.png)
 
 ---
 
-## colors gradients
-
+## colors gradients<a name=colors-gradients></a>
 [Back to summary](#css)  
 [color gradient genetator](https://mycolor.space/gradient)
 
 ---
 
-## transform and transitions
-
+## transform and transitions<a name=transform-and-transitions></a>
 [Back to summary](#css)  
 ![transform](https://i.pinimg.com/736x/9c/63/97/9c63971fc22015ef0616c3773393ea91.jpg)
 ![transition](https://1stwebdesigner.com/wp-content/uploads/2019/06/css-animation-cheat-sheets-04.png)
 
 ---
 
-## animations
-
+## animations<a name=animations></a>
 [Back to summary](#css)
 
 ---
 
-## media queries
-
+## media queries<a name=media-queries></a>
 [Back to summary](#css)  
 ![dimentions](https://i.pinimg.com/originals/74/71/f1/7471f15602f673c1c58b235e11439e1e.png)
 ![syntax](https://res.cloudinary.com/practicaldev/image/fetch/s--ooUgUDOt--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/djb6eg9dtsbphc83q0ic.png)
 
 ---
 
-## css variable
-
+## css variable<a name=css-variable></a>
 [Back to summary](#css)  
 CSS variables are an extremely useful feature and they enable us to do things we were compensating with SASS. They are defined by the CSS authors and contain a specific values that can be reused wherever needed within our project. They use a custom notation and are accessed by using the var function.
 
@@ -4325,8 +4161,7 @@ el.style.setProperty("--primary-padding", "3rem");
 
 ---
 
-# Javascript
-
+# Javascript<a name=javascript></a>
 [Back to summary](#summary)
 
 - [operators and type conversions](#operators-and-type-conversions)
@@ -4352,8 +4187,7 @@ el.style.setProperty("--primary-padding", "3rem");
 
 ---
 
-## operators and type conversions
-
+## operators and type conversions<a name=operators-and-type-conversions></a>
 [Back to summary](#javascript)
 
 #### arithmetic operators
@@ -4425,8 +4259,7 @@ el.style.setProperty("--primary-padding", "3rem");
 
 ---
 
-## closure
-
+## closure<a name=closure></a>
 [Back to summary](#javascript)
 A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables (a scope chain).  
 The closure has three scope chain: - it own scope - outer function scope - global scope
@@ -4452,8 +4285,7 @@ Follow [this link](https://medium.com/@dis_is_patrick/practical-uses-for-closure
 
 ---
 
-## functions and arrow functions
-
+## functions and arrow functions<a name=functions-and-arrow-functions></a>
 [Back to summary](#javascript)
 
 #### regular functions
@@ -4499,8 +4331,7 @@ In contrast with regular functions, the method defined using an arrow binds this
 
 ---
 
-## timeout and interval
-
+## timeout and interval<a name=timeout-and-interval></a>
 [Back to summary](#javascript)
 
 ```javascript
@@ -4520,8 +4351,7 @@ clearTimeout(timeoutID);
 
 ---
 
-## classes and proxies
-
+## classes and proxies<a name=classes-and-proxies></a>
 [Back to summary](#javascript)
 An important difference between function declarations and class declarations is that while functions can be called in code that appears before they are defined, classes must be defined before they can be constructed.  
 Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics.
@@ -4616,44 +4446,37 @@ __proto__: Hero // See how proto is related to parent class
 
 ---
 
-## prototype
-
+## prototype<a name=prototype></a>
 [Back to summary](#javascript)
 
 ---
 
-## iterators and iterables
-
+## iterators and iterables<a name=iterators-and-iterables></a>
 [Back to summary](#javascript)
 
 ---
 
-## destructuring and spread
-
+## destructuring and spread<a name=destructuring-and-spread></a>
 [Back to summary](#javascript)
 
 ---
 
-## callbacks and promise
-
+## callbacks and promise<a name=callbacks-and-promise></a>
 [Back to summary](#javascript)
 
 ---
 
-## async await
-
+## async await<a name=async-await></a>
 [Back to summary](#javascript)
 
 ---
 
-## ES6 syntaxes
-
+## ES6 syntaxes<a name=es6-syntaxes></a>
 [Back to summary](#javascript)
 
 ---
 
-## Working With Array
-
+## Working With Array<a name=working-with-array></a>
 [Back to summary](#javascript)
 
 ### reduce()
@@ -4979,8 +4802,7 @@ scan(multiply, 1, [1, 2, 3, 4, 5, 6]);
 
 ---
 
-## Working With Strings
-
+## Working With Strings<a name=working-with-strings></a>
 [Back to summary](#javascript)
 
 ### split()
@@ -5018,8 +4840,7 @@ console.log(str.substring(1, 3));
 
 ---
 
-## Working With Objects
-
+## Working With Objects<a name=working-with-objects></a>
 [Back to summary](#javascript)
 
 ### 3 ways to loop through objects
@@ -5077,8 +4898,7 @@ Object.entries(array1);
 
 ---
 
-## Loops
-
+## Loops<a name=loops></a>
 [Back to summary](#javascript)
 
 JavaScript supports different kinds of loops:
@@ -5196,8 +5016,7 @@ do {
 
 ---
 
-## Modules
-
+## Modules<a name=modules></a>
 [Back to summary](#javascript)
 Modules are js file. You can import the entire module or just some objects inside you current script.  
 There are different kinds of importing methods, depending on what you want to do and due to new ES6 import method.
@@ -5298,8 +5117,7 @@ new_name();
 
 ---
 
-## nodeJS
-
+## nodeJS<a name=nodejs></a>
 [Back to summary](#javascript)
 Init node to create package.json
 
@@ -5322,8 +5140,7 @@ npm install -g package_name
 
 ---
 
-## Tests
-
+## Tests<a name=tests></a>
 [Back to summary](#javascript)
 We can test node apps using Assert and Mocha  
 First require assert in your test file, for exemple, index.test.js
@@ -5466,8 +5283,7 @@ Awesome, our tests are automated and organized, easy to run, easy to maintain
 
 ---
 
-## expressJS
-
+## expressJS<a name=expressjs></a>
 [Back to summary](#javascript)
 Install express
 
@@ -5573,8 +5389,7 @@ https://devcenter.heroku.com/articles/deploying-nodejs
 
 ---
 
-## EJS
-
+## EJS<a name=ejs></a>
 [Back to summary](#javascript)
 
 ### Tags
@@ -5618,8 +5433,7 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 
 ---
 
-# MongoDB
-
+# MongoDB<a name=mongodb></a>
 [Back to summary](#summary)
 
 - [Mongo Shell](#mongo-shell)
@@ -5637,8 +5451,7 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
 
 ---
 
-## Mongo Shell
-
+## Mongo Shell<a name=mongo-shell></a>
 [Back to summary](#mongodb)  
 open mongo shell
 
@@ -5674,8 +5487,7 @@ db
 
 ---
 
-## Create
-
+## Create<a name=create></a>
 [Back to summary](#mongodb)
 
 - db.collection.insertOne() inserts a single document into a collection. If the document does not specify an \_id field, MongoDB adds the \_id field with an ObjectId value to the new document.
@@ -5726,8 +5538,7 @@ db.movies.insertMany([
 
 ---
 
-## Read
-
+## Read<a name=read></a>
 [Back to summary](#mongodb)
 
 - Use the db.collection.find() method in the MongoDB Shell to query documents in a collection. To read all documents in the collection, pass an empty document as the query filter parameter to the find method.
@@ -5768,8 +5579,7 @@ db.movies.find({
 
 ---
 
-## Update
-
+## Update<a name=update></a>
 [Back to summary](#mongodb)
 
 To update a document, MongoDB provides [update operators](https://docs.mongodb.com/manual/reference/operator/update/), such as $set, to modify field values.
@@ -5809,8 +5619,7 @@ db.accounts.replaceOne(
 
 ---
 
-## Delete
-
+## Delete<a name=delete></a>
 [Back to summary](#mongodb)
 
 - To delete all documents from a collection, pass an empty filter document {} to the db.collection.deleteMany() method.
@@ -5833,8 +5642,7 @@ db.movies.deleteOne({ cast: "Brad Pitt" });
 
 ---
 
-## Mongoose
-
+## Mongoose<a name=mongoose></a>
 [Back to summary](#mongodb)
 
 - [Terminologies](#terminologies)
@@ -5848,14 +5656,12 @@ db.movies.deleteOne({ cast: "Brad Pitt" });
 
 ---
 
-### Terminologies
-
+### Terminologies<a name=terminologies></a>
 ---
 
 [Back to summary](#mongoose)
 
-#### Collections
-
+#### Collections<a name=collections></a>
 ‘Collections’ in Mongo are equivalent to tables in relational databases. They can hold multiple JSON documents.
 
 #### Documents
@@ -5876,8 +5682,7 @@ While Mongo is schema-less, SQL defines a schema via the table definition. A Mon
 
 ---
 
-### Schemas
-
+### Schemas<a name=schemas></a>
 ---
 
 [Back to summary](#mongoose)
@@ -5928,8 +5733,7 @@ schema.path("_id"); // ObjectId { ... }
 
 ---
 
-### Models
-
+### Models<a name=models></a>
 ---
 
 [Back to summary](#mongoose)
@@ -5968,8 +5772,7 @@ myInstance.save()
 
 ---
 
-### Data Validation
-
+### Data Validation<a name=data-validation></a>
 ---
 
 [Back to summary](#mongoose)
@@ -5997,8 +5800,7 @@ const exempleSchema = new mongoose.Schema({
 
 ---
 
-### Fetch Record
-
+### Fetch Record<a name=fetch-record></a>
 ---
 
 [Back to summary](#mongoose)
@@ -6019,8 +5821,7 @@ MyModel.find({
 
 ---
 
-### Update Record
-
+### Update Record<a name=update-record></a>
 ---
 
 [Back to summary](#mongoose)
@@ -6051,8 +5852,7 @@ MyModel.findOneAndUpdate(
 
 ---
 
-### Delete Record
-
+### Delete Record<a name=delete-record></a>
 ---
 
 [Back to summary](#mongoose)
@@ -6073,8 +5873,7 @@ MyModel.findOneAndRemove({
 
 ---
 
-### Helpers
-
+### Helpers<a name=helpers></a>
 ---
 
 [Back to summary](#mongoose)
