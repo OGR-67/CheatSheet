@@ -17,6 +17,7 @@ Initially, it was really about doing a cheatsheet, but when I realize how benefi
 - [HTML](#html)
 - [CSS](#css)
 - [Javascript](#javascript)
+- [SQL](#sql)
 - [MongoDB](#mongodb)
 
 ---
@@ -54,7 +55,9 @@ Flowchart and pseudocode are your friend for that.
 ## Shortcuts<a name=shortcuts></a>
 [Back to summary](#shell)
 
+
 ```
+
 CTRL-c      Stop current command
 CTRL-z      Sleep program
 CTRL-a      Go to start of line
@@ -70,9 +73,12 @@ ALT-.       Last argument of previous command
 !*          All arguments of previous command
 ^abc^123    Run previous command, replacing abc with 123
 $_          Value of inline previous command
+
+
 ```
 
 ---
+
 
 ## Variables<a name=variables></a>
 [Back to summary](#shell)
@@ -1189,7 +1195,7 @@ docker run -d \
 mongo-express
 ```
 
-First, check your docker compose version using ```docker compose version``` command.  
+First, check your docker compose version.  
 then create a yaml file like this:
 ```yaml
 version:"3"
@@ -4235,7 +4241,7 @@ el.style.setProperty("--primary-padding", "3rem");
 
 ---
 
-#### logical operators
+#### Logical Operators
 
 | Operator | Description |
 | :------: | :---------: |
@@ -5264,7 +5270,7 @@ Hooks also exists
 - afterEach This hook isexecuted AFTER EACH tests
 
 ```javascript
-describe("saveToFile()", function () {
+describe("saveToFile()", function() {
     beforeEach(function () {
     	// We create a todo and add a value to it before each case tests
         this.todos = new Todos();
@@ -5277,6 +5283,7 @@ describe("saveToFile()", function () {
             fs.unlinkSync("todos.csv");
         }
     });
+});
 ```
 
 Awesome, our tests are automated and organized, easy to run, easy to maintain
@@ -5396,7 +5403,7 @@ https://devcenter.heroku.com/articles/deploying-nodejs
 
 Use inside .ejs templates
 
-```
+```html
 # Script
 <% 'Scriptlet' tag, for control-flow, no output
 <%_ ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it
@@ -5420,9 +5427,9 @@ _%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
 
 ### Includes
 
-Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use <%- include('user/show'); %>.
+Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use ```<%- include('user/show'); %>```.
 
-You'll likely want to use the raw output tag (<%-) with your include to avoid double-escaping the HTML output.
+You'll likely want to use the raw output tag ```<%-``` with your include to avoid double-escaping the HTML output.
 
 ```html
 <ul>
@@ -5430,6 +5437,313 @@ You'll likely want to use the raw output tag (<%-) with your include to avoid do
   <% }); %>
 </ul>
 ```
+
+---
+
+# SQL<a name=sql></a>
+[Back to summary](#summary)  
+
+- [SELECT](#select)  
+- [DISTINCT](#distinct)  
+- [WHERE](#where) 
+- [Logical operators](#sql-logical-operators)
+- [GROUP BY](#group-by)
+- [HAVING](#having)
+- [ORDER BY](#order-by)
+- [AS](#as)
+- [LIMIT](#limit)
+- [CASE](#case)
+- [UNION](#union)
+- [INTERSECT](#intersect)
+
+---
+
+## SELECT<a name=select></a>
+[Back to summary](#sql)  
+
+The common usage of SQL is reading datas from a database. This is done with the ```SELECT``` command, which returns records in a result table.  
+This command can select one or more column of a table.
+
+```sql
+SELECT column FROM my_table             -- a single column
+SELECT column1, column2 FROM my_table   -- 2 columns
+SELECT * FROM my_table                  -- all columns
+```
+
+And a more advanced query
+```sql
+SELECT *
+FROM table
+WHERE condition
+GROUP BY expression
+HAVING condition
+{ UNION | INTERSECT | EXCEPT }
+ORDER BY expression
+LIMIT count
+OFFSET start
+```
+
+---
+
+## DISTINCT<a name=distinct></a>
+[Back to summary](#sql)  
+
+SELECT returns all data of one of more columns. This command can return duplicated records. To avoid this, simply put the ```DISTINCT``` keyword after ```SELECT```.
+```sql
+SELECT DISTINCT my_column -- DISTINCT  is replaced with UNIQUE in Oracle
+FROM tableau
+```
+---
+
+## WHERE<a name=where></a>
+[Back to summary](#sql)  
+
+
+```WHERE``` in a SQL query allows to extract records that validate a condition. 
+```sql
+SELECT column(s) FROM my_table WHERE condition
+
+-- Exemple
+SELECT * FROM client WHERE city = 'paris'
+```
+
+| Opérateur   | Description                                                                 |
+|-------------|-----------------------------------------------------------------------------|
+| =           | equals to                                                                   |
+| <>          | not equals to                                                               |
+| !=          | not equals to                                                               |
+| >           | more than                                                                   |
+| <           | less than                                                                   |
+| >=          | more or equals                                                              |
+| <=          | less or equals                                                              |
+| IN          | list of possible values                                                     |
+| BETWEEN     | value between the giver interval                                            |
+| LIKE        | search specifying the beginning, middle or end of a string                  |
+| IS NULL     | Value is null                                                               |
+| IS NOT NULL | Value is nor null                                                           |
+
+---
+
+## SQL Logical Operators<a name=sql-logical-operators></a>[Back to summary](#sql)  
+
+All of the following operators can be used in combinaison with the NOT operator
+
+### AND / OR
+```sql
+SELECT columm
+FROM table_name
+WHERE condition1 AND condition2
+```
+
+### IN
+```sql
+SELECT columm
+FROM table
+WHERE columm IN ( value1, value2, value3, ... )
+```
+
+### BETWEEN
+```sql
+SELECT *
+FROM table_name
+WHERE columm BETWEEN 'value1' AND 'value2'
+
+```
+
+### LIKE
+The ```LIKE``` operator is used in ```WHERE``` clause in SQL queries. This keyword can search for a pattern using wildcards.
+- ```_``` represents 1 of any characters
+- ```*``` represents 0, 1 or more of any characters
+In use:
+- ```%a``` all strings finishing with ```a```
+- ```a%``` all strings starting with ```a```
+- ``` %a%``` all strings containing ```a```
+
+```sql
+SELECT *
+FROM table
+WHERE column LIKE 'a%'
+```
+
+### IS NULL / IS NOT NULL
+In SQL, ```IS``` allows us to filter results containing the ```NULL``` value. This is important because ```NULL``` is unknown and in consequence cannot be filtered by comparison operators.
+```sql
+SELECT *
+FROM table_name
+WHERE column IS NULL
+
+SELECT *
+FROM table_name
+WHERE column IS NOT NULL
+```
+
+---
+
+## GROUP BY<a name=group-by></a>
+[Back to summary](#sql)  
+ 
+The ```GROUP BY``` command is used to group several results and apply a specific function on that group. 
+```sql
+SELECT column1, function(column2)
+FROM table_name
+GROUP BY column1
+```
+The functions available:
+- ```AVG()``` for the average
+- ```COUNT()``` count the number of rows concerned
+- ```MAX()``` get the highest value
+- ```MIN()``` get the lowest value
+- ```SUM()``` calculates sum of several rows
+
+Exemple
+```sql
+SELECT client, SUM(prices)
+FROM purchase
+GROUP BY client
+```
+
+---
+
+## HAVING<a name=having></a>
+[Back to summary](#sql)  
+
+The keyword ```HAVING``` has the same purpose as ```WHERE``` but allows to filter using functions.  
+```sql
+SELECT col1, SUM(col2)
+FROM table_name
+GROUP BY col1
+HAVING fonction(col2) operator value1
+```
+This means ```SELECT``` columns from ```table_name``` by grouping rows that have identical values as ```col1``` and that validate the ```HAVING``` condition.
+
+---
+
+## ORDER BY<a name=order-by></a>
+[Back to summary](#sql)  
+
+Allows us to sort the results. Can be achieved on a single or multiple columns, by ascending (default) or descending order.  
+
+```sql
+SELECT col1, col2
+FROM table_name
+ORDER BY col1
+
+SELECT col1, col2, col3
+FROM table_name
+ORDER BY col1 DESC, col2 ASC -- ASC is optional because its by default. But sometimes its clearer to write it.
+```
+
+---
+
+## AS<a name=as></a>
+[Back to summary](#sql)  
+
+This keyword let's you alliases object for better presentation of the results.  
+This kind of renaming is only for the current query, it doesn't rename the object.
+
+```sql
+SELECT col1 AS c1, col2
+FROM table_name
+
+SELECT *
+FROM table_name AS t1
+```
+
+---
+
+## LIMIT<a name=limit></a>
+[Back to summary](#sql)  
+
+Defines the maximum number of records to return.  This limition is done after retrieving all the records, so it does not improve the performances.
+
+```sql
+SELECT *
+FROM table_name
+LIMIT 10
+```
+
+You can define an offset
+
+```sql
+SELECT *
+FROM table
+LIMIT 10 OFFSET 5 -- PostGreSQL
+
+SELECT *
+FROM table
+LIMIT 5, 10; -- mySQL first value is the offset, second one the limit
+
+```
+
+
+---
+
+## CASE<a name=case></a>
+[Back to summary](#sql)  
+
+This keyword is the if / else statement of sql.  
+It creates a new columns named by default ```CASE```.
+
+```sql
+SELECT id, name, percentage, unit_price, quantity, 
+    CASE 
+      WHEN percentage=1 THEN 'normal price'
+      WHEN percentage>1 THEN 'expensive price'
+      ELSE 'cheap price'
+    END
+FROM `purchase`
+
+SELECT id, name, percentage, unit_price, quantity, 
+  CASE quantity
+    WHEN 0 THEN 'Error'
+    WHEN 1 THEN '5% payback'
+    WHEN 2 THEN '6% payback'
+    WHEN 3 THEN '8% payback'
+    ELSE '10% payback'
+  END
+ FROM purchase
+```
+
+---
+
+## UNION<a name=union></a>
+[Back to summary](#sql)  
+
+This keyword allows to return records that correspond to 2 tables or more.  
+![union](https://sql.sh/wp-content/uploads/2013/01/sql-ensemble-union-300.png)  
+Each query has to have the same amount of columns. It does not display the duplicates.  
+To see duplicates use ```UNION ALL``` instead.
+
+```sql
+SELECT * FROM table1
+UNION
+SELECT * FROM table2
+```
+
+---
+
+## INTERSECT<a name=intersect></a>
+[Back to summary](#sql)  
+
+Returns the intersection of results of 2 queries. In other terms it returns records that are similar between 2 tables.  
+![intersect](https://sql.sh/wp-content/uploads/2013/02/sql-ensemble-intersect-300.png)  
+```sql
+SELECT * FROM `table1`
+INTERSECT
+SELECT * FROM `table2`
+```
+Not available on mySQL but there is an alternative shown below.
+```sql
+SELECT DISTINCT value FROM `table1`
+WHERE value IN (
+  SELECT value 
+  FROM `table2`
+);
+```
+
+---
+
+WORK IN PROGRESS
 
 ---
 
@@ -5590,8 +5904,8 @@ To update a document, MongoDB provides [update operators](https://docs.mongodb.c
 db.movies.updateOne( { title: "Tag" },
 {
   $set: {
-    plot: "One month every year, five highly competitive friends
-           hit the ground running for a no-holds-barred game of tag"
+    plot: "One month every year, five highly competitive friends \
+    hit the ground running for a no-holds-barred game of tag"
   }
   { $currentDate: { lastUpdated: true } }
 })
