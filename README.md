@@ -5455,6 +5455,18 @@ You'll likely want to use the raw output tag ```<%-``` with your include to avoi
 - [CASE](#case)
 - [UNION](#union)
 - [INTERSECT](#intersect)
+- [MINUS or EXCEPT](#minus-or-except)
+- [INSERT INTO](#insert-into)
+- [UPDATE](#update)
+- [DELETE](#delete)
+- [TRUNCATE](#truncate)
+- [CREATE DATABASE](#create-database)
+- [DROP DATABASE](#drop-database)
+- [INNER JOIN](#inner-join)
+- [LEFT or RIGHT JOIN](#left-or-right-join)
+- [FULL JOIN](#full-join)
+- [Subqueries](#subqueries)
+- [CREATE INDEX](#create-index)
 
 ---
 
@@ -5743,7 +5755,230 @@ WHERE value IN (
 
 ---
 
-WORK IN PROGRESS
+## MINUS or EXCEPT
+[Back to summary](#sql)  
+
+This command returns the records of the first instruction without including the results of the second.  
+If a record is a result in both queries, it will not be returned.
+- ```EXCEPT``` for PostGreSQL
+- ```MINUS``` for MySQL and Oracle
+![except](https://sql.sh/wp-content/uploads/2013/03/sql-ensemble-minus-300.png)
+
+```sql
+SELECT * FROM table1
+EXCEPT
+SELECT * FROM table2
+```
+
+---
+
+## INSERT INTO
+[Back to summary](#sql)  
+
+This command is use to insert data into a table. This can be achieved record by record or for multiple records at a time.
+
+```sql
+INSERT INTO table_name VALUES ('value 1', 'value 2', ...) -- single record
+
+INSERT INTO table_name (column_1, column_2, ...)          -- single record by specifying columns
+ VALUES ('value 1', 'value 2', ...)
+
+INSERT INTO client (firstname, lastname, city, age)       -- multiple records
+ VALUES
+ ('Rébecca', 'Armand', 'Saint-Didier-des-Bois', 24),
+ ('Aimée', 'Hebert', 'Marigny-le-Châtel', 36),
+ ('Marielle', 'Ribeiro', 'Maillères', 27),
+ ('Hilaire', 'Savary', 'Conie-Molitard', 58);
+
+```
+
+There is a special keyword with MySQL, ```ON DUPLICATE KEY``` that allows us to update datas when a record already exists in a table.
+```sql
+INSERT INTO table (a, b, c)
+VALUES (1, 20, 68)
+ON DUPLICATE KEY UPDATE a=a+1
+```
+
+---
+
+## UPDATE
+[Back to summary](#sql)  
+
+This allows you to modify existing records. Most often, this command is used in combination with ```WHERE```
+```sql
+UPDATE table_name
+SET col1 = 'value 1', col2 = 'value 2', col3 = 'value 3'
+WHERE condition
+```
+
+---
+
+## DELETE
+[Back to summary](#sql)  
+
+Deletes records from a table. It is good practice to backup the table or database before deleting records.
+```sql
+DELETE FROM table_name
+WHERE condition
+```
+
+WARNING - If not ```WHERE``` condition is given, then ALL records will be deleted.
+
+---
+
+## TRUNCATE
+[Back to summary](#sql)  
+
+Deletes all records of a table without deleting the table itself. The result is the same as using ```DELETE``` without ```WHERE``` condition.  
+The only difference is that ```TRUNCATE``` will reset the value of the auto-increment if there is one, ```DELETE``` don't.  
+
+```sql
+TRUNCATE TABLE table_name
+```
+
+---
+
+## CREATE DATABASE
+[Back to summary](#sql)  
+
+Create a new database with the given name.  
+
+```sql
+CREATE DATABASE my_database
+```
+
+With MySQL, if a database with the same name already exists, the query will return an error.  
+To avoid this, use the following syntax
+
+```sql
+CREATE DATABASE IF NOT EXISTS my_database
+```
+
+---
+
+## DROP DATABASE
+[Back to summary](#sql)  
+
+Delete a database and all its contents. Use with a lot of care!! Backup if not sure what you are doing or don't do it :)
+
+```sql
+DROP DATABASE my_database
+DROP DATABASE IF EXISTS my_database -- Avoid error if database doesn't exist
+
+```
+
+---
+
+## INNER JOIN
+[Back to summary](#sql)  
+
+Returns records that validates the conditions in both tables
+![inner join](https://sql.sh/wp-content/uploads/2013/02/sql-ensemble-intersect-300.png)
+```sql
+SELECT *
+FROM A
+INNER JOIN B ON A.key = B.key
+```
+
+---
+
+## LEFT or RIGHT JOIN
+[Back to summary](#sql)  
+
+Returns records from the left / right table, even if the condition isn't true in the other table.
+![left join](https://sql.sh/wp-content/uploads/2013/03/sql-left-join-300.png)
+
+```sql
+SELECT *
+FROM A
+LEFT JOIN B ON A.key = B.key
+```
+
+And without B intersection
+![left join](https://sql.sh/wp-content/uploads/2012/12/sql-left-join-exclude-300.png)
+
+```sql
+SELECT *
+FROM A
+LEFT JOIN B ON A.key = B.key
+WHERE B.key IS NULL
+```
+
+---
+
+## FULL JOIN
+[Back to summary](#sql)  
+
+![full join](https://sql.sh/wp-content/uploads/2013/01/sql-ensemble-union-300.png)
+
+```sql
+SELECT *
+FROM A
+FULL JOIN B ON A.key = B.key
+```
+or without intersection
+![full join without intersection](https://sql.sh/wp-content/uploads/2012/12/sql-outer-join-exclude-300.png)
+```sql
+SELECT *
+FROM A
+FULL JOIN B ON A.key = B.key
+WHERE A.key IS NULL
+OR B.key IS NULL
+```
+
+---
+
+## Subqueries
+[Back to summary](#sql)  
+
+
+- ```EXISTS```: Check if records exists
+  ```sql
+  SELECT col1
+  FROM table1
+  WHERE EXISTS (
+      SELECT col2
+      FROM table2
+      WHERE col3 = 10
+    )
+  ```
+- ```ALL```: compare if all values of a the validate a condition
+  ```sql
+  SELECT *
+  FROM table1
+  WHERE condition > ALL (
+      SELECT *
+      FROM table2
+      WHERE condition2
+  )
+  ```
+- ```ANY``` or ```SOME```: compare if al least one value of a set validates a condition
+  ```sql
+  SELECT *
+  FROM table1
+  WHERE condition > ANY (
+      SELECT *
+      FROM table2
+      WHERE condition2
+  )
+  ```
+
+---
+
+## CREATE INDEX
+[Back to summary](#sql)  
+
+- What is an index? Index are ressources that allows faster access to requested datas. With an index place on one or many columns, the system can first search datas on index and then knowing where to find the records requested.
+- inconvenience: Those ressources takes additional storage spaces and insert new records if slower because the index are updated at each insert.
+
+```sql
+CREATE INDEX index_name ON table_name       -- create index on multiple columns
+CREATE INDEX index_name ON table_name (col1)-- create index on a single column
+```
+To specify that each value of a column should be unique, use the following syntax:
+```sql
+CREATE UNIQUE INDEX index_name ON table_name (col1)
+```
 
 ---
 
