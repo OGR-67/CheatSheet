@@ -61,13 +61,14 @@ Flowchart and pseudocode are your friend for that.
 
 ```text
 
-CTRL-c      Stop current command
-CTRL-z      Sleep program
-CTRL-a      Go to start of line
-CTRL-e      Go to end of line
-CTRL-u      Cut from start of line
-CTRL-k      Cut to end of line
-CTRL-r      Search history
+CTRL + L    clear terminal
+CTRL-C      Stop current command
+CTRL-Z      Sleep program
+CTRL-A      Go to start of line
+CTRL-E      Go to end of line
+CTRL-U      Cut from start of line
+CTRL-K      Cut to end of line
+CTRL-R      Search history
 !!          Repeat last command
 !abc        Run last command starting with abc
 !abc:p      Print last command starting with abc
@@ -131,10 +132,17 @@ cmd1 |& cmd2      stderr of cmd1 to cmd2
 [Back to summary](#shell)
 
 ```text
+reset           reset terminal session
 cmd1 ; cmd2     Run cmd1 then cmd2
 cmd1 && cmd2    Run cmd2 if cmd1 is successful
 cmd1 || cmd2    Run cmd2 if cmd1 is not successful
 cmd &           Run cmd in a subshell
+
+command | column -t   format output of command to a table
+
+history         get the commands passed history
+!n              execute command number n of the history
+
 ```
 
 ---
@@ -148,6 +156,9 @@ pwd         Show current directory
 mkdir dir   Make directory dir
 cd dir      Change directory to dir
 cd ..       Go up a directory
+cd -        get back to previous directory
+pushd dir   add dir to directory stack
+popd        go to first diectory of stack and pop it from stack
 ls          List files
 ```
 
@@ -195,16 +206,19 @@ locate file             Find file (quick search of system index)
 [Back to summary](#shell)
 
 ```text
-touch file1       Create file1
-cat file1 file2   Concatenate files and output
-less file1        View and paginate file1
-file file1        Get type of file1
-cp file1 file2    Copy file1 to file2
-mv file1 file2    Move file1 to file2
-rm file1          Delete file1
-head file1        Show first 10 lines of file1
-tail file1        Show last 10 lines of file1
-tail -F file1     Output last lines of file1 as it changes
+touch file1           Create file1
+cat file1 file2       Concatenate files and output
+less file1            View and paginate file1
+file file1            Get type of file1
+cp file1 file2        Copy file1 to file2
+mv file1 file2        Move file1 to file2
+rm file1              Delete file1
+head file1            Show first 10 lines of file1
+tail file1            Show last 10 lines of file1
+tail -F file1         Output last lines of file1 as it changes
+
+truncate -s 0 file    Delete file content, 0 is the index form where to truncate
+
 ```
 
 ---
@@ -229,6 +243,8 @@ top           Show real time processes
 kill pid      Kill process with id pid
 pkill name    Kill process with name name
 killall name  Kill all processes with names beginning name
+CTRL - Z      set process to the background and sleep it
+fg            get back to slept foreground
 ```
 
 ---
