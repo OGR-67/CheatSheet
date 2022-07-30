@@ -132,16 +132,17 @@ cmd1 |& cmd2      stderr of cmd1 to cmd2
 [Back to summary](#shell)
 
 ```text
-reset           reset terminal session
-cmd1 ; cmd2     Run cmd1 then cmd2
-cmd1 && cmd2    Run cmd2 if cmd1 is successful
-cmd1 || cmd2    Run cmd2 if cmd1 is not successful
-cmd &           Run cmd in a subshell
+apropos keyword       find a specific command relative to given keyword
+reset                 reset terminal session
+cmd1 ; cmd2           Run cmd1 then cmd2
+cmd1 && cmd2          Run cmd2 if cmd1 is successful
+cmd1 || cmd2          Run cmd2 if cmd1 is not successful
+cmd &                 Run cmd in a subshell
 
 command | column -t   format output of command to a table
 
-history         get the commands passed history
-!n              execute command number n of the history
+history               get the commands passed history
+!n                    execute command number n of the history
 
 ```
 
