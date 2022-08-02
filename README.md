@@ -342,6 +342,7 @@ First digit is owner permis sion, second is group and third is everyone.
 - [SHARE & UPDATE](#share-and-update)
 - [REWRITE HISTORY](#rewrite-history)
 - [TEMPORARY COMMITS](#temporary-commits)
+- [CREATE ALIAS](#create-alias)
 - [CONCRETE CASES](#concrete-cases)
 
 ---
@@ -663,6 +664,18 @@ Discard the changes from top of stash stack
 
 ```shell
 git stash drop
+```
+
+---
+
+### CREATE ALIAS
+
+[Back to summary](#git)
+
+To create an alias for a command, use the following syntax:
+
+```text
+git config --global alias.[aliasName] ["Command to alias"]
 ```
 
 ---
