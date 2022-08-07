@@ -10,6 +10,7 @@ Initially, it was really about doing a cheatsheet, but when I realize how benefi
 ## Summary
 
 - [Flowchart and Pseudocode](#flowchart-and-pseudocode)
+- [Design Patterns](#design-patterns)
 - [Shell](#shell)
 - [Git](#git)
 - [RegEx](#regex)
@@ -31,6 +32,174 @@ Flowchart and pseudocode are your friend for that.
 ![flowchart](https://user-images.githubusercontent.com/78802772/175765499-8e722355-de85-4479-a099-76a4bc01aea6.jpg)
 ![pseudocode](https://user-images.githubusercontent.com/78802772/175765501-85a8d973-cb9d-455c-be76-ac514f818e1f.jpg)
 ![Designelements-Flowchart](https://user-images.githubusercontent.com/78802772/175765681-eb94a7a6-89db-4b8d-941d-27fef82e5a3b.png)
+
+---
+
+## Design Patterns
+
+[Back to summary](#summary)  
+
+-[Creational Design Patterns](#creational-design-patterns)
+-[Structural Design Patterns](#structural-design-patterns)
+-[Behavioral Design Patterns](#behavioral-design-patterns)
+
+I'll use javascript ecmascript 6 to illustrate.
+
+---
+
+### Creational Design Patterns
+
+[Back to summary](#design-patterns)  
+
+This type of design patterns represents all patterns dedicated to object creation.  
+Here are some of most used:
+- Constructor pattern
+- Factory pattern
+- Singleton pattern
+
+#### Constructor pattern
+
+![constructor_pattern_diagram](images/constructor_pattern.png)
+
+As you can see, the constructor pattern is composed by two elements:
+- The parent
+- The object (or instance)
+
+```javascript
+// Parent
+class Movie {
+  constructor(data) {
+    this._title = data.title;
+    this._actor = data.actor;
+    this._duration = data.duration;
+    this._picture = data.picture;
+    this._thumbnail = data.thumbnail;
+    this._released_in = data.released_in;
+    this._synopsis = data.synopsis;
+  }
+
+  get title() {
+    return this._title;
+}
+
+  get actor() {
+    return this._actor;
+  }
+
+  // etc...
+}
+
+
+// Object
+const MovieExample = new Movie(dataExample);
+
+```
+
+---
+
+#### Factory Pattern
+
+![factory pattern schema](images/factory_pattern.png)
+
+This pattern delegates the objects construction a a factory class. This class will take an argument of type and will create the needed object.  
+
+Imagine we have two constructors, one creating object from old datas and one from new datas. Here is how you would implement that:  
+
+```javascript
+class MovieFactory {
+  constructor(data, type) {
+    if (type === "oldApi"){
+      return new OldMovie(data)
+    
+    } else if (type === "newApi"){
+      return new NewMovie(data)
+    
+    } else {
+      throw new Error("Type must be 'oldApi' or 'newApi'");
+
+    } 
+  }
+}
+
+// creating an object from old datas
+const oldMovies = oldMoviesData.map(movie => new OldMovie(movie, "oldApi"));
+
+```
+
+---
+
+
+#### Singleton Pattern
+
+![singleton_pattern](images/singleton_pattern.png)
+
+The only purpose of this pattern is to ensures that the object can be instanciated only once.  
+It's a great choice for ressources management.  
+
+```javascript
+class DB {
+   constructor(url, login, password) {
+       if (DB.exists) {
+           return DB.instance
+       }
+
+       this._url = url
+       this._login = login
+       this._password = password
+
+       DB.exists = true
+       DB.instance = this
+   }
+}
+```
+
+At first instanciation, the class variable ```exists``` is set to true and the class variable ```instance``` is set to the instance itself.  
+If we try to instantiate the class again, the constructor will return the class variable ```instance``` value and will not instantiate a new object.  
+
+---
+
+### Structural Design Patterns
+
+[Back to summary](#design-patterns)  
+
+#### Adapter pattern
+
+![adaptater pattern shemas](images/adaptater_pattern.png)
+
+This pattern is composed by 3 actors:
+- the ```Client```: the element which is requesting.
+- the ```Adapter```: the object which will be used by the client. 
+- the ```Adaptee```: the object that will be used by the adapter.
+
+A example of usecase is for an API update which redifined how you should use it. You can create a adapter so you have almost no code to adapt.  
+
+Here is a practical example
+
+```javascript
+
+// How V1 works
+const apiV1 = new ApiV1(arg1, arg2)       // We need to instantiate
+const results1 = await apiV1.getResults() // Then call the method
+
+// How V2 works
+const results2 = await ApiV2.getResults(arg2, arg1) // no instanciation (static method) and arguments order is different
+
+// Adapter
+class ApiAdapter {
+  constructor (arg1, arg2) {  // Because we want to use the new version like we used the old one, we need a constructor
+      this.arg1 = arg1;       // because we want to instantiate the adapter
+      this.arg2 = arg2;
+  }
+
+  async getResults() {
+    return await ApiV2.getResults(this.arg2, this.arg1) // Here is the trick, we return the result of the call of new Api's method
+  }
+}
+
+const adapterApi = new ApiAdapter(arg1, arg2);        // So the usage is the same as the old one but in reality we use the 
+const adapterResults = await adapterApi.getResults(); // new Api.
+
+```
 
 ---
 
