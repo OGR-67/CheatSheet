@@ -39,9 +39,9 @@ Flowchart and pseudocode are your friend for that.
 
 [Back to summary](#summary)  
 
--[Creational Design Patterns](#creational-design-patterns)
--[Structural Design Patterns](#structural-design-patterns)
--[Behavioral Design Patterns](#behavioral-design-patterns)
+- [Creational Design Patterns](#creational-design-patterns)
+- [Structural Design Patterns](#structural-design-patterns)
+- [Behavioral Design Patterns](#behavioral-design-patterns)
 
 I'll use javascript ecmascript 6 to illustrate.
 
@@ -53,17 +53,19 @@ I'll use javascript ecmascript 6 to illustrate.
 
 This type of design patterns represents all patterns dedicated to object creation.  
 Here are some of most used:
-- Constructor pattern
-- Factory pattern
-- Singleton pattern
+
+- Constructor pattern  
+- Factory pattern  
+- Singleton pattern  
 
 #### Constructor pattern
 
 ![constructor_pattern_diagram](images/constructor_pattern.png)
 
 As you can see, the constructor pattern is composed by two elements:
-- The parent
-- The object (or instance)
+
+- The parent  
+- The object (or instance)  
 
 ```javascript
 // Parent
@@ -128,7 +130,6 @@ const oldMovies = oldMoviesData.map(movie => new OldMovie(movie, "oldApi"));
 
 ---
 
-
 #### Singleton Pattern
 
 ![singleton_pattern](images/singleton_pattern.png)
@@ -162,14 +163,17 @@ If we try to instantiate the class again, the constructor will return the class 
 
 [Back to summary](#design-patterns)  
 
+This family of patterns allows to manage and put together objects in bigger structures.  
+
 #### Adapter pattern
 
 ![adaptater pattern shemas](images/adaptater_pattern.png)
 
 This pattern is composed by 3 actors:
-- the ```Client```: the element which is requesting.
-- the ```Adapter```: the object which will be used by the client. 
-- the ```Adaptee```: the object that will be used by the adapter.
+
+- the ```Client```: the element which is requesting.  
+- the ```Adapter```: the object which will be used by the client.  
+- the ```Adaptee```: the object that will be used by the adapter.  
 
 A example of usecase is for an API update which redifined how you should use it. You can create a adapter so you have almost no code to adapt.  
 
@@ -199,6 +203,73 @@ class ApiAdapter {
 const adapterApi = new ApiAdapter(arg1, arg2);        // So the usage is the same as the old one but in reality we use the 
 const adapterResults = await adapterApi.getResults(); // new Api.
 
+```
+
+#### Decorator pattern
+
+This pattern allows to add fonctionality to an object without overcharging it or complexify it. It is not a good practice to decorate a decorator.  
+
+![decorator pattern](images/decorator_pattern.png)
+
+Composed by 3 elements:
+
+- Client: The object or function that calls the decorator
+- Component: The object without the new fonctionality
+- Decorator: This object recovers the components, overcharges it with new fonctionality, and returns it.
+
+```javascript
+// A very simple car class, also known as the component
+class Car {
+  constructor() {
+    this.wheelCount = 4;
+    this.steeringWheelPosition = "left";
+  }
+}
+
+// The decorator
+function carWithColor(car, color) {
+  car.color = color;
+  return car
+}
+
+// How it works
+const blueCar = carWithColor(new Car(), "blue");
+
+```
+
+#### Proxy Pattern
+
+The purpose of a proxy is to be the intermediary between two hosts to facilitate and monitor their exchanches.  
+A proxy can be needed when an object becomes too complex or when we want to cache some informations.  
+Caching information has the advantage to save ressources and in case of an external API, limitting the number of requests.  
+
+![proxy_pattern](images/proxy_pattern.png)
+
+The idea is simple:
+
+- At first request, the process is like if there is no proxy, but we save the result in the cache.  
+- At the second request, we check if something is cached and we return it without actually do the request.  
+
+```javascript
+// Cache usecase
+
+class FetchMoviesProxy {
+   constructor() {
+       this.cache = []
+   }
+
+   async fetchMovies() {
+       if (this.cache.length) { // Check if something is cached
+           return this.cache
+       }
+
+       const MoviesApi = new FetchMovies()  // If not do the normal fetch
+       const moviesData = await MoviesApi.get()
+
+       this.cache.push(moviesData) // And append the results to the cache
+       return moviesData
+   }
+}
 ```
 
 ---
