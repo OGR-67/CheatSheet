@@ -1,9 +1,11 @@
 # My Programming Cheatsheets
 
-Putting things in this file helps me to synthetize and see if I really understood concepts I've learned during my learning journey.
-It can also useful as a reminder and mini tutos.
+Putting things in this file helps me to synthesize and see if I really
+understood concepts I've learned during my learning journey.  
+It can also be useful as a reminder and mini tutos.
 I know the title of this file not really suits its purpose ;)
-Initially, it was really about doing a cheatsheet, but when I realize how benefic it was for my comprehension, I drift a bit :)
+Initially, it was really about doing a cheatsheet, but when I realize how
+benefit it was for my comprehension, I drift a bit :)
 
 ---
 
@@ -27,11 +29,12 @@ Initially, it was really about doing a cheatsheet, but when I realize how benefi
 ## Flowchart and Pseudocode
 
 [Back to summary](#summary)  
-Before writing any line of code, it is good to know exactly what your algorithm should do.  
+Before writing any line of code, it is good to know exactly what your algorithm
+should do.  
 Flowchart and pseudocode are your friend for that.  
 ![flowchart](https://user-images.githubusercontent.com/78802772/175765499-8e722355-de85-4479-a099-76a4bc01aea6.jpg)
 ![pseudocode](https://user-images.githubusercontent.com/78802772/175765501-85a8d973-cb9d-455c-be76-ac514f818e1f.jpg)
-![Designelements-Flowchart](https://user-images.githubusercontent.com/78802772/175765681-eb94a7a6-89db-4b8d-941d-27fef82e5a3b.png)
+![Design elements-Flowchart](https://user-images.githubusercontent.com/78802772/175765681-eb94a7a6-89db-4b8d-941d-27fef82e5a3b.png)
 
 ---
 
@@ -51,7 +54,7 @@ I'll use javascript ecmascript 6 to illustrate.
 
 [Back to summary](#design-patterns)  
 
-This type of design patterns represents all patterns dedicated to object creation.  
+This type of design patterns represents all patterns dedicated to object creation.
 Here are some of most used:
 
 - Constructor pattern  
@@ -60,7 +63,7 @@ Here are some of most used:
 
 #### Constructor pattern
 
-![constructor_pattern_diagram](images/constructor_pattern.png)
+![constructor_pattern_diagram](./images/constructor_pattern.png)
 
 As you can see, the constructor pattern is composed by two elements:
 
@@ -103,9 +106,11 @@ const MovieExample = new Movie(dataExample);
 
 ![factory pattern schema](images/factory_pattern.png)
 
-This pattern delegates the objects construction a a factory class. This class will take an argument of type and will create the needed object.  
+This pattern delegates the objects construction a factory class. This class will
+take an argument of type and will create the needed object.  
 
-Imagine we have two constructors, one creating object from old datas and one from new datas. Here is how you would implement that:  
+Imagine we have two constructors, one creating object from old data and one from
+new data. Here is how you would implement that:  
 
 ```javascript
 class MovieFactory {
@@ -119,11 +124,11 @@ class MovieFactory {
     } else {
       throw new Error("Type must be 'oldApi' or 'newApi'");
 
-    } 
+    }
   }
 }
 
-// creating an object from old datas
+// creating an object from old data
 const oldMovies = oldMoviesData.map(movie => new OldMovie(movie, "oldApi"));
 
 ```
@@ -134,8 +139,9 @@ const oldMovies = oldMoviesData.map(movie => new OldMovie(movie, "oldApi"));
 
 ![singleton_pattern](images/singleton_pattern.png)
 
-The only purpose of this pattern is to ensures that the object can be instanciated only once.  
-It's a great choice for ressources management.  
+The only purpose of this pattern is to ensures that the object can be instantiated
+only once.  
+It's a great choice for resources management.  
 
 ```javascript
 class DB {
@@ -154,8 +160,10 @@ class DB {
 }
 ```
 
-At first instanciation, the class variable ```exists``` is set to true and the class variable ```instance``` is set to the instance itself.  
-If we try to instantiate the class again, the constructor will return the class variable ```instance``` value and will not instantiate a new object.  
+At first instantiating, the class variable `exists` is set to true and the class
+variable `instance` is set to the instance itself.  
+If we try to instantiate the class again, the constructor will return the class
+variable `instance` value and will not instantiate a new object.  
 
 ---
 
@@ -163,19 +171,21 @@ If we try to instantiate the class again, the constructor will return the class 
 
 [Back to summary](#design-patterns)  
 
-This family of patterns allows to manage and put together objects in bigger structures.  
+This family of patterns allows to manage and put together objects in bigger
+structures.
 
 #### Adapter pattern
 
-![adaptater pattern shemas](images/adaptater_pattern.png)
+![adapter pattern schema](images/adaptater_pattern.png)
 
 This pattern is composed by 3 actors:
 
-- the ```Client```: the element which is requesting.  
-- the ```Adapter```: the object which will be used by the client.  
-- the ```Adaptee```: the object that will be used by the adapter.  
+- the `Client`: the element which is requesting.  
+- the `Adapter`: the object which will be used by the client.  
+- the `Adaptee`: the object that will be used by the adapter.  
 
-A example of usecase is for an API update which redifined how you should use it. You can create a adapter so you have almost no code to adapt.  
+A example of use case is for an API update which redefined how you should use it.
+You can create a adapter so you have almost no code to adapt.  
 
 Here is a practical example
 
@@ -186,28 +196,37 @@ const apiV1 = new ApiV1(arg1, arg2)       // We need to instantiate
 const results1 = await apiV1.getResults() // Then call the method
 
 // How V2 works
-const results2 = await ApiV2.getResults(arg2, arg1) // no instanciation (static method) and arguments order is different
+const results2 = await ApiV2.getResults(arg2, arg1) // no instanciation (static)
+                                                    // and arguments order different
 
 // Adapter
 class ApiAdapter {
-  constructor (arg1, arg2) {  // Because we want to use the new version like we used the old one, we need a constructor
+  constructor (arg1, arg2) {  // Because we want to use the new version like
+                              // we used the old one, we need a constructor
+
       this.arg1 = arg1;       // because we want to instantiate the adapter
       this.arg2 = arg2;
   }
 
   async getResults() {
-    return await ApiV2.getResults(this.arg2, this.arg1) // Here is the trick, we return the result of the call of new Api's method
+    return await ApiV2.getResults(this.arg2, this.arg1) // Here is the trick,
+                                                        // we return the result of
+                                                        // the call of new Api's
+                                                        // method
   }
 }
 
-const adapterApi = new ApiAdapter(arg1, arg2);        // So the usage is the same as the old one but in reality we use the 
-const adapterResults = await adapterApi.getResults(); // new Api.
+const adapterApi = new ApiAdapter(arg1, arg2);        // The usage is the same as
+                                                      // the old one but in reality
+                                                      // we use the new API
+const adapterResults = await adapterApi.getResults();
 
 ```
 
 #### Decorator pattern
 
-This pattern allows to add fonctionality to an object without overcharging it or complexify it. It is not a good practice to decorate a decorator.  
+This pattern allows to add fonctionality to an object without overcharging it or
+complexify it. It is not a good practice to decorate a decorator.  
 
 ![decorator pattern](images/decorator_pattern.png)
 
@@ -215,7 +234,8 @@ Composed by 3 elements:
 
 - Client: The object or function that calls the decorator
 - Component: The object without the new fonctionality
-- Decorator: This object recovers the components, overcharges it with new fonctionality, and returns it.
+- Decorator: This object recovers the components, overcharges it with new
+fonctionality, and returns it.
 
 ```javascript
 // A very simple car class, also known as the component
@@ -239,16 +259,21 @@ const blueCar = carWithColor(new Car(), "blue");
 
 #### Proxy Pattern
 
-The purpose of a proxy is to be the intermediary between two hosts to facilitate and monitor their exchanches.  
-A proxy can be needed when an object becomes too complex or when we want to cache some informations.  
-Caching information has the advantage to save ressources and in case of an external API, limitting the number of requests.  
+The purpose of a proxy is to be the intermediary between two hosts to facilitate
+and monitor their exchanches.  
+A proxy can be needed when an object becomes too complex or when we want to cache
+some informations.  
+Caching information has the advantage to save ressources and in case of an external
+API, limitting the number of requests.  
 
 ![proxy_pattern](images/proxy_pattern.png)
 
 The idea is simple:
 
-- At first request, the process is like if there is no proxy, but we save the result in the cache.  
-- At the second request, we check if something is cached and we return it without actually do the request.  
+- At first request, the process is like if there is no proxy, but we save the result
+in the cache.  
+- At the second request, we check if something is cached and we return it without
+actually do the request.  
 
 ```javascript
 // Cache usecase
@@ -271,6 +296,12 @@ class FetchMoviesProxy {
    }
 }
 ```
+
+### Behavioral Design Patterns
+
+[Back to summary](#design-patterns)  
+
+comming...
 
 ---
 
@@ -705,7 +736,7 @@ git commit -m “[descriptive message]”
 
 [Back to summary](#git)  
 List your branches.  
-A ```*``` will appear next to the currently active branch
+A `*` will appear next to the currently active branch
 
 ```shell
 git branch
@@ -811,7 +842,8 @@ git log --stat -M
 
 [Back to summary](#git)
 
-Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.
+Save a file with desired patterns as .gitignore with either direct string matches
+or wildcard globs.
 
 ```text
 logs/
@@ -974,8 +1006,11 @@ A <--- C <--- B
 
 #### Remove ignored file
 
-- When file is ignored but is tracked for whatever reason, you can always execute ```git rm <file>``` to remove the file from both repository and working area.  
-- If you want to leave it in your working directory (which is often when dealing with mistakenly tracked files), you can tell Git to remove it only from repository but not from working area with ```git rm --cached <file>```
+- When file is ignored but is tracked for whatever reason, you can always execute
+`git rm <file>` to remove the file from both repository and working area.  
+- If you want to leave it in your working directory (which is often when dealing
+with mistakenly tracked files), you can tell Git to remove it only from repository
+but not from working area with `git rm --cached <file>`
 
 #### Change a letter case in the filename of an already tracked file
 
@@ -986,10 +1021,14 @@ A <--- C <--- B
 
 #### Recommit based on the last commit
 
-- When you want to change the last commit (the one that is pointed by HEAD), use ```git commit --amend```  
-- If you want to change only commited files but no edit message, use ```git commit --amend --no-edit```  
-- Moreover, you can skip git add command and update last commit with all current changes in working area: ```git commit --amend --no-edit -a```  
-- You can even edit the date of commit using ```git commit --amend --no-edit --date="1987-08-03"```  
+- When you want to change the last commit (the one that is pointed by HEAD),
+use `git commit --amend`  
+- If you want to change only commited files but no edit message, use
+`git commit --amend --no-edit`  
+- Moreover, you can skip git add command and update last commit with all current
+changes in working area: `git commit --amend --no-edit -a`  
+- You can even edit the date of commit using
+`git commit --amend --no-edit --date="1987-08-03"`  
 
 #### Classic branch merge
 
@@ -1035,13 +1074,16 @@ commit to edit
 
 #### Find the commits you have been
 
-```git reflog``` records where you have been previously. You can find any commit you have been on with this tool and find commits that you have lost accidentally (for example by rebase, amend).  
-There are even more powerful selectors. Do you want to know what were you working on yesterday?  
-```git show -q HEAD@{1.day.ago}```
+`git reflog` records where you have been previously. You can find any commit you
+have been on with this tool and find commits that you have lost accidentally
+(for example by rebase, amend).  
+There are even more powerful selectors. Do you want to know what were you working
+on yesterday?  
+`git show -q HEAD@{1.day.ago}`
 
 #### Split a commit
 
-- On multiple files ```git reset HEAD~``` then add files one by one
+- On multiple files `git reset HEAD~` then add files one by one
 - On a single file, do the same if index is not clean then  
 
 ```text
@@ -1067,8 +1109,12 @@ There are even more powerful selectors. Do you want to know what were you workin
 
 #### Too many commits
 
-The easiest way to make one commit out of two (or more) is to squash them with ```git rebase -i``` command and choose squash option for all but the first commit you want to preserve.  
-Remember that you don't need to know the commit SHA-1 hashes when specifying them in ```git rebase -i``` command. When you know that you want to go 2 commits back, you can always run ```git rebase -i HEAD^^``` or ```git rebase -i HEAD~2```.  
+The easiest way to make one commit out of two (or more) is to squash them with
+`git rebase -i` command and choose squash option for all but the first commit you
+want to preserve.  
+Remember that you don't need to know the commit SHA-1 hashes when specifying
+them in `git rebase -i` command. When you know that you want to go 2 commits
+back, you can always run `git rebase -i HEAD^^` or `git rebase -i HEAD~2`.  
 
 #### Pick branches
 
@@ -1121,9 +1167,12 @@ A <--- B <--- C <--- D <--- H <--- I
          E <--- F <--- G - issue-555
 ```
 
-Means: Take the rebase-complex branch, figure out the patches since it diverged from the issue-555 branch, and replay these patches in the rebase-complex branch as if it was based directly off the your-master branch instead.  
-```git rebase --onto``` allows you to move a branch to a different place.  
-```git rebase issue-555 --onto your-master``` means get all commits that are not in issue-555 and place them onto your-master branch.
+Means: Take the rebase-complex branch, figure out the patches since it diverged
+from the issue-555 branch, and replay these patches in the rebase-complex branch
+as if it was based directly off the your-master branch instead.  
+`git rebase --onto` allows you to move a branch to a different place.  
+`git rebase issue-555 --onto your-master` means get all commits that are not in
+issue-555 and place them onto your-master branch.
 
 ```text
                                   HEAD
@@ -1149,25 +1198,28 @@ A <--- B <--- C <--- D <--- H <--- I
 
 #### Invalid commits order
 
-With ```git rebase -i <ref>``` you can then change the order of commits
+With `git rebase -i <ref>` you can then change the order of commits
 
 #### Check wich file was modified in the current commit
 
-```git log -p -1```
+`git log -p -1`
 
 #### Find commits where a specific word was introduced
 
-```git log -S <word>```
+`git log -S <word>`
 
 #### Find bug
 
-Let's say that the word "bug" introduced a bug, but you have introduced that word on different commits.  
+Let's say that the word "bug" introduced a bug, but you have introduced that word
+on different commits.  
 You don't want to search by hand for that bug.  
 
-- ```git bisect start``` to start bisect
-- ```git bisect bad HEAD``` tells that last commit to be buggy is the current one.
-- ```git bisect good 1.0``` tells that the 1.0 version and all before isn't buggy.  
-- ```git bisect run sh -c "grep -v bug <file-to-test>``` tells that git must execute to all commits between the good and bad this command. Because we invert the search, we will just keep non buggy version meaning all version without the "bug" word.
+- `git bisect start` to start bisect
+- `git bisect bad HEAD` tells that last commit to be buggy is the current one.
+- `git bisect good 1.0` tells that the 1.0 version and all before isn't buggy.  
+- `git bisect run sh -c "grep -v bug <file-to-test>` tells that git must execute
+to all commits between the good and bad this command. Because we invert the search,
+we will just keep non buggy version meaning all version without the "bug" word.
 
 ## RegEx
 
@@ -1392,7 +1444,12 @@ $&          Entire matched string
 [Back to summary](#docker)  
 
 (from docker's documentation)
-Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
+Docker is an open platform for developing, shipping, and running applications.
+Docker enables you to separate your applications from your infrastructure so you
+can deliver software quickly. With Docker, you can manage your infrastructure in
+the same ways you manage your applications. By taking advantage of Docker’s
+methodologies for shipping, testing, and deploying code quickly, you can
+significantly reduce the delay between writing code and running it in production.
 
 ---
 
@@ -1400,7 +1457,11 @@ Docker is an open platform for developing, shipping, and running applications. D
 
 [Back to summary](#docker)  
 
-An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
+An image is a read-only template with instructions for creating a Docker container.
+Often, an image is based on another image, with some additional customization.
+For example, you may build an image which is based on the ubuntu image,
+but installs the Apache web server and your application, as well as the
+configuration details needed to make your application run.
 
 ---
 
@@ -1408,7 +1469,10 @@ An image is a read-only template with instructions for creating a Docker contain
 
 [Back to summary](#docker)  
 
-A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
+A container is a runnable instance of an image. You can create, start, stop, move,
+or delete a container using the Docker API or CLI. You can connect a container to
+one or more networks, attach storage to it, or even create a new image based on its
+current state.
 
 ---
 
@@ -1417,7 +1481,9 @@ A container is a runnable instance of an image. You can create, start, stop, mov
 [Back to summary](#docker)  
 
 ![docker ports](https://www.code4it.dev/static/7e983e27425fb44d41cf3189d3835b92/84f4d/Docker-ports.png)
-The way docker works, by default, your local machine and your container can't work together. You will have to specify a port for your container and a port for your local machine. This process is made during the ```docker run``` command. See above.  
+The way docker works, by default, your local machine and your container can't work
+together. You will have to specify a port for your container and a port for your
+local machine. This process is made during the `docker run` command. See above.
 You can't alocate two containers to the same port, that's sounds logical.
 
 ---
@@ -1429,28 +1495,34 @@ You can't alocate two containers to the same port, that's sounds logical.
 #### docker pull
 
 To pull an image from a registery, run the following command  
-```docker pull [OPTIONS] NAME[:TAG|@DIGEST]```
+`docker pull [OPTIONS] NAME[:TAG|@DIGEST]`
 If no tag is specified, the version that will be pulled will be the latest.  
 
 #### docker images
 
-With this command ```docker images```, you can see all the images you have available on your local machine.  
+With this command `docker images`, you can see all the images you have available
+on your local machine.  
 
 #### delete an image
 
-To delete an image, it has to be used by no container, including the not running ones.
-```docker rmi imageID```
+To delete an image, it has to be used by no container, including the not running
+ones.
+`docker rmi imageID`
 
 #### docker run
 
-With this command ```docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]``` you will instance the Docker image with the specified options.  
+With this command `docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]` you
+will instance the Docker image with the specified options.  
 This command is for creating new a container.
 
-- The ```-d``` option is for running container in detached mode so you will only get container reference as an output.  
-- The ```--name awesomeName``` to specify the name of the container.
-- To define ports bindings use ```-p3000:3001``` option. The second is the container port, the first the local's.  
-- Specify the network with the following options: ```--net networkName```  
-- Also, you can specify environment variables using this: ```-e VARIABLE_NAME=VALUE```  
+- The `-d` option is for running container in detached mode so you will only get
+container reference as an output.  
+- The `--name awesomeName` to specify the name of the container.
+- To define ports bindings use `-p3000:3001` option. The second is the container
+port, the first the local's.  
+- Specify the network with the following options: `--net networkName`  
+- Also, you can specify environment variables using this:
+`-e VARIABLE_NAME=VALUE`  
 Example:
 
 ```shell
@@ -1465,28 +1537,29 @@ $ docker run -d \
 #### docker ps
 
 This command lets you see all containers running.  
-```docker ps [-a]```  Add the ```-a``` option see every containers.  
-```docker ps [OPTIONS]```
+`docker ps [-a]`  Add the `-a` option see every containers.  
+`docker ps [OPTIONS]`
 
 #### delete a container
 
 To delete a container, it must be not running.
-```docker rm container```
+`docker rm container`
 
 #### docker stop | start
 
 This command lets you start or stop an existing container.  
-```docker stop [containerID | containerName]```
-```docker start [containerID | containerName]```
+`docker stop [containerID | containerName]`
+`docker start [containerID | containerName]`
 
 #### Fecth the logs of a container
 
-```docker logs [OPTIONS] [containerID | containerName]```
-string the logs with ```-f``` option.
+`docker logs [OPTIONS] [containerID | containerName]`
+string the logs with `-f` option.
 
 #### access terminal of a container
 
-Depending of the version of linux your container is running, use one of the following commands.  
+Depending of the version of linux your container is running, use one of the
+following commands.  
 
 ```shell
 docker exec -it [containerID | containerName] /bin/bash
@@ -1507,14 +1580,17 @@ docker exec -it [containerID | containerName] /bin/sh
 
 [Back to summary](#docker)  
 
-When containers are in the same docker network, they can communicate with each others using there names.  
+When containers are in the same docker network, they can communicate with each
+others using there names.  
 Applications from outside needs to use the port.
 ![docker_server](images/docker_server.png)
 
-This schema is during development process. When you package your application into its own image, everything is on the same docker network, so accessable by names.  
+This schema is during development process. When you package your application into
+its own image, everything is on the same docker network, so accessable by names.
 
-You can see available networks using the following command ```docker network ls```  
-To create a new network, use the following command ```docker network create my_network```
+You can see available networks using the following command `docker network ls`  
+To create a new network, use the following command
+`docker network create my_network`
 
 ---
 
@@ -1522,7 +1598,8 @@ To create a new network, use the following command ```docker network create my_n
 
 [Back to summary](#docker)  
 
-Using docker compose you can simplify the running process especially if you run multiple services that have to work together.  
+Using docker compose you can simplify the running process especially if you run
+multiple services that have to work together.  
 Let's say you have the following commands to run your services.  
 
 ```shell
@@ -1569,9 +1646,11 @@ servives:
       - ME_CONFIG_MONGODB_SERVER=mongodb
 ```
 
-To run now the yaml file, use ```docker-compose -f mongo.yaml up```: use docker-compose to read a file named mongo.yaml start sevices specified inside it.  
+To run now the yaml file, use `docker-compose -f mongo.yaml up`: use docker-compose
+to read a file named mongo.yaml start sevices specified inside it.  
 If no network is specified in the yaml file, a default network is created.  
-To stop the services, remove the containers and the network, use ```docker-compose -f mongo.yaml down```  
+To stop the services, remove the containers and the network, use
+`docker-compose -f mongo.yaml down`  
 
 ---
 
@@ -1582,7 +1661,7 @@ To stop the services, remove the containers and the network, use ```docker-compo
 Dockerfile is a blueprint for building Docker images.  
 The Dockerfile allows you to package your application into a Docker image.  
 It also HAS TO be save as "Dockerfile" with no extension.
-Assume our previous example app was in ```app/``` folder.
+Assume our previous example app was in `app/` folder.
 
 ```Dockerfile
 # install node v13.0 running on alpine
@@ -1605,8 +1684,9 @@ COPY ./app /home/app
 CMD ["node", "home/app/sever.js"]
 ```
 
-Now, to build the image based on the Dockerfile and the docker-compose file present in ```app/``` directory, we can run the following command:  
-```docker build -t my-app:1.0 .```
+Now, to build the image based on the Dockerfile and the docker-compose file present
+in `app/` directory, we can run the following command:  
+`docker build -t my-app:1.0 .`
 Now run the image to verify that:
 
 - application starts successfully
@@ -1664,7 +1744,7 @@ WORK IN PROGRESS
 ### pip
 
 [Back to summary](#python)  
-The pip module is the default pakage manager for python, very similar to npm for node.  
+The pip module is the default pakage manager for python, like npm for node.  
 To install a module
 
 ```shell
@@ -1754,7 +1834,7 @@ deactivate
 
 #### numbers
 
-[Back to summary](#buildin-functions-or-methods)
+[Back to summary](#python-buildin-functions-or-methods)
 
 ```text
 int Returns the integer object from a float or a string containing digits.
@@ -1771,7 +1851,7 @@ round Returns the rounded number.
 
 #### string
 
-[Back to summary](#buildin-functions-or-methods)
+[Back to summary](#python-buildin-functions-or-methods)
 
 ```text
 str.capitalize() Returns the copy of the string with its first character capitalized and the rest of the letters are in lowercased.
@@ -1822,7 +1902,7 @@ string.zfill()  Returns a copy of the string with '0' characters padded to the l
 
 #### list
 
-[Back to summary](#buildin-functions-or-methods)
+[Back to summary](#python-buildin-functions-or-methods)
 
 ```text
 list.append() Adds a new item at the end of the list.
@@ -1842,7 +1922,7 @@ list.sort() Sorts the list items in ascending, descending, or in custom order.
 
 #### set
 
-[Back to summary](#buildin-functions-or-methods)
+[Back to summary](#python-buildin-functions-or-methods)
 
 ```text
 set.add() Adds an element to the set. If an element is already exist in the set, then it does not add that element.
@@ -1867,7 +1947,7 @@ set.update() Updates the set by adding distinct elements from the passed one or 
 
 #### dictionary
 
-[Back to summary](#buildin-functions-or-methods)
+[Back to summary](#python-buildin-functions-or-methods)
 
 ```text
 dict.clear() Removes all the key-value pairs from the dictionary.
@@ -1888,7 +1968,7 @@ dict.values() Returns the dictionary view object that provides a dynamic view of
 #### all functions
 
 The following lists all the built-in functions of Python 3.
-[Back to summary](#buildin-functions-or-methods)
+[Back to summary](#python-buildin-functions-or-methods)
 
 ```text
 abs()  Returns the absolute value of the given number and returns a magnitude of a complex number.
@@ -1974,7 +2054,7 @@ zip()  Takes iterables, aggregates them in a tuple, and return it.
 
 #### os
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)  
 It is possible to automatically perform many operating system tasks. The OS module in Python provides functions for creating and removing a directory (folder), fetching its contents, changing and identifying the current directory, etc.
 
 ```python
@@ -1990,7 +2070,8 @@ os.walk("<path>") # return (dirpath, dirnames, filenames) of directory in path
 
 #### sys
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)   
+
 The sys module provides functions and variables used to manipulate different parts of the Python runtime environment.
 
 ```python
@@ -2005,7 +2086,8 @@ sys.version # This attribute displays a string containing the version number of 
 
 #### math
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)  
+
 Some of the most popular mathematical functions are defined in the math module. These include trigonometric functions, representation functions, logarithmic functions, angle conversion functions, etc. In addition, two mathematical constants are also defined in this module.
 
 ```python
@@ -2029,7 +2111,8 @@ math.floor(<number>)
 
 #### statistics
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)  
+
 The statistics module provides functions to mathematical statistics of numeric data.
 
 ```python
@@ -2043,7 +2126,8 @@ statistics.stdev(<list>) # calculates the standard deviation on a given sample i
 
 #### collections
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)  
+
 The collections module provides alternatives to built-in container data types such as list, tuple and dict.
 
 ##### namedtuple()
@@ -2098,7 +2182,8 @@ q.popleft() # pop first value
 
 #### random
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)  
+
 The random module is a built-in module to generate the pseudo-random variables. It can be used perform some action randomly such as to get a random number, selecting a random elements from a list, shuffle elements randomly, etc.
 
 ```python
@@ -2113,7 +2198,8 @@ random.shuffle(<list>) # method randomly reorders the elements in a list.
 
 #### re
 
-[Back to summary](#buildin-modules)  
+[Back to summary](#python-buildin-modules)  
+
 The random module is a built-in module to use regular expression.  
 First the meta-characters
 
@@ -5884,29 +5970,29 @@ https://devcenter.heroku.com/articles/deploying-nodejs
 Use inside .ejs templates
 
 - Text
-  - ```<%```  Scriptlet tag, for control-flow, no output
-  - ```<%_``` Whitespace Slurping Scriptlet tag, strips all whitespace before it
+  - `<%`  Scriptlet tag, for control-flow, no output
+  - `<%_` Whitespace Slurping Scriptlet tag, strips all whitespace before it
 
 - Variable
-  - ```<%=``` Outputs the value into the template (HTML escaped)
-  - ```<%-``` Outputs the unescaped value into the template
+  - `<%=` Outputs the value into the template (HTML escaped)
+  - `<%-` Outputs the unescaped value into the template
 
 - Comment
-  - ```<%#``` Comment tag, no execution, no output
+  - `<%#` Comment tag, no execution, no output
 
 - Litteral
-  - ```<%%``` Outputs a literal '<%'
+  - `<%%` Outputs a literal '<%'
 
 - Ending tags
-  - ```%>``` Plain ending tag
-  - ```-%>``` Trim-mode ('newline slurp') tag, trims following newline
-  - ```_%>``` ‘Whitespace Slurping’ ending tag, removes all whitespace after it
+  - `%>` Plain ending tag
+  - `-%>` Trim-mode ('newline slurp') tag, trims following newline
+  - `_%>` ‘Whitespace Slurping’ ending tag, removes all whitespace after it
 
 #### Includes
 
-Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use ```<%- include('user/show'); %>```.
+Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use `<%- include('user/show'); %>`.
 
-You'll likely want to use the raw output tag ```<%-``` with your include to avoid double-escaping the HTML output.
+You'll likely want to use the raw output tag `<%-` with your include to avoid double-escaping the HTML output.
 
 ```html
 <ul>
@@ -5952,7 +6038,7 @@ You'll likely want to use the raw output tag ```<%-``` with your include to avoi
 
 [Back to summary](#sql)  
 
-The common usage of SQL is reading datas from a database. This is done with the ```SELECT``` command, which returns records in a result table.  
+The common usage of SQL is reading datas from a database. This is done with the `SELECT` command, which returns records in a result table.  
 This command can select one or more column of a table.
 
 ```sql
@@ -5983,7 +6069,7 @@ OFFSET start
 
 [Back to summary](#sql)  
 
-SELECT returns all data of one of more columns. This command can return duplicated records. To avoid this, simply put the ```DISTINCT``` keyword after ```SELECT```.
+SELECT returns all data of one of more columns. This command can return duplicated records. To avoid this, simply put the `DISTINCT` keyword after `SELECT`.
 
 ```sql
 SELECT DISTINCT my_column -- DISTINCT  is replaced with UNIQUE in Oracle
@@ -5996,7 +6082,7 @@ FROM tableau
 
 [Back to summary](#sql)  
 
-```WHERE``` in a SQL query allows to extract records that validate a condition.
+`WHERE` in a SQL query allows to extract records that validate a condition.
 
 ```sql
 SELECT column(s) FROM my_table WHERE condition
@@ -6053,14 +6139,14 @@ WHERE columm BETWEEN 'value1' AND 'value2'
 
 #### LIKE
 
-The ```LIKE``` operator is used in ```WHERE``` clause in SQL queries. This keyword can search for a pattern using wildcards.
+The `LIKE` operator is used in `WHERE` clause in SQL queries. This keyword can search for a pattern using wildcards.
 
-- ```_``` represents 1 of any characters
-- ```*``` represents 0, 1 or more of any characters
+- `_` represents 1 of any characters
+- `*` represents 0, 1 or more of any characters
 In use:
-- ```%a``` all strings finishing with ```a```
-- ```a%``` all strings starting with ```a```
-- ```%a%``` all strings containing ```a```
+- `%a` all strings finishing with `a`
+- `a%` all strings starting with `a`
+- `%a%` all strings containing `a`
 
 ```sql
 SELECT *
@@ -6070,7 +6156,7 @@ WHERE column LIKE 'a%'
 
 #### IS NULL / IS NOT NULL
 
-In SQL, ```IS``` allows us to filter results containing the ```NULL``` value. This is important because ```NULL``` is unknown and in consequence cannot be filtered by comparison operators.
+In SQL, `IS` allows us to filter results containing the `NULL` value. This is important because `NULL` is unknown and in consequence cannot be filtered by comparison operators.
 
 ```sql
 SELECT *
@@ -6088,7 +6174,7 @@ WHERE column IS NOT NULL
 
 [Back to summary](#sql)  
 
-The ```GROUP BY``` command is used to group several results and apply a specific function on that group.
+The `GROUP BY` command is used to group several results and apply a specific function on that group.
 
 ```sql
 SELECT column1, function(column2)
@@ -6098,11 +6184,11 @@ GROUP BY column1
 
 The functions available:
 
-- ```AVG()``` for the average
-- ```COUNT()``` count the number of rows concerned
-- ```MAX()``` get the highest value
-- ```MIN()``` get the lowest value
-- ```SUM()``` calculates sum of several rows
+- `AVG()` for the average
+- `COUNT()` count the number of rows concerned
+- `MAX()` get the highest value
+- `MIN()` get the lowest value
+- `SUM()` calculates sum of several rows
 
 Exemple
 
@@ -6118,7 +6204,7 @@ GROUP BY client
 
 [Back to summary](#sql)  
 
-The keyword ```HAVING``` has the same purpose as ```WHERE``` but allows to filter using functions.  
+The keyword `HAVING` has the same purpose as `WHERE` but allows to filter using functions.  
 
 ```sql
 SELECT col1, SUM(col2)
@@ -6127,7 +6213,7 @@ GROUP BY col1
 HAVING fonction(col2) operator value1
 ```
 
-This means ```SELECT``` columns from ```table_name``` by grouping rows that have identical values as ```col1``` and that validate the ```HAVING``` condition.
+This means `SELECT` columns from `table_name` by grouping rows that have identical values as `col1` and that validate the `HAVING` condition.
 
 ---
 
@@ -6198,7 +6284,7 @@ LIMIT 5, 10; -- mySQL first value is the offset, second one the limit
 [Back to summary](#sql)  
 
 This keyword is the if / else statement of sql.  
-It creates a new columns named by default ```CASE```.
+It creates a new columns named by default `CASE`.
 
 ```sql
 SELECT id, name, percentage, unit_price, quantity, 
@@ -6229,7 +6315,7 @@ SELECT id, name, percentage, unit_price, quantity,
 This keyword allows to return records that correspond to 2 tables or more.  
 ![union](https://sql.sh/wp-content/uploads/2013/01/sql-ensemble-union-300.png)  
 Each query has to have the same amount of columns. It does not display the duplicates.  
-To see duplicates use ```UNION ALL``` instead.
+To see duplicates use `UNION ALL` instead.
 
 ```sql
 SELECT * FROM table1
@@ -6271,8 +6357,8 @@ WHERE value IN (
 This command returns the records of the first instruction without including the results of the second.  
 If a record is a result in both queries, it will not be returned.
 
-- ```EXCEPT``` for PostGreSQL
-- ```MINUS``` for MySQL and Oracle
+- `EXCEPT` for PostGreSQL
+- `MINUS` for MySQL and Oracle
 ![except](https://sql.sh/wp-content/uploads/2013/03/sql-ensemble-minus-300.png)
 
 ```sql
@@ -6304,7 +6390,7 @@ INSERT INTO client (firstname, lastname, city, age)       -- multiple records
 
 ```
 
-There is a special keyword with MySQL, ```ON DUPLICATE KEY``` that allows us to update datas when a record already exists in a table.
+There is a special keyword with MySQL, `ON DUPLICATE KEY` that allows us to update datas when a record already exists in a table.
 
 ```sql
 INSERT INTO table (a, b, c)
@@ -6318,7 +6404,7 @@ ON DUPLICATE KEY UPDATE a=a+1
 
 [Back to summary](#sql)  
 
-This allows you to modify existing records. Most often, this command is used in combination with ```WHERE```
+This allows you to modify existing records. Most often, this command is used in combination with `WHERE`
 
 ```sql
 UPDATE table_name
@@ -6339,7 +6425,7 @@ DELETE FROM table_name
 WHERE condition
 ```
 
-WARNING - If not ```WHERE``` condition is given, then ALL records will be deleted.
+WARNING - If not `WHERE` condition is given, then ALL records will be deleted.
 
 ---
 
@@ -6347,8 +6433,8 @@ WARNING - If not ```WHERE``` condition is given, then ALL records will be delete
 
 [Back to summary](#sql)  
 
-Deletes all records of a table without deleting the table itself. The result is the same as using ```DELETE``` without ```WHERE``` condition.  
-The only difference is that ```TRUNCATE``` will reset the value of the auto-increment if there is one, ```DELETE``` don't.  
+Deletes all records of a table without deleting the table itself. The result is the same as using `DELETE` without `WHERE` condition.  
+The only difference is that `TRUNCATE` will reset the value of the auto-increment if there is one, `DELETE` don't.  
 
 ```sql
 TRUNCATE TABLE table_name
@@ -6458,7 +6544,7 @@ OR B.key IS NULL
 
 [Back to summary](#sql)  
 
-- ```EXISTS```: Check if records exists
+- `EXISTS`: Check if records exists
 
   ```sql
   SELECT col1
@@ -6470,7 +6556,7 @@ OR B.key IS NULL
     )
   ```
 
-- ```ALL```: compare if all values of a the validate a condition
+- `ALL`: compare if all values of a the validate a condition
 
   ```sql
   SELECT *
@@ -6482,7 +6568,7 @@ OR B.key IS NULL
   )
   ```
 
-- ```ANY``` or ```SOME```: compare if al least one value of a set validates a condition
+- `ANY` or `SOME`: compare if al least one value of a set validates a condition
 
   ```sql
   SELECT *
