@@ -1837,14 +1837,15 @@ deactivate
 [Back to summary](#python-buildin-functions-or-methods)
 
 ```text
-int Returns the integer object from a float or a string containing digits.
-float Returns a floating-point number object from a number or string containing digits with decimal point or scientific notation.
-complex Returns a complex number with real and imaginary components.
-hex Converts a decimal integer into a hexadecimal number with 0x prefix.
-oct Converts a decimal integer in an octal representation with 0o prefix.
-pow Returns the power of the specified numbers.
-abs Returns the absolute value of a number without considering its sign.
-round Returns the rounded number.
+int       Returns the integer object from a float or a string containing digits.
+float     Returns a floating-point number object from a number or string containing
+          digits with decimal point or scientific notation.
+complex   Returns a complex number with real and imaginary components.
+hex       Converts a decimal integer into a hexadecimal number with 0x prefix.
+oct       Converts a decimal integer in an octal representation with 0o prefix.
+pow       Returns the power of the specified numbers.
+abs       Returns the absolute value of a number without considering its sign.
+round     Returns the rounded number.
 ```
 
 ---
@@ -1854,48 +1855,121 @@ round Returns the rounded number.
 [Back to summary](#python-buildin-functions-or-methods)
 
 ```text
-str.capitalize() Returns the copy of the string with its first character capitalized and the rest of the letters are in lowercased.
-string.casefold() Returns a lowered case string. It is similar to the lower() method, but the casefold() method converts more characters into lower case.
-string.center()  Returns a new centered string of the specified length, which is padded with the specified character. The default character is space.
-string.count()  Searches (case-sensitive) the specified substring in the given string and returns an integer indicating occurrences of the substring.
-string.endswith() Returns True if a string ends with the specified suffix (case-sensitive), otherwise returns False.
-string.expandtabs() Returns a string with all tab characters \t replaced with one or more space, depending on the number of characters before \t and the specified tab size.
-string.find()  Returns the index of the first occurence of a substring in the given string (case-sensitive). If the substring is not found it returns -1.
-string.index()  Returns the index of the first occurence of a substring in the given string.
-string.isalnum() Returns True if all characters in the string are alphanumeric (either alphabets or numbers). If not, it returns False.
-string.isalpha() Returns True if all characters in a string are alphabetic (both lowercase and uppercase) and returns False if at least one character is not an alphabet.
-string.isascii() Returns True if the string is empty or all characters in the string are ASCII.
-string.isdecimal() Returns True if all characters in a string are decimal characters. If not, it returns False.
-string.isdigit() Returns True if all characters in a string are digits or Unicode char of a digit. If not, it returns False.
-string.isidentifier() Checks whether a string is valid identifier string or not. It returns True if the string is a valid identifier otherwise returns False.
-string.islower() Checks whether all the characters of a given string are lowercased or not. It returns True if all characters are lowercased and False even if one character is uppercase.
-string.isnumeric() Checks whether all the characters of the string are numeric characters or not. It will return True if all characters are numeric and will return False even if one character is non-numeric.
-string.isprintable() Returns True if all the characters of the given string are Printable. It returns False even if one character is Non-Printable.
-string.isspace() Returns True if all the characters of the given string are whitespaces. It returns False even if one character is not whitespace.
-string.istitle() Checks whether each word's first character is upper case and the rest are in lower case or not. It returns True if a string is titlecased; otherwise, it returns False. The symbols and numbers are ignored.
-string.isupper() Returns True if all characters are uppercase and False even if one character is not in uppercase.
-string.join()  Returns a string, which is the concatenation of the string (on which it is called) with the string elements of the specified iterable as an argument.
-string.ljust()  Returns the left justified string with the specified width. If the specified width is more than the string length, then the string's remaining part is filled with the specified fillchar.
-string.lower()  Returns the copy of the original string wherein all the characters are converted to lowercase.
-string.lstrip()  Returns a copy of the string by removing leading characters specified as an argument.
-string.maketrans() Returns a mapping table that maps each character in the given string to the character in the second string at the same position. This mapping table is used with the translate() method, which will replace characters as per the mapping table.
-string.partition() Splits the string at the first occurrence of the specified string separator sep argument and returns a tuple containing three elements, the part before the separator, the separator itself, and the part after the separator.
-string.replace() Returns a copy of the string where all occurrences of a substring are replaced with another substring.
-string.rfind()  Returns the highest index of the specified substring (the last occurrence of the substring) in the given string.
-string.rindex()  Returns the index of the last occurence of a substring in the given string.
-string.rjust()  Returns the right justified string with the specified width. If the specified width is more than the string length, then the string's remaining part is filled with the specified fill char.
-string.rpartition() Splits the string at the last occurrence of the specified string separator sep argument and returns a tuple containing three elements, the part before the separator, the separator itself, and the part after the separator.
-string.rsplit()  Splits a string from the specified separator and returns a list object with string elements.
-string.rstrip()  Returns a copy of the string by removing the trailing characters specified as argument.
-string.split()  Splits the string from the specified separator and returns a list object with string elements.
-string.splitlines() Splits the string at line boundaries and returns a list of lines in the string.
-string.startswith() Returns True if a string starts with the specified prefix. If not, it returns False.
-string.strip()  Returns a copy of the string by removing both the leading and the trailing characters.
-string.swapcase() Returns a copy of the string with uppercase characters converted to lowercase and vice versa. Symbols and letters are ignored.
-string.title()  Returns a string where each word starts with an uppercase character, and the remaining characters are lowercase.
-string.translate() Returns a string where each character is mapped to its corresponding character in the translation table.
-string.upper()  Returns a string in the upper case. Symbols and numbers remain unaffected.
-string.zfill()  Returns a copy of the string with '0' characters padded to the left. It adds zeros (0) at the beginning of the string until the length of a string equals the specified width parameter.
+str.capitalize()        Returns the copy of the string with its first character
+                        capitalized and the rest of the letters are in lowercased.
+string.casefold()       Returns a lowered case string. It is similar to the
+                        lower() method, but the casefold() method converts more
+                        characters into lower case.
+string.center()         Returns a new centered string of the specified length,
+                        which is padded with the specified character. The
+                        default character is space.
+string.count()          Searches (case-sensitive) the specified substring in the
+                        given string and returns an integer indicating occurrences
+                        of the substring.
+string.endswith()       Returns True if a string ends with the specified suffix
+                        (case-sensitive), otherwise returns False.
+string.expandtabs()     Returns a string with all tab characters \t replaced with
+                        one or more space, depending on the number of characters
+                        before \t and the specified tab size.
+string.find()           Returns the index of the first occurence of a substring
+                        in the given string (case-sensitive). If the substring is
+                        not found it returns -1.
+string.index()          Returns the index of the first occurence of a substring in
+                        the given string.
+string.isalnum()        Returns True if all characters in the string are 
+                        alphanumeric (either alphabets or numbers). If not, it
+                        returns False.
+string.isalpha()        Returns True if all characters in a string are alphabetic
+                        (both lowercase and uppercase) and returns False if at
+                        least one character is not an alphabet.
+string.isascii()        Returns True if the string is empty or all characters in
+                        the string are ASCII.
+string.isdecimal()      Returns True if all characters in a string are decimal
+                        characters. If not, it returns False.
+string.isdigit()        Returns True if all characters in a string are digits or
+                        Unicode char of a digit. If not, it returns False.
+string.isidentifier()   Checks whether a string is valid identifier string or not.
+                        It returns True if the string is a valid identifier
+                        otherwise returns False.
+string.islower()        Checks whether all the characters of a given string are
+                        lowercased or not. It returns True if all characters are
+                        lowercased and False even if one character is uppercase.
+string.isnumeric()      Checks whether all the characters of the string are
+                        numeric characters or not. It will return True if all
+                        characters are numeric and will return False even if one
+                        character is non-numeric.
+string.isprintable()    Returns True if all the characters of the given string
+                        are Printable. It returns False even if one character is
+                        Non-Printable.
+string.isspace()        Returns True if all the characters of the given string are
+                        whitespaces. It returns False even if one character is
+                        not whitespace.
+string.istitle()        Checks whether each word's first character is upper case
+                        and the rest are in lower case or not. It returns True if
+                        a string is titlecased; otherwise, it returns False. The
+                        symbols and numbers are ignored.
+string.isupper()        Returns True if all characters are uppercase and False
+                        even if one character is not in uppercase.
+string.join()           Returns a string, which is the concatenation of the
+                        string (on which it is called) with the string elements
+                        of the specified iterable as an argument.
+string.ljust()          Returns the left justified string with the specified width.
+                        If the specified width is more than the string length,
+                        then the string's remaining part is filled with the
+                        specified fillchar.
+string.lower()          Returns the copy of the original string wherein all the
+                        characters are converted to lowercase.
+string.lstrip()         Returns a copy of the string by removing leading
+                        characters specified as an argument.
+string.maketrans()      Returns a mapping table that maps each character in the
+                        given string to the character in the second string at
+                        the same position. This mapping table is used with the
+                        translate() method, which will replace characters as per
+                        the mapping table.
+string.partition()      Splits the string at the first occurrence of the
+                        specified string separator sep argument and returns a
+                        tuple containing three elements, the part before the
+                        separator, the separator itself, and the part after the
+                        separator.
+string.replace()        Returns a copy of the string where all occurrences of a
+                        substring are replaced with another substring.
+string.rfind()          Returns the highest index of the specified substring
+                        (the last occurrence of the substring) in the given string.
+string.rindex()         Returns the index of the last occurence of a substring 
+                        in the given string.
+string.rjust()          Returns the right justified string with the specified
+                        width. If the specified width is more than the string
+                        length, then the string's remaining part is filled with 
+                        the specified fill char.
+string.rpartition()     Splits the string at the last occurrence of the specified
+                        string separator sep argument and returns a tuple
+                        containing three elements, the part before the separator,
+                        the separator itself, and the part after the separator.
+string.rsplit()         Splits a string from the specified separator and returns
+                        a list object with string elements.
+string.rstrip()         Returns a copy of the string by removing the trailing
+                        characters specified as argument.
+string.split()          Splits the string from the specified separator and
+                        returns a list object with string elements.
+string.splitlines()     Splits the string at line boundaries and returns a list of
+                        lines in the string.
+string.startswith()     Returns True if a string starts with the specified
+                        prefix. If not, it returns False.
+string.strip()          Returns a copy of the string by removing both the
+                        leading and the trailing characters.
+string.swapcase()       Returns a copy of the string with uppercase characters
+                        converted to lowercase and vice versa. Symbols and
+                        letters are ignored.
+string.title()          Returns a string where each word starts with an uppercase
+                        character, and the remaining characters are lowercase.
+string.translate()      Returns a string where each character is mapped to its
+                        corresponding character in the translation table.
+string.upper()          Returns a string in the upper case. Symbols and numbers 
+                        remain unaffected.
+string.zfill()          Returns a copy of the string with '0' characters padded to
+                        the left. It adds zeros (0) at the beginning of the string
+                        until the length of a string equals the specified width 
+                        parameter.
 ```
 
 ---
@@ -1905,17 +1979,24 @@ string.zfill()  Returns a copy of the string with '0' characters padded to the l
 [Back to summary](#python-buildin-functions-or-methods)
 
 ```text
-list.append() Adds a new item at the end of the list.
-list.clear() Removes all the items from the list and make it empty.
-list.copy() Returns a shallow copy of a list.
-list.count() Returns the number of times an element occurs in the list.
-list.extend() Adds all the items of the specified iterable (list, tuple, set, dictionary, string) to the end of the list.
-list.index() Returns the index position of the first occurance of the specified item. Raises a ValueError if there is no item found.
-list.insert() Inserts an item at a given position.
-list.pop() Returns an item from the specified index position and also removes it from the list. If no index is specified, the list.pop() method removes and returns the last item in the list.
-list.remove() Removes the first occurance of the specified item from the list. It the specified item not found then throws a ValueError.
-list.reverse() Reverses the index positions of the elements in the list. The first element will be at the last index, the second element will be at second last index and so on.
-list.sort() Sorts the list items in ascending, descending, or in custom order.
+list.append()   Adds a new item at the end of the list.
+list.clear()    Removes all the items from the list and make it empty.
+list.copy()     Returns a shallow copy of a list.
+list.count()    Returns the number of times an element occurs in the list.
+list.extend()   Adds all the items of the specified iterable (list, tuple, set,
+                dictionary, string) to the end of the list.
+list.index()    Returns the index position of the first occurance of the
+                specified item. Raises a ValueError if there is no item found.
+list.insert()   Inserts an item at a given position.
+list.pop()      Returns an item from the specified index position and also removes
+                it from the list. If no index is specified, the list.pop() method
+                removes and returns the last item in the list.
+list.remove()   Removes the first occurance of the specified item from the list.
+                It the specified item not found then throws a ValueError.
+list.reverse()  Reverses the index positions of the elements in the list. The
+                first element will be at the last index, the second element will
+                be at second last index and so on.
+list.sort()     Sorts the list items in ascending, descending, or in custom order.
 ```
 
 ---
@@ -1925,22 +2006,39 @@ list.sort() Sorts the list items in ascending, descending, or in custom order.
 [Back to summary](#python-buildin-functions-or-methods)
 
 ```text
-set.add() Adds an element to the set. If an element is already exist in the set, then it does not add that element.
-set.clear() Removes all the elements from the set.
-set.copy() Returns a shallow copy of the set.
-set.difference() Returns the new set with the unique elements that are not in the another set passed as a parameter.
-set.difference_update() Updates the set on which the method is called with the elements that are common in another set passed as an argument.
-set.discard() Removes a specific element from the set.
-set.intersection() Returns a new set with the elements that are common in the given sets.
-set.intersection_update() Updates the set on which the instersection_update() method is called, with common elements among the specified sets.
-set.isdisjoint() Returns true if the given sets have no common elements. Sets are disjoint if and only if their intersection is the empty set.
-set.issubset() Returns true if the set (on which the issubset() is called) contains every element of the other set passed as an argument.
-set.pop() Removes and returns a random element from the set.
-set.remove() Removes the specified element from the set. If the specified element not found, raise an error.
-set.symmetric_difference() Returns a new set with the distinct elements found in both the sets.
-set.symmetric_difference_update() Updates the set on which the instersection_update() method called, with the elements that are common among the specified sets.
-set.union() Returns a new set with distinct elements from all the given sets.
-set.update() Updates the set by adding distinct elements from the passed one or more iterables.
+set.add()                 Adds an element to the set. If an element is already exist
+                          in the set, then it does not add that element.
+set.clear()               Removes all the elements from the set.
+set.copy()                Returns a shallow copy of the set.
+set.difference()          Returns the new set with the unique elements that are not
+                          in the another set passed as a parameter.
+set.difference_update()   Updates the set on which the method is called with the
+                          elements that are common in another set passed as an
+                          argument.
+set.discard()             Removes a specific element from the set.
+set.intersection()        Returns a new set with the elements that are common in
+                          the given sets.
+set.intersection_update() Updates the set on which the instersection_update()
+                          method is called, with common elements among the
+                          specified sets.
+set.isdisjoint()          Returns true if the given sets have no common elements.
+                          Sets are disjoint if and only if their intersection is
+                          the empty set.
+set.issubset()            Returns true if the set (on which the issubset() is
+                          called) contains every element of the other set passed
+                          as an argument.
+set.pop()                 Removes and returns a random element from the set.
+set.remove()              Removes the specified element from the set. If the
+                          specified element not found, raise an error.
+set.symmetric_difference() Returns a new set with the distinct elements found in
+                          both the sets.
+set.symmetric_difference_update() Updates the set on which the
+                          instersection_update() method called, with the
+                          elements that are common among the specified sets.
+set.union()               Returns a new set with distinct elements from all the
+                          given sets.
+set.update()              Updates the set by adding distinct elements from the
+                          passed one or more iterables.
 ```
 
 ---
@@ -1950,17 +2048,31 @@ set.update() Updates the set by adding distinct elements from the passed one or 
 [Back to summary](#python-buildin-functions-or-methods)
 
 ```text
-dict.clear() Removes all the key-value pairs from the dictionary.
-dict.copy() Returns a shallow copy of the dictionary.
-dict.fromkeys() Creates a new dictionary from the given iterable (string, list, set, tuple) as keys and with the specified value.
-dict.get() Returns the value of the specified key.
-dict.items() Returns a dictionary view object that provides a dynamic view of dictionary elements as a list of key-value pairs. This view object changes when the dictionary changes.
-dict.keys() Returns a dictionary view object that contains the list of keys of the dictionary.
-dict.pop() Removes the key and return its value. If a key does not exist in the dictionary, then returns the default value if specified, else throws a KeyError.
-dict.popitem() Removes and return a tuple of (key, value) pair from the dictionary. Pairs are returned in Last In First Out (LIFO) order.
-dict.setdefault() Returns the value of the specified key in the dictionary. If the key not found, then it adds the key with the specified defaultvalue. If the defaultvalue is not specified then it set None value.
-dict.update() Updates the dictionary with the key-value pairs from another dictionary or another iterable such as tuple having key-value pairs.
-dict.values() Returns the dictionary view object that provides a dynamic view of all the values in the dictionary. This view object changes when the dictionary changes.
+dict.clear()      Removes all the key-value pairs from the dictionary.
+dict.copy()       Returns a shallow copy of the dictionary.
+dict.fromkeys()   Creates a new dictionary from the given iterable (string,
+                  list, set, tuple) as keys and with the specified value.
+dict.get()        Returns the value of the specified key.
+dict.items()      Returns a dictionary view object that provides a dynamic view
+                  of dictionary elements as a list of key-value pairs. This
+                  view object changes when the dictionary changes.
+dict.keys()       Returns a dictionary view object that contains the list of
+                  keys of the dictionary.
+dict.pop()        Removes the key and return its value. If a key does not exist
+                  in the dictionary, then returns the default value if specified,
+                  else throws a KeyError.
+dict.popitem()    Removes and return a tuple of (key, value) pair from the
+                  dictionary. Pairs are returned in Last In First Out (LIFO) order.
+dict.setdefault() Returns the value of the specified key in the dictionary. If
+                  the key not found, then it adds the key with the specified
+                  defaultvalue. If the defaultvalue is not specified then it set
+                  None value.
+dict.update()     Updates the dictionary with the key-value pairs from another
+                  dictionary or another iterable such as tuple having key-value
+                  pairs.
+dict.values()     Returns the dictionary view object that provides a dynamic view
+                  of all the values in the dictionary. This view object changes
+                  when the dictionary changes.
 ```
 
 ---
@@ -1971,69 +2083,149 @@ The following lists all the built-in functions of Python 3.
 [Back to summary](#python-buildin-functions-or-methods)
 
 ```text
-abs()  Returns the absolute value of the given number and returns a magnitude of a complex number.
-all()  Checks whether all the elements in an iterable are truthy values or not. It returns True if all elements in the given iterable are nonzero or true. Else, it returns False.
-any()  Returns True if at least one element in the given iterable is truthy value or boolean True. Returns False for empty or falsy value (such as 0, False, none).
-ascii()  Returns a string containing a printable representation of an object for non-alphabats or invisible characters such as tab, carriage return, form feed etc.
-bin()  Converts an integer number to a binary string prefixed with '0b'.
-bool()  Converts a value to the bool class object containing either True or False
-bytearray() Returns a bytearray object which is an array of the given bytes. The bytearray class is a mutable sequence of integers in the range of 0 to 256.
-bytes()  Returns an immutable object of the bytes class initialized with the sequence of integers in the range of 0 to 256
-callable() Returns True if the object passed is callable, False if not. In Python, classes, methods, and instances are callable because calling a class returns a new instance, instances are callable if their class includes `__call__()` method.
-chr()  Returns the string representing a character whose Unicode code point is the integer
-classmethod() Transforms a method into a class method
-complex() Returns a complex number (an object of complex class) for the provided real value and imaginary*1j value, or converts a string or number to a complex number.
-dict()  Creates a dictionary object from the specified keys and values, or iterables of keys and values or mapping objects.
-delattr() Deletes the named attribute from the object if the object allows it.
-dir()  Returns a list of valid attributes of the specified object. If no argument passed, it returns the list of names in the current local scope.
-divmod() Returns a tuple of two numbers where first number is the quotient and the second is the remainder.
-exec()  Executes the Python code block passed as a string or a code object. The string is parsed as Python statements and then executed.
-enumerate() Returns an object of enumerate class for the given iterable, sequence, iterator, or object that supports iteration. The returned enumerate object contains tuples for each items of the iterable that includes an index (from start which defaults to 0) and the values obtained from iterating over iterable.
-filter() Calls the specified function which returns boolen for each item of the specified iterable.
-float()  Returns an object of the `float` class that represent a floating point number converted from a number or string.
-format() Allows multiple substitutions and value formatting. This method lets us concatenate elements within a string through positional formatting.
-frozenset() Returns an immutable set object with elements from the given iterable. Iterables can be list, set, dictionary, tuple, string.
-getattr() Returns the value of the attribute of an object. If the named attribute does not exist, default is returned if provided, otherwise AttributeError is raised.
-hex()  Converts an integer number to a lowercase hexadecimal string prefixed with "0x".
-hash()  Returns the hash value of the specified object. The hash values are used in data storage and to access data in a small time per retrieval, and storage space only fractionally greater than the total space required for the data or records themselves. In Python, hash values are used to compare dictionary keys to access values.
-hasattr() Checks if an object of the class has the specified attribute.
-help()  It displays the documentation of modules, functions, classes, keywords etc.
-__import__() The __import__() method is called by the import statement. This method can change the semantics of the import statement which is strongly discouraged .
-id()  Returns an identity of an object. In Python, every variable or literal values are objects and each object has a unique identity as an integer number that remains constant for that object through out its life time.
-int()  Returns an integer object constructed from a number or string, or return 0 if no arguments are given.
-input()  Allows user to input values.
-isinstance() Checks if the object is an instance of the specified class or any of its subclass.
-issubclass() Checks if the specified class is the subclass of the specified subclass.
-iter()  Returns an iterator object that represents a stream of data for the iterable object or sentinel.
-len()  Returns the length of the object. Returns total elements in an iterable or number of chars in a string.
-list()  Returns a list from an iterable passed as arguement.
-map()  Applies the specified function to every item of the passed iterable, yields the results, and returns an iterator.
-max()  Returns the largest value from the specified iterable or multiple arguments.
-memoryview() Returns a memory view object of the given object. The memoryview object allows Python code to access the internal data of an object that supports the buffer protocol without copying.
-min()  Returns the lowest value from the specified iterable or provided multiple arguments.
-next()  Returns the next item from the iterator by calling its __next__() method.
-object() Returns a new featureless object. The object class is the base class of all classes in Python.
-oct()  Converts an integer to octal string prefixed with "0o".
-open()  Opens the file (if possible) and returns the corresponding file object.
-ord()  Returns an integer representing the Unicode character.
-pow()  Returns the specified exponent power of a number.
-print()  prints the given object to the console or to the text stream file.
-property() Returns the property attribute.
-range()  Returns an object of the range class which is an immutable sequence type. The `range()` method returns the imutable sequence numbers between the specified start and the stop parameter.
-repr()  Returns a string containing a printable representation of an object. The repr() function calls the underlaying __repr__() function of the object.
-reversed() Returns the reversed iterator of the given sequence. It is same as but in reverse order. Internally, it calls the `__reversed__()` method of the sequence class. If the given object is not a sequence, then override __reversed__() method in the class to be used with the reversed() function
-round() Returns a floating-point number rounded to the specified number of decimal point.
-set() Returns an object of the set class from the specified iterable and its elements. A set object is an unordered collection of distinct hashable objects. It cannot contain duplicate values. Visit [set]('/python/set') for more information.
-setattr() Sets the specified value to the specified attribute of the specified object. This is the counterpart of getattr() method.
-slice()  Returns a portion of an iterable as an object of the slice class based on the specified range. It can be used with string, list, tuple, set, bytes, or range objects or custom class object that implements sequence methods __getitem__() and __len__() methods.
-sorted() Returns a sorted list from the items in an iterable.
-str()  Returns an object of the str class with the specified value.
-sum()  Returns the total of integer elements starting from left to right of the given iterable.
-super()  Returns a proxy object that allows us to access methods of the base class.
-tuple()  Creates an empty tuple or converts the specified iterable to a tuple.
-type()  Either returns the type of the specified object or returns a new type object of the specified dynamic class, based on the specified class name, base classes and class body.
-vars()  Returns the __dict__ attribute of the specified object. A __dict__ object used to store an object's writable attributes.
-zip()  Takes iterables, aggregates them in a tuple, and return it.
+abs()           Returns the absolute value of the given number and returns a
+                magnitude of a complex number.
+all()           Checks whether all the elements in an iterable are truthy values
+                or not. It returns True if all elements in the given iterable are
+                nonzero or true. Else, it returns False.
+any()           Returns True if at least one element in the given iterable is
+                truthy value or boolean True. Returns False for empty or falsy
+                value (such as 0, False, none).
+ascii()         Returns a string containing a printable representation of an
+                object for non-alphabats or invisible characters such as tab,
+                carriage return, form feed etc.
+bin()           Converts an integer number to a binary string prefixed with '0b'.
+bool()          Converts a value to the bool class object containing either True
+                or False
+bytearray()     Returns a bytearray object which is an array of the given bytes.
+                The bytearray class is a mutable sequence of integers in the range
+                of 0 to 256.
+bytes()         Returns an immutable object of the bytes class initialized with
+                the sequence of integers in the range of 0 to 256
+callable()      Returns True if the object passed is callable, False if not. In
+                Python, classes, methods, and instances are callable because
+                calling a class returns a new instance, instances are callable
+                if their class includes `__call__()` method.
+chr()           Returns the string representing a character whose Unicode code
+                point is the integer
+classmethod()   Transforms a method into a class method
+complex()       Returns a complex number (an object of complex class) for the
+                provided real value and imaginary*1j value, or converts a string
+                or number to a complex number.
+dict()          Creates a dictionary object from the specified keys and values,
+                or iterables of keys and values or mapping objects.
+delattr()       Deletes the named attribute from the object if the object allows
+                it.
+dir()           Returns a list of valid attributes of the specified object. If no
+                argument passed, it returns the list of names in the current local
+                scope.
+divmod()        Returns a tuple of two numbers where first number is the
+                quotient and the second is the remainder.
+exec()          Executes the Python code block passed as a string or a code
+                object. The string is parsed as Python statements and then executed.
+enumerate()     Returns an object of enumerate class for the given iterable,
+                sequence, iterator, or object that supports iteration. The returned
+                enumerate object contains tuples for each items of the iterable
+                that includes an index (from start which defaults to 0) and the
+                values obtained from iterating over iterable.
+filter()        Calls the specified function which returns boolen for each item of
+                the specified iterable.
+float()         Returns an object of the `float` class that represent a floating
+                point number converted from a number or string.
+format()        Allows multiple substitutions and value formatting. This method
+                lets us concatenate elements within a string through positional
+                formatting.
+frozenset()     Returns an immutable set object with elements from the given
+                iterable. Iterables can be list, set, dictionary, tuple, string.
+getattr()       Returns the value of the attribute of an object. If the named
+                attribute does not exist, default is returned if provided,
+                otherwise AttributeError is raised.
+hex()           Converts an integer number to a lowercase hexadecimal string
+                prefixed with "0x".
+hash()          Returns the hash value of the specified object. The hash values
+                are used in data storage and to access data in a small time per
+                retrieval, and storage space only fractionally greater than the
+                total space required for the data or records themselves. In
+                Python, hash values are used to compare dictionary keys to
+                access values.
+hasattr()       Checks if an object of the class has the specified attribute.
+help()          It displays the documentation of modules, functions, classes,
+                keywords etc.
+__import__()    The __import__() method is called by the import statement.
+                This method can change the semantics of the import statement which
+                is strongly discouraged .
+id()            Returns an identity of an object. In Python, every variable or
+                literal values are objects and each object has a unique identity
+                as an integer number that remains constant for that object through
+                out its life time.
+int()           Returns an integer object constructed from a number or string,
+                or return 0 if no arguments are given.
+input()         Allows user to input values.
+isinstance()    Checks if the object is an instance of the specified class or any
+                of its subclass.
+issubclass()    Checks if the specified class is the subclass of the specified
+                subclass.
+iter()          Returns an iterator object that represents a stream of data for
+                the iterable object or sentinel.
+len()           Returns the length of the object. Returns total elements in an
+                iterable or number of chars in a string.
+list()          Returns a list from an iterable passed as arguement.
+map()           Applies the specified function to every item of the passed
+                iterable, yields the results, and returns an iterator.
+max()           Returns the largest value from the specified iterable or multiple
+                arguments.
+memoryview()    Returns a memory view object of the given object. The memoryview
+                object allows Python code to access the internal data of an object
+                that supports the buffer protocol without copying.
+min()           Returns the lowest value from the specified iterable or provided
+                multiple arguments.
+next()          Returns the next item from the iterator by calling its __next__()
+                method.
+object()        Returns a new featureless object. The object class is the base
+                class of all classes in Python.
+oct()           Converts an integer to octal string prefixed with "0o".
+open()          Opens the file (if possible) and returns the corresponding file
+                object.
+ord()           Returns an integer representing the Unicode character.
+pow()           Returns the specified exponent power of a number.
+print()         prints the given object to the console or to the text stream file.
+property()      Returns the property attribute.
+range()         Returns an object of the range class which is an immutable
+                sequence type. The `range()` method returns the imutable sequence
+                numbers between the specified start and the stop parameter.
+repr()          Returns a string containing a printable representation of an
+                object. The repr() function calls the underlaying __repr__() 
+                function of the object.
+reversed()      Returns the reversed iterator of the given sequence. It is same
+                as but in reverse order. Internally, it calls the `__reversed__()`
+                method of the sequence class. If the given object is not a
+                sequence, then override __reversed__() method in the class to be
+                used with the reversed() function
+round()         Returns a floating-point number rounded to the specified number of
+                decimal point.
+set()           Returns an object of the set class from the specified iterable
+                and its elements. A set object is an unordered collection of
+                distinct hashable objects. It cannot contain duplicate values.
+setattr()       Sets the specified value to the specified attribute of the
+                specified object. This is the counterpart of getattr() method.
+slice()         Returns a portion of an iterable as an object of the slice class
+                based on the specified range. It can be used with string, list,
+                tuple, set, bytes, or range objects or custom class object that
+                implements sequence methods __getitem__() and __len__() methods.
+sorted()        Returns a sorted list from the items in an iterable.
+str()           Returns an object of the str class with the specified value.
+sum()           Returns the total of integer elements starting from left to right
+                of the given iterable.
+super()         Returns a proxy object that allows us to access methods of the
+                base class.
+tuple()         Creates an empty tuple or converts the specified iterable to a
+                tuple.
+type()          Either returns the type of the specified object or returns a new
+                type object of the specified dynamic class, based on the specified
+                class name, base classes and class body.
+vars()          Returns the __dict__ attribute of the specified object. A
+                __dict__ object used to store an object's writable attributes.
+zip()           Takes iterables, aggregates them in a tuple, and return it.
 ```
 
 ---
@@ -2055,31 +2247,38 @@ zip()  Takes iterables, aggregates them in a tuple, and return it.
 #### os
 
 [Back to summary](#python-buildin-modules)  
-It is possible to automatically perform many operating system tasks. The OS module in Python provides functions for creating and removing a directory (folder), fetching its contents, changing and identifying the current directory, etc.
+It is possible to automatically perform many operating system tasks. The OS module
+in Python provides functions for creating and removing a directory (folder),
+fetching its contents, changing and identifying the current directory, etc.
 
 ```python
-os.getcwd()  # get current working directory
-os.mkdir("<path>") # Makes a directory at path
-os.chdir("<path>") # changing current workign directory
-os.rmdir("<path>") # remove the directory. Not possible with current working directory
-os.listdir("<path>") # return a python list of files
-os.walk("<path>") # return (dirpath, dirnames, filenames) of directory in path
+os.getcwd()           # get current working directory
+os.mkdir("<path>")    # Makes a directory at path
+os.chdir("<path>")    # changing current workign directory
+os.rmdir("<path>")    # remove the directory. Not possible with current working directory
+os.listdir("<path>")  # return a python list of files
+os.walk("<path>")     # return (dirpath, dirnames, filenames) of directory in path
 ```
 
 ---
 
 #### sys
 
-[Back to summary](#python-buildin-modules)   
+[Back to summary](#python-buildin-modules)  
 
-The sys module provides functions and variables used to manipulate different parts of the Python runtime environment.
+The sys module provides functions and variables used to manipulate different
+parts of the Python runtime environment.
 
 ```python
-sys.argv  # returns a list of command line arguments passed to a Python script. Index 0 always is the file itself
-sys.exit # This causes the script to exit back to either the Python console or the command prompt.
+sys.argv    # returns a list of command line arguments passed to a Python script.
+            # Index 0 always is the file itself
+sys.exit    # This causes the script to exit back to either the Python console or
+            # the command prompt.
 sys.maxsize # Returns the largest integer a variable can take.
-sys.path # This is an environment variable that is a search path for all Python modules.
-sys.version # This attribute displays a string containing the version number of the current Python interpreter.
+sys.path    # This is an environment variable that is a search path for all Python
+            # modules.
+sys.version # This attribute displays a string containing the version number of
+            # the current Python interpreter.
 ```
 
 ---
@@ -2088,11 +2287,15 @@ sys.version # This attribute displays a string containing the version number of 
 
 [Back to summary](#python-buildin-modules)  
 
-Some of the most popular mathematical functions are defined in the math module. These include trigonometric functions, representation functions, logarithmic functions, angle conversion functions, etc. In addition, two mathematical constants are also defined in this module.
+Some of the most popular mathematical functions are defined in the math module.
+These include trigonometric functions, representation functions, logarithmic
+functions, angle conversion functions, etc. In addition, two mathematical constants
+are also defined in this module.
 
 ```python
 math.pi  # return a float representing pi
-math.e  # It is called Euler's number and it is a base of the natural logarithm. Its value is 2.718281828459045
+math.e  # It is called Euler's number and it is a base of the natural logarithm.
+        # Its value is 2.718281828459045
 math.radians(<number>) # convert <number> angle in degrees to its radians value
 math.degrees(<number>) # convert <number> radians to its degrees value
 math.sin(<number>) # |
@@ -2100,8 +2303,10 @@ math.cos(<number>) # |- trigonometric calculation
 math.tan(<number>) # |
 math.log(<number>) # returns the natural logarithm of a given number.
 math.log10(<number>) # returns the base-10 logarithm of the given number.
-math.exp(<number>) # returns a float number after raising e to the power of the given number
-math.pow(<number>, <number>) # receives two float arguments, raises the first to the second and returns the result
+math.exp(<number>) # returns a float number after raising e to the power of the
+                   # given number
+math.pow(<number>, <number>) # receives two float arguments, raises the first to
+                             # the second and returns the result
 math.sqrt(<number>) # returns the square root of a given number.
 math.ceil(<number>)
 math.floor(<number>)
@@ -2119,7 +2324,8 @@ The statistics module provides functions to mathematical statistics of numeric d
 statistics.mean(<list>) # calculates the arithmetic mean of the numbers in a list.
 statistics.median(<list>) # returns the middle value of numeric data in a list.
 statistics.mode(<list>) # returns the most common data point in the list.
-statistics.stdev(<list>) # calculates the standard deviation on a given sample in the form of a list.
+statistics.stdev(<list>) # calculates the standard deviation on a given sample
+                         # in the form of a list.
 ```
 
 ---
@@ -2128,11 +2334,13 @@ statistics.stdev(<list>) # calculates the standard deviation on a given sample i
 
 [Back to summary](#python-buildin-modules)  
 
-The collections module provides alternatives to built-in container data types such as list, tuple and dict.
+The collections module provides alternatives to built-in container data types such
+as list, tuple and dict.
 
 ##### namedtuple()
 
-The namedtuple() function returns a tuple-like object with named fields. These field attributes are accessible by lookup as well as by index.
+The namedtuple() function returns a tuple-like object with named fields. These field
+attributes are accessible by lookup as well as by index.
 
 ```python
 student = collections.namedtuple('student', [name, age, marks])
@@ -2145,7 +2353,8 @@ s1[0] # same
 
 ##### OrderedDict()
 
-The OrderedDict() function is similar to a normal dictionary object in Python. However, it remembers the order of the keys in which they were first inserted.
+The OrderedDict() function is similar to a normal dictionary object in Python.
+However, it remembers the order of the keys in which they were first inserted.
 
 ```python
 d1 = collections.OrderedDict()
@@ -2168,7 +2377,10 @@ D 68
 
 ##### deque()
 
-A deque object support appends and pops from either ends of a list. It is more memory efficient than a normal list object. In a normal list object, the removal of any item causes all items to the right to be shifted towards left by one index. Hence, it is very slow.
+A deque object support appends and pops from either ends of a list. It is more
+memory efficient than a normal list object. In a normal list object, the removal
+of any item causes all items to the right to be shifted towards left by one index.
+Hence, it is very slow.
 
 ```python
 q=collections.deque([10,20,30,40]) # set the deque object
@@ -2184,13 +2396,19 @@ q.popleft() # pop first value
 
 [Back to summary](#python-buildin-modules)  
 
-The random module is a built-in module to generate the pseudo-random variables. It can be used perform some action randomly such as to get a random number, selecting a random elements from a list, shuffle elements randomly, etc.
+The random module is a built-in module to generate the pseudo-random variables.
+It can be used perform some action randomly such as to get a random number,
+selecting a random elements from a list, shuffle elements randomly, etc.
 
 ```python
 random.random() # returns a random float number between 0.0 to 1.0
 random.randint(<int>,<int>) # returns a random integer between the specified integers.
-random.randrange(<int>,<int>,<int>) # returns a randomly selected element from the range created by the start, stop and step arguments.
-random.choice("sequence") # returns a randomly selected element from a non-empty sequence. An empty sequence as argument raises an IndexError.
+random.randrange(<int>,<int>,<int>) # returns a randomly selected element from the
+                                    # range created by the start, stop and step
+                                    # arguments.
+random.choice("sequence") # returns a randomly selected element from a non-empty
+                          # sequence. An empty sequence as argument raises an
+                          # IndexError.
 random.shuffle(<list>) # method randomly reorders the elements in a list.
 ```
 
@@ -2220,36 +2438,43 @@ First the meta-characters
 * 0 or more occurrences of the pattern to its left
 \b boundary between word and non-word. /B is opposite of /b
 [..] Matches any single character in a square bracket
-\ It is used for special meaning characters like . to match a period or + for plus sign.
+\ It is used for special meaning characters like . to match a period
 {n,m} Matches at least n and at most m occurrences of preceding
 a| b Matches either a or b
 ```
 
-The re.match() function in re module tries to find if the specified pattern is present at the beginning of the given string.
+The re.match() function in re module tries to find if the specified pattern is
+present at the beginning of the given string.
 
 ```python
 re.match(pattern, string)
 mystr = "Welcome to TutorialsTeacher"
-obj1 = match("We", mystr) # return <re.Match object; span=(0, 2), match='We'> match object
+obj1 = match("We", mystr)
+# return <re.Match object; span=(0, 2), match='We'> match object
 obj.start() # 0
 obj.end() # 2
 ```
 
-The re.search() function searches for a specified pattern anywhere in the given string and stops the search on the first occurrence.
+The re.search() function searches for a specified pattern anywhere in the given
+string and stops the search on the first occurrence.
 
 ```python
 string = "Try to earn while you learn"
 obj = search("earn", string) # return also a match object
 ```
 
-re.findall(): As against the search() function, the findall() continues to search for the pattern till the target string is exhausted. The object returns a list of all occurrences.
+re.findall(): As against the search() function, the findall() continues to search
+for the pattern till the target string is exhausted. The object returns a list of
+all occurrences.
 
 ```python
 string = "Try to earn while you learn"
 obj = findall("earn", string) # return ['earn', 'earn']
 ```
 
-The re.finditer() function returns an iterator object of all matches in the target string. For each matched group, start and end positions can be obtained by span() attribute.
+The re.finditer() function returns an iterator object of all matches in the
+target string. For each matched group, start and end positions can be obtained
+by span() attribute.
 
 ```python
 string = "Try to earn while you learn"
@@ -2262,14 +2487,21 @@ for match in it:
 """
 ```
 
-The re.split() function works similar to the split() method of str object in Python. It splits the given string every time a white space is found. In the above example of the findall() to get all words, the list also contains each occurrence of white space as a word. That is eliminated by the split() function in re module.
+The re.split() function works similar to the split() method of str object in
+Python. It splits the given string every time a white space is found. In the
+above example of the findall() to get all words, the list also contains each
+occurrence of white space as a word. That is eliminated by the split() function
+in re module.
 
 ```python
 string = "Flat is better than nested. Sparse is better than dense."
-words = split(r' ', string) # return ['Flat', 'is', 'better', 'than', 'nested.', 'Sparse', 'is', 'better', 'than', 'dense.']
+words = split(r' ', string) # return ['Flat', 'is', 'better', 'than', 'nested.',
+                            #         'Sparse', 'is', 'better', 'than', 'dense.']
 ```
 
-The re.compile() function returns a pattern object which can be repeatedly used in different regex functions. In the following example, a string 'is' is compiled to get a pattern object and is subjected to the search() method.
+The re.compile() function returns a pattern object which can be repeatedly used
+in different regex functions. In the following example, a string 'is' is compiled
+to get a pattern object and is subjected to the search() method.
 
 ```python
 pattern = compile(r'[aeiou]')
@@ -2284,7 +2516,10 @@ pattern.match(string)
 ### lambda
 
 [Back to summary](#python)  
-The def keyword is used to define a function in Python. The lambda keyword is used to define anonymous functions in Python. Usually, such a function is meant for one-time use. The expression does not need to always return a value. The fonction can take multiple parameters.
+The def keyword is used to define a function in Python. The lambda keyword is
+used to define anonymous functions in Python. Usually, such a function is meant
+for one-time use. The expression does not need to always return a value. The
+fonction can take multiple parameters.
 
 ```python
 lambda [arguments] : expression
@@ -2303,7 +2538,8 @@ Hello World
 >>> dosomething(myfn) # passing lambda function
 ```
 
-Python has built-in functions that take other functions as arguments. The argument function can be a normal function or a lambda function.
+Python has built-in functions that take other functions as arguments. The
+argument function can be a normal function or a lambda function.
 
 ```python
 >>> sqrList = map(lambda x: x*x, [1, 2, 3, 4]) # passing anonymous function
@@ -2324,7 +2560,11 @@ Python has built-in functions that take other functions as arguments. The argume
 ### generator
 
 [Back to summary](#python)  
-Python provides a generator to create your own iterator function. A generator is a special type of function which does not return a single value, instead, it returns an iterator object with a sequence of values. In a generator function, a yield statement is used rather than a return statement.  
+Python provides a generator to create your own iterator function. A generator is
+a special type of function which does not return a single value, instead, it
+returns an iterator object with a sequence of values. In a generator function, a
+yield statement is used rather than a return statement.  
+
 Exemple
 
 ```python
@@ -2340,7 +2580,8 @@ next(gen) # 3
 next(gen) # StopIteration Error
 ```
 
-The below script uses the try..except block to handle the StopIteration error. It will break the while loop once it catches the StopIteration error.
+The below script uses the try..except block to handle the StopIteration error.
+It will break the while loop once it catches the StopIteration error.
 
 ```python
 gen=square_of_sequence(5)
@@ -2351,13 +2592,15 @@ while True:
         break
 ```
 
-Python also provides a generator expression, which is a shorter way of defining simple generator functions. The generator expression is an anonymous generator function.
+Python also provides a generator expression, which is a shorter way of defining
+simple generator functions. The generator expression is an anonymous generator function.
 
 ```python
 squres = (x*x for x in range(5))
 ```
 
-The generator expression can also be passed in a function. It should be passed without parentheses, as shown below.
+The generator expression can also be passed in a function. It should be passed
+without parentheses, as shown below.
 
 ```python
 sum(x*x for x in range(5))
@@ -2384,23 +2627,30 @@ MemoryError  Raised when an operation runs out of memory.
 NameError  Raised when a variable is not found in the local or global scope.
 NotImplementedError Raised by abstract methods.
 OSError   Raised when a system operation causes a system-related error.
-OverflowError Raised when the result of an arithmetic operation is too large to be represented.
-ReferenceError Raised when a weak reference proxy is used to access a garbage collected referent.
+OverflowError Raised when the result of an arithmetic operation is too large to
+              be represented.
+ReferenceError Raised when a weak reference proxy is used to access a garbage
+               collected referent.
 RuntimeError Raised when an error does not fall under any other category.
-StopIteration Raised by the next() function to indicate that there is no further item to be returned by the iterator.
+StopIteration Raised by the next() function to indicate that there is no further
+              item to be returned by the iterator.
 SyntaxError  Raised by the parser when a syntax error is encountered.
 IndentationError Raised when there is an incorrect indentation.
 TabError  Raised when the indentation consists of inconsistent tabs and spaces.
 SystemError  Raised when the interpreter detects internal error.
 SystemExit  Raised by the sys.exit() function.
-TypeError  Raised when a function or operation is applied to an object of an incorrect type.
-UnboundLocalError Raised when a reference is made to a local variable in a function or method, but no value has been bound to that variable.
+TypeError  Raised when a function or operation is applied to an object of an
+           incorrect type.
+UnboundLocalError Raised when a reference is made to a local variable in a
+                  function or method, but no value has been bound to that variable.
 UnicodeError Raised when a Unicode-related encoding or decoding error occurs.
 UnicodeEncodeError Raised when a Unicode-related error occurs during encoding.
 UnicodeDecodeError Raised when a Unicode-related error occurs during decoding.
 UnicodeTranslateError Raised when a Unicode-related error occurs during translation.
-ValueError  Raised when a function gets an argument of correct type but improper value.
-ZeroDivisionError Raised when the second operand of a division or module operation is zero.
+ValueError  Raised when a function gets an argument of correct type but improper
+            value.
+ZeroDivisionError Raised when the second operand of a division or module
+                  operation is zero.
 ```
 
 Handle those errors with try .. except statement
@@ -2421,7 +2671,9 @@ finally:
 ### assert
 
 [Back to summary](#python)  
-In Python, the assert statement is used to continue the execute if the given condition evaluates to True. If the assert condition evaluates to False, then it raises the AssertionError exception with the specified error message.
+In Python, the assert statement is used to continue the execute if the given
+condition evaluates to True. If the assert condition evaluates to False, then it
+raises the AssertionError exception with the specified error message.
 
 ```python
 assert condition [, Error Message]
@@ -2475,7 +2727,9 @@ class <ClassName>:
     <statementN>
 ```
 
-Class attributes are the variables defined directly in the class that are shared by all objects of the class. Class attributes can be accessed using the class name as well as using the objects.
+Class attributes are the variables defined directly in the class that are shared
+by all objects of the class. Class attributes can be accessed using the class
+name as well as using the objects.
 
 ```python
 class Student:
@@ -2504,10 +2758,15 @@ class Student:
 2
 ```
 
-The constructor method is invoked automatically whenever a new object of a class is instantiated.  
-The constructor must have a special name \_\_init\_\_() and a special parameter called self.  
-Instance attributes are attributes or properties attached to an instance of a class. Instance attributes are defined in the constructor.  
-You can specify the values of instance attributes through the constructor. The following constructor includes the name and age parameters, other than the self parameter.  
+The constructor method is invoked automatically whenever a new object of a class
+is instantiated.  
+The constructor must have a special name \_\_init\_\_() and a special parameter
+called self.  
+Instance attributes are attributes or properties attached to an instance of a
+class. Instance attributes are defined in the constructor.  
+You can specify the values of instance attributes through the constructor. The
+following constructor includes the name and age parameters, other than the self
+parameter.  
 You can also set default values to the instance attributes.
 
 ```python
@@ -2519,7 +2778,8 @@ class Student:
   self.gender = gender
 ```
 
-You can delete attributes, objects, or the class itself, using the del keyword, as shown below.
+You can delete attributes, objects, or the class itself, using the del keyword,
+as shown below.
 
 ```python
 >>> std = Student('Steve', 25)
@@ -2548,9 +2808,11 @@ NameError: name 'Student' is not defined
 #### class property
 
 [Back to summary](#class)  
-In Python, a property in the class can be defined using the property() function.  
-The property() method in Python provides an interface to instance attributes. It encapsulates instance attributes and provides a property, same as Java and C#.  
-The property() method takes the get, set and delete methods as arguments and returns an object of the property class.
+In Python, a property in the class can be defined using the property() function.
+The property() method in Python provides an interface to instance attributes. It
+encapsulates instance attributes and provides a property, same as Java and C#.  
+The property() method takes the get, set and delete methods as arguments and
+returns an object of the property class.
 
 ```python
 class Student:
@@ -2565,7 +2827,10 @@ class Student:
     name=property(getname, setname)
 ```
 
-In the above example, property(getname, setname) returns the property object and assigns it to name. Thus, the name property hides the private instance attribute \_\_name. The name property is accessed directly, but internally it will invoke the getname() or setname() method, as shown below.  
+In the above example, property(getname, setname) returns the property object and
+assigns it to name. Thus, the name property hides the private instance attribute
+\_\_name. The name property is accessed directly, but internally it will invoke
+the getname() or setname() method, as shown below.  
 It is recommended to use the property decorator instead of the property() method.
 
 ```python
@@ -2583,9 +2848,13 @@ getname() called
 
 [Back to summary](#class)  
 You can define as many methods as you want in a class using the def keyword.  
-Each method must have the first parameter, generally named as self, which refers to the calling instance.  
-Self is just a conventional name for the first argument of a method in the class. A method defined as mymethod(self, a, b) should be called as x.mymethod(a, b) for the object x of the class.  
-Defining a method in the class without the self parameter would raise an exception when calling a method.  
+Each method must have the first parameter, generally named as self, which refers
+to the calling instance.  
+Self is just a conventional name for the first argument of a method in the
+class. A method defined as mymethod(self, a, b) should be called as
+x.mymethod(a, b) for the object x of the class.  
+Defining a method in the class without the self parameter would raise an
+exception when calling a method.  
 The method can access instance attributes using the self parameter.
 
 ```python
@@ -2606,7 +2875,9 @@ Student Name: Steve , Age: 25
 #### Inheritance
 
 [Back to summary](#class)  
-The child class inherits data definitions and methods from the parent class. This facilitates the reuse of features already available. The child class can add a few more definitions or redefine a base class method.
+The child class inherits data definitions and methods from the parent class.
+This facilitates the reuse of features already available. The child class can
+add a few more definitions or redefine a base class method.
 
 ```python
 class parent:
@@ -2615,25 +2886,35 @@ class parent:
 
 class child(parent):
  def __init__(self, name, age):
-  super().__init__(name) # The __init__() method forwards the parameters to the constructor of its parent class using the super() function.
+  super().__init__(name) # The __init__() method forwards the parameters to the
+                         # constructor of its parent class using the super()
+                         # function.
   self.age = age
 ```
 
-To override a method, simply define a new one with the same name inside the child class.
+To override a method, simply define a new one with the same name inside the
+child class.
 
 ---
 
 #### Access modifiers
 
 [Back to summary](#class)  
-Classical object-oriented languages, such as C++ and Java, control the access to class resources by public, private, and protected keywords. Private members of the class are denied access from the environment outside the class. They can be handled only from within the class.
+Classical object-oriented languages, such as C++ and Java, control the access to
+class resources by public, private, and protected keywords. Private members of
+the class are denied access from the environment outside the class. They can be
+handled only from within the class.
 
 ---
 
 ##### public members
 
-Public members (generally methods declared in a class) are accessible from outside the class. The object of the same class is required to invoke a public method. This arrangement of private instance variables and public methods ensures the principle of data encapsulation.  
-All members in a Python class are public by default. Any member can be accessed from outside the class environment.
+Public members (generally methods declared in a class) are accessible from
+outside the class. The object of the same class is required to invoke a public
+method. This arrangement of private instance variables and public methods
+ensures the principle of data encapsulation.  
+All members in a Python class are public by default. Any member can be accessed
+from outside the class environment.
 
 ```python
 class Student:
@@ -2657,9 +2938,15 @@ class Student:
 
 ##### protected members
 
-Protected members of a class are accessible from within the class and are also available to its sub-classes. No other environment is permitted access to it. This enables specific resources of the parent class to be inherited by the child class.  
-Python's convention to make an instance variable protected is to add a prefix \_ (single underscore) to it. This effectively prevents it from being accessed unless it is from within a sub-class.  
-In fact, this doesn't prevent instance variables from accessing or modifying the instance. You can still perform the following operations:
+Protected members of a class are accessible from within the class and are also
+available to its sub-classes. No other environment is permitted access to it.
+This enables specific resources of the parent class to be inherited by the child
+class.  
+Python's convention to make an instance variable protected is to add a prefix \_
+(single underscore) to it. This effectively prevents it from being accessed
+unless it is from within a sub-class.  
+In fact, this doesn't prevent instance variables from accessing or modifying the
+instance. You can still perform the following operations:
 
 ```python
 class Student:
@@ -2677,9 +2964,12 @@ class Student:
 'Dipa'
 ```
 
-However, you can define a property using property decorator and make it protected, as shown below.  
-Without the setter, you won't be able to modify \_name like this "std.name = 'another name'", but you can still modify directly \_name value.
-Hence, the responsible programmer would refrain from accessing and modifying instance variables prefixed with \_ from outside its class.
+However, you can define a property using property decorator and make it
+protected, as shown below.  
+Without the setter, you won't be able to modify \_name like this
+"std.name = 'another name'", but you can still modify directly \_name value.
+Hence, the responsible programmer would refrain from accessing and modifying
+instance variables prefixed with \_ from outside its class.
 
 ```python
 class Student:
@@ -2705,8 +2995,13 @@ class Student:
 
 ##### Private members
 
-Python doesn't have any mechanism that effectively restricts access to any instance variable or method. Python prescribes a convention of prefixing the name of the variable/method with a single or double underscore to emulate the behavior of protected and private access specifiers.  
-The double underscore \_\_ prefixed to a variable makes it private. It gives a strong suggestion not to touch it from outside the class. Any attempt to do so will result in an AttributeError:
+Python doesn't have any mechanism that effectively restricts access to any
+instance variable or method. Python prescribes a convention of prefixing the
+name of the variable/method with a single or double underscore to emulate the
+behavior of protected and private access specifiers.  
+The double underscore \_\_ prefixed to a variable makes it private. It gives a
+strong suggestion not to touch it from outside the class. Any attempt to do so
+will result in an AttributeError:
 
 ```python
 class Student:
@@ -2727,8 +3022,11 @@ AttributeError: 'Student' object has no attribute '__name'
 AttributeError: 'Student' object has no attribute '__display'
 ```
 
-Python performs name mangling of private variables. Every member with a double underscore will be changed to \_object.\_class\_\_variable. So, it can still be accessed from outside the class, but the practice should be refrained.  
-Thus, Python provides conceptual implementation of public, protected, and private access modifiers, but not like other languages like C#, Java, C++.
+Python performs name mangling of private variables. Every member with a double
+underscore will be changed to \_object.\_class\_\_variable. So, it can still be
+accessed from outside the class, but the practice should be refrained.  
+Thus, Python provides conceptual implementation of public, protected, and private
+access modifiers, but not like other languages like C#, Java, C++.
 
 ```python
 >>> std = Student("Bill", 25)
@@ -2757,9 +3055,18 @@ Thus, Python provides conceptual implementation of public, protected, and privat
 #### introduction
 
 [Back to summary](#decorators)  
-In programming, decorator is a design pattern that adds additional responsibilities to an object dynamically. In Python, a function is the first-order object. So, a decorator in Python adds additional responsibilities/functionalities to a function dynamically without modifying a function.  
-In Python, a function can be passed as an argument to another function. It is also possible to define a function inside another function, and a function can return another function.
-So, a decorator in Python is a function that receives another function as an argument. The behavior of the argument function is extended by the decorator without actually modifying it. The decorator function can be applied over a function using the @decorator syntax.
+In programming, decorator is a design pattern that adds additional
+responsibilities to an object dynamically. In Python, a function is the
+first-order object. So, a decorator in Python adds additional
+responsibilities/functionalities to a function dynamically without modifying a
+function.  
+In Python, a function can be passed as an argument to another function. It is
+also possible to define a function inside another function, and a function can
+return another function.
+So, a decorator in Python is a function that receives another function as an
+argument. The behavior of the argument function is extended by the decorator
+without actually modifying it. The decorator function can be applied over a
+function using the @decorator syntax.
 
 ```python
 def mydecorator(fn):
@@ -2783,12 +3090,16 @@ Hello! How are you?
 #### property
 
 [Back to summary](#decorators)  
-The \@property decorator is a built-in decorator in Python for the property() function. Use @property decorator on any method in the class to use the method as a property.  
+The \@property decorator is a built-in decorator in Python for the property()
+function. Use @property decorator on any method in the class to use the method
+as a property.  
 You can use the following three decorators to define a property:
 
 - @property: Declares the method as a property.
-- @<property-name\>.setter: Specifies the setter method for a property that sets the value to a property.
-- @<property-name\>.deleter: Specifies the delete method as a property that deletes a property.
+- @<property-name\>.setter: Specifies the setter method for a property that
+- sets the value to a property.
+- @<property-name\>.deleter: Specifies the delete method as a property that
+- deletes a property.
 
 ```python
 class Student:
@@ -2829,8 +3140,13 @@ AttributeError: 'Student' object has no attribute '_Student__name'
 #### classmethod
 
 [Back to summary](#decorators)  
-In Python, the @classmethod decorator is used to declare a method in the class as a class method that can be called using ClassName.MethodName(). The class method can also be called using an object of the class.  
-The @classmethod is an alternative of the classmethod() function. It is recommended to use the @classmethod decorator instead of the function because it is just a syntactic sugar.  
+In Python, the @classmethod decorator is used to declare a method in the class
+as a class method that can be called using ClassName.MethodName(). The class
+method can also be called using an object of the class.  
+The @classmethod is an alternative of the classmethod() function. It is
+recommended to use the @classmethod decorator instead of the function because it
+is just a syntactic sugar.  
+
 @classmethod Characteristics:
 
 - Declares a class method.
@@ -2838,7 +3154,9 @@ The @classmethod is an alternative of the classmethod() function. It is recommen
 - The class method can only access the class attributes but not the instance attributes.
 - The class method can be called using ClassName.MethodName() and also using object.
 - It can return an object of the class.
-  The class method can only access class attributes, but not the instance attributes. It will raise an error if trying to access the instance attribute in the class method.
+  The class method can only access class attributes, but not the instance
+  attributes. It will raise an error if trying to access the instance attribute
+  in the class method.
 
 ```python
 class Student:
@@ -2851,7 +3169,8 @@ class Student:
         print('Student Class Attributes: name=',cls.name)
 ```
 
-The class method can also be used as a factory method to get an object of the class, as shown below.
+The class method can also be used as a factory method to get an object of the
+class, as shown below.
 
 ```python
 class Student:
@@ -2870,7 +3189,9 @@ class Student:
 #### staticmethod
 
 [Back to summary](#decorators)  
-The @staticmethod is a built-in decorator that defines a static method in the class in Python. A static method doesn't receive any reference argument whether it is called by an instance of a class or by the class itself.  
+The @staticmethod is a built-in decorator that defines a static method in the
+class in Python. A static method doesn't receive any reference argument whether
+it is called by an instance of a class or by the class itself.  
 @staticmethod Characteristics
 
 - Declares a static method in the class.
@@ -2896,10 +3217,20 @@ class Student:
 ### abstract class
 
 [Back to summary](#python)  
-A class is called an Abstract class if it contains one or more abstract methods. An abstract method is a method that is declared, but contains no implementation. Abstract classes may not be instantiated, and its abstract methods must be implemented by its subclasses.  
-'abc' works by marking methods of the base class as abstract. This is done by @absttractmethod decorator. A concrete class which is a sub class of such abstract base class then implements the abstract base by overriding its abstract methods.  
-The abc module defines ABCMeta class which is a metaclass for defining abstract base class. Following example defines Shape class as an abstract base class using ABCMeta. The shape class has area() method decorated by abstractmethod.  
-A Rectangle class now uses above Shape class as its parent and implementing the abstract area() method. Since it is a concrete class, it can be instantiated and imlemented area() method can be called.
+A class is called an Abstract class if it contains one or more abstract methods.
+An abstract method is a method that is declared, but contains no implementation.
+Abstract classes may not be instantiated, and its abstract methods must be
+implemented by its subclasses.  
+'abc' works by marking methods of the base class as abstract. This is done by
+@absttractmethod decorator. A concrete class which is a sub class of such
+abstract base class then implements the abstract base by overriding its abstract
+methods.  
+The abc module defines ABCMeta class which is a metaclass for defining abstract
+base class. Following example defines Shape class as an abstract base class using
+ABCMeta. The shape class has area() method decorated by abstractmethod.  
+A Rectangle class now uses above Shape class as its parent and implementing the
+abstract area() method. Since it is a concrete class, it can be instantiated and
+imlemented area() method can be called.
 
 ```python
 import abc
@@ -2921,10 +3252,13 @@ r = Rectangle(10, 20)
 print ('area: ', r.area())
 ```
 
-_Note the abstract base class may have more than one abstract methods. The child class must implement all of them failing which TypeError will be raised._
+_Note the abstract base class may have more than one abstract methods. The child
+class must implement all of them failing which TypeError will be raised._
 
-The abc module also defines ABC helper class which can be used instead of ABCMeta class in definition of abstract base class.  
-Instead of subclassing from abstract base class, it can be registered as abstract base by register class decorator.
+The abc module also defines ABC helper class which can be used instead of ABCMeta
+class in definition of abstract base class.  
+Instead of subclassing from abstract base class, it can be registered as abstract
+base by register class decorator.
 
 ```python
 class Shape(abc.ABC):
@@ -2946,8 +3280,13 @@ class Rectangle():
 ### database
 
 [Back to summary](#python)  
-Python DB-API is a set of standards recommended by a Special Interest Group for database module standardization. Python modules that provide database interfacing functionality with all major database products are required to adhere to this standard.  
-Standard Python distribution has in-built support for SQLite database connectivity. It contains sqlite3 module which adheres to DB-API 2.0 and is written by Gerhard Haring. Other RDBMS products also have DB-API compliant modules:
+Python DB-API is a set of standards recommended by a Special Interest Group for
+database module standardization. Python modules that provide database interfacing
+functionality with all major database products are required to adhere to this
+standard.  
+Standard Python distribution has in-built support for SQLite database
+connectivity. It contains sqlite3 module which adheres to DB-API 2.0 and is
+written by Gerhard Haring. Other RDBMS products also have DB-API compliant modules:
 
 - MySQL: PyMySql module
 - Oracle: Cx-Oracle module
@@ -2962,7 +3301,8 @@ Standard Python distribution has in-built support for SQLite database connectivi
 ### file
 
 [Back to summary](#python)  
-In Python, the IO module provides methods of three types of IO operations; raw binary files, buffered binary files, and text files.
+In Python, the IO module provides methods of three types of IO operations; raw
+binary files, buffered binary files, and text files.
 
 ---
 
@@ -2990,20 +3330,24 @@ with open('C:\myfile.txt') as f # opening a file
 
 ##### Write
 
-- write(s): Write the string s to the stream and return the number of characters written.
-- writelines(lines): Write a list of lines to the stream. Each line must have a separator at the end of it.
+- write(s): Write the string s to the stream and return the number of characters
+written.
+- writelines(lines): Write a list of lines to the stream. Each line must have a
+separator at the end of it.
 
 ```python
 with open('C:\myfile.txt', "w") as f # opening a file with write permission
  f.write("Hello") # overwriting to file and return 5
 
-with open('C:\myfile.txt', "a") as f # opening a file with write permission and appedind mode
+with open('C:\myfile.txt', "a") as f # opening a file with write permission in
+                                     # appedind mode
  f.write("Hello") # append to file and return 5
 
 with open('C:\myfile.txt', "w") as f # opening a file with write permission
  f.writelines(lines)
 
-with open('C:\binfile.bin', "wb") as f # opening a file with write permission and binary mode
+with open('C:\binfile.bin', "wb") as f # opening a file with write permission
+                                       #and binary mode
  num=[5, 10, 15, 20, 25]
  arr=bytearray(num)
  f.write(arr)
@@ -3103,18 +3447,29 @@ python manage.py runserver
 #### Database Setup
 
 [back to summary](#django)  
-Open up mysite/settings.py. It’s a normal Python module with module-level variables representing Django settings.  
-If you wish to use another database, install the appropriate database bindings and change the following keys in the DATABASES 'default' item to match your database connection settings
+Open up mysite/settings.py. It’s a normal Python module with module-level
+variables representing Django settings.  
+If you wish to use another database, install the appropriate database bindings
+and change the following keys in the DATABASES 'default' item to match your
+database connection settings
 
-```python
-ENGINE – 'django.db.backends.sqlite3', 'django.db.backends.postgresql', 'django.db.backends.mysql', or 'django.db.backends.oracle'
+```text
+ENGINE – 'django.db.backends.sqlite3',
+         'django.db.backends.postgresql',
+         'django.db.backends.mysql', or
+         'django.db.backends.oracle'
 ```
 
-The default value, BASE_DIR / 'db.sqlite3', will store the file in your project directory  
-NAME – The name of your database. If you’re using SQLite, the database will be a file on your computer; in that case, NAME should be the full absolute path, including filename, of that file.  
-The default value, BASE_DIR / 'db.sqlite3', will store the file in your project directory.  
-If you are not using SQLite as your database, additional settings such as USER, PASSWORD, and HOST must be added.  
-For more details, see the reference documentation for [DATABASES](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-DATABASES).
+The default value, BASE_DIR / 'db.sqlite3', will store the file in your project
+directory  
+NAME – The name of your database. If you’re using SQLite, the database will be a
+file on your computer; in that case, NAME should be the full absolute path,
+including filename, of that file.  
+The default value, BASE_DIR / 'db.sqlite3', will store the file in your project
+directory.  
+If you are not using SQLite as your database, additional settings such as USER,
+PASSWORD, and HOST must be added.  
+For more details, see the reference documentation for [DATABASES](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-DATABASES)
 
 ---
 
@@ -3127,7 +3482,8 @@ Create an app_name directory and all default file/folder inside
 python manage.py startapp app_name
 ```
 
-Apps are "plugable", "plug in" the app into the project by adding it in installed apps in settings.py
+Apps are "plugable", "plug in" the app into the project by adding it in installed
+apps in settings.py
 
 ```python
 INSTALLED_APPS = [
@@ -3149,8 +3505,9 @@ urlpatterns = [
 #### Creating models
 
 [back to summary](#django)  
-Create your class in the app_name/models.py file and add [fields](https://docs.djangoproject.com/en/3.2/ref/models/fields/).  
-It’s important to add **str**() methods to your models, because objects’ representations are used throughout Django’s automatically-generated admin.
+Create your class in the app_name/models.py file and add [fields](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
+It’s important to add `__str__()` methods to your models, because objects’
+representations are used throughout Django’s automatically-generated admin.
 
 ```python
 from django.db import models
@@ -3168,14 +3525,16 @@ Class ModelName(models.Model):
 #### Database editing
 
 [back to summary](#django)  
-By running makemigrations, you’re telling Django that you’ve made some changes to your models
+By running makemigrations, you’re telling Django that you’ve made some changes to
+your models
 you can specify app_name or not
 
 ```shell
 python manage.py makemigrations (app_name)
 ```
 
-Check the SQL commands that migration would run (identifier is given with makemigrations command).
+Check the SQL commands that migration would run (identifier is given with
+makemigrations command).
 
 ```shell
 python manage.py sqlmigrate #identifier
@@ -3193,7 +3552,8 @@ Create tables and fields in database based on your models
 python manage.py migrate
 ```
 
-Hop into the interactive Python shell and play around with the free API Django gives you
+Hop into the interactive Python shell and play around with the free API Django
+gives you
 
 ```shell
 python manage.py shell
@@ -3329,7 +3689,8 @@ Redirect to 404 page if nothing is found
 question = get_object_or_404(Question, pk=question_id)
 ```
 
-Get a look at Django's [documentation](https://docs.djangoproject.com/en/4.0/topics/templates/) to see how you can edit templates.
+Get a look at Django's [documentation](https://docs.djangoproject.com/en/4.0/topics/templates/)
+to see how you can edit templates.
 
 ---
 
@@ -3386,7 +3747,8 @@ class ExempleForm(forms.Form):
 ```
 
 An exemple of form with ModelForm inherit  
-A ModelForm maps a model class’s fields to HTML form <in­put> elements via a Form. Widget is optional. Use it to override default widget  
+A ModelForm maps a model class’s fields to HTML form <in­put> elements via a Form.
+Widget is optional. Use it to override default widget  
 Widget [list](https://docs.djangoproject.com/en/3.2/ref/forms/widgets/)
 
 ```python
@@ -3439,7 +3801,8 @@ The most simple way to render the form, but usualy it's ugly
 {{ form.as_p }}
 ```
 
-The | is a filter, and here for placeholder, it's a custom one. See next section to see how to create it
+The | is a filter, and here for placeholder, it's a custom one. See next section
+to see how to create it
 
 ```html
 {{ field|placeholder:field.label }} {{ form.username|placeholder:"Your name
@@ -3482,7 +3845,8 @@ Add this on top of your template
 {% load filter_name %}
 ```
 
-To be a valid tag library, the module must contain a module-level variable named register
+To be a valid tag library, the module must contain a module-level variable named
+register
 that is a template.Library instance.  
 Here is an exemple of filter definition.  
 See the decorator? It registers your filter with your Library instance.  
@@ -3499,15 +3863,18 @@ def cut(value, arg):
    return value.replace(arg, '')
 ```
 
-Here is a link of how to make a [placeholder](https://tech.serhatteker.com/post/2021-06/placeholder-templatetags/) custom template tag which i found essential
+Here is a link of how to make a [placeholder](https://tech.serhatteker.com/post/2021-06/placeholder-templatetags/)
+custom template tag which i found essential
 
 ---
 
 #### Setting Up User Accounts
 
 [back to summary](#django)  
-Create a "users" app. Don't forget to add app to settings.py and include the URLs from users.  
-Inside users/urls.py, add this code to include some default authentification URLs that Django has defined.
+Create a "users" app. Don't forget to add app to settings.py and include the URLs
+from users.  
+Inside users/urls.py, add this code to include some default authentification URLs
+that Django has defined.
 
 ```python
 app_name = "users"
@@ -3561,7 +3928,8 @@ We write our own register() view inside users/views.py.
 For that we use UserCreationForm, a django building model.  
 If method is not post, we render a blank form.  
 Else, is the form pass the validity check, an user is created.  
-We just have to create a registration.html template in same folder as the login and logged_out.
+We just have to create a registration.html template in same folder as the login
+and logged_out.
 
 ```python
 from django.shortcuts import render, redirect
@@ -3601,7 +3969,8 @@ def my_view(request)
 ```
 
 If user is not logged in, they will be redirect to the login page.  
-To make this work, you need to modify settings.py so Django knows where to find the login page.  
+To make this work, you need to modify settings.py so Django knows where to find
+the login page.  
 Add the following at the very end.
 
 ```python
@@ -3733,7 +4102,8 @@ pip freeze -> requirements.txt
 
 At the very end of settings.py, make an Heroku ettings section.  
 import django_heroku and tell django to apply django heroku settings.  
-The staticfiles to false is not a viable option in production, check whitenoise for that IMO.
+The staticfiles to false is not a viable option in production, check whitenoise
+for that IMO.
 
 ```python
 # Heroku settings.
@@ -3805,8 +4175,9 @@ while True:
 #### Surfaces
 
 [back to summary](#pygame)
-Everything you want to display in pygame, you have to put it on a surface. Althougth, display is also a surface.  
-Image in a surface can be plain color, rendered text or an imported image file.  
+Everything you want to display in pygame, you have to put it on a surface.
+Althougth, display is also a surface.  
+Image in a surface can be plain color, rendered text or an imported image file.
 Every regular surfaces needs to be put on the display surface to be visible.  
 Surfaces a defined by a size (a tuple width and height)
 
@@ -3846,15 +4217,18 @@ while True:
 
 #### Rect
 
-[back to summary](#pygame)
-The 2 core functions of rectangles are precise positionning of surfaces and basic collisions.  
+[back to summary](#pygame)  
+
+The 2 core functions of rectangles are precise positionning of surfaces and basic
+collisions.  
 You can get the rectangle of a surface using the get_rect() method
 
 ```python
 test_rect = test_surf.get_rect(midtop=(50, 120))
 ```
 
-Once you have a rect object, it has several virtual attributes which can be used to move and align the Rect.
+Once you have a rect object, it has several virtual attributes which can be used
+to move and align the Rect.
 
 ```text
 x,y
@@ -3873,7 +4247,8 @@ rect1.right = 10
 rect2.center = (20,30)
 ```
 
-You can also use rectangles to draw. This allow you to draw plain color rectangle without creating a surface first
+You can also use rectangles to draw. This allow you to draw plain color rectangle
+without creating a surface first
 
 ```python
 pygame.draw.rect(screen_surf, color, rect)
@@ -3903,7 +4278,8 @@ It is way most convenient to check for sprite collision.
 Using spritecollide() method
 
 ```Python
-pygame.sprite.spritecollide(sprite, group, bool) # Bool to True kills the group's sprite when there is collision
+pygame.sprite.spritecollide(sprite, group, bool) # Bool to True kills the group's
+                                                 # sprite when there is collision
 # returns a list of collided sprites
 ```
 
@@ -3982,7 +4358,8 @@ They are created by following 3 steps:
 - create a customm userevent
 - trigger that event at a given interval
 - add code in event loop to be execute when the timer ticks  
-  You should increment timer reference value each time you create one to ot intefere with in-built userevent
+  You should increment timer reference value each time you create one to ot
+  intefere with in-built userevent
 
 ```python
 timer1 = pygame.USEREVENT + 1
@@ -4001,7 +4378,8 @@ for event in pygame.event.get()
 #### Sprites
 
 [back to summary](#pygame)
-Sprite class is a class that contains a surface and a rectangle with dedicated methods.  
+Sprite class is a class that contains a surface and a rectangle with dedicated
+methods.  
 Just inherit from sprite class to get access to all those features.  
 But to draw sprites, there is a different methodology:
 
@@ -4088,7 +4466,8 @@ while True:
 #### Animation
 
 [back to summary](#pygame)
-Animation in fact is just an image replaced by a slitly different one, fast enough, to get the feeling that it is moving.  
+Animation in fact is just an image replaced by a slitly different one, fast
+enough, to get the feeling that it is moving.  
 All we have to do is:
 
 - assign an image to a surface
@@ -4096,7 +4475,8 @@ All we have to do is:
 - update that surface with a new image
 - erase the old surface
 - draw the new surface
-  This can be achieve by different manner, but the simplest is to re-draw the backgroung at each recursion of the game loop.
+  This can be achieve by different manner, but the simplest is to re-draw the
+  backgroung at each recursion of the game loop.
 
 ```python
 player_frame1 = pygame.image.load("path/to/frame1")
@@ -4131,8 +4511,10 @@ while True
 #### Level
 
 [back to summary](#pygame)
-The concept of making a level is based on looping through strings that we loop through a list and display something based on which character we get.  
-To keep it simple, let say we only want to display something when we get an "X".  
+The concept of making a level is based on looping through strings that we loop
+through a list and display something based on which character we get.  
+To keep it simple, let say we only want to display something when we get an "X".
+
 Example of level
 
 ```python
@@ -4147,7 +4529,8 @@ level = [
 ```
 
 As you can see, we have here a floor and some plateforms.  
-Now what we want is create a group of sprites represanting every "X" of the level.  
+Now what we want is create a group of sprites represanting every "X" of the level.
+
 We can say that each "X" is like a tile. Let's create that class
 
 ```python
@@ -4158,7 +4541,8 @@ class Tile(pygame.sprite.Sprite):
   self.rect = self.image.get_rect(topleft=pos)
 ```
 
-As you can see, we have to specify a size, otherwize, our level will be pixel by pixel and we'll not be able to see something.  
+As you can see, we have to specify a size, otherwize, our level will be pixel by
+pixel and we'll not be able to see something.  
 The pos argument is the coordinate we will get by looping through the level.  
 All we will have to do then, is to draw every sprites.  
 Let's create the level class
@@ -4185,10 +4569,13 @@ class Level:
   self.tiles.draw(self.display_surface)
 ```
 
-Just create level instance outside game loop and call the level.run() method inside the loop. Boom! You have a level.  
+Just create level instance outside game loop and call the level.run() method
+inside the loop. Boom! You have a level.  
+
 Last tips:
 
-- for screen height, you can use len(level) \* tile_size if you don't plan to scroll verticaly
+- for screen height, you can use len(level) \* tile_size if you don't plan to
+scroll verticaly
 - for screen width, len(level[0]) \* tile_size
 
 ---
@@ -4196,7 +4583,8 @@ Last tips:
 #### Vectors
 
 [back to summary](#pygame)
-Vector is a list with an X and a Y value. You can add a vector to coordinates to move things.
+Vector is a list with an X and a Y value. You can add a vector to coordinates to
+move things.
 
 ```python
 rect.center += pygame.math.Vector2(100,50)
@@ -4207,7 +4595,8 @@ rect.center += pygame.math.Vector2(100,50)
 #### Camera
 
 [back to summary](#pygame)
-You can get the feeling of a camera following the player by setting the player's speed to 0 and move the entire level instead.  
+You can get the feeling of a camera following the player by setting the player's
+speed to 0 and move the entire level instead.  
 With that, the relative speed between the level and the player is the same.
 
 --- Work In Progress --
@@ -4228,7 +4617,8 @@ With that, the relative speed between the level and the player is the same.
 
 [back to summary](#pysimplegui)
 PySimpleGUI is a easy library to make simple GUI apps.  
-The core concept of this library is that the GUI is separate in rows, each row is a list, all those is put in a layout.  
+The core concept of this library is that the GUI is separate in rows, each row
+is a list, all those is put in a layout.  
 Let's get started with the basic exemple of a GUI app whith this library.
 
 ```python
@@ -4237,8 +4627,10 @@ import PySimpleGUI as sg
 title = "Converter" # window title
 
 layout = [
-    [sg.Text("A text box"), sg.Spin(["a spin box", "That let's you", "choose an item"])], # You can see here we have 2 boxes in that row
-    [sg.Text("Enter a value"), sg.Input(key="-INPUT-"), sg.Button("Convert", key="-BUTTON-")],
+    [sg.Text("A text box"), sg.Spin(
+                              ["a spin box", "That let's you", "choose an item"])],
+    [sg.Text("Enter a value"), sg.Input(key="-INPUT-"),
+      sg.Button("Convert", key="-BUTTON-")],
     [sg.Text("", key="-RESULT-")]
 ]
 
@@ -4259,8 +4651,12 @@ window.close()
 #### keys
 
 [back to summary](#pysimplegui)
-In the exemple above, you can see the uses of keys. Putting the key name between 2 "-" is convention.  
-Keys are useful to identify which box we refers to. For example, if you have two buttons with "OK" text inside your app, you'll have to assign a key to at least one of these button if you want them to act separatly (what you always want to do in fact)
+In the exemple above, you can see the uses of keys. Putting the key name
+between 2 "-" is convention.  
+Keys are useful to identify which box we refers to. For example, if you have two
+buttons with "OK" text inside your app, you'll have to assign a key to at least
+one of these button if you want them to act separatly (what you always want to
+do in fact)
 
 ---
 
@@ -4317,7 +4713,9 @@ see [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/
 #### Attributes
 
 [Back to summary](#html)  
-Elements in HTML have attributes; these are additional values that configure the elements or adjust their behavior in various ways to meet the criteria the users want.  
+Elements in HTML have attributes; these are additional values that configure the
+elements or adjust their behavior in various ways to meet the criteria the users
+want.  
 see [HTML attributes reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 
 ---
@@ -4325,8 +4723,10 @@ see [HTML attributes reference](https://developer.mozilla.org/en-US/docs/Web/HTM
 #### Forms
 
 [Back to summary](#html)  
-The form HTML element represents a document section containing interactive controls for submitting information.  
-It is possible to use the :valid and :invalid CSS pseudo-classes to style a form element based on whether or not the elements inside the form are valid.  
+The form HTML element represents a document section containing interactive
+controls for submitting information.  
+It is possible to use the :valid and :invalid CSS pseudo-classes to style a form
+element based on whether or not the elements inside the form are valid.  
 [forms attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Form#:~:text=HTMLFormElement-,Attributes,-This%20element%20includes)
 
 ---
@@ -4334,10 +4734,14 @@ It is possible to use the :valid and :invalid CSS pseudo-classes to style a form
 #### Meta tags
 
 [Back to summary](#html)  
-The meta HTML element represents metadata that cannot be represented by other HTML meta-related elements, like base, link, script, style or title.  
+The meta HTML element represents metadata that cannot be represented by other HTML
+meta-related elements, like base, link, script, style or title.  
 Metadata is data (information) about data.  
-meta tags always go inside the head element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.  
-Metadata is used by browsers (how to display content or reload page), search engines (keywords), and other web services.  
+meta tags always go inside the head element, and are typically used to specify
+character set, page description, keywords, author of the document, and viewport
+settings.  
+Metadata is used by browsers (how to display content or reload page), search
+engines (keywords), and other web services.  
 [meta attributes](https://www.w3schools.com/tags/tag_meta.asp#:~:text=Yes-,Attributes,-Attribute)
 
 ---
@@ -4361,7 +4765,8 @@ HTML lists allow web developers to group a set of related items in lists.
 </ul>
 ```
 
-A last type exists, description list, which works aroud a list of terms and description of those terms
+A last type exists, description list, which works aroud a list of terms and
+description of those terms
 
 ```html
 <dl>
@@ -4377,9 +4782,13 @@ A last type exists, description list, which works aroud a list of terms and desc
 #### anchor
 
 [Back to summary](#html)  
-The a HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.  
-Content within each "a" should indicate the link's destination. If the href attribute is present, pressing the enter key while focused on the "a" element will activate it.  
-[anchor attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=Try%20it-,Attributes,-This%20element%27s%20attributes)  
+The a HTML element (or anchor element), with its href attribute, creates a
+hyperlink to web pages, files, email addresses, locations in the same page, or
+anything else a URL can address.  
+Content within each "a" should indicate the link's destination. If the href
+attribute is present, pressing the enter key while focused on the "a" element will
+activate it.  
+[anchor attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=Try%20it-,Attributes,-This%20element%27s%20attributes)
 [examples](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#:~:text=HTMLAnchorElement-,Examples,-Linking%20to%20an)
 
 ---
@@ -4387,8 +4796,11 @@ Content within each "a" should indicate the link's destination. If the href attr
 #### tables
 
 [Back to summary](#html)  
-The table HTML element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.  
-[list of table tags](https://www.w3schools.com/html/html_tables.asp#:~:text=HTML-,Table,-Tags)  
+
+The table HTML element represents tabular data — that is, information presented
+in a two-dimensional table comprised of rows and columns of cells containing data.
+
+[list of table tags](https://www.w3schools.com/html/html_tables.asp#:~:text=HTML-,Table,-Tags)
 [table attributes](https://www.scaler.com/topics/html/table-attributes-in-html/#:~:text=Table%20Attributes%20in-,HTML,-Learn%20about%20table)
 
 example
@@ -4418,7 +4830,8 @@ example
 #### events
 
 [Back to summary](#html)  
-HTML has the ability to let events trigger actions in a browser, like starting a JavaScript when a user clicks on an element.
+HTML has the ability to let events trigger actions in a browser, like starting a
+JavaScript when a user clicks on an element.
 [list](https://www.w3schools.com/tags/ref_eventattributes.asp#:~:text=%3Cwbr%3E-,HTML,-Event%20Attributes)
 
 ---
@@ -4426,18 +4839,27 @@ HTML has the ability to let events trigger actions in a browser, like starting a
 #### web storage
 
 [Back to summary](#html)  
-The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.
+The Web Storage API provides mechanisms by which browsers can store key/value
+pairs, in a much more intuitive fashion than using cookies.
 The two mechanisms within Web Storage are as follows:
 
-- sessionStorage maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores)
-  - Stores data only for a session, meaning that the data is stored until the browser (or tab) is closed.
+- sessionStorage maintains a separate storage area for each given origin that's
+- available for the duration of the page session (as long as the browser is open,
+- including page reloads and restores)
+  - Stores data only for a session, meaning that the data is stored until the
+  browser (or tab) is closed.
   - Data is never transferred to the server.
   - Storage limit is larger than a cookie (at most 5MB).
-- localStorage does the same thing, but persists even when the browser is closed and reopened.
-  - stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data.
+- localStorage does the same thing, but persists even when the browser is closed
+  and reopened.
+  - stores data with no expiration date, and gets cleared only through JavaScript,
+  or clearing the Browser cache / Locally Stored Data.
   - Storage limit is the maximum amongst the two.
 
-The Web Storage API extends the Window object with two new properties — Window.sessionStorage and Window.localStorage — which provide access to the current domain's session and local Storage objects respectively, and a storage event handler that fires when a storage area changes (e.g. a new item is stored.)
+The Web Storage API extends the Window object with two new properties
+— Window.sessionStorage and Window.localStorage — which provide access to the
+current domain's session and local Storage objects respectively, and a storage
+event handler that fires when a storage area changes (e.g. a new item is stored.)
 
 The StorageEvent is fired on a document's Window object when a storage area changes.
 
@@ -4452,26 +4874,38 @@ The StorageEvent is fired on a document's Window object when a storage area chan
 ##### images
 
 The img HTML element embeds an image into the document.  
-The src attribute is required, and contains the path to the image you want to embed.  
-The alt attribute holds a text description of the image, which isn't mandatory but is incredibly useful for accessibility — screen readers read this description out to their users so they know what the image means. Alt text is also displayed on the page if the image can't be loaded for some reason: for example, network errors, content blocking, or linkrot.  
+The src attribute is required, and contains the path to the image you want to
+embed.  
+The alt attribute holds a text description of the image, which isn't mandatory
+but is incredibly useful for accessibility — screen readers read this description
+out to their users so they know what the image means. Alt text is also displayed
+on the page if the image can't be loaded for some reason: for example, network
+errors, content blocking, or linkrot.  
 images can be annoted using figure tag.  
-[images attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=user%20agent.-,Attributes,-This%20element%20includes)  
+[images attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=user%20agent.-,Attributes,-This%20element%20includes)
 [use of the srcset attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#:~:text=Using%20the%20srcset%20attribute)
 
 ---
 
 ##### audio
 
-The audio HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the source element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.  
-The content inside the opening and closing audio tags is shown as a fallback in browsers that don't support the element.  
+The audio HTML element is used to embed sound content in documents. It may contain
+one or more audio sources, represented using the src attribute or the source
+element: the browser will choose the most suitable one. It can also be the
+destination for streamed media, using a MediaStream.  
+The content inside the opening and closing audio tags is shown as a fallback in
+browsers that don't support the element.  
 [audio attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#:~:text=support%20the%20element.-,Attributes,-This%20element%27s%20attributes)
 
 ---
 
 ##### video
 
-The video HTML element embeds a media player which supports video playback into the document. You can use video for audio content as well, but the audio element may provide a more appropriate user experience.  
-The content inside the opening and closing video tags is shown as a fallback in browsers that don't support the element.  
+The video HTML element embeds a media player which supports video playback into
+the document. You can use video for audio content as well, but the audio element
+may provide a more appropriate user experience.  
+The content inside the opening and closing video tags is shown as a fallback in
+browsers that don't support the element.  
 [video attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#:~:text=support%20the%20element.-,Attributes,-Like%20all%20other)
 
 ---
@@ -4479,7 +4913,12 @@ The content inside the opening and closing video tags is shown as a fallback in 
 #### canvas and webGL
 
 [Back to summary](#html)  
-WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 canvas elements. This conformance makes it possible for the API to take advantage of hardware graphics acceleration provided by the user's device.  
+WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance
+interactive 3D and 2D graphics within any compatible web browser without the use
+of plug-ins. WebGL does so by introducing an API that closely conforms to OpenGL
+ES 2.0 that can be used in HTML5 canvas elements. This conformance makes it
+possible for the API to take advantage of hardware graphics acceleration provided
+by the user's device.  
 [webGL MDN link](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
 
 ---
@@ -4487,9 +4926,18 @@ WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance 
 #### Workers
 
 [Back to summary](#html)  
-Web Workers are a simple means for web content to run scripts in background threads.  
-A worker is an object created using a constructor that runs a named JavaScript file. This file contains the code that will run in the worker thread; workers run in another global context that is different from the current window. Thus, using the window shortcut to get the current global scope (instead of self) within a Worker will return an error.  
-The worker context is represented by a DedicatedWorkerGlobalScope object in the case of dedicated workers (standard workers that are utilized by a single script; shared workers use SharedWorkerGlobalScope). A dedicated worker is only accessible from the script that first spawned it, whereas shared workers can be accessed from multiple scripts.  
+Web Workers are a simple means for web content to run scripts in background
+threads.  
+A worker is an object created using a constructor that runs a named JavaScript
+file. This file contains the code that will run in the worker thread; workers run
+in another global context that is different from the current window. Thus, using
+the window shortcut to get the current global scope (instead of self) within a
+Worker will return an error.  
+The worker context is represented by a DedicatedWorkerGlobalScope object in the
+case of dedicated workers (standard workers that are utilized by a single script;
+shared workers use SharedWorkerGlobalScope). A dedicated worker is only accessible
+from the script that first spawned it, whereas shared workers can be accessed from
+multiple scripts.  
 [more details](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
 
 ---
@@ -4499,9 +4947,12 @@ The worker context is represented by a DedicatedWorkerGlobalScope object in the 
 [Back to summary](#html)  
 Some of the benefits from writing semantic markup are as follows:
 
-- Search engines will consider its contents as important keywords to influence the page's search rankings
-- Screen readers can use it as a signpost to help visually impaired users navigate a page
-- Finding blocks of meaningful code is significantly easier than searching through endless divs with or without semantic or namespaced classes
+- Search engines will consider its contents as important keywords to influence the
+page's search rankings
+- Screen readers can use it as a signpost to help visually impaired users navigate
+a page
+- Finding blocks of meaningful code is significantly easier than searching through
+endless divs with or without semantic or namespaced classes
 - Suggests to the developer the type of data that will be populated
 - Semantic naming mirrors proper custom element/component naming
 
@@ -4549,21 +5000,34 @@ id selector
 #idname  will match the element that has the id "idname"
 
 Attribute selector
-[attr]  will match all elements that have the "attr" attribute
-[attr="value"] match every elements where attr's value equals to value
-[attr~="value"] match any elements where attr's value contains value. word-break wildcard
-[attr|="value"] match if attr's value is completely equal to value or starting with value a directely followed by a -
+[attr]  will    match all elements that have the "attr" attribute
+[attr="value"]  match every elements where attr's value equals to value
+[attr~="value"] match any elements where attr's value contains value. word-break
+                wildcard
+[attr|="value"] match if attr's value is completely equal to value or starting with
+                value a directely followed by a -
 [attr^="value"] match if attr's value starts with value
 [attr$="value"] match if attr's value ends with value
 [attr*="value"] match any elements where attr's value contains value. dumb wildcard
 ```
 
-- The , selector is a grouping method that selects all the matching nodes. Syntax: A, B Example: div, span will match both span and div elements.
-- The " " (space) combinator selects nodes that are descendants of the first element. Syntax: A B Example: div span will match all span elements that are inside a div element.
-- The > combinator selects nodes that are direct children of the first element. Syntax: A > B Example: ul > li will match all li elements that are nested directly inside a ul element.
-- The ~ combinator selects siblings. This means that the second element follows the first (though not necessarily immediately), and both share the same parent. Syntax: A ~ B Example: p ~ span will match all span elements that follow a p, immediately or not.
-- The + combinator matches the second element only if it immediately follows the first element. Syntax: A + B Example: h2 + p will match the first p element that immediately follow an h2 element.
-- The || combinator selects nodes which belong to a column. Syntax: A || B Example: col || td will match all td elements that belong to the scope of the col.
+- The , selector is a grouping method that selects all the matching nodes.
+Syntax: A, B Example: div, span will match both span and div elements.
+- The " " (space) combinator selects nodes that are descendants of the first
+element. Syntax: A B Example: div span will match all span elements that are
+inside a div element.
+- The > combinator selects nodes that are direct children of the first element.
+Syntax: A > B Example: ul > li will match all li elements that are nested directly
+inside a ul element.
+- The ~ combinator selects siblings. This means that the second element follows
+the first (though not necessarily immediately), and both share the same parent.
+Syntax: A ~ B Example: p ~ span will match all span elements that follow a p,
+immediately or not.
+- The + combinator matches the second element only if it immediately follows the
+first element. Syntax: A + B Example: h2 + p will match the first p element that
+immediately follow an h2 element.
+- The || combinator selects nodes which belong to a column. Syntax: A || B
+Example: col || td will match all td elements that belong to the scope of the col.
 
 ---
 
@@ -4571,16 +5035,22 @@ Attribute selector
 
 [Back to summary](#css)
 
-- The : pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: a:visited will match all "a" elements that have been visited by the user. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#:~:text=Pseudo%2D-,classes,-A%20CSS%20pseudo)
-- The :: pseudo represent entities that are not included in HTML. Example: p::first-line will match the first line of all "p" elements. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements#:~:text=original%20pseudo%2Delements.-,Index,-Pseudo%2Delements%20defined)
+- The : pseudo allow the selection of elements based on state information that
+is not contained in the document tree. Example: a:visited will match all "a"
+elements that have been visited by the user. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#:~:text=Pseudo%2D-,classes,-A%20CSS%20pseudo)
+- The :: pseudo represent entities that are not included in HTML.
+Example: p::first-line will match the first line of all "p" elements. [list here](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements#:~:text=original%20pseudo%2Delements.-,Index,-Pseudo%2Delements%20defined)
 
 ---
 
 #### specificity and inheritance
 
 [Back to summary](#css)  
-Specificity is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an element, which in turn, determines the property value to apply to the element.  
-The specificity algorithm is basically a three-column value of three categories or weights. The highest value is the more specific one
+Specificity is the algorithm used by browsers to determine the CSS declaration
+that is the most relevant to an element, which in turn, determines the property
+value to apply to the element.  
+The specificity algorithm is basically a three-column value of three categories
+or weights. The highest value is the more specific one
 
 ```text
  ID  CLASS  TYPE
@@ -4607,7 +5077,8 @@ weight: 102 because one id, no class and two types were given
 #### typography
 
 [Back to summary](#css)  
-use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rule to import font.  
+use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face)
+rule to import font.  
 ![emotions](https://miro.medium.com/max/1400/1*rb-xgrNgv7KN6xQKMH4DUQ.jpeg)
 ![shorthand](https://i.stack.imgur.com/OhU4S.jpg)
 
@@ -4671,7 +5142,10 @@ use [font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) rul
 #### css variable
 
 [Back to summary](#css)  
-CSS variables are an extremely useful feature and they enable us to do things we were compensating with SASS. They are defined by the CSS authors and contain a specific values that can be reused wherever needed within our project. They use a custom notation and are accessed by using the var function.
+CSS variables are an extremely useful feature and they enable us to do things we
+were compensating with SASS. They are defined by the CSS authors and contain a
+specific values that can be reused wherever needed within our project. They use
+a custom notation and are accessed by using the var function.
 
 ---
 
@@ -4698,7 +5172,8 @@ div {
 
 ##### Dymamic usage
 
-CSS variables can be accessed from the JavaScript dynamically. We can get or set its value like for any other property:
+CSS variables can be accessed from the JavaScript dynamically. We can get or set
+its value like for any other property:
 
 ```javascript
 const el = document.querySelector(":root");
@@ -4815,8 +5290,10 @@ el.style.setProperty("--primary-padding", "3rem");
 ### closure
 
 [Back to summary](#javascript)
-A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables (a scope chain).  
-The closure has three scope chain: - it own scope - outer function scope - global scope
+A closure is a feature in JavaScript where an inner function has access to the
+outer (enclosing) function’s variables (a scope chain).  
+The closure has three scope chain: - it own scope - outer function scope - global
+scope
 Here is a simple example were you can litteraly see the closure
 
 ```javascript
@@ -4833,9 +5310,13 @@ function outer() {
 >>> outer()
 ```
 
-This will return an interactive list of the properties of the outer function that is basicaly a JavaScript object.
-You can see now in the scope part that there is a "Closure" key, and inside it you will see all the variables of the outer function, so b assigned to 10 in this exemple.  
-Follow [this link](https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304) to see some practical uses for closures.
+This will return an interactive list of the properties of the outer function that
+is basicaly a JavaScript object.
+You can see now in the scope part that there is a "Closure" key, and inside it you
+will see all the variables of the outer function, so b assigned to 10 in this
+exemple.  
+Follow [this link](https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304)
+to see some practical uses for closures.
 
 ---
 
@@ -4857,16 +5338,23 @@ const greet = function (who) {
 };
 ```
 
-Inside of a regular JavaScript function, this value (aka the execution context) is dynamic.  
-The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function.
+Inside of a regular JavaScript function, this value (aka the execution context)
+is dynamic.  
+The dynamic context means that the value of this depends on how the function is
+invoked. In JavaScript, there are 4 ways you can invoke a regular function.
 
-- During a simple invocation the value of this equals to the global object (or undefined if the function runs in strict mode)
+- During a simple invocation the value of this equals to the global object (or
+undefined if the function runs in strict mode)
 - During a method invocation the value of this is the object owning the method
-- During an indirect invocation using myFunc.call(thisVal, arg1, ..., argN) or myFunc.apply(thisVal, [arg1, ..., argN]) the value of this equals to the first argument
-- During a constructor invocation using new keyword this equals to the newly created instance
+- During an indirect invocation using myFunc.call(thisVal, arg1, ..., argN) or
+myFunc.apply(thisVal, [arg1, ..., argN]) the value of this equals to the first argument
+- During a constructor invocation using new keyword this equals to the newly
+created instance
 
-Inside the body of a regular function, "arguments" is a special array-like object containing the list of arguments with which the function has been invoked.  
-If the return statement is missing, or there's no expression after return statement, the regular function implicitely returns undefined.  
+Inside the body of a regular function, "arguments" is a special array-like object
+containing the list of arguments with which the function has been invoked.  
+If the return statement is missing, or there's no expression after return
+statement, the regular function implicitely returns undefined.  
 The regular functions are the usual way to define methods on classes.
 
 ---
@@ -4879,10 +5367,14 @@ const greet = (who) => {
 };
 ```
 
-No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function.  
-No arguments special keyword is defined inside an arrow function, use the rest parameters like "...args" in the function expression instead.  
-If the arrow function contains one expression, and you omit the function's curly braces, then the expression is implicitly returned.  
-In contrast with regular functions, the method defined using an arrow binds this lexically to the class instance.
+No matter how or where being executed, this value inside of an arrow function
+always equals this value from the outer function.  
+No arguments special keyword is defined inside an arrow function, use the rest
+parameters like "...args" in the function expression instead.  
+If the arrow function contains one expression, and you omit the function's curly
+braces, then the expression is implicitly returned.  
+In contrast with regular functions, the method defined using an arrow binds this
+lexically to the class instance.
 
 ---
 
@@ -4910,8 +5402,12 @@ clearTimeout(timeoutID);
 ### classes and proxies
 
 [Back to summary](#javascript)
-An important difference between function declarations and class declarations is that while functions can be called in code that appears before they are defined, classes must be defined before they can be constructed.  
-Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics.
+An important difference between function declarations and class declarations is
+that while functions can be called in code that appears before they are defined,
+classes must be defined before they can be constructed.  
+Classes are a template for creating objects. They encapsulate data with code to
+work on that data. Classes in JS are built on prototypes but also have some syntax
+and semantics that are not shared with ES5 class-like semantics.
 
 ```javascript
 // Class declarations
@@ -5045,7 +5541,10 @@ __proto__: Hero // See how proto is related to parent class
 
 #### reduce()
 
-The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+The reduce() method executes a user-supplied "reducer" callback function on each
+element of the array, in order, passing in the return value from the calculation
+on the preceding element. The final result of running the reducer across all
+elements of the array is a single value.
 
 ```javascript
 function find_average(array) {
@@ -5063,7 +5562,8 @@ function find_average(array) {
 
 #### reverse()
 
-The reverse() METHOD reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+The reverse() METHOD reverses an array in place. The first array element becomes
+the last, and the last array element becomes the first.
 
 ```javascript
 const array1 = ["one", "two", "three"];
@@ -5080,7 +5580,10 @@ console.log("array1:", array1);
 
 #### join()
 
-The join() METHOD creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+The join() METHOD creates and returns a new string by concatenating all of the
+elements in an array (or an array-like object), separated by commas or a specified
+separator string. If the array has only one item, then that item will be returned
+without using the separator.
 
 ```javascript
 console.log(elements.join());
@@ -5097,7 +5600,8 @@ console.log(elements.join("-"));
 
 #### map()
 
-The map() METHOD creates a new array populated with the results of calling a provided function on every element in the calling array.
+The map() METHOD creates a new array populated with the results of calling a
+provided function on every element in the calling array.
 
 ```javascript
 // Exemples
@@ -5122,7 +5626,8 @@ function myFunction(num) {
 
 #### entries()
 
-The entries() method returns an object of type Array Iterator which contains the couple Key/value for each elements of the array
+The entries() method returns an object of type Array Iterator which contains the
+couple Key/value for each elements of the array
 
 ```javascript
 const array1 = ["a", "b", "c"];
@@ -5147,7 +5652,8 @@ Parameters:
 - predicate - Function that returns true or false.
 - array - List of items to test.  
   Description:
-- If predicate returns true for any item, some returns true. Otherwise it returns false.
+- If predicate returns true for any item, some returns true. Otherwise it
+returns false.
 
 ```javascript
 const some = (predicate, array) => {
@@ -5166,7 +5672,8 @@ Parameters:
 - predicate - Function that returns true or false.
 - array - List of items to test.  
   Description:
-- If predicate returns true for every item, all returns true. Otherwise it returns false.
+- If predicate returns true for every item, all returns true. Otherwise it returns
+false.
 
 ```javascript
 const all = (predicate, array) => {
@@ -5185,7 +5692,8 @@ Parameters:
 - predicate - Function that returns true or false.
 - array - List of items to test.
   Description:
-- If predicate returns false for every item, none returns true. Otherwise it returns false.
+- If predicate returns false for every item, none returns true. Otherwise it
+returns false.
 
 ```javascript
 const none = (predicate, array) => {
@@ -5204,7 +5712,8 @@ Parameters:
 - predicate - Function that returns true or false.
 - array - List of items to filter.
   Description:
-- Returns a new array. If predicate returns true, that item is added to the new array. Otherwise that item is excluded from the new array.
+- Returns a new array. If predicate returns true, that item is added to the new
+array. Otherwise that item is excluded from the new array.
 
 ```javascript
 const filter = (predicate, array) =>
@@ -5227,7 +5736,8 @@ Parameters:
 - array - List of items to filter.
   Description:
 - Just like filter, but with the opposite behavior.
-  -If predicate returns false, that item is added to the new array. Otherwise that item is excluded from the new array.
+  -If predicate returns false, that item is added to the new array. Otherwise
+  that item is excluded from the new array.
 
 ```javascript
 const reject = (predicate, array) =>
@@ -5249,7 +5759,8 @@ Parameters:
 - predicate - Function that returns true or false.
 - array - List of items to search.
   Description:
-- Returns the first element that matches the given predicate. If no element matches then undefined is returned.
+- Returns the first element that matches the given predicate. If no element
+matches then undefined is returned.
 
 ```javascript
 const find = (predicate, array) =>
@@ -5275,7 +5786,8 @@ Parameters:
 -array - List of items.
 Description:
 
-- "Partitions" or splits an array into two based on the predicate. If predicate returns true, the item goes into list 1. Otherwise the item goes into list 2.
+- "Partitions" or splits an array into two based on the predicate. If predicate
+returns true, the item goes into list 1. Otherwise the item goes into list 2.
 
 ```javascript
 const partition = (predicate, array) =>
@@ -5304,7 +5816,8 @@ Parameters
 - key - Key name to pluck from the object
 - array - List of items.
   Description
-- Plucks the given key off of each item in the array. Returns a new array of these values.
+- Plucks the given key off of each item in the array. Returns a new array of
+these values.
 
 ```javascript
 const pluck = (key, array) =>
@@ -5332,11 +5845,13 @@ pluck(0, [
 
 Parameters
 
-- reducer - Standard reducer function that receives two parameters - the accumulator and current element from the array.
+- reducer - Standard reducer function that receives two parameters - the
+accumulator and current element from the array.
 - initialValue - The initial value for the accumulator.
 - array - List of items.
   Description
-- Works just like reduce but instead just the single result, it returns a list of every reduced value on the way to the single result.
+- Works just like reduce but instead just the single result, it returns a list of
+every reduced value on the way to the single result.
 
 ```javascript
 const scan = (reducer, initialValue, array) => {
@@ -5372,7 +5887,8 @@ scan(multiply, 1, [1, 2, 3, 4, 5, 6]);
 
 #### split()
 
-The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+The split() method divides a String into an ordered list of substrings, puts
+these substrings into an array, and returns the array.
 
 ```javascript
 const str = "The quick brown fox jumps over the lazy dog.";
@@ -5394,7 +5910,8 @@ console.log(strCopy);
 
 #### substring()
 
-The substring() method returns the part of the string between the start and end indexes, or to the end of the string.
+The substring() method returns the part of the string between the start and end
+indexes, or to the end of the string.
 
 ```javascript
 const str = "Google";
@@ -5571,7 +6088,8 @@ while (n < 3) {
 
 #### do ... while
 
-Same as while loop but because the condition is tested after the instruction, it will be executed at least one time.
+Same as while loop but because the condition is tested after the instruction, it
+will be executed at least one time.
 
 ```javascript
 let i = 0;
@@ -5586,8 +6104,10 @@ do {
 ### Modules
 
 [Back to summary](#javascript)
-Modules are js file. You can import the entire module or just some objects inside you current script.  
-There are different kinds of importing methods, depending on what you want to do and due to new ES6 import method.
+Modules are js file. You can import the entire module or just some objects inside
+you current script.  
+There are different kinds of importing methods, depending on what you want to do
+and due to new ES6 import method.
 
 ---
 
@@ -5641,8 +6161,10 @@ doAnotherThings();
 
 #### ES6 method
 
-One important thing about ES6 method is that module and script have to be in .mjs extension or add <"type": "module"> in your package.json.  
-Again, create a module to import. We can specify a default export which will be imported if nothing's specified. Note that we specify export when declaring objects.
+One important thing about ES6 method is that module and script have to be in .mjs
+extension or add <"type": "module"> in your package.json.  
+Again, create a module to import. We can specify a default export which will be
+imported if nothing's specified. Note that we specify export when declaring objects.
 
 ```javascript
 // myModule.mjs
@@ -5673,7 +6195,8 @@ import * as myModule from "./module.mjs";
 
 myModule.doThings();
 myModule.doAnotherThings();
-myModule.default(); // because we didn't specify a name in the import statement, the name is default, which makes sense
+myModule.default(); // because we didn't specify a name in the import statement,
+                    // the name is default, which makes sense
 
 // or a selective import
 
@@ -5990,9 +6513,12 @@ Use inside .ejs templates
 
 #### Includes
 
-Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use `<%- include('user/show'); %>`.
+Includes are relative to the template with the include call. (This requires the
+'filename' option.) For example if you have "./views/users.ejs" and
+"./views/user/show.ejs" you would use `<%- include('user/show'); %>`.
 
-You'll likely want to use the raw output tag `<%-` with your include to avoid double-escaping the HTML output.
+You'll likely want to use the raw output tag `<%-` with your include to avoid
+double-escaping the HTML output.
 
 ```html
 <ul>
@@ -6038,7 +6564,8 @@ You'll likely want to use the raw output tag `<%-` with your include to avoid do
 
 [Back to summary](#sql)  
 
-The common usage of SQL is reading datas from a database. This is done with the `SELECT` command, which returns records in a result table.  
+The common usage of SQL is reading datas from a database. This is done with the
+`SELECT` command, which returns records in a result table.  
 This command can select one or more column of a table.
 
 ```sql
@@ -6069,7 +6596,8 @@ OFFSET start
 
 [Back to summary](#sql)  
 
-SELECT returns all data of one of more columns. This command can return duplicated records. To avoid this, simply put the `DISTINCT` keyword after `SELECT`.
+SELECT returns all data of one of more columns. This command can return
+duplicated records. To avoid this, simply put the `DISTINCT` keyword after `SELECT`.
 
 ```sql
 SELECT DISTINCT my_column -- DISTINCT  is replaced with UNIQUE in Oracle
@@ -6091,20 +6619,20 @@ SELECT column(s) FROM my_table WHERE condition
 SELECT * FROM client WHERE city = 'paris'
 ```
 
-| Opérateur   | Description                                                                 |
-|-------------|-----------------------------------------------------------------------------|
-| =           | equals to                                                                   |
-| <>          | not equals to                                                               |
-| !=          | not equals to                                                               |
-| >           | more than                                                                   |
-| <           | less than                                                                   |
-| >=          | more or equals                                                              |
-| <=          | less or equals                                                              |
-| IN          | list of possible values                                                     |
-| BETWEEN     | value between the giver interval                                            |
-| LIKE        | search specifying the beginning, middle or end of a string                  |
-| IS NULL     | Value is null                                                               |
-| IS NOT NULL | Value is nor null                                                           |
+| Opérateur   | Description                                                    |
+|-------------|----------------------------------------------------------------|
+| =           | equals to                                                      |
+| <>          | not equals to                                                  |
+| !=          | not equals to                                                  |
+| >           | more than                                                      |
+| <           | less than                                                      |
+| >=          | more or equals                                                 |
+| <=          | less or equals                                                 |
+| IN          | list of possible values                                        |
+| BETWEEN     | value between the giver interval                               |
+| LIKE        | search specifying the beginning, middle or end of a string     |
+| IS NULL     | Value is null                                                  |
+| IS NOT NULL | Value is nor null                                              |
 
 ---
 
@@ -6139,7 +6667,8 @@ WHERE columm BETWEEN 'value1' AND 'value2'
 
 #### LIKE
 
-The `LIKE` operator is used in `WHERE` clause in SQL queries. This keyword can search for a pattern using wildcards.
+The `LIKE` operator is used in `WHERE` clause in SQL queries. This keyword can
+search for a pattern using wildcards.
 
 - `_` represents 1 of any characters
 - `*` represents 0, 1 or more of any characters
@@ -6156,7 +6685,9 @@ WHERE column LIKE 'a%'
 
 #### IS NULL / IS NOT NULL
 
-In SQL, `IS` allows us to filter results containing the `NULL` value. This is important because `NULL` is unknown and in consequence cannot be filtered by comparison operators.
+In SQL, `IS` allows us to filter results containing the `NULL` value. This is
+important because `NULL` is unknown and in consequence cannot be filtered by
+comparison operators.
 
 ```sql
 SELECT *
@@ -6174,7 +6705,8 @@ WHERE column IS NOT NULL
 
 [Back to summary](#sql)  
 
-The `GROUP BY` command is used to group several results and apply a specific function on that group.
+The `GROUP BY` command is used to group several results and apply a specific
+function on that group.
 
 ```sql
 SELECT column1, function(column2)
@@ -6204,7 +6736,8 @@ GROUP BY client
 
 [Back to summary](#sql)  
 
-The keyword `HAVING` has the same purpose as `WHERE` but allows to filter using functions.  
+The keyword `HAVING` has the same purpose as `WHERE` but allows to filter using
+functions.  
 
 ```sql
 SELECT col1, SUM(col2)
@@ -6213,7 +6746,8 @@ GROUP BY col1
 HAVING fonction(col2) operator value1
 ```
 
-This means `SELECT` columns from `table_name` by grouping rows that have identical values as `col1` and that validate the `HAVING` condition.
+This means `SELECT` columns from `table_name` by grouping rows that have
+identical values as `col1` and that validate the `HAVING` condition.
 
 ---
 
@@ -6221,7 +6755,8 @@ This means `SELECT` columns from `table_name` by grouping rows that have identic
 
 [Back to summary](#sql)  
 
-Allows us to sort the results. Can be achieved on a single or multiple columns, by ascending (default) or descending order.  
+Allows us to sort the results. Can be achieved on a single or multiple columns,
+by ascending (default) or descending order.  
 
 ```sql
 SELECT col1, col2
@@ -6230,7 +6765,7 @@ ORDER BY col1
 
 SELECT col1, col2, col3
 FROM table_name
-ORDER BY col1 DESC, col2 ASC -- ASC is optional because its by default. But sometimes its clearer to write it.
+ORDER BY col1 DESC, col2 ASC -- ASC is optional because its by default.
 ```
 
 ---
@@ -6256,7 +6791,8 @@ FROM table_name AS t1
 
 [Back to summary](#sql)  
 
-Defines the maximum number of records to return.  This limition is done after retrieving all the records, so it does not improve the performances.
+Defines the maximum number of records to return.  This limition is done after
+retrieving all the records, so it does not improve the performances.
 
 ```sql
 SELECT *
@@ -6314,7 +6850,8 @@ SELECT id, name, percentage, unit_price, quantity,
 
 This keyword allows to return records that correspond to 2 tables or more.  
 ![union](https://sql.sh/wp-content/uploads/2013/01/sql-ensemble-union-300.png)  
-Each query has to have the same amount of columns. It does not display the duplicates.  
+Each query has to have the same amount of columns. It does not display the
+duplicates.  
 To see duplicates use `UNION ALL` instead.
 
 ```sql
@@ -6329,8 +6866,9 @@ SELECT * FROM table2
 
 [Back to summary](#sql)  
 
-Returns the intersection of results of 2 queries. In other terms it returns records that are similar between 2 tables.  
-![intersect](https://sql.sh/wp-content/uploads/2013/02/sql-ensemble-intersect-300.png)  
+Returns the intersection of results of 2 queries. In other terms it returns
+records that are similar between 2 tables.  
+![intersect](https://sql.sh/wp-content/uploads/2013/02/sql-ensemble-intersect-300.png)
 
 ```sql
 SELECT * FROM `table1`
@@ -6354,7 +6892,8 @@ WHERE value IN (
 
 [Back to summary](#sql)  
 
-This command returns the records of the first instruction without including the results of the second.  
+This command returns the records of the first instruction without including the
+results of the second.  
 If a record is a result in both queries, it will not be returned.
 
 - `EXCEPT` for PostGreSQL
@@ -6373,12 +6912,13 @@ SELECT * FROM table2
 
 [Back to summary](#sql)  
 
-This command is use to insert data into a table. This can be achieved record by record or for multiple records at a time.
+This command is use to insert data into a table. This can be achieved record by
+record or for multiple records at a time.
 
 ```sql
 INSERT INTO table_name VALUES ('value 1', 'value 2', ...) -- single record
 
-INSERT INTO table_name (column_1, column_2, ...)          -- single record by specifying columns
+INSERT INTO table_name (column_1, column_2, ...)          -- single record
  VALUES ('value 1', 'value 2', ...)
 
 INSERT INTO client (firstname, lastname, city, age)       -- multiple records
@@ -6390,7 +6930,8 @@ INSERT INTO client (firstname, lastname, city, age)       -- multiple records
 
 ```
 
-There is a special keyword with MySQL, `ON DUPLICATE KEY` that allows us to update datas when a record already exists in a table.
+There is a special keyword with MySQL, `ON DUPLICATE KEY` that allows us to
+update datas when a record already exists in a table.
 
 ```sql
 INSERT INTO table (a, b, c)
@@ -6404,7 +6945,8 @@ ON DUPLICATE KEY UPDATE a=a+1
 
 [Back to summary](#sql)  
 
-This allows you to modify existing records. Most often, this command is used in combination with `WHERE`
+This allows you to modify existing records. Most often, this command is used in
+combination with `WHERE`
 
 ```sql
 UPDATE table_name
@@ -6418,7 +6960,8 @@ WHERE condition
 
 [Back to summary](#sql)  
 
-Deletes records from a table. It is good practice to backup the table or database before deleting records.
+Deletes records from a table. It is good practice to backup the table or database
+before deleting records.
 
 ```sql
 DELETE FROM table_name
@@ -6433,8 +6976,10 @@ WARNING - If not `WHERE` condition is given, then ALL records will be deleted.
 
 [Back to summary](#sql)  
 
-Deletes all records of a table without deleting the table itself. The result is the same as using `DELETE` without `WHERE` condition.  
-The only difference is that `TRUNCATE` will reset the value of the auto-increment if there is one, `DELETE` don't.  
+Deletes all records of a table without deleting the table itself. The result is
+the same as using `DELETE` without `WHERE` condition.  
+The only difference is that `TRUNCATE` will reset the value of the auto-increment
+if there is one, `DELETE` don't.  
 
 ```sql
 TRUNCATE TABLE table_name
@@ -6452,7 +6997,8 @@ Create a new database with the given name.
 CREATE DATABASE my_database
 ```
 
-With MySQL, if a database with the same name already exists, the query will return an error.  
+With MySQL, if a database with the same name already exists, the query will
+return an error.  
 To avoid this, use the following syntax
 
 ```sql
@@ -6465,7 +7011,8 @@ CREATE DATABASE IF NOT EXISTS my_database
 
 [Back to summary](#sql)  
 
-Delete a database and all its contents. Use with a lot of care!! Backup if not sure what you are doing or don't do it :)
+Delete a database and all its contents. Use with a lot of care!! Backup if not
+sure what you are doing or don't do it :)
 
 ```sql
 DROP DATABASE my_database
@@ -6494,7 +7041,8 @@ INNER JOIN B ON A.key = B.key
 
 [Back to summary](#sql)  
 
-Returns records from the left / right table, even if the condition isn't true in the other table.
+Returns records from the left / right table, even if the condition isn't true in
+the other table.
 ![left join](https://sql.sh/wp-content/uploads/2013/03/sql-left-join-300.png)
 
 ```sql
@@ -6586,8 +7134,11 @@ OR B.key IS NULL
 
 [Back to summary](#sql)  
 
-- What is an index? Index are ressources that allows faster access to requested datas. With an index place on one or many columns, the system can first search datas on index and then knowing where to find the records requested.
-- inconvenience: Those ressources takes additional storage spaces and insert new records if slower because the index are updated at each insert.
+- What is an index? Index are ressources that allows faster access to requested
+datas. With an index place on one or many columns, the system can first search
+datas on index and then knowing where to find the records requested.
+- inconvenience: Those ressources takes additional storage spaces and insert new
+records if slower because the index are updated at each insert.
 
 ```sql
 CREATE INDEX index_name ON table_name       -- create index on multiple columns
@@ -6662,7 +7213,9 @@ db
 
 [Back to summary](#mongodb)
 
-- db.collection.insertOne() inserts a single document into a collection. If the document does not specify an \_id field, MongoDB adds the \_id field with an ObjectId value to the new document.
+- db.collection.insertOne() inserts a single document into a collection. If the
+document does not specify an \_id field, MongoDB adds the \_id field with an
+ObjectId value to the new document.
 
 ```javascript
 db.movies.insertOne(
@@ -6681,7 +7234,9 @@ db.movies.insertOne(
 );
 ```
 
-- db.collection.insertMany() can insert multiple documents into a collection. Pass an array of documents to the method. If the documents do not specify an \_id field, MongoDB adds the \_id field with an ObjectId value to each document
+- db.collection.insertMany() can insert multiple documents into a collection.
+Pass an array of documents to the method. If the documents do not specify an
+\_id field, MongoDB adds the \_id field with an ObjectId value to each document
 
 ```javascript
 db.movies.insertMany([
@@ -6714,14 +7269,17 @@ db.movies.insertMany([
 
 [Back to summary](#mongodb)
 
-- Use the db.collection.find() method in the MongoDB Shell to query documents in a collection. To read all documents in the collection, pass an empty document as the query filter parameter to the find method.
+- Use the db.collection.find() method in the MongoDB Shell to query documents in
+a collection. To read all documents in the collection, pass an empty document as
+the query filter parameter to the find method.
 
 ```javascript
 db.movies.find(); // all
 db.accounts.findOne({ account_id: 893421 }); // One
 ```
 
-- To select documents which match an equality condition, specify the condition as a "field: value" pair in the query filter document.
+- To select documents which match an equality condition, specify the condition
+as a "field: value" pair in the query filter document.
 
 ```javascript
 db.movies.find({
@@ -6729,7 +7287,10 @@ db.movies.find({
 });
 ```
 
-- Use [query operators](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors) in a query filter document to perform more complex comparisons and evaluations. Query operators in a query filter document have the following form: { field1: { operator1: value1 }, ... }
+- Use [query operators](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors)
+in a query filter document to perform more complex comparisons and evaluations.
+Query operators in a query filter document have the following form:
+{ field1: { operator1: value1 }, ... }
 
 ```javascript
 db.movies.find({
@@ -6739,7 +7300,10 @@ db.movies.find({
 });
 ```
 
-- A compound query can specify conditions for more than one field in the collection's documents. Implicitly, a logical AND conjunction connects the clauses of a compound query so that the query selects the documents in the collection that match all the conditions.
+- A compound query can specify conditions for more than one field in the
+collection's documents. Implicitly, a logical AND conjunction connects the
+clauses of a compound query so that the query selects the documents in the
+collection that match all the conditions.
 
 ```javascript
 db.movies.find({
@@ -6756,9 +7320,11 @@ db.movies.find({
 
 [Back to summary](#mongodb)
 
-To update a document, MongoDB provides [update operators](https://docs.mongodb.com/manual/reference/operator/update/), such as $set, to modify field values.
+To update a document, MongoDB provides [update operators](https://docs.mongodb.com/manual/reference/operator/update/)
+such as $set, to modify field values.
 
-- Use the db.collection.updateOne() method to update the first document that matches a specified filter.
+- Use the db.collection.updateOne() method to update the first document that
+matches a specified filter.
 
 ```javascript
 db.movies.updateOne( { title: "Tag" },
@@ -6771,7 +7337,8 @@ db.movies.updateOne( { title: "Tag" },
 })
 ```
 
-- Use the db.collection.updateMany() to update all documents that match a specified filter.
+- Use the db.collection.updateMany() to update all documents that match a
+specified filter.
 
 ```javascript
 db.listingsAndReviews.updateMany(
@@ -6782,7 +7349,13 @@ db.listingsAndReviews.updateMany(
 );
 ```
 
--To replace the entire content of a document except for the \_id field, pass an entirely new document as the second argument to db.collection.replaceOne(). When replacing a document, the replacement document must contain only field/value pairs. Do not include update operators expressions. The replacement document can have different fields from the original document. In the replacement document, you can omit the \_id field since the \_id field is immutable; however, if you do include the \_id field, it must have the same value as the current value.
+-To replace the entire content of a document except for the \_id field, pass an
+entirely new document as the second argument to db.collection.replaceOne(). When
+replacing a document, the replacement document must contain only field/value pairs.
+Do not include update operators expressions. The replacement document can have
+different fields from the original document. In the replacement document, you can
+omit the \_id field since the \_id field is immutable; however, if you do include
+the \_id field, it must have the same value as the current value.
 
 ```javascript
 db.accounts.replaceOne(
@@ -6797,19 +7370,23 @@ db.accounts.replaceOne(
 
 [Back to summary](#mongodb)
 
-- To delete all documents from a collection, pass an empty filter document {} to the db.collection.deleteMany() method.
+- To delete all documents from a collection, pass an empty filter document {} to
+the db.collection.deleteMany() method.
 
 ```javascript
 db.movies.deleteMany({});
 ```
 
-- You can specify criteria, or filters, that identify the documents to delete. The filters use the same syntax as read operations.
+- You can specify criteria, or filters, that identify the documents to delete.
+The filters use the same syntax as read operations.
 
 ```javascript
 db.movies.deleteMany({ title: "Titanic" });
 ```
 
-- To delete at most a single document that matches a specified filter (even though multiple documents may match the specified filter) use the db.collection.deleteOne() method.
+- To delete at most a single document that matches a specified filter (even though
+multiple documents may match the specified filter) use the db.collection.deleteOne()
+method.
 
 ```javascript
 db.movies.deleteOne({ cast: "Brad Pitt" });
@@ -6840,11 +7417,13 @@ db.movies.deleteOne({ cast: "Brad Pitt" });
 
 ##### Collections
 
-‘Collections’ in Mongo are equivalent to tables in relational databases. They can hold multiple JSON documents.
+‘Collections’ in Mongo are equivalent to tables in relational databases. They can
+hold multiple JSON documents.
 
 ##### Documents
 
-‘Documents’ are equivalent to records or rows of data in SQL. While a SQL row can reference data in other tables, Mongo documents usually combine that in a document.
+‘Documents’ are equivalent to records or rows of data in SQL. While a SQL row can
+reference data in other tables, Mongo documents usually combine that in a document.
 
 ##### Fields
 
@@ -6852,11 +7431,14 @@ db.movies.deleteOne({ cast: "Brad Pitt" });
 
 ##### Schema
 
-While Mongo is schema-less, SQL defines a schema via the table definition. A Mongoose ‘schema’ is a document data structure (or shape of the document) that is enforced via the application layer.
+While Mongo is schema-less, SQL defines a schema via the table definition. A
+Mongoose ‘schema’ is a document data structure (or shape of the document) that is
+enforced via the application layer.
 
 ##### Model
 
-‘Models’ are higher-order constructors that take a schema and create an instance of a document equivalent to records in a relational database.
+‘Models’ are higher-order constructors that take a schema and create an instance
+of a document equivalent to records in a relational database.
 
 ---
 
@@ -6866,14 +7448,16 @@ While Mongo is schema-less, SQL defines a schema via the table definition. A Mon
 
 [Back to summary](#mongoose)
 
-Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.  
-Each key in our code blogSchema defines a property in our documents which will be cast to its associated [SchemaType](https://mongoosejs.com/docs/schematypes.html).
+Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB
+collection and defines the shape of the documents within that collection.  
+Each key in our code blogSchema defines a property in our documents which will be
+cast to its associated [SchemaType](https://mongoosejs.com/docs/schematypes.html).
 
 ```javascript
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-mongoose.connect("mongodb://localhost:27017/booksDB"); // Connect to booksDB and use it.
+mongoose.connect("mongodb://localhost:27017/booksDB"); // Connect to booksDB
 // Create it if inexistant
 
 const blogSchema = new Schema({
@@ -6895,7 +7479,8 @@ mongoose.connection.close().then(() => {
 });
 ```
 
-To use our schema definition, we need to convert our blogSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema)
+To use our schema definition, we need to convert our blogSchema into a Model we
+can work with. To do so, we pass it into mongoose.model(modelName, schema)
 
 ```javascript
 const Blog = mongoose.model("Blog", blogSchema);
@@ -6920,7 +7505,10 @@ schema.path("_id"); // ObjectId { ... }
 
 Mongoose Schema vs. Model:
 
-- A Mongoose model is a wrapper on the Mongoose schema. A Mongoose schema defines the structure of the document, default values, validators, etc., whereas a Mongoose model provides an interface to the database for creating, querying, updating, deleting records, etc.
+- A Mongoose model is a wrapper on the Mongoose schema. A Mongoose schema defines
+the structure of the document, default values, validators, etc., whereas a Mongoose
+model provides an interface to the database for creating, querying, updating,
+deleting records, etc.
 
 ```javascript
 // Defining Model
@@ -6941,11 +7529,13 @@ myInstance.save()
 
 /*
 {
-  _id: 5a78fe3e2f44ba8f85a2409a, -> The _id field is auto-generated by Mongo and is a primary key of the collection.
-          Its value is a unique identifier for the document.
+  _id: 5a78fe3e2f44ba8f85a2409a, -> The _id field is auto-generated by Mongo and
+                                    is a primary key of the collection.
+  Its value is a unique identifier for the document.
   field: "value", -> The value of the field is returned
-  __v: 0 -> __v is the versionKey property set on each document when first created by Mongoose.
-       Its value contains the internal revision of the document.
+  __v: 0 -> __v is the versionKey property set on each document when first
+            created by Mongoose.
+  Its value contains the internal revision of the document.
 }
 */
 ```
@@ -6958,9 +7548,10 @@ myInstance.save()
 
 [Back to summary](#mongoose)
 
-When creating your schemas, you can specify [validation rules](https://mongoosejs.com/docs/validation.html).  
+When creating your schemas, you can specify [validation rules](https://mongoosejs.com/docs/validation.html)
 Each field type can have the required validator.  
-If validation doesn't pass, it will raise a ValidationError and give you details of that failure.
+If validation doesn't pass, it will raise a ValidationError and give you details
+of that failure.
 
 ```javascript
 const mongoose = require("mongoose");
@@ -6973,7 +7564,8 @@ const exempleSchema = new mongoose.Schema({
     min: 1,
     max: 10,
     // We define here that FieldWithValidation field is required
-    // If we don't provide this field, it will raise an error when we attempt to save the document
+    // If we don't provide this field, it will raise an error when we attempt to
+    // save the document
     required: true,
   },
 });
@@ -7010,7 +7602,8 @@ MyModel.find({
 [Back to summary](#mongoose)
 
 Use findOneAndUpdate() method to update a single record.  
-For performance reasons, Mongoose won’t return the updated document so we need to pass an additional parameter to ask for it
+For performance reasons, Mongoose won’t return the updated document so we need to
+pass an additional parameter to ask for it
 
 ```javascript
 MyModel.findOneAndUpdate(
@@ -7041,7 +7634,8 @@ MyModel.findOneAndUpdate(
 
 [Back to summary](#mongoose)
 
-Use the findOneAndRemove call to delete a record. It returns the original document that was removed
+Use the findOneAndRemove call to delete a record. It returns the original document
+that was removed
 
 ```javascript
 MyModel.findOneAndRemove({
@@ -7064,7 +7658,8 @@ MyModel.findOneAndRemove({
 [Back to summary](#mongoose)
 
 - Virtual Property  
-  A virtual property is not persisted to the database. We can add it to our schema as a helper to get and set values.
+  A virtual property is not persisted to the database. We can add it to our schema
+  as a helper to get and set values.
 
 ```javascript
 let mongoose = require("mongoose");
@@ -7077,11 +7672,12 @@ let userSchema = new mongoose.Schema({
 module.exports = mongoose.model("User", userSchema);
 
 /*
-Let’s create a virtual property called fullName which can be used to set values on 
+Let’s create a virtual property called fullName which can be used to set values on
 firstName and lastName and retrieve them as a combined value when read:
 */
 userSchema.virtual("fullName").get(function () {
-  return this.firstName + " " + this.lastName; // Now we can get full name from firstname and lastname
+  return this.firstName + " " + this.lastName; // Now we can get full name from
+                                               // firstname and lastname
 });
 
 userSchema.virtual("fullName").set(function (name) {
@@ -7095,7 +7691,8 @@ userSchema.virtual("fullName").set(function (name) {
 ```
 
 - Instance Methods  
-  We can create custom helper methods on the schema and access them via the model instance
+  We can create custom helper methods on the schema and access them via the model
+  instance
 
 ```javascript
 userSchema.methods.getInitials = function () {
@@ -7115,7 +7712,8 @@ console.log(initials); // This will output: TA
 ```
 
 - Static Methods  
-  Similar to instance methods, we can create static methods on the schema. Let’s create a method to retrieve all users in the database
+  Similar to instance methods, we can create static methods on the schema. Let’s
+  create a method to retrieve all users in the database
 
 ```javascript
 userSchema.statics.getUsers = function () {
@@ -7142,8 +7740,12 @@ UserModel.getUsers()
 ```
 
 - Middleware  
-  Middleware are functions that run at specific stages of a pipeline. Mongoose supports middleware for the following operations - Aggregate - Document - Model - Query
-  For instance, models have pre and post functions that take two parameters - Type of event (‘init’, ‘validate’, ‘save’, ‘remove’) - A callback that is executed with "this" referencing the model instance
+  Middleware are functions that run at specific stages of a pipeline. Mongoose
+  supports middleware for the following operations
+  - Aggregate - Document - Model - Query
+  For instance, models have pre and post functions that take two parameters - Type
+  of event (‘init’, ‘validate’, ‘save’, ‘remove’) - A callback that is executed
+  with "this" referencing the model instance
   Let’s add two fields called createdAt and updatedAt to our userSchema
 
 ```javascript
@@ -7159,8 +7761,10 @@ let userSchema = new mongoose.Schema({
 module.exports = mongoose.model("User", userSchema);
 ```
 
-When model.save() is called, there is a pre(‘save’, …) and post(‘save’, …) event that is triggered.  
-For the second parameter, you can pass a function that is called when the event is triggered.  
+When model.save() is called, there is a pre(‘save’, …) and post(‘save’, …) event
+that is triggered.  
+For the second parameter, you can pass a function that is called when the event is
+triggered.  
 These functions take a parameter to the next function in the middleware chain.
 Let’s add a pre-save hook and set values for createdAt and updatedAt
 
@@ -7206,8 +7810,10 @@ msg.save()
 ```
 
 - Plugins  
-  Suppose that we want to track when a record was created and last updated on every collection in our database.  
-  Instead of repeating the above process, we can create a plugin and apply it to every schema.  
+  Suppose that we want to track when a record was created and last updated on
+  every collection in our database.  
+  Instead of repeating the above process, we can create a plugin and apply it to
+  every schema.  
   Let’s create a plugin
 
 ```javascript
@@ -7230,8 +7836,10 @@ userSchema.plugin(timestampPlugin);
 ```
 
 - Query Building  
-  There are lots of [Queries](https://mongoosejs.com/docs/api/query.html) we can use in mongoose.  
-  Here is an example
+  There are lots of [Queries](https://mongoosejs.com/docs/api/query.html)
+  we can use in mongoose.  
+
+Here is an example
 
 ```javascript
 UserModel.find()                   // find all users
