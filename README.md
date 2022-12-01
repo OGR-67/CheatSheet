@@ -11,6 +11,7 @@ benefit it was for my comprehension, I drift a bit :)
 
 ## Summary
 
+- [Google search](#google-search)
 - [Flowchart and Pseudocode](#flowchart-and-pseudocode)
 - [Design Patterns](#design-patterns)
 - [Shell](#shell)
@@ -23,6 +24,22 @@ benefit it was for my comprehension, I drift a bit :)
 - [Javascript](#javascript)
 - [SQL](#sql)
 - [MongoDB](#mongodb)
+
+---
+
+## Google Search
+
+[Back to summary](#summary)
+
+A short list of filters that can be specified directly inside the search bar.  
+
+- `:site.com` to search in a particular website
+- `-term` to excludea term
+- `filetype:pdf` to search for a specific filetype file
+- `before:YYYY-MM-DD` ou `after:YYYY-MM-DD` for a dated search
+- `"term"` to search for a specific term
+
+more to come soon...
 
 ---
 
